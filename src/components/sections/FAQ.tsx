@@ -39,7 +39,7 @@ export default function FAQ() {
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <Reveal key={index} delay={0.1 * index}>
-              <div className="border-b border-white/5 last:border-0">
+              <div className="border-b border-border last:border-0">
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   aria-expanded={openIndex === index}
@@ -52,7 +52,7 @@ export default function FAQ() {
                   {openIndex === index ? (
                     <Minus size={20} className="text-accent-gold" />
                   ) : (
-                    <Plus size={20} className="text-white/60 group-hover:text-accent-gold transition-colors duration-300" />
+                    <Plus size={20} className="text-text-secondary group-hover:text-accent-gold transition-colors duration-300" />
                   )}
                 </button>
                 <div

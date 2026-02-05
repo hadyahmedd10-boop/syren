@@ -37,19 +37,19 @@ export default function OurVision() {
         
         <div className="space-y-6 max-w-2xl mx-auto">
           <Reveal delay={0.2}>
-            <p className="font-serif text-xl md:text-2xl leading-[1.4] text-white text-center italic mb-8">
+            <p className="font-serif text-xl md:text-2xl leading-[1.4] text-text-primary text-center italic mb-8">
               &ldquo;Egypt is layered, intense, beautiful, chaotic, spiritual, and deeply human. We don’t try to simplify that — we design journeys that respect it.&rdquo;
             </p>
           </Reveal>
           
           <Reveal delay={0.3}>
-            <p className="font-sans text-xs md:text-sm leading-relaxed text-white/60 text-center max-w-xl mx-auto">
+            <p className="font-sans text-xs md:text-sm leading-relaxed text-text-secondary text-center max-w-xl mx-auto">
               We don’t sell packages. We don’t reuse itineraries. We don’t believe one experience fits everyone. Every journey starts with a conversation — not a form. We listen to how you travel, what you care about, and what you want this trip to mean.
             </p>
           </Reveal>
 
           <Reveal delay={0.4}>
-            <p className="font-sans text-xs md:text-sm leading-relaxed text-white/60 text-center max-w-xl mx-auto">
+            <p className="font-sans text-xs md:text-sm leading-relaxed text-text-secondary text-center max-w-xl mx-auto">
               From there, we build something that fits you, not a brochure. Some travelers want depth. Some want comfort. Some want adventure. Most want a balance — and that balance looks different for everyone.
             </p>
           </Reveal>

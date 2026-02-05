@@ -29,7 +29,7 @@ export default function AddOns({ items, onChange }: AddOnsProps) {
   if (items.length === 0) return null;
 
   return (
-    <div className="mt-6 pt-4 border-t border-white/10">
+    <div className="mt-6 pt-4 border-t border-border">
       <h3 className="font-serif text-2xl text-primary mb-4">Enhance Your Journey</h3>
       <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-text-secondary mb-5">
         Recommended Add-Ons
@@ -53,13 +53,13 @@ export default function AddOns({ items, onChange }: AddOnsProps) {
                   className={`w-5 h-5 border flex items-center justify-center transition-colors ${
                     isSelected
                       ? "bg-accent-gold border-accent-gold text-black"
-                      : "border-white/20 group-hover:border-accent-gold/40"
+                      : "border-border group-hover:border-accent-gold/40"
                   }`}
                 >
                   {isSelected && <Check size={14} strokeWidth={3} />}
                 </div>
                 <div>
-                  <p className="font-serif text-lg text-white group-hover:text-accent-gold transition-colors">
+                  <p className="font-serif text-lg text-text-primary group-hover:text-accent-gold transition-colors">
                     {item.title}
                   </p>
                   <p className="font-sans text-[10px] uppercase tracking-[0.1em] text-text-secondary">
@@ -78,7 +78,7 @@ export default function AddOns({ items, onChange }: AddOnsProps) {
       </div>
 
       {selectedSlugs.length > 0 && (
-        <div className="mt-4 flex justify-between items-center px-4 py-3 bg-white/5 border border-white/10">
+        <div className="mt-4 flex justify-between items-center px-4 py-3 bg-surface-2 border border-border">
           <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-text-secondary">
             Add-Ons Total
           </span>

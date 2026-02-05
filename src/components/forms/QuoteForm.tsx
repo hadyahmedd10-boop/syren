@@ -105,17 +105,17 @@ export default function QuoteForm() {
           <span className="font-serif text-accent-gold tracking-[0.4em] text-xs uppercase">
             Bespoke Journeys
           </span>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white tracking-tight">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-text-primary tracking-tight">
             Request a Quote
           </h1>
-          <p className="text-white/60 font-light italic text-lg">
+          <p className="text-text-secondary font-light italic text-lg">
             Tell us about your dream Egyptian odyssey.
           </p>
         </div>
       </Reveal>
 
       <Reveal delay={0.2}>
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white/5 p-6 md:p-10 border border-white/10 backdrop-blur-sm rounded-2xl">
+        <form onSubmit={handleSubmit} className="space-y-6 bg-surface p-6 md:p-10 border border-border backdrop-blur-sm rounded-2xl">
           {/* Honeypot - hidden from users */}
           <input
             type="text"
@@ -133,7 +133,7 @@ export default function QuoteForm() {
                 required
                 type="text"
                 placeholder="Alexander Great"
-                className={`w-full bg-white/5 border-b py-3 text-white focus:outline-none focus:border-accent-gold transition-colors font-sans ${fieldErrors.name ? "border-red-400" : "border-white/20"}`}
+                className={`w-full bg-transparent border-b py-3 text-text-primary focus:outline-none focus:border-accent-gold transition-colors font-sans ${fieldErrors.name ? "border-red-400" : "border-border"}`}
                 value={formData.name}
                 onChange={(e) => updateField("name", e.target.value)}
               />
@@ -147,7 +147,7 @@ export default function QuoteForm() {
                 required
                 type="email"
                 placeholder="alexander@luxury.com"
-                className={`w-full bg-white/5 border-b py-3 text-white focus:outline-none focus:border-accent-gold transition-colors font-sans ${fieldErrors.email ? "border-red-400" : "border-white/20"}`}
+                className={`w-full bg-transparent border-b py-3 text-text-primary focus:outline-none focus:border-accent-gold transition-colors font-sans ${fieldErrors.email ? "border-red-400" : "border-border"}`}
                 value={formData.email}
                 onChange={(e) => updateField("email", e.target.value)}
               />
@@ -160,7 +160,7 @@ export default function QuoteForm() {
                 id="phone"
                 type="tel"
                 placeholder="+1 234 567 890"
-                className="w-full bg-white/5 border-b border-white/20 py-3 text-white focus:outline-none focus:border-accent-gold transition-colors font-sans"
+                className="w-full bg-transparent border-b border-border py-3 text-text-primary focus:outline-none focus:border-accent-gold transition-colors font-sans"
                 value={formData.phone}
                 onChange={(e) => updateField("phone", e.target.value)}
               />
@@ -172,7 +172,7 @@ export default function QuoteForm() {
                 id="dates"
                 type="text"
                 placeholder="Spring 2026"
-                className="w-full bg-white/5 border-b border-white/20 py-3 text-white focus:outline-none focus:border-accent-gold transition-colors font-sans"
+                className="w-full bg-transparent border-b border-border py-3 text-text-primary focus:outline-none focus:border-accent-gold transition-colors font-sans"
                 value={formData.trip_dates}
                 onChange={(e) => updateField("trip_dates", e.target.value)}
               />
@@ -183,7 +183,7 @@ export default function QuoteForm() {
             <label htmlFor="budget" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">Estimated Budget (Per Person)</label>
             <select
               id="budget"
-              className="w-full bg-white/5 border-b border-white/20 py-3 text-white focus:outline-none focus:border-accent-gold transition-colors font-sans"
+              className="w-full bg-transparent border-b border-border py-3 text-text-primary focus:outline-none focus:border-accent-gold transition-colors font-sans"
               value={formData.budget}
               onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
             >
@@ -201,7 +201,7 @@ export default function QuoteForm() {
               id="message"
               rows={4}
               placeholder="Tell us about the moments you're seeking..."
-              className={`w-full bg-white/5 border-b py-3 text-white focus:outline-none focus:border-accent-gold transition-colors font-sans resize-none ${fieldErrors.message ? "border-red-400" : "border-white/20"}`}
+              className={`w-full bg-transparent border-b py-3 text-text-primary focus:outline-none focus:border-accent-gold transition-colors font-sans resize-none ${fieldErrors.message ? "border-red-400" : "border-border"}`}
               value={formData.message}
               onChange={(e) => updateField("message", e.target.value)}
             />

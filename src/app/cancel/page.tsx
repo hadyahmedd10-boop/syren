@@ -14,16 +14,16 @@ export default function CancelPage() {
       <div className="max-w-2xl w-full text-center">
         <div className="mb-12 flex justify-center">
           <div className="relative">
-            <div className="absolute inset-0 bg-white/5 blur-3xl rounded-full" />
-            <XCircle className="relative w-20 h-20 text-white/20" strokeWidth={1} />
+            <div className="absolute inset-0 bg-surface/50 blur-3xl rounded-full" />
+            <XCircle className="relative w-20 h-20 text-text-secondary/20" strokeWidth={1} />
           </div>
         </div>
 
-        <h1 className="font-serif text-4xl md:text-6xl text-white mb-6">
+        <h1 className="font-serif text-4xl md:text-6xl text-text-primary mb-6">
           Booking Canceled
         </h1>
         
-        <p className="font-sans text-lg text-white/60 mb-12 leading-relaxed max-w-lg mx-auto">
+        <p className="font-sans text-lg text-text-secondary mb-12 leading-relaxed max-w-lg mx-auto">
           We noticed your booking wasn&apos;t completed. If you encountered any issues or have questions about our experiences, our concierge team is here to assist you.
         </p>
 
@@ -38,7 +38,7 @@ export default function CancelPage() {
           </Link>
         </div>
 
-        <p className="mt-16 font-sans text-xs uppercase tracking-[0.3em] text-white/30">
+        <p className="mt-16 font-sans text-xs uppercase tracking-[0.3em] text-text-secondary/50">
           Syren Private Journeys
         </p>
       </div>

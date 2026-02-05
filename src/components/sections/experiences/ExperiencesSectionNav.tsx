@@ -63,7 +63,7 @@ export default function ExperiencesSectionNav() {
   };
 
   return (
-    <div className="sticky top-[76px] z-40 w-full border-b border-white/10 bg-black/55 backdrop-blur-xl">
+    <div className="sticky top-[76px] z-40 w-full border-b border-border bg-background/80 backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-4">
         <div
           className="
@@ -92,7 +92,7 @@ export default function ExperiencesSectionNav() {
                   transition-all
                   ${activeId === s.id
                     ? "text-black bg-accent-gold shadow-[0_0_0_1px_rgba(212,175,55,0.22)]"
-                    : "text-white/65 hover:text-white hover:bg-white/5"}
+                    : "text-text-secondary hover:text-text-primary hover:bg-text-primary/5"}
                 `}
               >
                 <span className="block max-w-[180px] truncate">

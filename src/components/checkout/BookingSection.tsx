@@ -53,7 +53,7 @@ export default function BookingSection({
       </div>
 
       <div className="space-y-6">
-        <div className="flex justify-between items-end border-b border-white/10 pb-4">
+        <div className="flex justify-between items-end border-b border-border pb-4">
           <div>
             <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-text-secondary/40 mb-1">
               Total Price

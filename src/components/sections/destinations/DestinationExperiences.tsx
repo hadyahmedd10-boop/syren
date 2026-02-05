@@ -63,10 +63,10 @@ export default function DestinationExperiences({
             href="/experiences" 
             className="group inline-flex flex-col items-center gap-4"
           >
-            <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-white/40 group-hover:text-accent-gold transition-colors duration-500">
+            <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-text-secondary group-hover:text-accent-gold transition-colors duration-500">
               View all experiences in this destination
             </span>
-            <div className="h-px w-12 bg-white/10 group-hover:w-24 group-hover:bg-accent-gold transition-all duration-700" />
+            <div className="h-px w-12 bg-border group-hover:w-24 group-hover:bg-accent-gold transition-all duration-700" />
           </Link>
         </Reveal>
       </div>

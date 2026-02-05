@@ -6,7 +6,7 @@ import { trackCta } from "@/lib/track";
 
 export default function Footer() { 
   return ( 
-    <footer className="bg-black section-tight border-t border-border"> 
+    <footer className="bg-footer section-tight border-t border-border"> 
       <div className="max-w-7xl mx-auto container-x grid md:grid-cols-4 gap-8 md:gap-10"> 
         
         <div className="md:col-span-1"> 

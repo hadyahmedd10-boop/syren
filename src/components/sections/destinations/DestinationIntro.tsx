@@ -14,7 +14,7 @@ export default function DestinationIntro({ description, vibeKeywords }: Destinat
   const supportingParagraph = sentences.slice(1).join(" ").trim();
 
   return (
-    <section className="section bg-background border-y border-white/5">
+    <section className="section bg-background border-y border-border">
       <div className="mx-auto max-w-2xl container-x text-center">
         <Reveal>
           <div className="space-y-12">
@@ -24,13 +24,13 @@ export default function DestinationIntro({ description, vibeKeywords }: Destinat
             </div>
 
             {/* Serif Opening Sentence */}
-            <h2 className="font-serif text-white text-3xl md:text-4xl leading-snug italic">
+            <h2 className="font-serif text-text-primary text-3xl md:text-4xl leading-snug italic">
               {openingSentence}
             </h2>
 
             {/* Sans-serif Supporting Paragraph */}
             {supportingParagraph && (
-              <p className="font-sans text-white/60 text-base md:text-lg leading-relaxed font-light">
+              <p className="font-sans text-text-secondary text-base md:text-lg leading-relaxed font-light">
                 {supportingParagraph}
               </p>
             )}

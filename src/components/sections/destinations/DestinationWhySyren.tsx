@@ -28,7 +28,7 @@ const features = [
 
 export default function DestinationWhySyren({ destinationName }: DestinationWhySyrenProps) {
   return (
-    <section className="section bg-background border-b border-white/5">
+    <section className="section bg-background border-b border-border">
       <div className="mx-auto max-w-7xl container-x">
         <SectionHeader 
           title={`Why Experience ${destinationName} with Syren`} 
@@ -39,13 +39,13 @@ export default function DestinationWhySyren({ destinationName }: DestinationWhyS
           {features.map((feature, index) => (
             <Reveal key={feature.title} delay={index * 0.1}>
               <div className="flex flex-col items-center text-center group">
-                <div className="mb-8 p-4 rounded-full bg-white/5 border border-white/10 group-hover:border-accent-gold/30 transition-colors duration-500">
+                <div className="mb-8 p-4 rounded-full bg-surface-2 border border-border group-hover:border-accent-gold/30 transition-colors duration-500">
                   <feature.icon className="w-6 h-6 text-accent-gold/80" strokeWidth={1.25} />
                 </div>
-                <h3 className="font-sans text-xs uppercase tracking-[0.3em] text-white/90 mb-6">
+                <h3 className="font-sans text-xs uppercase tracking-[0.3em] text-text-primary mb-6">
                   {feature.title}
                 </h3>
-                <p className="font-sans text-sm md:text-base text-white/50 leading-relaxed font-light">
+                <p className="font-sans text-sm md:text-base text-text-secondary leading-relaxed font-light">
                   {feature.description}
                 </p>
               </div>

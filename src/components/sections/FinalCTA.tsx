@@ -57,8 +57,8 @@ export default function FinalCTA({ className = "", as: Component = "div" }: Fina
               </Link>
             </div>
 
-            <div className="w-full max-w-md mx-auto pt-12 border-t border-white/5">
-              <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-white/60 mb-6">Stay inspired</p>
+            <div className="w-full max-w-md mx-auto pt-12 border-t border-border">
+              <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-text-secondary mb-6">Stay inspired</p>
               <form 
                 onSubmit={async (e) => {
                   e.preventDefault();

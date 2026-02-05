@@ -74,11 +74,11 @@ export default function ExperienceCard({
           </h3>
         </div>
 
-        <p className="mb-2 flex-1 font-sans text-[12px] sm:text-[13px] leading-relaxed text-white/60 line-clamp-2 md:line-clamp-3">
+        <p className="mb-2 flex-1 font-sans text-[12px] sm:text-[13px] leading-relaxed text-text-secondary line-clamp-2 md:line-clamp-3">
           {description}
         </p>
         
-        <div className="mt-auto pt-2 border-t border-white/5">
+        <div className="mt-auto pt-2 border-t border-border">
           <Link
             href={href}
             className="syren-btn-secondary w-full"

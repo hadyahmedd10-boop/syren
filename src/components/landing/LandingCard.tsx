@@ -46,15 +46,15 @@ export default function LandingCard({
       
       <div className="flex flex-1 flex-col px-4 pt-4 pb-3 md:px-6 md:pt-6 md:pb-5">
         <div className="mb-2">
-          <h3 className="font-serif text-2xl tracking-tight text-white mb-1 group-hover:text-accent-gold transition-colors duration-500">
+          <h3 className="font-serif text-2xl tracking-tight text-text-primary mb-1 group-hover:text-accent-gold transition-colors duration-500">
             {title}
           </h3>
-          <p className="font-sans text-[12px] md:text-[13px] leading-relaxed text-white/60 line-clamp-2">
+          <p className="font-sans text-[12px] md:text-[13px] leading-relaxed text-text-secondary line-clamp-2">
             {subtitle}
           </p>
         </div>
         
-        <div className="mt-auto pt-2.5 border-t border-white/5">
+        <div className="mt-auto pt-2.5 border-t border-border">
           <Link
             href={`/landing/${slug}`}
             className="syren-btn-secondary w-full text-center py-2.5"

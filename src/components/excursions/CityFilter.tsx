@@ -27,7 +27,7 @@ export default function CityFilter({ cities, value, onChange }: Props) {
               ${
                 isActive
                   ? "bg-accent-gold text-text-dark shadow-[0_0_15px_rgba(196,160,82,0.3)]"
-                  : "border border-white/10 bg-transparent text-white/60 hover:border-white/20 hover:text-white"
+                  : "border border-border bg-transparent text-text-secondary hover:border-text-primary/20 hover:text-text-primary"
               }
             `}
             aria-pressed={isActive}

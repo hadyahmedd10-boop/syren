@@ -8,6 +8,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { destinations } from "@/data/destinations";
 import { SOCIAL_LINKS, WHATSAPP_LINK } from "@/config/social";
+import ThemeToggle from "@/components/theme/ThemeToggle";
 
 function Logo({ className = "", onClick, href = "/home#hero" }: { className?: string; onClick?: (e: React.MouseEvent) => void; href?: string }) {
   return (
@@ -45,6 +46,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMapOpen, setIsMapOpen] = useState(false);
   const [isMobileMapOpen, setIsMobileMapOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -52,6 +54,9 @@ export default function Navbar() {
 
   useEffect(() => {
     setMounted(true);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleLogoClick = (e: React.MouseEvent) => {
@@ -105,13 +110,18 @@ const toggleMenu = () => {
 
 
   return ( 
-    <header className="fixed top-0 z-50 w-full bg-background/0 backdrop-blur-md transition-all duration-300">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-transparent pointer-events-none" />
+    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+      isScrolled 
+        ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm" 
+        : "bg-transparent"
+    } ${!isScrolled ? "text-text-primary" : "text-text-primary"}`}>
+      <div className={`absolute inset-0 bg-gradient-to-b from-background/90 to-transparent pointer-events-none transition-opacity duration-300 ${isScrolled ? 'opacity-0' : 'opacity-100'}`} />
       {/* Mobile Navbar */}
       <div className="relative md:hidden flex items-center justify-between px-6 h-20"> 
         <Logo className="h-7 w-auto relative z-10" onClick={handleLogoClick} href={logoHref} /> 
         
-        <div className="flex items-center gap-4 relative z-10">
+        <div className="flex items-center gap-2 relative z-10">
+          <ThemeToggle className="px-2 py-2" />
           <Link 
             href="/experiences" 
             className="syren-btn-primary syren-nav-cta"
@@ -122,7 +132,7 @@ const toggleMenu = () => {
           <button 
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             onClick={toggleMenu} 
-            className="text-white hover:text-accent-gold transition-colors" 
+            className="hover:text-accent-gold transition-colors" 
           > 
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button> 
@@ -147,12 +157,12 @@ const toggleMenu = () => {
               <div className="flex items-start justify-between px-6 pt-8 pb-4">
                 <div className="flex flex-col gap-1">
                   <Logo className="text-3xl" onClick={handleLogoClick} href={logoHref} />
-                  <span className="text-xs text-white/60 font-serif italic tracking-wide">Private journeys across Egypt</span>
+                  <span className="text-xs text-text-secondary font-serif italic tracking-wide">Private journeys across Egypt</span>
                 </div>
                 <button
                   type="button"
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/40 hover:text-accent-gold transition-colors pt-2"
+                  className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-text-secondary hover:text-accent-gold transition-colors pt-2"
                 >
                   Close
                   <X size={16} />
@@ -163,7 +173,7 @@ const toggleMenu = () => {
               <div className="flex-1 flex flex-col justify-center px-8 gap-8">
                 
                 <motion.div variants={itemVariants}>
-                  <Link href="/experiences" className="font-serif text-3xl text-white hover:text-accent-gold transition-colors block">
+                  <Link href="/experiences" className="font-serif text-3xl text-text-primary hover:text-accent-gold transition-colors block">
                     Experiences
                   </Link>
                 </motion.div>
@@ -175,7 +185,7 @@ const toggleMenu = () => {
                     aria-expanded={isMobileMapOpen}
                     className="flex items-center gap-3 group w-full text-left"
                   >
-                    <span className="font-serif text-3xl text-white group-hover:text-accent-gold transition-colors">The Map</span>
+                    <span className="font-serif text-3xl text-text-primary group-hover:text-accent-gold transition-colors">The Map</span>
                     <ChevronDown size={20} className={`text-accent-gold/50 transition-transform duration-500 ${isMobileMapOpen ? 'rotate-180 text-accent-gold' : ''}`} />
                   </button>
                   
@@ -188,15 +198,15 @@ const toggleMenu = () => {
                         transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="flex flex-col gap-3 mt-4 pl-4 border-l border-white/10 ml-1.5">
-                          <span className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-1 block">Destinations</span>
+                        <div className="flex flex-col gap-3 mt-4 pl-4 border-l border-border ml-1.5">
+                          <span className="text-[10px] uppercase tracking-[0.2em] text-text-secondary mb-1 block">Destinations</span>
                           {destinations.map((dest) => (
                             <Link 
                               key={dest.slug} 
                               href={`/destinations/${dest.slug}`} 
                               className="group block"
                             >
-                              <span className="block font-serif text-lg text-white/70 group-hover:text-accent-gold transition-colors">
+                              <span className="block font-serif text-lg text-text-primary/80 group-hover:text-accent-gold transition-colors">
                                 {dest.name}
                               </span>
                             </Link>
@@ -214,13 +224,13 @@ const toggleMenu = () => {
                 </motion.div>
 
                 <motion.div variants={itemVariants}>
-                  <Link href="/about" className="font-serif text-3xl text-white hover:text-accent-gold transition-colors block">
+                  <Link href="/about" className="font-serif text-3xl text-text-primary hover:text-accent-gold transition-colors block">
                     About
                   </Link>
                 </motion.div>
 
                 <motion.div variants={itemVariants}>
-                  <Link href="/quote" className="font-serif text-3xl text-white hover:text-accent-gold transition-colors block">
+                  <Link href="/quote" className="font-serif text-3xl text-text-primary hover:text-accent-gold transition-colors block">
                     Contact
                   </Link>
                 </motion.div>
@@ -232,10 +242,10 @@ const toggleMenu = () => {
                 className="px-8 pb-16 pt-8"
               >
                 <div className="flex flex-col gap-6 opacity-60 hover:opacity-100 transition-opacity duration-500">
-                  <a href={`mailto:${SOCIAL_LINKS.email}`} className="font-serif text-lg text-white hover:text-accent-gold transition-colors">{SOCIAL_LINKS.email}</a>
+                  <a href={`mailto:${SOCIAL_LINKS.email}`} className="font-serif text-lg text-text-primary hover:text-accent-gold transition-colors">{SOCIAL_LINKS.email}</a>
                   <div className="flex gap-6">
-                    <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest text-white hover:text-accent-gold transition-colors">Instagram</a>
-                    <a href="#" className="text-[10px] uppercase tracking-widest text-white hover:text-accent-gold transition-colors">LinkedIn</a>
+                    <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest text-text-primary hover:text-accent-gold transition-colors">Instagram</a>
+                    <a href="#" className="text-[10px] uppercase tracking-widest text-text-primary hover:text-accent-gold transition-colors">LinkedIn</a>
                   </div>
                 </div>
               </motion.div>
@@ -246,117 +256,7 @@ const toggleMenu = () => {
       )}
 
 
-      {mounted && createPortal(
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={menuVariants}
-              className="fixed inset-0 z-[10000] bg-background/98 backdrop-blur-xl overflow-y-auto pointer-events-auto flex flex-col"
-            >
-              {/* Top Section */}
-              <div className="flex items-start justify-between px-6 pt-8 pb-4">
-                <div className="flex flex-col gap-1">
-                  <Logo className="text-3xl" onClick={handleLogoClick} href={logoHref} />
-                  <span className="text-xs text-white/60 font-serif italic tracking-wide">Private journeys across Egypt</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/40 hover:text-accent-gold transition-colors pt-2"
-                >
-                  Close
-                  <X size={16} />
-                </button>
-              </div>
-
-              {/* Primary Navigation */}
-              <div className="flex-1 flex flex-col justify-center px-8 gap-8">
-                
-                <motion.div variants={itemVariants}>
-                  <Link href="/experiences" className="font-serif text-3xl text-white hover:text-accent-gold transition-colors block">
-                    Experiences
-                  </Link>
-                </motion.div>
-
-                {/* The Map Accordion */}
-                <motion.div variants={itemVariants}>
-                  <button 
-                    onClick={() => setIsMobileMapOpen(!isMobileMapOpen)}
-                    aria-expanded={isMobileMapOpen}
-                    className="flex items-center gap-3 group w-full text-left"
-                  >
-                    <span className="font-serif text-3xl text-white group-hover:text-accent-gold transition-colors">The Map</span>
-                    <ChevronDown size={20} className={`text-accent-gold/50 transition-transform duration-500 ${isMobileMapOpen ? 'rotate-180 text-accent-gold' : ''}`} />
-                  </button>
-                  
-                  <AnimatePresence>
-                    {isMobileMapOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-                        className="overflow-hidden"
-                      >
-                        <div className="flex flex-col gap-3 mt-4 pl-4 border-l border-white/10 ml-1.5">
-                          <span className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-1 block">Destinations</span>
-                          {destinations.map((dest) => (
-                            <Link 
-                              key={dest.slug} 
-                              href={`/destinations/${dest.slug}`} 
-                              className="group block"
-                            >
-                              <span className="block font-serif text-lg text-white/70 group-hover:text-accent-gold transition-colors">
-                                {dest.name}
-                              </span>
-                            </Link>
-                          ))}
-                          <Link 
-                            href="/destinations" 
-                            className="mt-2 text-[10px] uppercase tracking-[0.2em] text-accent-gold/70 hover:text-accent-gold transition-colors"
-                          >
-                            View All Destinations
-                          </Link>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-
-                <motion.div variants={itemVariants}>
-                  <Link href="/about" className="font-serif text-3xl text-white hover:text-accent-gold transition-colors block">
-                    About
-                  </Link>
-                </motion.div>
-
-                <motion.div variants={itemVariants}>
-                  <Link href="/quote" className="font-serif text-3xl text-white hover:text-accent-gold transition-colors block">
-                    Contact
-                  </Link>
-                </motion.div>
-              </div>
-              
-              {/* Footer (Quiet Trust Layer) */}
-              <motion.div 
-                variants={itemVariants}
-                className="px-8 pb-16 pt-8"
-              >
-                <div className="flex flex-col gap-6 opacity-60 hover:opacity-100 transition-opacity duration-500">
-                  <a href={`mailto:${SOCIAL_LINKS.email}`} className="font-serif text-lg text-white hover:text-accent-gold transition-colors">{SOCIAL_LINKS.email}</a>
-                  <div className="flex gap-6">
-                    <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest text-white hover:text-accent-gold transition-colors">Instagram</a>
-                    <a href="#" className="text-[10px] uppercase tracking-widest text-white hover:text-accent-gold transition-colors">LinkedIn</a>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>,
-        document.body
-      )}
+{/* Duplicate removed */}
 
       {/* Desktop Navbar */}
       <nav className="hidden md:flex max-w-7xl mx-auto container-x h-20 items-center justify-between"> 
@@ -383,7 +283,7 @@ const toggleMenu = () => {
                    initial={{ opacity: 0, y: 10 }}
                    animate={{ opacity: 1, y: 0 }}
                    exit={{ opacity: 0, y: 10 }}
-                   className="absolute top-full left-0 mt-4 w-64 bg-background/95 backdrop-blur-xl border border-border rounded-2xl overflow-hidden shadow-xl z-50"
+                   className="absolute top-full left-0 mt-4 w-64 bg-background/95 backdrop-blur-xl border border-border rounded-2xl overflow-hidden shadow-xl z-50 text-text-primary"
                  >
                    <div className="p-2">
                      <p className="px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-accent-gold/60 font-bold">Destinations</p>
@@ -391,7 +291,7 @@ const toggleMenu = () => {
                        <Link
                          key={dest.slug}
                          href={`/destinations/${dest.slug}`}
-                         className="flex flex-col px-4 py-3 rounded-lg hover:bg-white/5 transition-colors group"
+                         className="flex flex-col px-4 py-3 rounded-lg hover:bg-accent-gold/10 transition-colors group"
                        >
                          <span className="text-sm font-medium group-hover:text-accent-gold transition-colors">{dest.name}</span>
                          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary/60 group-hover:text-accent-gold/60 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(196,160,82,0.2)] line-clamp-1">{dest.tagline}</span>
@@ -410,20 +310,23 @@ const toggleMenu = () => {
                )}
              </AnimatePresence>
            </div>
-           <Link href="/experiences">Experiences</Link> 
-           <Link href="/about">About</Link> 
-           <Link href="/quote" className="text-accent-gold"> 
+           <Link href="/experiences" className="hover:text-accent-gold transition-colors">Experiences</Link> 
+           <Link href="/about" className="hover:text-accent-gold transition-colors">About</Link> 
+           <Link href="/quote" className="text-accent-gold hover:text-accent-gold/80 transition-colors"> 
             Contact 
           </Link> 
         </div> 
 
-        {/* CTA */} 
-        <Link 
-          href="/experiences" 
-          className="syren-btn-primary px-5 py-2 min-h-[auto]" 
-        > 
-          Explore Experiences 
-        </Link> 
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          {/* CTA */} 
+          <Link 
+            href="/experiences" 
+            className="syren-btn-primary px-5 py-2 min-h-[auto]" 
+          > 
+            Explore Experiences 
+          </Link> 
+        </div>
       </nav> 
     </header> 
   ) 

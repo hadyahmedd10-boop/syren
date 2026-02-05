@@ -206,7 +206,7 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
 
       {/* 3. Key Experience Highlights */}
       {experience.highlights && (
-        <section className="bg-surface section border-y border-white/5">
+        <section className="bg-surface section border-y border-border">
           <div className="mx-auto max-w-6xl px-6 md:px-8">
             <SectionHeader 
               title="Curated Highlights" 
@@ -215,7 +215,7 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
             <div className="grid gap-5 md:gap-6 grid-cols-1 md:grid-cols-3">
               {experience.highlights.map((highlight, idx) => (
                 <Reveal key={idx} delay={0.1 * idx}>
-                  <div className="p-6 border border-white/5 bg-background/50 hover:border-accent-gold/20 transition-colors duration-500 group h-full">
+                  <div className="p-6 border border-border bg-background/50 hover:border-accent-gold/20 transition-colors duration-500 group h-full">
                     <div className="mb-3 text-accent-gold/40 group-hover:text-accent-gold transition-colors duration-500">
                       <Sparkles size={10} strokeWidth={1} />
                     </div>

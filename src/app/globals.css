@@ -2,22 +2,22 @@
 @import "./styles/spacing.css";
 
 @theme inline {
-  --color-background: var(--color-background);
-  --color-footer: var(--color-footer);
-  --color-background-light: var(--color-background-light);
-  --color-surface: var(--color-surface);
-  --color-blackbase: var(--color-footer);
-  --color-text-primary: var(--color-text-primary);
-  --color-text-dark: var(--color-text-dark);
-  --color-text-secondary: var(--color-text-secondary);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-accent-gold: var(--accent-gold);
+  --color-royal-blue: var(--royal-blue);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
   --color-primary: var(--color-primary);
   --color-primary-dark: var(--color-primary-dark);
-  --color-accent-gold: var(--color-accent-gold);
-  --color-gold: var(--color-accent-gold);
-  --color-golddark: var(--color-primary-dark);
-  --color-accent: var(--color-accent);
-  --color-accent-hover: var(--color-accent-hover);
-  --color-border: var(--color-border);
+  --color-text-dark: var(--color-text-dark);
+  --color-border: var(--border);
+  --color-footer: var(--color-footer);
+  
+  --shadow-custom: var(--shadow);
+  --shadow-card: var(--card-shadow);
 
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
@@ -31,26 +31,33 @@
 }
 
 :root {
-  /* DARK MODE BY DEFAULT - SYREN BRAND IDENTITY */ 
-  --color-background: #0B0F12; 
-  --color-surface: #151B21; 
-  --color-footer: #080C0E; 
-  --color-background-light: #12171C;
-
-  --color-text-primary: #EAEAEA; 
-  --color-text-secondary: #9CA3AF; 
-  --color-text-dark: #0E1A1F;
-
-  --color-primary: #CFAE70; 
-  --color-primary-dark: #B89B5F; 
-
-  --color-accent-gold: #CFAE70; 
-  --color-border: rgba(255, 255, 255, 0.08); 
+  /* DARK MODE (DEFAULT) */
+  --background: #070707;
+  --foreground: #ffffff;
+  --surface: #0A0A0A;
+  --surface-2: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.10);
   
-  --background: var(--color-background);
-  --foreground: var(--color-text-primary);
-  --color-accent: var(--color-primary);
-  --color-accent-hover: var(--color-primary-dark);
+  --text-primary: rgba(255,255,255,0.96);
+  --text-secondary: rgba(255,255,255,0.64);
+  
+  --accent-gold: #D4AF37;
+  --royal-blue: #1D4ED8;
+  
+  --shadow: 0 18px 60px rgba(0,0,0,0.45);
+  --card-shadow: 0 18px 55px rgba(0,0,0,0.38);
+  
+  /* Additional variables for compatibility */
+  --color-border: var(--border); /* Legacy alias */
+  --color-primary: #CFAE70; /* Legacy gold mapping */
+  --color-primary-dark: #B89B5F;
+  --color-accent-hover: #B89B5F;
+  
+  /* Ensure text on gold buttons is always dark */
+  --color-footer: #080C0E;
+  --color-text-dark: #0E1A1F;
+  --color-background-light: #1A1A1A;
+
   --container-x: clamp(1rem, 4vw, 2.75rem);
   --section-y: clamp(3.5rem, 7vw, 7rem);
   --section-y-tight: clamp(2rem, 4vw, 4rem);
@@ -61,98 +68,124 @@
   --font-playfair: ui-serif, Georgia, "Times New Roman", Times, serif;
 }
 
+html.light {
+  /* LIGHT MODE */
+  --background: #F6F1E7;             /* ivory */
+  --foreground: #0B0B0B;
+  --surface: #FFFFFF;                /* card base */
+  --surface-2: rgba(10,10,10,0.035); /* subtle tint */
+  --border: rgba(10,10,10,0.10);
+
+  --text-primary: rgba(10,10,10,0.92);
+  --text-secondary: rgba(10,10,10,0.60);
+
+  --accent-gold: #D4AF37;
+  --royal-blue: #1D4ED8;
+
+  --shadow: 0 20px 70px rgba(0,0,0,0.10);
+  --card-shadow: 0 16px 45px rgba(0,0,0,0.12);
+  
+  /* Additional variables for compatibility */
+  --color-border: var(--border); /* Legacy alias */
+  
+  /* Ensure text on gold buttons is always dark */
+  --color-footer: #EAE5D9;
+  --color-text-dark: #0B0B0B;
+  --color-background-light: #EAE5D9;
+}
+
+/* Smooth transition */
 html, body {
-  overflow-x: hidden;
+  background: var(--background);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-html {
-  scroll-behavior: smooth;
-  @apply bg-background;
-}
-
-section { 
-  scroll-margin-top: 6rem; 
-}
-
-body {
-  @apply font-sans text-white antialiased overflow-x-hidden;
-}
-
-/* Custom Scrollbar for Luxury Feel */
+/* Scrollbar Customization */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
+  background: transparent;
 }
-
-::-webkit-scrollbar-track {
-  @apply bg-background;
-}
-
 ::-webkit-scrollbar-thumb {
-  @apply bg-white/10 rounded-full transition-colors;
+  background: var(--border);
+  border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-accent-gold/40;
+  background: var(--accent-gold);
 }
 
-/* Form Elements - UI Foundations for Stripe/Checkout */
-input, textarea, select {
-  background-color: var(--color-surface);
-  color: var(--color-text-primary);
-  border: 1px solid var(--color-border);
-  border-radius: 0.125rem; /* subtle radius */
-  padding: 0.75rem 1rem;
-  font-family: var(--font-inter);
-  transition: all 0.3s ease;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
 }
 
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(15, 76, 92, 0.1);
-}
-
-select option {
-  color: var(--color-text-primary);
-  background-color: var(--color-surface);
-}
-
-select option:checked,
-select option:hover {
-  color: var(--color-text-primary);
-  background-color: var(--color-background-light);
-}
-
-label {
-  font-family: var(--font-inter);
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-text-secondary);
-  margin-bottom: 0.5rem;
-  display: block;
-}
-
-::placeholder {
-  color: var(--color-text-secondary);
-  opacity: 0.5;
+/* === Typography === */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 h1 {
-  font-family: var(--font-playfair), serif;
-  font-weight: 500;
-  line-height: 1.1;
-  color: var(--color-accent-gold);
   font-size: var(--h1);
+  color: var(--accent-gold); /* Gold H1s */
 }
 
 h2 {
-  font-family: var(--font-playfair), serif;
-  font-weight: 500;
-  line-height: 1.1;
-  color: var(--color-primary);
   font-size: var(--h2);
+  color: var(--text-primary);
 }
 
 h3 {
@@ -227,22 +260,23 @@ p {
       relative 
       overflow-hidden
       bg-transparent
-      text-white
-      border border-white/20
-      hover:bg-white/5
-      hover:border-white/40
+      text-text-primary
+      border border-text-primary/20
+      hover:bg-text-primary/5
+      hover:border-text-primary/40
       hover:scale-[1.02]
       active:scale-[0.98];
  }
 
  .syren-card {
     @apply 
-      bg-surface 
-      border border-border 
       rounded-2xl 
       transition-all 
       duration-500 
       ease-out;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
  }
  
  .syren-card-hover {
@@ -264,54 +298,78 @@ p {
   .syren-card-hover-secondary {
      @apply 
        hover:-translate-y-[1px] 
-       hover:border-border 
-       hover:bg-surface/80;
+       hover:border-accent-gold/20;
   }
   
-    /* === Syren Primary Button === */
-  .syren-btn-primary { 
+  .input {
     @apply 
-      inline-flex
-      items-center
-      justify-center
-      min-h-[44px]
-      rounded-full 
-      px-8 py-3 
-      text-[11px] 
-      uppercase 
-      tracking-[0.2em] 
-      font-sans 
-      font-semibold 
-      transition-all 
-      duration-500 
-      relative 
-      overflow-hidden
-      bg-accent-gold
-      text-blackbase
-      hover:bg-golddark
-      hover:scale-[1.02]
-      active:scale-[0.98]
-      shadow-lg
-      shadow-accent-gold/10;
+      w-full 
+      rounded-lg 
+      bg-transparent 
+      border 
+      border-border 
+      px-4 py-3 
+      text-sm 
+      text-text-primary 
+      placeholder:text-text-secondary/50 
+      focus:border-accent-gold 
+      focus:outline-none 
+      focus:ring-1 
+      focus:ring-accent-gold 
+      transition-colors;
   }
+
+  html.light .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(246,241,231,0.35),
+      rgba(246,241,231,0.78)
+    );
+  }
+  
+
+/* Links & Accents */
+a:not(.syren-btn-primary):not(.no-highlight):hover {
+  color: var(--accent-gold);
+}
+
+html.light a:not(.syren-btn-primary):not(.no-highlight):hover {
+  color: var(--royal-blue);
+}
+
+.syren-btn-primary {
+  @apply inline-flex items-center justify-center bg-accent-gold text-text-dark font-serif uppercase tracking-[0.15em] transition-all duration-300 hover:bg-white hover:text-black hover:scale-[1.02] rounded-full;
+}
+
+html.light .syren-btn-primary {
+  color: #0B0B0B;
+}
+
+html.light .syren-btn-primary:hover {
+  @apply bg-royal-blue text-white;
+}
 
   /* === Syren Input === */
   .input { 
     width: 100%; 
-    background: transparent; 
-    border: 1px solid var(--color-border); 
+    background: color-mix(in srgb, var(--surface) 94%, transparent); 
+    border: 1px solid var(--border); 
     padding: 0.9rem 1rem; 
     border-radius: 0.75rem; 
-    color: white; 
+    color: var(--text-primary); 
   }
   
   .syren-input {
     width: 100%; 
-    background: transparent; 
-    border: 1px solid var(--color-border); 
+    background: color-mix(in srgb, var(--surface) 94%, transparent); 
+    border: 1px solid var(--border); 
     padding: 0.9rem 1rem; 
     border-radius: 0.75rem; 
-    color: white; 
+    color: var(--text-primary); 
+  }
+  
+  .input::placeholder, .syren-input::placeholder {
+    color: color-mix(in srgb, var(--text-secondary) 82%, transparent);
   }
 
   .btn-secondary {
@@ -330,10 +388,10 @@ p {
       transition-all 
       duration-500 
       bg-transparent
-      text-white
-      border border-white/20
-      hover:bg-white/5
-      hover:border-white/40;
+      text-text-primary
+      border border-text-primary/20
+      hover:bg-text-primary/5
+      hover:border-text-primary/40;
   }
 
   .scrollbar-hide::-webkit-scrollbar {
@@ -355,12 +413,26 @@ p {
   }
 
   .mobile-nav-link {
-    @apply font-serif text-3xl text-white tracking-wide hover:text-accent-gold transition-colors block text-center py-2;
+    @apply font-serif text-3xl text-text-primary tracking-wide hover:text-accent-gold transition-colors block text-center py-2;
   }
 
   .syren-nav-cta {
     padding: 8px 12px !important;
-    font-size: 9px !important;
-    letter-spacing: 0.25em;
-    min-height: 32px !important; /* Override default min-height for smaller mobile look */
+    min-height: auto !important;
+  }
+  
+  .syren-muted {
+    color: var(--text-secondary);
+  }
+  
+  .syren-panel {
+    background: color-mix(in srgb, var(--surface) 90%, transparent);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  
+  :focus-visible {
+    outline: 2px solid var(--royal-blue);
+    outline-offset: 2px;
   }

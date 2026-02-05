@@ -6,7 +6,9 @@ import { PHProvider } from "@/providers/PostHogProvider";
 import PostHogPageView from "@/providers/PostHogPageView";
 import { Suspense } from "react";
 import { validateExcursionData } from "@/lib/data-validator";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 import ViewportBadge from "@/components/dev/ViewportBadge";
+import ThemeScript from "@/components/theme/ThemeScript";
 
 // Run data validation in development
 if (process.env.NODE_ENV === "development") {
@@ -67,18 +69,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body className="antialiased">
-        <PHProvider>
-          <Suspense>
-            <PostHogPageView />
-          </Suspense>
-          <Navbar />
-          <main id="main-content" role="main" className="pt-20">
-            {children}
-          </main>
-          <Footer />
-          <ViewportBadge />
-        </PHProvider>
+        <ThemeProvider>
+          <PHProvider>
+            <Suspense>
+              <PostHogPageView />
+            </Suspense>
+            <Navbar />
+            <main id="main-content" role="main" className="pt-20">
+              {children}
+            </main>
+            <Footer />
+            <ViewportBadge />
+          </PHProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

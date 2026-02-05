@@ -90,7 +90,7 @@ export default function Destinations() {
 
                   <div className="mt-2.5 flex flex-col text-center md:text-left flex-grow">
                     <div className="relative">
-                      <span className="absolute -left-3 -top-5 font-serif text-5xl text-white/5 select-none hidden md:block group-hover:text-primary/10 transition-colors duration-500">
+                      <span className="absolute -left-3 -top-5 font-serif text-5xl text-text-primary/5 select-none hidden md:block group-hover:text-primary/10 transition-colors duration-500">
                         0{index + 1}
                       </span>
                       <h3 className="hidden md:block font-serif text-2xl font-medium tracking-tight text-accent-gold relative z-10 transition-colors duration-500">
@@ -108,7 +108,7 @@ export default function Destinations() {
 
                     <div className="mt-1 h-px w-10 bg-accent-gold/20 md:w-12 mx-auto md:mx-0 transition-all duration-500 group-hover:w-16 group-hover:bg-primary/40" />
                     
-                    <p className="mt-1.5 font-sans text-[11px] leading-relaxed text-white/60 md:text-sm line-clamp-2">
+                    <p className="mt-1.5 font-sans text-[11px] leading-relaxed text-text-secondary md:text-sm line-clamp-2">
                       {dest.description}
                     </p>
                     

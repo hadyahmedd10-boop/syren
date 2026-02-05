@@ -19,11 +19,11 @@ export default function SuccessPage() {
           </div>
         </div>
 
-        <h1 className="font-serif text-4xl md:text-6xl text-white mb-6">
+        <h1 className="font-serif text-4xl md:text-6xl text-text-primary mb-6">
           A Journey Awaits
         </h1>
         
-        <p className="font-sans text-lg text-white/60 mb-12 leading-relaxed max-w-lg mx-auto">
+        <p className="font-sans text-lg text-text-secondary mb-12 leading-relaxed max-w-lg mx-auto">
           Your booking has been successfully confirmed. Our concierge team is already beginning to curate the finer details of your experience. You will receive a personal confirmation email shortly.
         </p>
 
@@ -38,7 +38,7 @@ export default function SuccessPage() {
           </Link>
         </div>
 
-        <p className="mt-16 font-sans text-xs uppercase tracking-[0.3em] text-white/30">
+        <p className="mt-16 font-sans text-xs uppercase tracking-[0.3em] text-text-secondary/50">
           The Art of Egyptian Luxury
         </p>
       </div>
