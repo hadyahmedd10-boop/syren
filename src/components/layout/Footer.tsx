@@ -36,9 +36,9 @@ export default function Footer() {
                 rel="noopener noreferrer" 
                 className="hover:text-accent-gold transition-colors inline-flex"
                 aria-label="Follow Syren on Instagram"
+                title="Instagram"
               >
-                <Instagram className="w-5 h-5" strokeWidth={1.5} />
-                <span className="sr-only">Instagram</span>
+                <Instagram className="w-5 h-5" strokeWidth={1.5} aria-hidden="true" />
               </a>
               <a 
                 href={SOCIAL_LINKS.linkedin} 
@@ -46,9 +46,9 @@ export default function Footer() {
                 rel="noopener noreferrer" 
                 className="hover:text-accent-gold transition-colors inline-flex"
                 aria-label="Connect with Syren on LinkedIn"
+                title="LinkedIn"
               >
-                <Linkedin className="w-5 h-5" strokeWidth={1.5} />
-                <span className="sr-only">LinkedIn</span>
+                <Linkedin className="w-5 h-5" strokeWidth={1.5} aria-hidden="true" />
               </a>
               <a 
                 href={WHATSAPP_LINK} 
@@ -56,17 +56,17 @@ export default function Footer() {
                 rel="noopener noreferrer" 
                 className="hover:text-accent-gold transition-colors inline-flex"
                 aria-label="Contact Syren via WhatsApp"
+                title="WhatsApp"
               >
-                <MessageCircle className="w-5 h-5" strokeWidth={1.5} />
-                <span className="sr-only">WhatsApp</span>
+                <MessageCircle className="w-5 h-5" strokeWidth={1.5} aria-hidden="true" />
               </a>
               <a 
                 href={`mailto:${SOCIAL_LINKS.email}`}
                 className="hover:text-accent-gold transition-colors inline-flex"
                 aria-label="Email Syren"
+                title="Email"
               >
-                <Mail className="w-5 h-5" strokeWidth={1.5} />
-                <span className="sr-only">Email</span>
+                <Mail className="w-5 h-5" strokeWidth={1.5} aria-hidden="true" />
               </a>
             </li>
           </ul>
