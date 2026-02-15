@@ -49,9 +49,9 @@
   
   /* Additional variables for compatibility */
   --color-border: var(--border); /* Legacy alias */
-  --color-primary: #CFAE70; /* Legacy gold mapping */
-  --color-primary-dark: #B89B5F;
-  --color-accent-hover: #B89B5F;
+  --color-primary: #F2CD5C; /* Brand gold */
+  --color-primary-dark: #D8B74F; /* Hover/pressed */
+  --color-accent-hover: #D8B74F;
   
   /* Ensure text on gold buttons is always dark */
   --color-footer: #080C0E;

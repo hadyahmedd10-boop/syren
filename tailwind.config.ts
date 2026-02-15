@@ -27,7 +27,7 @@ const config: Config = {
         "primary-dark": "var(--color-primary-dark)",
         blackbase: "var(--color-footer)",
         gold: "var(--accent-gold)",
-        golddark: "#B89B5F",
+        golddark: "#D8B74F",
         accent: "var(--color-accent)",
         "accent-hover": "var(--color-accent-hover)",
       },
