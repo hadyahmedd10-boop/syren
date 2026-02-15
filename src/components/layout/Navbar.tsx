@@ -16,8 +16,19 @@ function Logo({ className = "", onClick, href = "/home#hero" }: { className?: st
       href={href} 
       scroll={true}
       onClick={onClick}
-      className={`font-serif text-xl text-accent-gold tracking-tight ${className}`}
+      className={`font-serif text-xl text-accent-gold tracking-tight inline-flex items-center gap-2 ${className}`}
     > 
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        width="18"
+        height="18"
+        className="text-accent-gold"
+        fill="currentColor"
+      >
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="1.2" />
+        <path d="M12 2c-1.6 3.2-3.2 4.8-6.2 6.2 3.2 1.6 4.8 3.2 6.2 6.2 1.6-3.2 3.2-4.8 6.2-6.2C15.2 6.8 13.6 5.2 12 2z" />
+      </svg>
       SYREN 
     </Link>
   );
