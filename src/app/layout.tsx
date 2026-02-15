@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   title: "Syren | Private Journeys & Bespoke Experiences",
   description: "Private journeys curated with precision.",
   alternates: {
-    canonical: "./",
+    canonical: "https://www.syrentravel.com",
   },
   openGraph: {
     title: "Syren | Private Journeys & Bespoke Experiences",
@@ -67,6 +67,20 @@ export default function RootLayout({
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
         <ThemeScript />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TravelAgency",
+              name: "Syren Travel",
+              url: "https://www.syrentravel.com",
+              logo: "https://www.syrentravel.com/logo.png",
+              description:
+                "Luxury curated Egypt travel experiences for discerning global travelers.",
+            }),
+          }}
+        />
       </head>
       <body className="antialiased">
         <ThemeProvider>

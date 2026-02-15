@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { SOCIAL_LINKS, WHATSAPP_LINK, SOCIAL_EVENTS } from "@/config/social";
 import { trackCta } from "@/lib/track";
+import { Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
 
 export default function Footer() { 
   return ( 
@@ -25,43 +26,47 @@ export default function Footer() {
           </ul> 
         </div> 
 
-        <div> 
+        <div>
           <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Connect</h4> 
-          <ul className="space-y-2 text-sm opacity-70 font-sans">
-            <li>
+          <ul className="text-sm opacity-70 font-sans">
+            <li className="flex items-center gap-4">
               <a 
                 href={SOCIAL_LINKS.instagram} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="hover:text-accent-gold transition-colors"
+                className="hover:text-accent-gold transition-colors inline-flex"
                 aria-label="Follow Syren on Instagram"
               >
-                Instagram
+                <Instagram className="w-5 h-5" strokeWidth={1.5} />
+                <span className="sr-only">Instagram</span>
               </a>
               <a 
                 href={SOCIAL_LINKS.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="hover:text-accent-gold transition-colors"
+                className="hover:text-accent-gold transition-colors inline-flex"
                 aria-label="Connect with Syren on LinkedIn"
               >
-                LinkedIn
+                <Linkedin className="w-5 h-5" strokeWidth={1.5} />
+                <span className="sr-only">LinkedIn</span>
               </a>
               <a 
                 href={WHATSAPP_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="hover:text-accent-gold transition-colors"
+                className="hover:text-accent-gold transition-colors inline-flex"
                 aria-label="Contact Syren via WhatsApp"
               >
-                WhatsApp
+                <MessageCircle className="w-5 h-5" strokeWidth={1.5} />
+                <span className="sr-only">WhatsApp</span>
               </a>
               <a 
                 href={`mailto:${SOCIAL_LINKS.email}`}
-                className="hover:text-accent-gold transition-colors"
+                className="hover:text-accent-gold transition-colors inline-flex"
                 aria-label="Email Syren"
               >
-                Email
+                <Mail className="w-5 h-5" strokeWidth={1.5} />
+                <span className="sr-only">Email</span>
               </a>
             </li>
           </ul>
