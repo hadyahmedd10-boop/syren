@@ -43,7 +43,6 @@ export const EXPERIENCE_IMAGES = {
   "10-day-cairo-nile-red-sea-odyssey": exp10DayOdyssey,
   "12-day-egyptian-honeymoon-odyssey": expHoneymoon,
   "family-adventure": expFamily,
-  "siwa-desert-retreat": heroHome,
   "alexandria-coastal-elegance": heroHome,
 } as const;
 

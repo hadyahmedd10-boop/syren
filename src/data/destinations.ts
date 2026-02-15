@@ -54,7 +54,7 @@ export const destinations: Destination[] = [
     heroImage: DESTINATION_IMAGES["siwa-oasis"],
     image: DESTINATION_IMAGES["siwa-oasis"],
     vibeKeywords: ["desert", "culture", "hidden gems"],
-    featuredExperienceSlugs: ["siwa-desert-retreat"],
+    featuredExperienceSlugs: [],
   },
   {
     slug: "alexandria",
