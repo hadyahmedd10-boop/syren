@@ -41,7 +41,7 @@
   --text-primary: rgba(255,255,255,0.96);
   --text-secondary: rgba(255,255,255,0.64);
   
-  --accent-gold: #D4AF37;
+  --accent-gold: #F2CD5C;
   --royal-blue: #1D4ED8;
   
   --shadow: 0 18px 60px rgba(0,0,0,0.45);
@@ -79,7 +79,7 @@ html.light {
   --text-primary: rgba(10,10,10,0.92);
   --text-secondary: rgba(10,10,10,0.60);
 
-  --accent-gold: #D4AF37;
+  --accent-gold: #F2CD5C;
   --royal-blue: #1D4ED8;
 
   --shadow: 0 20px 70px rgba(0,0,0,0.10);
