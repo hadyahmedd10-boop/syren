@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import FooterGate from "@/components/layout/FooterGate";
 import { PHProvider } from "@/providers/PostHogProvider";
 import PostHogPageView from "@/providers/PostHogPageView";
 import { Suspense } from "react";
@@ -92,7 +92,7 @@ export default function RootLayout({
             <main id="main-content" role="main" className="pt-20">
               {children}
             </main>
-            <Footer />
+            <FooterGate />
             <ViewportBadge />
           </PHProvider>
         </ThemeProvider>
