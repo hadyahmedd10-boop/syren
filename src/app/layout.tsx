@@ -23,19 +23,15 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: process.env.NEXT_PUBLIC_SITE_URL ? new URL(process.env.NEXT_PUBLIC_SITE_URL) : undefined,
-  title: {
-    default: "Syren | Luxury Travel Experiences in Egypt",
-    template: "%s | Syren"
-  },
-  description:
-    "Private luxury journeys through Egypt. Discover Cairo, the Nile, the Red Sea, and hidden sanctuaries — curated with soul.",
+  metadataBase: new URL("https://www.syrentravel.com"),
+  title: "Syren | Private Journeys & Bespoke Experiences",
+  description: "Private journeys curated with precision.",
   alternates: {
     canonical: "./",
   },
   openGraph: {
-    title: "Syren Travel",
-    description: "Luxury travel, designed with soul.",
+    title: "Syren | Private Journeys & Bespoke Experiences",
+    description: "Experience the extraordinary with Syren's curated private journeys...",
     url: process.env.NEXT_PUBLIC_SITE_URL,
     siteName: "Syren",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
@@ -44,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Syren Travel",
-    description: "Luxury travel, designed with soul.",
+    title: "Syren | Private Journeys & Bespoke Experiences",
+    description: "Experience the extraordinary with Syren's curated private journeys...",
     images: ["/og-image.jpg"],
     creator: "@syren_egypt",
   },
