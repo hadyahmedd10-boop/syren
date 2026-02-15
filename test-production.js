@@ -1,5 +1,5 @@
 async function runProductionTest() {
-  const prodUrl = 'https://syren-amber.vercel.app';
+  const prodUrl = 'https://syren.vercel.app';
   const testEmail = 'test@example.com';
   
   console.log('🚀 Starting Production Test...');

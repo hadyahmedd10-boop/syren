@@ -31,6 +31,9 @@ export async function POST(req: Request) {
     const validatedData = contactSchema.parse(body);
 
     // 1. Save to Supabase (service role)
+    if (!supabaseAdmin) {
+      return NextResponse.json({ ok: false, error: "Supabase Admin not configured" }, { status: 500 });
+    }
     const { error: dbError } = await supabaseAdmin
       .from("contact_inquiries")
       .insert([

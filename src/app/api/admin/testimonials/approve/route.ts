@@ -4,6 +4,7 @@ import { supabaseAdmin } from "@/lib/supabaseAdmin";
 export async function POST(req: Request) { 
   const { id } = await req.json().catch(() => ({})); 
   if (!id) return NextResponse.json({ ok: false, error: "Missing id" }, { status: 400 }); 
+  if (!supabaseAdmin) return NextResponse.json({ ok: false, error: "Supabase Admin not configured" }, { status: 500 });
 
   const { error } = await supabaseAdmin 
     .from("testimonials") 

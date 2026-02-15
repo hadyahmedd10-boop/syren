@@ -85,7 +85,8 @@ export async function POST(req: Request) {
     );
   }
 
-  const { error } = await supabase.from("testimonials").insert([ 
+  const client = supabase!;
+  const { error } = await client.from("testimonials").insert([ 
     { 
       name, 
       email: email || null, 
