@@ -48,13 +48,13 @@ export default function Hero({
     >
       {showButtons && (
         <div className="mt-10 flex flex-wrap items-center gap-4">
-          <a href="/quote" className="syren-btn-primary px-8 py-3">
+          <Link href="#map-of-syren" className="syren-btn-primary px-8 py-3">
             Begin Your Journey
-          </a>
+          </Link>
 
-          <a href="/experiences" className="syren-btn-secondary px-8 py-3">
+          <Link href="/experiences" className="syren-btn-secondary px-8 py-3">
             Explore Experiences
-          </a>
+          </Link>
         </div>
       )}
     </HeroShell>

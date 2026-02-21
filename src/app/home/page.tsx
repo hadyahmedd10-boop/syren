@@ -80,19 +80,19 @@ export default function Home() {
         
         <Destinations />
 
-        <section className="section-tight">
-          <OurVision />
-        </section>
-
-        <section className="section">
+        <section id="popular-experiences" className="section">
           <PopularExperiences />
         </section>
 
-        <section className="section">
+        <section id="vision-of-syren" className="section-tight">
+          <OurVision />
+        </section>
+
+        <section id="echoes-journeys" className="section">
           <Testimonials />
         </section>
 
-        <section className="section-tight">
+        <section id="experience-egypt" className="section-tight">
           <FinalCTA />
         </section>
       </main>

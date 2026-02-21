@@ -27,7 +27,7 @@ export default function Destinations() {
 
   return (
     <div
-      id="destinations"
+      id="map-of-syren"
       aria-labelledby="destinations-title"
       className="relative bg-background scroll-mt-24 section"
     >
