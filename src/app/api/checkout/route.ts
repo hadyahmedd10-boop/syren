@@ -7,27 +7,30 @@ import { excursions } from "@/data/excursions";
 const PRICING_MAP: Record<string, number> = {
   // Experiences
   "cairo-after-dark": 149900,
-  "nile-signature": 329900,
+  "nile-signature": 0, // custom quote
   "red-sea-serenity": 249900,
   "luxor-undiscovered": 189900,
   "cairo-exclusive-luxury": 499900,
   "the-signature-nile-journey": 389900,
   
   // Excursions
-  "hurghada-luxor-day-trip": 19900,
+  "hurghada-luxor-day-trip": 11900,
   "hurghada-cairo-day-trip": 19900,
-  "hurghada-jeep-safari": 9900,
-  "mahmya-island-snorkeling": 9500,
-  "giftun-island-snorkeling": 6500,
-  "paradise-island-snorkeling": 7500,
-  "hurghada-quad-bike": 5500,
+  "hurghada-jeep-safari": 4500,
+  "mahmya-island-snorkeling": 9900,
+  "giftun-island-snorkeling": 8900,
+  "paradise-island-snorkeling": 5500,
+  "hurghada-quad-bike": 3000,
 
   // Migrated Cairo Tours
-  "cairo-in-a-day-from-hurghada": 35000,
-  "nile-maxim-dinner-cruise": 12000,
-  "cairo-beyond-the-pyramids": 18000,
-  "tanoura-night-old-cairo": 8000,
-  "cairo-private-photo-session": 25000,
+  "cairo-in-a-day-from-hurghada": 28500,
+  "nile-maxim-dinner-cruise": 9900,
+  "cairo-beyond-the-pyramids": 12900,
+  "tanoura-night-old-cairo": 4300,
+  "cairo-private-photo-session": 22000,
+  "alexandria-day-trip-from-cairo": 12900,
+  "saqqara-dahshur-pyramids": 12500,
+  "giza-pyramids-grand-egyptian-museum": 12000,
 };
 
 export async function POST(req: Request) {
@@ -74,8 +77,23 @@ export async function POST(req: Request) {
       );
     }
 
-    // Get price from map or data file (fallback to 9900 for excursions if not in map)
-    const unitAmount = PRICING_MAP[slug] || (itemType === "excursion" ? 9900 : 149900);
+    // Get price from map; only fall back when slug is not present in the map
+    const hasMappedPrice = Object.prototype.hasOwnProperty.call(PRICING_MAP, slug);
+    const mapped = hasMappedPrice ? PRICING_MAP[slug] : undefined;
+    const unitAmount =
+      mapped !== undefined
+        ? mapped
+        : itemType === "excursion"
+          ? 9900
+          : 149900;
+
+    // Block checkout for items intentionally marked as custom-quote (0)
+    if (unitAmount === 0) {
+      return NextResponse.json(
+        { error: "This item requires a custom quote. Please contact our team." },
+        { status: 400 }
+      );
+    }
 
     // Get site URL dynamically or from env
     const host = req.headers.get("host");

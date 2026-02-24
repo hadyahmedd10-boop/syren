@@ -31,11 +31,7 @@ export const experiences: Experience[] = [
       "Gratuities for the crew",
       "Personal expenses",
     ],
-    price: {
-      amount: 3200,
-      currency: "USD",
-      perPerson: true
-    },
+    // Custom quote (no upfront price to show booking section)
     category: "luxury",
     itinerary: [
       {
@@ -115,7 +111,7 @@ export const experiences: Experience[] = [
       "Optional activities and spa treatments"
     ],
     price: {
-      amount: 2450,
+      amount: 800,
       currency: "USD",
       perPerson: true
     },
@@ -193,7 +189,7 @@ export const experiences: Experience[] = [
       "Personal expenses and gratuities"
     ],
     price: {
-      amount: 4200,
+      amount: 2125,
       currency: "USD",
       perPerson: true
     },
@@ -304,7 +300,7 @@ export const experiences: Experience[] = [
       "Optional excursions not mentioned"
     ],
     price: {
-      amount: 5800,
+      amount: 2490,
       currency: "USD",
       perPerson: true
     },

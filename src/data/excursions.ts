@@ -17,7 +17,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["hurghada-luxor-day-trip"], 
     image: EXCURSION_IMAGES["hurghada-luxor-day-trip"],
     imageAlt: "Ancient Egyptian temple architecture in Luxor",
-    priceCents: 45000, // $450.00
+    priceCents: 11900, // $119.00
     highlights: [ 
       "Karnak Temple Complex", 
       "Colossi of Memnon", 
@@ -91,7 +91,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["hurghada-cairo-day-trip"], 
     image: EXCURSION_IMAGES["hurghada-cairo-day-trip"],
     imageAlt: "The Great Pyramids of Giza at sunset",
-    priceCents: 60000, // $600.00
+    priceCents: 19900, // $199.00
     highlights: [ 
       "Giza Pyramids & Sphinx", 
       "Egyptian Museum (Treasures Room)", 
@@ -166,7 +166,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["hurghada-jeep-safari"], 
     image: EXCURSION_IMAGES["hurghada-jeep-safari"],
     imageAlt: "A group of travelers enjoying a desert safari in Hurghada",
-    priceCents: 15000, // $150.00
+    priceCents: 4500, // $45.00
     highlights: [ 
       "4×4 desert drive (Sinai desert mountains)", 
       "Mirage stop & panoramic views", 
@@ -236,7 +236,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["mahmya-island-snorkeling"], 
     image: EXCURSION_IMAGES["mahmya-island-snorkeling"],
     imageAlt: "Crystal clear waters of Mahmya Island",
-    priceCents: 9500, // $95.00
+    priceCents: 9900, // $99.00
     highlights: [
       "Boat trip to Giftun Island National Park",
       "Snorkeling in protected coral reefs",
@@ -298,7 +298,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["giftun-island-snorkeling"], 
     image: EXCURSION_IMAGES["giftun-island-snorkeling"],
     imageAlt: "Colorful fish swimming in Giftun Island reefs",
-    priceCents: 6500, // $65.00
+    priceCents: 8900, // $89.00
     highlights: [
       "Multiple snorkeling stops in the Red Sea",
       "Visit to Giftun Island beach",
@@ -359,7 +359,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["paradise-island-snorkeling"], 
     image: EXCURSION_IMAGES["paradise-island-snorkeling"],
     imageAlt: "The turquoise lagoon of Paradise Island",
-    priceCents: 7500, // $75.00
+    priceCents: 5500, // $55.00
     highlights: [
       "Luxury boat transfer to Paradise Island",
       "Vibrant coral reef exploration",
@@ -420,7 +420,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["hurghada-quad-bike"], 
     image: EXCURSION_IMAGES["hurghada-quad-bike"],
     imageAlt: "Quad bikers racing through the desert dunes",
-    priceCents: 5500, // $55.00
+    priceCents: 3000, // $30.00
     highlights: [
       "Adrenaline-fueled desert ride",
       "Traditional Bedouin tea stop",
@@ -475,7 +475,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["cairo-in-a-day-from-hurghada"],
     image: EXCURSION_IMAGES["cairo-in-a-day-from-hurghada"],
     imageAlt: "Private air journey to Cairo from Hurghada",
-    priceCents: 35000,
+    priceCents: 28500,
     highlights: [
       "The Giza Plateau: the Great Pyramids, Sphinx, and Valley Temple",
       "Refined local lunch in Cairo",
@@ -551,7 +551,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["nile-maxim-dinner-cruise"],
     image: EXCURSION_IMAGES["nile-maxim-dinner-cruise"],
     imageAlt: "Nile Maxim dinner cruise in Cairo",
-    priceCents: 12000,
+    priceCents: 9900,
     highlights: [
       "Open dinner service with Egyptian & international options",
       "Live Egyptian music and soft Oriental melodies",
@@ -607,7 +607,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["cairo-beyond-the-pyramids"],
     image: EXCURSION_IMAGES["cairo-beyond-the-pyramids"],
     imageAlt: "Cultural tour of Cairo beyond the pyramids",
-    priceCents: 0,
+    priceCents: 12900,
     highlights: [
       "Grand Egyptian Museum (curated highlights)",
       "Cairo Citadel & Mohamed Ali Mosque",
@@ -669,7 +669,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["tanoura-night-old-cairo"],
     image: EXCURSION_IMAGES["tanoura-night-old-cairo"],
     imageAlt: "Whirling dervishes performing Tanoura dance",
-    priceCents: 8000,
+    priceCents: 4300,
     highlights: [
       "Historic venue: Wekalet El Ghoury (16th century)",
       "Traditional Tanoura whirling dervish performance",
@@ -717,7 +717,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["cairo-private-photo-session"],
     image: EXCURSION_IMAGES["cairo-private-photo-session"],
     imageAlt: "Private photography session in Cairo",
-    priceCents: 25000,
+    priceCents: 22000,
     highlights: [
       "Private professional photographer guide",
       "20 professionally edited images included",
@@ -772,7 +772,7 @@ export const excursions: Excursion[] = [
     heroImage: DESTINATION_IMAGES["alexandria"],
     image: DESTINATION_IMAGES["alexandria"],
     imageAlt: "The Qaitbay Citadel on the Mediterranean coast of Alexandria",
-    priceCents: 20000,
+    priceCents: 12900,
     highlights: [
       "Pompey’s Pillar & the Roman quarter",
       "Temple of Serapis ruins",
@@ -855,7 +855,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["hurghada-cairo-day-trip"], // Fallback/Shared
     image: EXCURSION_IMAGES["hurghada-cairo-day-trip"],     // Fallback/Shared
     imageAlt: "The Step Pyramid of Djoser at Saqqara",
-    priceCents: 18000,
+    priceCents: 12500,
     highlights: [
       "Step Pyramid of Djoser (Saqqara)",
       "Pyramid of Unas (Pyramid Texts)",
@@ -930,7 +930,7 @@ export const excursions: Excursion[] = [
     heroImage: EXCURSION_COVERS["hurghada-cairo-day-trip"], // Fallback/Shared
     image: EXCURSION_IMAGES["hurghada-cairo-day-trip"],     // Fallback/Shared
     imageAlt: "The Great Sphinx and Pyramids of Giza",
-    priceCents: 22000,
+    priceCents: 12000,
     highlights: [
       "Giza Plateau (Pyramids & Sphinx)",
       "Grand Egyptian Museum (GEM) - Main Halls",
