@@ -99,11 +99,11 @@ export default function BookingSection({
 
         <p className="text-center font-sans text-[10px] uppercase tracking-[0.2em] text-text-secondary/30">
           By proceeding, you agree to our{" "}
-          <a href="#" className="underline hover:text-accent-gold transition-colors">
+          <a href="/terms" className="underline hover:text-accent-gold transition-colors">
             Terms of Service
           </a>{" "}
           and{" "}
-          <a href="#" className="underline hover:text-accent-gold transition-colors">
+          <a href="/privacy" className="underline hover:text-accent-gold transition-colors">
             Privacy Policy
           </a>
           .
