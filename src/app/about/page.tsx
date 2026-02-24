@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   },
 };
 
+const slugify = (s: string) =>
+  s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
 const values = [
   {
     icon: <Sparkles className="text-accent-gold" />,
@@ -50,52 +53,92 @@ export default function AboutPage() {
         backgroundImage={HERO_IMAGES.home.src}
         eyebrow="Our Story"
         title="About Syren"
-        heightClassName="min-h-[50vh] md:min-h-[60vh] lg:min-h-[65vh]"
+        subtitle="Private. Precise. Personal."
+        heightClassName="min-h-[42vh] md:min-h-[50vh] lg:min-h-[54vh]"
       />
 
-      {/* Mission */}
-      <section className="section">
-        <div className="max-w-4xl mx-auto container-x text-center">
-          <SectionHeader 
-            title="Syren was built for travelers who don’t want Egypt explained to them — they want to experience it properly."
-            description={
-              <>
-                <p className="mb-8">
-                  Not rushed. Not staged. Not wrapped in clichés.
-                </p>
-                <p>
-                  Egypt is layered, intense, beautiful, chaotic, spiritual, and deeply human. 
-                  We don’t try to simplify that — we design journeys that respect it.
-                </p>
-              </>
-            }
-          />
-        </div>
-      </section>
+      <div className="h-6" />
 
-      {/* Values */}
-      <section className="section bg-black/40">
-        <div className="max-w-7xl mx-auto container-x">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {values.map((value, index) => (
-              <Reveal key={value.title} delay={index * 0.1}>
-                <div className="flex flex-col items-center text-center group">
-                  <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-gold/10 group-hover:border-accent-gold/30 transition-all duration-500">
-                    {value.icon}
-                  </div>
-                  <h3 className="text-white font-serif text-xl mb-4">{value.title}</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+      {/* Mission */}
+      <section id="mission" className="section">
+        <div className="mx-auto max-w-6xl container-x">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-stretch">
+            <div className="md:col-span-7">
+              <div className="rounded-2xl border border-border/60 bg-surface/50 backdrop-blur-md p-8 md:p-10 shadow-[0_10px_50px_-20px_rgba(0,0,0,0.4)]">
+                <SectionHeader 
+                  title="Syren was built for travelers who don’t want Egypt explained — they want to experience it properly."
+                  description={
+                    <>
+                      <p className="mb-6">
+                        Not rushed. Not staged. Not wrapped in clichés.
+                      </p>
+                      <p>
+                        Egypt is layered, intense, beautiful, chaotic, spiritual, and deeply human. We design journeys that respect that — at the right pace, at the right time, with the right people.
+                      </p>
+                    </>
+                  }
+                  className="mb-0 text-left"
+                />
+              </div>
+            </div>
+            <div className="md:col-span-5">
+              <div className="h-full rounded-2xl border border-accent-gold/20 bg-accent-gold/5 p-6 md:p-8">
+                <h3 className="font-serif text-2xl text-text-primary mb-4">Our Promise</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent-gold/60 shrink-0" />
+                    <span className="text-text-secondary">Clarity over checklists — depth over rush.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent-gold/60 shrink-0" />
+                    <span className="text-text-secondary">Logistics handled quietly, so you can stay present.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent-gold/60 shrink-0" />
+                    <span className="text-text-secondary">Real moments with real people — not staged stops.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Values */}
+      <section id="values" className="section bg-black/40">
+        <div className="max-w-3xl mx-auto container-x text-center">
+          <SectionHeader 
+            title="Our Values" 
+            description={<p className="text-text-secondary">Four principles that shape every journey we build.</p>} 
+            className="mb-2" 
+          />
+        </div>
+      </section>
+
+      {values.map((value, index) => {
+        const id = `value-${slugify(value.title)}`;
+        const sectionBg = index % 2 === 0 ? "bg-black/30" : "bg-black/20";
+        return (
+        <section key={value.title} id={id} className={`section ${sectionBg} border-t border-border/40`}>
+          <div className="mx-auto max-w-5xl container-x">
+            <Reveal delay={index * 0.08}>
+              <div className="rounded-2xl border border-border/60 ring-1 ring-white/5 bg-surface/40 backdrop-blur-sm p-6 md:p-8 flex flex-col md:flex-row items-start gap-6 transition-all duration-300 hover:border-accent-gold/30 hover:shadow-[0_0_25px_rgba(196,160,82,0.08)]">
+                <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                  {value.icon}
+                </div>
+                <div>
+                  <div className="text-accent-gold uppercase tracking-[0.2em] text-[11px] font-bold mb-2">Value {String(index + 1).padStart(2, "0")}</div>
+                  <h3 className="text-text-primary font-serif text-2xl mb-3">{value.title}</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed">{value.description}</p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      )})}
+
       {/* CTA */}
-      <section className="section">
+      <section id="what-we-build" className="section">
         <div className="max-w-3xl mx-auto container-x text-center border border-white/5 rounded-2xl p-8 sm:p-10 md:p-16 bg-surface/30 backdrop-blur-sm">
           <SectionHeader 
             title="What We Build" 

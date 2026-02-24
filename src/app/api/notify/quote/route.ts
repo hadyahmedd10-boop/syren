@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { quoteRateLimit, getClientIp } from "@/lib/rateLimit";
-import { sendTransactionalEmail } from "@/lib/email/brevo";
+import { sendTransactionalEmail, sendTransactionalEmailTo } from "@/lib/email/brevo";
 
 const quoteSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -53,6 +53,8 @@ export async function POST(req: Request) {
 
     // 2. Send Email via Brevo
     try {
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.syrentravel.com";
+      const logoUrl = `${siteUrl}/syren-logo-email.png`;
       const htmlContent = `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
           <h2 style="color: #1a1a1a; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;">New Quote Request</h2>
@@ -81,7 +83,35 @@ export async function POST(req: Request) {
         throw new Error(emailResult.error || "Email failed");
       }
 
-      console.log("brevo email success: quote request");
+      const autoReplyHtml = `
+        <div style="font-family: sans-serif; max-width: 640px; margin: 0 auto; padding: 24px; border: 1px solid #eee; border-radius: 12px;">
+          <div style="text-align:center; margin-bottom: 16px;">
+            <img src="${logoUrl}" alt="Syren" width="48" height="50" style="display:inline-block;" />
+          </div>
+          <h2 style="color: #1a1a1a; text-align:center; margin: 0 0 16px;">We received your quote request</h2>
+          <p style="margin: 0 0 12px;">Hi ${validatedData.name},</p>
+          <p style="margin: 0 0 16px;">Thanks for requesting a quote with Syren Travel. Our team will review the details and get back to you soon.</p>
+          <div style="margin-top: 16px; padding: 14px; background-color: #f9f9f9; border-radius: 8px;">
+            ${validatedData.trip_dates ? `<p style="margin:0 0 6px;"><strong>Desired Dates:</strong> ${validatedData.trip_dates}</p>` : ""}
+            ${validatedData.budget ? `<p style="margin:0 0 6px;"><strong>Budget:</strong> ${validatedData.budget}</p>` : ""}
+            <p style="margin:0 0 6px;"><strong>Your message:</strong></p>
+            <p style="white-space: pre-wrap; margin:0;">${validatedData.message}</p>
+          </div>
+          <hr style="border:none; border-top:1px solid #eee; margin: 20px 0;" />
+          <p style="font-size: 12px; color: #666; margin: 0; text-align:center;">Syren Travel · Cairo, Egypt</p>
+        </div>
+      `;
+      const replyTo = process.env.NOTIFY_EMAIL || process.env.EMAIL_FROM || "noreply@syrentravel.com";
+      const autoRes = await sendTransactionalEmailTo({
+        to: validatedData.email,
+        subject: "Thanks for your quote request",
+        html: autoReplyHtml,
+        replyTo,
+      });
+      if (!autoRes.success) {
+        console.error("brevo auto-reply failure:", autoRes.error);
+      }
+      console.log("brevo email success: quote request + auto-reply");
       return NextResponse.json({ ok: true }, { status: 200 });
     } catch (emailErr) {
       console.error("brevo email failure:", emailErr);

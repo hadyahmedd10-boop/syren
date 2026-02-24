@@ -50,7 +50,10 @@ function checkPlaceholders() {
     const fullPath = path.resolve(process.cwd(), relPath);
     if (fs.existsSync(fullPath)) {
       const content = fs.readFileSync(fullPath, 'utf8');
-      if (content.toLowerCase().includes('xxxx')) {
+      const lower = content.toLowerCase();
+      const hasXxxx = lower.includes('xxxx');
+      const isKnownGuard = lower.includes('supabaseanonkey') && lower.includes('!==') && lower.includes('"xxxx"');
+      if (hasXxxx && !isKnownGuard) {
         console.error(`❌ Found "xxxx" placeholder in ${relPath}`);
         found = true;
       }

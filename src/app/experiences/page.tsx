@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 export default function ExperiencesPage() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://syren.travel";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://syrentravel.com";
 
   const jsonLd = {
     "@context": "https://schema.org",

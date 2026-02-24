@@ -4,12 +4,9 @@ import { useEffect, useState } from "react";
 
 export default function ViewportBadge() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     if (process.env.NODE_ENV !== "development") return;
-    
-    setMounted(true);
     const updateDimensions = () => {
       setDimensions({ width: window.innerWidth, height: window.innerHeight });
     };
@@ -19,7 +16,7 @@ export default function ViewportBadge() {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-  if (process.env.NODE_ENV !== "development" || !mounted) return null;
+  if (process.env.NODE_ENV !== "development") return null;
 
   return (
     <div className="fixed bottom-1 left-1 z-50 flex items-center gap-2 rounded bg-black/80 px-2 py-1 text-xs font-mono text-white shadow-lg pointer-events-none border border-white/10">

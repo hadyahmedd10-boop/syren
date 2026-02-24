@@ -60,7 +60,7 @@
 
   --container-x: clamp(1rem, 4vw, 2.75rem);
   --section-y: clamp(3.5rem, 7vw, 7rem);
-  --section-y-tight: clamp(2rem, 4vw, 4rem);
+  --section-y-tight: clamp(2.5rem, 4vw, 4.5rem);
   --h1: clamp(2.25rem, 5.5vw, 4.5rem);
   --h2: clamp(1.75rem, 4vw, 3rem);
   --p: clamp(1rem, 1.6vw, 1.125rem);
@@ -76,8 +76,8 @@ html.light {
   --surface-2: rgba(10,10,10,0.035); /* subtle tint */
   --border: rgba(10,10,10,0.10);
 
-  --text-primary: rgba(10,10,10,0.92);
-  --text-secondary: rgba(10,10,10,0.60);
+  --text-primary: #111111;           /* near-black for high contrast */
+  --text-secondary: #555555;         /* readable on light backgrounds */
 
   --accent-gold: #F2CD5C;
   --royal-blue: #1D4ED8;
@@ -174,6 +174,11 @@ html {
   }
 }
 
+/* Base font sizing for consistency */
+html {
+  font-size: 16px;
+}
+
 /* === Typography === */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-playfair), serif;
@@ -185,11 +190,13 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: var(--h1);
   color: var(--accent-gold); /* Gold H1s */
+  margin: 0 0 0.6em;
 }
 
 h2 {
   font-size: var(--h2);
   color: var(--text-primary);
+  margin: 0 0 0.75em;
 }
 
 h3 {
@@ -197,6 +204,7 @@ h3 {
   font-weight: 500;
   line-height: 1.2;
   color: var(--color-text-primary);
+  margin: 0 0 0.6em;
 }
 
 h4 {
@@ -204,6 +212,7 @@ h4 {
   font-weight: 500;
   line-height: 1.2;
   color: var(--color-text-primary);
+  margin: 0 0 0.5em;
 }
 
 p, span, a, li, button, input, textarea {
@@ -213,10 +222,37 @@ p, span, a, li, button, input, textarea {
 
 p {
   font-size: var(--p);
+  line-height: 1.7;
+  margin: 0 0 0.85em;
+}
+
+ul, ol {
+  margin: 0 0 0.85em;
+  padding-left: 1.25rem;
+}
+
+li {
+  line-height: 1.7;
+  margin: 0.25em 0;
 }
 
 .syren-pill.mt-1\.5 {
   display: none !important;
+}
+
+/* === Hero Light Mode Legibility === */
+html.light .hero-eyebrow,
+html.light .hero-subtitle {
+  color: #fff !important;
+}
+
+/* === Scrollbar Hide Utility === */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 /* === Syren Primary Button === */ 
@@ -228,7 +264,7 @@ p {
       min-h-[44px]
       rounded-full 
       px-4 py-2.5 md:px-8 md:py-4 
-      text-[9px] md:text-[11px] 
+      text-[11px] md:text-[12px] 
       uppercase 
       tracking-[0.2em] 
       font-sans 
@@ -254,7 +290,7 @@ p {
       min-h-[44px]
       rounded-full 
       px-4 py-2.5 md:px-8 md:py-4 
-      text-[9px] md:text-[11px] 
+      text-[11px] md:text-[12px] 
       uppercase 
       tracking-[0.2em] 
       font-sans 
@@ -323,13 +359,7 @@ p {
       transition-colors;
   }
 
-  html.light .hero-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(246,241,231,0.35),
-      rgba(246,241,231,0.78)
-    );
-  }
+  
   
 
 /* Links & Accents */
@@ -338,19 +368,84 @@ a:not(.syren-btn-primary):not(.no-highlight):hover {
 }
 
 html.light a:not(.syren-btn-primary):not(.no-highlight):hover {
-  color: var(--royal-blue);
+  color: var(--accent-gold);
 }
 
 .syren-btn-primary {
   @apply inline-flex items-center justify-center bg-accent-gold text-text-dark font-serif uppercase tracking-[0.15em] transition-all duration-300 hover:bg-white hover:text-black hover:scale-[1.02] rounded-full;
 }
 
+  @keyframes syren-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .syren-marquee {
+    display: flex;
+    width: max-content;
+    animation: syren-scroll 13s linear infinite;
+    will-change: transform;
+  }
+  .syren-marquee:hover,
+  .syren-marquee:focus-within {
+    animation-play-state: paused;
+  }
+  
+
+/* Hero text should stay white in light mode */
+html.light .text-white\/60 {
+  color: rgba(255, 255, 255, 0.68) !important;
+}
+html.light .text-white\/75 {
+  color: rgba(255, 255, 255, 0.84) !important;
+}
+@media (max-width: 640px) {
+  html.light .text-white\/60 {
+    color: rgba(255, 255, 255, 0.72) !important;
+  }
+  html.light .text-white\/75 {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+  html.light h1.text-accent-gold {
+    text-shadow: 0 1px 1px rgba(0,0,0,0.08);
+  }
+}
+
 html.light .syren-btn-primary {
-  color: #0B0B0B;
+  color: #ffffff !important;
 }
 
 html.light .syren-btn-primary:hover {
   @apply bg-royal-blue text-white;
+}
+
+html.light .syren-btn-secondary {
+  color: var(--text-primary) !important;
+  border-color: rgba(17, 17, 17, 0.35) !important;
+}
+
+html.light .syren-btn-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+  border-color: rgba(17, 17, 17, 0.5) !important;
+  color: var(--text-primary) !important;
+}
+
+html.light .btn-secondary {
+  color: var(--text-primary) !important;
+  border-color: rgba(17, 17, 17, 0.35) !important;
+}
+
+html.light .btn-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+  border-color: rgba(17, 17, 17, 0.5) !important;
+  color: var(--text-primary) !important;
+}
+
+html.light header .syren-btn-primary { color: #ffffff !important; }
+
+@layer utilities {
+  html.light p,
+  html.light div,
+  html.light a { color: var(--text-primary) !important; }
 }
 
   /* === Syren Input === */
@@ -384,7 +479,7 @@ html.light .syren-btn-primary:hover {
       min-h-[44px]
       rounded-full 
       px-6 py-3
-      text-[11px] 
+      text-[12px] 
       uppercase 
       tracking-[0.2em] 
       font-sans 
@@ -416,6 +511,8 @@ html.light .syren-btn-primary:hover {
     ); 
   }
 
+  
+
   .mobile-nav-link {
     @apply font-serif text-3xl text-text-primary tracking-wide hover:text-accent-gold transition-colors block text-center py-2;
   }
@@ -423,6 +520,20 @@ html.light .syren-btn-primary:hover {
   .syren-nav-cta {
     padding: 8px 12px !important;
     min-height: auto !important;
+  }
+  
+  .syren-pill {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.15em] whitespace-nowrap;
+    background-color: rgba(0,0,0,0.6);
+    color: var(--accent-gold);
+    border: 1px solid rgba(196,160,82,0.25);
+    backdrop-filter: blur(6px);
+  }
+  
+  @media (max-width: 640px) {
+    .syren-pill {
+      @apply text-[11px] px-3 py-1.5;
+    }
   }
   
   .syren-muted {
@@ -434,6 +545,12 @@ html.light .syren-btn-primary:hover {
     backdrop-filter: blur(12px);
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
+  }
+
+  /* Form labels default visibility */
+  label {
+    color: var(--text-primary);
+    font-weight: 600;
   }
   
   :focus-visible {

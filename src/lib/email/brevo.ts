@@ -8,6 +8,13 @@ interface SendTransactionalEmailParams {
   replyTo: string; // customer email (REQUIRED)
 }
 
+interface SendTransactionalEmailToParams {
+  to: string | string[];
+  subject: string;
+  html: string;
+  replyTo: string;
+}
+
 /**
  * Standardized Brevo email helper for Syren Travel.
  * Uses native fetch to send transactional emails via Brevo API v3.
@@ -44,6 +51,19 @@ export async function sendTransactionalEmail({
     };
   }
 
+  // Support multiple recipients via comma/semicolon/whitespace separation
+  const recipientList = NOTIFY_EMAIL.split(/[;, \n\r\t]+/)
+    .map((e) => e.trim())
+    .filter(Boolean)
+    .map((email) => ({ email, name: "Syren Admin" }));
+  if (recipientList.length === 0) {
+    console.error("NOTIFY_EMAIL parsed to empty recipient list");
+    return {
+      success: false,
+      error: "Empty recipient list",
+    };
+  }
+
   try {
     const response = await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
@@ -56,12 +76,7 @@ export async function sendTransactionalEmail({
           name: "Syren Travel",
           email: EMAIL_FROM,
         },
-        to: [
-          {
-            email: NOTIFY_EMAIL,
-            name: "Syren Admin",
-          },
-        ],
+        to: recipientList,
         replyTo: {
           email: replyTo,
         },
@@ -73,8 +88,11 @@ export async function sendTransactionalEmail({
     const data = await response.json();
 
     if (!response.ok) {
-      // Improved error logging as requested
-      console.error(`Brevo API Error [${response.status}]:`, JSON.stringify(data, null, 2));
+      // Improved error logging
+      console.error(
+        `Brevo API Error [${response.status}]:`,
+        JSON.stringify(data, null, 2)
+      );
       return {
         success: false,
         error: `Brevo Error [${response.status}]: ${data.message || JSON.stringify(data)}`,
@@ -89,5 +107,48 @@ export async function sendTransactionalEmail({
       success: false,
       error: message,
     };
+  }
+}
+
+export async function sendTransactionalEmailTo({
+  to,
+  subject,
+  html,
+  replyTo,
+}: SendTransactionalEmailToParams) {
+  if (!EMAIL_FROM || !BREVO_API_KEY) {
+    return { success: false, error: "Missing EMAIL_FROM or BREVO_API_KEY" };
+  }
+  const toList = (Array.isArray(to) ? to : [to])
+    .map((e) => e.trim())
+    .filter(Boolean)
+    .map((email) => ({ email, name: "Syren Customer" }));
+  if (toList.length === 0) {
+    return { success: false, error: "Empty recipient list" };
+  }
+  try {
+    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "api-key": BREVO_API_KEY,
+      },
+      body: JSON.stringify({
+        sender: { name: "Syren Travel", email: EMAIL_FROM },
+        to: toList,
+        replyTo: { email: replyTo },
+        subject,
+        htmlContent: html,
+      }),
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      console.error(`Brevo API Error [${response.status}]:`, JSON.stringify(data, null, 2));
+      return { success: false, error: `Brevo Error [${response.status}]` };
+    }
+    return { success: true };
+  } catch (e) {
+    const message = e instanceof Error ? e.message : "Unknown fetch error";
+    return { success: false, error: message };
   }
 }

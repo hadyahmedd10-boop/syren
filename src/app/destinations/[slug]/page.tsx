@@ -81,7 +81,7 @@ export default async function DestinationPage({ params }: Props) {
     console.log(`[Dev]   - Excursions found via filter: ${destinationExcursions.length}`);
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://syren.travel";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://syrentravel.com";
   const heroImageUrl = destination.heroImage.src;
 
   const jsonLd = {

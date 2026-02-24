@@ -5,7 +5,7 @@ import { trackCta } from "@/lib/track";
 
 interface TrackedLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   eventName: string;
-  eventProps?: Record<string, any>;
+  eventProps?: Record<string, unknown>;
 }
 
 export default function TrackedLink({

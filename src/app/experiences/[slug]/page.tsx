@@ -94,7 +94,7 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
       typeof exc.priceCents === "number"
   );
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://syren.travel";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://syrentravel.com";
   const heroImageUrl = typeof experience.heroImage === 'string' ? experience.heroImage : experience.heroImage.src;
 
   const jsonLd = {

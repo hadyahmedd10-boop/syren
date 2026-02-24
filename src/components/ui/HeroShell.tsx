@@ -38,7 +38,7 @@ export default function HeroShell({
       {backgroundImage && (
         <div className="absolute inset-0">
           <div
-            className="absolute inset-0 bg-cover bg-center blur-[2px] scale-105"
+            className="hero-bg absolute inset-0 bg-cover bg-center blur-[2px] scale-105"
             style={{ backgroundImage: `url("${backgroundImage}")` }}
           />
           {/* Premium overlay */}
@@ -50,7 +50,7 @@ export default function HeroShell({
       <div className="relative z-10 container-x">
         {eyebrow && (
           <p className={cn(
-            "text-[10px] md:text-[11px] uppercase tracking-[0.35em]",
+            "hero-eyebrow text-[10px] md:text-[11px] uppercase tracking-[0.35em]",
             backgroundImage ? "text-white/60" : "text-text-secondary"
           )}>
             {eyebrow}
@@ -63,7 +63,7 @@ export default function HeroShell({
 
         {subtitle && (
           <div className={cn(
-            "mt-5 max-w-2xl text-[15px] md:text-[18px] leading-relaxed",
+            "hero-subtitle mt-5 max-w-2xl text-[15px] md:text-[18px] leading-relaxed",
             backgroundImage ? "text-white/75" : "text-text-secondary"
           )}>
             {subtitle}

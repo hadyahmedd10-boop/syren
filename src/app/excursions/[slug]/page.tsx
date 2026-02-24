@@ -105,7 +105,10 @@ export default async function ExcursionPage({ params }: Props) {
       </section>
 
       {/* Itinerary */}
-      <ExcursionItinerary steps={excursion.itinerarySteps} />
+      <ExcursionItinerary 
+        steps={excursion.itinerarySteps} 
+        fallbackImage={(excursion.image || heroImage) as string} 
+      />
 
       {/* Included */}
       <section className="section">

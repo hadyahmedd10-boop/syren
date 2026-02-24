@@ -5,6 +5,7 @@ export type ExcursionItineraryStep = {
   title: string;        // e.g. "Departure"
   tag?: string;         // e.g. "Transfer", "Lunch Included"
   description: string;  // 1–2 sentences max
+  image?: StaticImageData | string; // optional thumbnail
 };
 
 export type Excursion = {

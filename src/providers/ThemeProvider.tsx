@@ -12,26 +12,16 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
-  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === "undefined") return "dark";
+    const stored = localStorage.getItem("syren_theme") as Theme | null;
+    return stored === "light" ? "light" : "dark";
+  });
 
   useEffect(() => {
-    // 1. Check local storage
-    const storedTheme = localStorage.getItem("syren_theme") as Theme | null;
-    
-    // 2. If stored is light, set light. Default is dark (no class needed for dark in new CSS).
-    if (storedTheme === "light") {
-      setTheme("light");
-      document.documentElement.classList.add("light");
-      document.documentElement.classList.remove("dark"); // Clean up old class if present
-    } else {
-      setTheme("dark");
-      document.documentElement.classList.remove("light");
-      document.documentElement.classList.remove("dark"); // Clean up old class if present
-    }
-    
-    setMounted(true);
-  }, []);
+    document.documentElement.classList.toggle("light", theme === "light");
+    document.documentElement.classList.remove("dark");
+  }, [theme]);
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
@@ -53,10 +43,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }, 300);
   };
 
-  // Prevent hydration mismatch by rendering nothing until mounted?
-  // Or just render children. Since we manipulate class on html, children are mostly fine.
-  // But toggle button icon depends on theme state.
-  
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}

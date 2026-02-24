@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { StaticImageData } from "next/image";
 import { Excursion } from "@/types/excursion";
 import ExperienceCard from "@/components/sections/ExperienceCard";
 import Reveal from "@/components/motion/Reveal";
@@ -11,7 +12,7 @@ import CityFilter from "./CityFilter";
 interface ExcursionFilterListProps {
   excursions: Excursion[];
   destinationName: string;
-  destinationHeroImage?: any; // StaticImageData or string
+  destinationHeroImage?: string | StaticImageData;
 }
 
 export default function ExcursionFilterList({
@@ -34,8 +35,8 @@ export default function ExcursionFilterList({
     
     // Sort based on CITY_ORDER
     const uniqueCities = Array.from(citySet).sort((a, b) => {
-      const indexA = CITY_ORDER.indexOf(a as any);
-      const indexB = CITY_ORDER.indexOf(b as any);
+      const indexA = CITY_ORDER.indexOf(a as (typeof CITY_ORDER)[number]);
+      const indexB = CITY_ORDER.indexOf(b as (typeof CITY_ORDER)[number]);
       
       // If both are in CITY_ORDER, sort by index
       if (indexA !== -1 && indexB !== -1) return indexA - indexB;

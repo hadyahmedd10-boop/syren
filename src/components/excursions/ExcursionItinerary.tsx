@@ -1,12 +1,14 @@
 import React from "react";
+import Image, { type StaticImageData } from "next/image";
 import { ExcursionItineraryStep } from "@/types/excursion";
 import { cn } from "@/lib/utils";
 
 interface ExcursionItineraryProps {
   steps: ExcursionItineraryStep[];
+  fallbackImage?: string | StaticImageData;
 }
 
-export default function ExcursionItinerary({ steps }: ExcursionItineraryProps) {
+export default function ExcursionItinerary({ steps, fallbackImage }: ExcursionItineraryProps) {
   if (!steps || steps.length === 0) {
     return (
       <section className="py-16 md:py-24 bg-muted/30">
@@ -67,7 +69,22 @@ export default function ExcursionItinerary({ steps }: ExcursionItineraryProps) {
                     />
 
                     {/* Step Content */}
-                    <div className="space-y-2">
+                    <div className="space-y-3">
+                      {/* Thumbnail */}
+                      {(step.image || fallbackImage) && (
+                        <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-border/60 bg-surface">
+                          <Image
+                            src={(step.image || fallbackImage) as string}
+                            alt={`${step.title} preview`}
+                            fill
+                            sizes="(min-width: 768px) 35vw, 100vw"
+                            className="object-cover object-center"
+                            loading={index === 0 ? "eager" : "lazy"}
+                          />
+                          <div className="absolute inset-0 ring-1 ring-inset ring-white/5 pointer-events-none" />
+                        </div>
+                      )}
+
                       <div className="flex flex-wrap items-center gap-2 mb-2">
                         {step.tag && (
                           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">

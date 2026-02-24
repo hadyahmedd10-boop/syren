@@ -188,6 +188,7 @@ export default function QuoteForm() {
               onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
             >
               <option value="" className="bg-background">Select range</option>
+              <option value="2k-4k" className="bg-background">$2,000 - $4,000</option>
               <option value="5k-10k" className="bg-background">$5,000 - $10,000</option>
               <option value="10k-25k" className="bg-background">$10,000 - $25,000</option>
               <option value="25k-50k" className="bg-background">$25,000 - $50,000</option>

@@ -64,28 +64,39 @@ export default function OurVision() {
         </div>
 
         <div className="mx-auto max-w-5xl container-x relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-y-12 md:gap-y-0 items-center justify-center">
-            {stats.map((stat, i) => (
-              <Reveal key={stat.label} delay={0.1 * (i + 1)}>
-                <div className="flex flex-col items-center text-center px-6 relative group">
-                  <span className="font-serif text-4xl md:text-5xl font-medium text-primary mb-3 tracking-tight transition-all duration-700 ease-[cubic-bezier(0.21,0.47,0.32,0.98)] group-hover:scale-105">
-                    {stat.value}
-                  </span>
-                  <div className="flex flex-col items-center gap-2">
-                    <span className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary group-hover:text-text-primary transition-colors duration-500">
-                      {stat.label}
+          <div className="overflow-hidden px-2">
+            <div className="syren-marquee">
+              <div className="flex gap-6 pr-6">
+                {stats.map((stat, i) => (
+                  <div key={`m1-${stat.label}-${i}`} className="flex flex-col items-center text-center px-6 relative group shrink-0 min-w-[150px]">
+                    <span className="font-serif text-4xl font-medium text-primary mb-3 tracking-tight transition-all duration-700 ease-[cubic-bezier(0.21,0.47,0.32,0.98)] group-hover:scale-105">
+                      {stat.value}
                     </span>
-                    {/* Tiny Decorative Gold Dot */}
-                    <div className="h-0.5 w-0.5 rounded-full bg-accent-gold/40 group-hover:bg-accent-gold transition-colors duration-500" />
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary group-hover:text-text-primary transition-colors duration-500">
+                        {stat.label}
+                      </span>
+                      <div className="h-0.5 w-0.5 rounded-full bg-accent-gold/40 group-hover:bg-accent-gold transition-colors duration-500" />
+                    </div>
                   </div>
-                  
-                  {/* Vertical Divider for Desktop */}
-                  {i < stats.length - 1 && (
-                    <div className="hidden md:block absolute -right-px top-1/2 -translate-y-1/2 h-12 w-px bg-gradient-to-b from-transparent via-white/[0.06] to-transparent" />
-                  )}
-                </div>
-              </Reveal>
-            ))}
+                ))}
+              </div>
+              <div className="flex gap-6 pr-6" aria-hidden="true">
+                {stats.map((stat, i) => (
+                  <div key={`m2-${stat.label}-${i}`} className="flex flex-col items-center text-center px-6 relative group shrink-0 min-w-[150px]">
+                    <span className="font-serif text-4xl font-medium text-primary mb-3 tracking-tight transition-all duration-700 ease-[cubic-bezier(0.21,0.47,0.32,0.98)] group-hover:scale-105">
+                      {stat.value}
+                    </span>
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary group-hover:text-text-primary transition-colors duration-500">
+                        {stat.label}
+                      </span>
+                      <div className="h-0.5 w-0.5 rounded-full bg-accent-gold/40 group-hover:bg-accent-gold transition-colors duration-500" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

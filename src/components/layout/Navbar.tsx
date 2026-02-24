@@ -21,8 +21,8 @@ function Logo({ className = "", onClick, href = "/home#hero" }: { className?: st
       <svg
         aria-hidden="true"
         viewBox="0 0 154 161"
-        width="18"
-        height="18"
+        width="20"
+        height="20"
         className="text-accent-gold"
         fill="currentColor"
         preserveAspectRatio="xMidYMid meet"
@@ -63,13 +63,12 @@ export default function Navbar() {
   const [isMapOpen, setIsMapOpen] = useState(false);
   const [isMobileMapOpen, setIsMobileMapOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const isClient = typeof document !== "undefined" && !!document.body;
 
   const logoHref = "/home#hero";
 
   useEffect(() => {
-    setMounted(true);
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -140,9 +139,9 @@ const toggleMenu = () => {
           <ThemeToggle className="px-2 py-2" />
           <Link 
             href="/experiences" 
-            className="syren-btn-primary syren-nav-cta"
+            className="syren-btn-primary syren-nav-cta px-3 py-1 text-[10px] leading-none"
           > 
-            Experiences
+            Explore Experiences
           </Link> 
         
           <button 
@@ -159,16 +158,15 @@ const toggleMenu = () => {
       {/* Desktop Navbar (Hidden on mobile, present for future expansion) */}
 
 
-      {mounted && createPortal(
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={menuVariants}
-              className="fixed inset-0 z-[10000] bg-background/98 backdrop-blur-xl overflow-y-auto pointer-events-auto flex flex-col"
-            >
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+            className="fixed inset-0 z-[10000] bg-background/98 backdrop-blur-xl overflow-y-auto pointer-events-auto flex flex-col"
+          >
               {/* Top Section */}
               <div className="flex items-start justify-between px-6 pt-8 pb-4">
                 <div className="flex flex-col gap-1">
@@ -267,9 +265,7 @@ const toggleMenu = () => {
               </motion.div>
             </motion.div>
           )}
-        </AnimatePresence>,
-        document.body
-      )}
+        </AnimatePresence>
 
 
 {/* Duplicate removed */}
@@ -338,7 +334,7 @@ const toggleMenu = () => {
           {/* CTA */} 
           <Link 
             href="/experiences" 
-            className="syren-btn-primary px-5 py-2 min-h-[auto]" 
+            className="syren-btn-primary min-h-[auto] px-4 py-1.5 text-[12px] leading-none xl:px-5 xl:py-2 xl:text-[13px]" 
           > 
             Explore Experiences 
           </Link> 
