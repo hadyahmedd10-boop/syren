@@ -1,12 +1,16 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "@/providers/ThemeProvider";
 
 export default function ThemeToggle({ className = "" }: { className?: string }) {
   const { theme, toggleTheme } = useTheme();
-  const isLight = useMemo(() => theme === "light", [theme]);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  // Avoid hydration mismatches by deferring theme-dependent UI until mounted
+  const isLight = useMemo(() => (mounted ? theme === "light" : false), [mounted, theme]);
 
   return (
     <button

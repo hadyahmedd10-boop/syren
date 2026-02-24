@@ -553,6 +553,14 @@ html.light header .syren-btn-primary { color: #ffffff !important; }
     font-weight: 600;
   }
   
+  /* Ensure hero overlay text stays white in light mode (override generic light text rules) */
+  html.light #hero .hero-eyebrow,
+  html.light #hero .hero-subtitle,
+  html.light #hero .text-white\/60,
+  html.light #hero .text-white\/75 {
+    color: #ffffff !important;
+  }
+  
   :focus-visible {
     outline: 2px solid var(--royal-blue);
     outline-offset: 2px;
