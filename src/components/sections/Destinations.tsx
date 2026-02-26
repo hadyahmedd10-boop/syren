@@ -90,7 +90,7 @@ export default function Destinations() {
 
                   <div className="mt-2.5 flex flex-col text-center md:text-left flex-grow">
                     <div className="relative">
-                      <span className="absolute -left-3 -top-5 font-serif text-5xl text-text-primary/5 select-none hidden md:block group-hover:text-primary/10 transition-colors duration-500">
+                      <span className="absolute left-0 top-1/2 -translate-y-1/2 font-serif text-5xl text-text-primary/5 select-none hidden md:block group-hover:text-primary/10 transition-colors duration-500 pointer-events-none">
                         0{index + 1}
                       </span>
                       <h3 className="hidden md:block font-serif text-2xl font-medium tracking-tight text-accent-gold relative z-10 transition-colors duration-500">
