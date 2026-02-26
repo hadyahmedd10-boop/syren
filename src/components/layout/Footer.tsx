@@ -28,7 +28,7 @@ export default function Footer() {
           </ul> 
         </div> 
 
-        <div>
+        <div className="flex flex-col items-center">
           <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Connect</h4> 
           <ul className="text-sm opacity-70 font-sans">
             <li className="flex items-center gap-4">
