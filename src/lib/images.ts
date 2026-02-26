@@ -80,10 +80,15 @@ export const EXCURSION_COVERS = {
   "cairo-private-photo-session": "/images/excursions/cairo-private-photo-session/cover.jpg",
 } as const;
 
+export const EVENT_IMAGES = {
+  "cairo-jazz-festival": destCairo, // Placeholder
+} as const;
+
 export const images = {
   hero: HERO_IMAGES,
   destinations: DESTINATION_IMAGES,
   experiences: EXPERIENCE_IMAGES,
   excursions: EXCURSION_IMAGES,
   excursionCovers: EXCURSION_COVERS,
+  events: EVENT_IMAGES,
 } as const;
