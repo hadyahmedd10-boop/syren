@@ -32,6 +32,7 @@ export default function OurVision() {
           id="vision-title"
           title="The Vision of Syren" 
           label="The Soul" 
+          align="center"
           className="mb-8 md:mb-12"
         />
         
