@@ -15,6 +15,9 @@ const destRedSea = heroRedSea;
 const destSiwaOasis = heroSiwa;
 const destAlexandria = heroAlexandria;
 const destHurghada = heroHurghada;
+// New destinations fallback assets (until specific images are provided)
+const destSharmElSheikh = heroHurghada; // Sinai coastal fallback
+const destNorthCoast = heroAlexandria;  // Mediterranean coastal fallback
 
 // Experience Images
 import expCairo5Day from "../../public/images/experiences/cairo-5-day.jpg";
@@ -30,10 +33,11 @@ export const HERO_IMAGES = {
 export const DESTINATION_IMAGES = {
   cairo: destCairo,
   "luxor-aswan": destLuxorAswan,
-  "red-sea": destRedSea,
   "siwa-oasis": destSiwaOasis,
   alexandria: destAlexandria,
   hurghada: destHurghada,
+  "sharm-el-sheikh": destSharmElSheikh,
+  "north-coast": destNorthCoast,
 } as const;
 
 export const EXPERIENCE_IMAGES = {

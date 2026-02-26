@@ -35,17 +35,6 @@ export const destinations: Destination[] = [
     featuredExperienceSlugs: ["nile-signature"],
   },
   {
-    slug: "red-sea",
-    name: "Red Sea",
-    tagline: "Pure escape by water",
-    description:
-      "Crystal-clear waters, hidden lagoons, and barefoot luxury. The Red Sea is Egypt’s playground of calm and color.",
-    heroImage: DESTINATION_IMAGES["red-sea"],
-    image: DESTINATION_IMAGES["red-sea"],
-    vibeKeywords: ["beach", "luxury", "relax"],
-    featuredExperienceSlugs: ["10-day-cairo-nile-red-sea-odyssey"],
-  },
-  {
     slug: "siwa-oasis",
     name: "Siwa Oasis",
     tagline: "The desert's hidden heart.",
@@ -76,6 +65,28 @@ export const destinations: Destination[] = [
     heroImage: DESTINATION_IMAGES["hurghada"],
     image: DESTINATION_IMAGES["hurghada"],
     vibeKeywords: ["adventure", "diving", "resort"],
+    featuredExperienceSlugs: [],
+  },
+  {
+    slug: "sharm-el-sheikh",
+    name: "Sharm El Sheikh",
+    tagline: "Sinai’s Sapphire Coast",
+    description:
+      "World-class reefs, private bays, and desert-meets-sea serenity on the Sinai Peninsula. A sanctuary for diving and coastal luxury.",
+    heroImage: DESTINATION_IMAGES["sharm-el-sheikh"],
+    image: DESTINATION_IMAGES["sharm-el-sheikh"],
+    vibeKeywords: ["sinai", "reef", "coast"],
+    featuredExperienceSlugs: [],
+  },
+  {
+    slug: "north-coast",
+    name: "North Coast",
+    tagline: "Mediterranean Calm & Light",
+    description:
+      "Azure shores and refined seaside retreats along Egypt’s Mediterranean coastline. Sunlit days and elegant coastal evenings.",
+    heroImage: DESTINATION_IMAGES["north-coast"],
+    image: DESTINATION_IMAGES["north-coast"],
+    vibeKeywords: ["mediterranean", "beach", "resort"],
     featuredExperienceSlugs: [],
   },
 ];
