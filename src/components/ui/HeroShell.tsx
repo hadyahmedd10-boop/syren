@@ -50,19 +50,19 @@ export default function HeroShell({
       <div className="relative z-10 container-x">
         {eyebrow && (
           <p className={cn(
-            "hero-eyebrow text-[10px] md:text-[11px] uppercase tracking-[0.35em] text-white/60"
+            "hero-eyebrow text-[10px] md:text-[11px] uppercase tracking-[0.35em] text-white"
           )}>
             {eyebrow}
           </p>
         )}
 
-        <h1 className="mt-4 font-serif text-[46px] leading-[0.95] md:text-[76px] md:leading-[0.95] text-accent-gold">
+        <h1 className="mt-4 font-serif text-[46px] leading-[0.95] md:text-[76px] md:leading-[0.95] text-black hero-title">
           {title}
         </h1>
 
         {subtitle && (
           <div className={cn(
-            "hero-subtitle mt-5 max-w-2xl text-[15px] md:text-[18px] leading-relaxed text-white/75"
+            "hero-subtitle mt-5 max-w-2xl text-[15px] md:text-[18px] leading-relaxed text-white"
           )}>
             {subtitle}
           </div>
