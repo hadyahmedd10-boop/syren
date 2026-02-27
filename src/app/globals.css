@@ -273,6 +273,25 @@ a:not(.syren-btn-primary):not(.no-highlight):hover {
   text-shadow: 0 1px 1px rgba(255,255,255,0.25);
 }
 
+/* Reusable hero headline style (single source of truth) */
+.hero-heading {
+  font-family: var(--font-playfair), serif;
+  font-weight: 400;
+  letter-spacing: -0.02em; /* matches tracking-tight */
+  line-height: 1.1;
+  color: #ffffff; /* identical in light/dark */
+  font-size: 1.875rem; /* 3xl */
+}
+@media (min-width: 640px) {
+  .hero-heading { font-size: 2.25rem; } /* 4xl */
+}
+@media (min-width: 768px) {
+  .hero-heading { font-size: 3.75rem; } /* 6xl */
+}
+@media (min-width: 1024px) {
+  .hero-heading { font-size: 4.5rem; } /* 7xl */
+}
+
 /* Hero light mode legibility */
 html.light #hero .hero-eyebrow,
 html.light #hero .hero-subtitle,

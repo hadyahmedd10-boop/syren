@@ -38,7 +38,7 @@ export default function SplashClient() {
             Syren
           </span>
           
-          <h1 className="hero-title font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl mb-5 md:mb-6 tracking-tight font-light">
+          <h1 className="hero-heading hero-title mb-5 md:mb-6">
             Egypt, Like you&apos;ve <br /> never seen before
           </h1>
           
