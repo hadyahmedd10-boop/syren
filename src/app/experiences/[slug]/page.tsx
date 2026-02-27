@@ -155,7 +155,7 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
         </div>
       )}
       {/* 1. Cinematic Hero Section */}
-      <section className="relative min-h-[55vh] md:min-h-[70vh] lg:min-h-[75vh] w-full overflow-hidden">
+      <section id="hero" className="relative min-h-[55vh] md:min-h-[70vh] lg:min-h-[75vh] w-full overflow-hidden">
         <Image
           src={experience.heroImage}
           alt={`Experience the essence of ${experience.title}, an ultra-private Egyptian odyssey`}
@@ -170,7 +170,7 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
         
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
           <Reveal>
-            <h1 className="mb-5 max-w-5xl font-serif text-4xl sm:text-5xl tracking-tight md:text-7xl lg:text-8xl hero-title" style={{color: '#EFA84C'}}>
+            <h1 className="mb-5 max-w-5xl font-serif text-4xl sm:text-5xl tracking-tight md:text-7xl lg:text-8xl hero-title">
               {experience.title}
             </h1>
           </Reveal>

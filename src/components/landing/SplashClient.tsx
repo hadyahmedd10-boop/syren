@@ -7,7 +7,7 @@ import { HERO_IMAGES } from "@/lib/images";
 
 export default function SplashClient() {
   return (
-    <main className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center bg-black overflow-hidden">
+    <main id="hero" className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center bg-black overflow-hidden">
       {/* Background Image with subtle zoom */}
       <motion.div 
         initial={{ scale: 1.1, opacity: 0 }}
@@ -34,15 +34,15 @@ export default function SplashClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.5 }}
         >
-          <span className="block font-serif text-accent-gold tracking-[0.6em] text-[10px] md:text-[12px] uppercase mb-6 md:mb-8">
+          <span className="hero-eyebrow block tracking-[0.6em] text-[10px] md:text-[12px] uppercase mb-6 md:mb-8">
             Syren
           </span>
           
-          <h1 className="font-serif text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl mb-5 md:mb-6 tracking-tight font-light">
+          <h1 className="hero-title font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl mb-5 md:mb-6 tracking-tight font-light">
             Egypt, Like you&apos;ve <br /> never seen before
           </h1>
           
-          <p className="text-white/60 max-w-xl mx-auto text-sm md:text-base font-light italic mb-10 md:mb-12 tracking-wide">
+          <p className="hero-subtitle max-w-xl mx-auto text-sm md:text-base font-light italic mb-10 md:mb-12 tracking-wide">
             Private journeys designed by local experts. Delivered with absolute precision.
           </p>
 
