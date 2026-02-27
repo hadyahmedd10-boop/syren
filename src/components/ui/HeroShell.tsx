@@ -56,7 +56,7 @@ export default function HeroShell({
           </p>
         )}
 
-        <h1 className="mt-4 font-serif text-[46px] leading-[0.95] md:text-[76px] md:leading-[0.95] hero-title">
+        <h1 className="mt-4 font-serif text-[46px] leading-[1.1] md:text-[76px] md:leading-[1.1] hero-title">
           {title}
         </h1>
 
