@@ -81,7 +81,14 @@ export const EXCURSION_COVERS = {
 } as const;
 
 export const EVENT_IMAGES = {
-  "cairo-jazz-festival": destCairo, // Placeholder
+  "cairo-jazz-festival": heroHome,
+  "zamna-festival": heroHome,
+  "noart-festival": heroHome,
+  "the-moment-festival": heroHome,
+  "shakira-live-performance": heroHome,
+  "exit-festival": heroHome,
+  "sandbox-festival": heroHome,
+  "al-tannoura-show": heroHome,
 } as const;
 
 export const images = {

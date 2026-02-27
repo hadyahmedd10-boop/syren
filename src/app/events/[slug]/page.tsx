@@ -24,9 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const title = `${event.name} | Syren`;
-  const description = event.description;
-  const heroImageUrl = event.thumbnail.src;
+  const title = event.seoTitle || `${event.title} | Syren`;
+  const description = event.seoDescription || event.shortDescription;
+  const heroImageUrl =
+    typeof event.heroImage === "string" ? event.heroImage : event.heroImage.src;
 
   return {
     title,
@@ -70,42 +71,48 @@ export default function EventPage({ params }: Props) {
     <main className="min-h-screen bg-background">
       <div className="relative h-[60vh]">
         <Image
-          src={event.thumbnail}
-          alt={event.name}
-          layout="fill"
-          objectFit="cover"
+          src={typeof event.heroImage === "string" ? event.heroImage : event.heroImage.src}
+          alt={event.title}
+          fill
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
-          <h1 className="font-serif text-5xl font-bold">{event.name}</h1>
+          <h1 className="hero-heading hero-title">{event.title}</h1>
           <p className="mt-4 text-lg">{event.date}</p>
-          <p className="mt-2 text-lg">{event.location}</p>
+          <p className="mt-2 text-lg">{event.city}</p>
         </div>
       </div>
       <div className="section">
         <div className="mx-auto max-w-4xl container-x">
-          <div className="prose prose-invert max-w-none">
-            <h2>About the Event</h2>
-            <p>{event.overview}</p>
-            <h2>Artist Lineup</h2>
-            <ul>
-              {event.artistLineup.map((artist) => (
-                <li key={artist}>{artist}</li>
-              ))}
-            </ul>
-            <h2>Tickets</h2>
-            <p>
-              <Link href={event.ticketLink} target="_blank" rel="noopener noreferrer" className="text-accent-gold hover:underline">
-                Official Ticket Website
-              </Link>
-            </p>
-            <h2>Syren's Curated Package</h2>
-            <h3>{event.syrenPackage.title}</h3>
-            <p>{event.syrenPackage.description}</p>
-            <Link href="/quote" className="syren-btn-primary">
-              {event.syrenPackage.cta}
+          <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">About the Event</h2>
+          <p className="text-text-secondary mb-6">{event.fullDescription}</p>
+
+          <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">Artist Lineup</h2>
+          <ul className="list-disc ml-6 mb-6">
+            {event.lineup.map((artist) => (
+              <li key={artist} className="text-text-secondary">{artist}</li>
+            ))}
+          </ul>
+
+          <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">Tickets</h2>
+          <p className="mb-6">
+            <Link href={event.ticketUrl} target="_blank" rel="noopener noreferrer" className="text-accent-gold hover:underline">
+              Official Ticket Website
             </Link>
-          </div>
+          </p>
+
+          <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">Curated Package</h2>
+          <h3 className="font-serif text-xl text-text-primary mb-2">{event.curatedPackage.title}</h3>
+          <p className="text-text-secondary mb-4">{event.curatedPackage.description}</p>
+          <ul className="list-disc ml-6 mb-6">
+            {event.curatedPackage.inclusions.map((inc) => (
+              <li key={inc} className="text-text-secondary">{inc}</li>
+            ))}
+          </ul>
+          <Link href="/quote" className="syren-btn-primary">
+            {event.curatedPackage.ctaLabel}
+          </Link>
         </div>
       </div>
     </main>
