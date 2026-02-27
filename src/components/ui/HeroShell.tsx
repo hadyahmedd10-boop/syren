@@ -56,13 +56,13 @@ export default function HeroShell({
           </p>
         )}
 
-        <h1 className="mt-4 font-serif text-[46px] leading-[0.95] md:text-[76px] md:leading-[0.95] text-black hero-title">
+        <h1 className="mt-4 font-serif text-[46px] leading-[0.95] md:text-[76px] md:leading-[0.95] hero-title">
           {title}
         </h1>
 
         {subtitle && (
           <div className={cn(
-            "hero-subtitle mt-5 max-w-2xl text-[15px] md:text-[18px] leading-relaxed text-white"
+            "hero-subtitle mt-5 max-w-2xl text-[15px] md:text-[18px] leading-relaxed"
           )}>
             {subtitle}
           </div>
