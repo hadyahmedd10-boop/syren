@@ -77,44 +77,78 @@ export default function EventPage({ params }: Props) {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white">
+          <span className="syren-pill bg-black/60 border border-white/10 text-white/90 mb-4">{event.category}</span>
           <h1 className="hero-heading hero-title">{event.title}</h1>
-          <p className="mt-4 text-lg">{event.date}</p>
-          <p className="mt-2 text-lg">{event.city}</p>
+          <div className="mt-4 flex items-center justify-center gap-2">
+            <span className="syren-pill bg-black/60 border border-white/10 text-white/90">{event.date}</span>
+            <span className="syren-pill bg-black/60 border border-white/10 text-white/90">{event.city}</span>
+          </div>
         </div>
       </div>
-      <div className="section">
+      <section className="section bg-background">
         <div className="mx-auto max-w-4xl container-x">
-          <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">About the Event</h2>
-          <p className="text-text-secondary mb-6">{event.fullDescription}</p>
-
-          <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">Artist Lineup</h2>
-          <ul className="list-disc ml-6 mb-6">
-            {event.lineup.map((artist) => (
-              <li key={artist} className="text-text-secondary">{artist}</li>
-            ))}
-          </ul>
-
-          <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">Tickets</h2>
-          <p className="mb-6">
-            <Link href={event.ticketUrl} target="_blank" rel="noopener noreferrer" className="text-accent-gold hover:underline">
-              Official Ticket Website
-            </Link>
-          </p>
-
-          <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">Curated Package</h2>
-          <h3 className="font-serif text-xl text-text-primary mb-2">{event.curatedPackage.title}</h3>
-          <p className="text-text-secondary mb-4">{event.curatedPackage.description}</p>
-          <ul className="list-disc ml-6 mb-6">
-            {event.curatedPackage.inclusions.map((inc) => (
-              <li key={inc} className="text-text-secondary">{inc}</li>
-            ))}
-          </ul>
-          <Link href="/quote" className="syren-btn-primary">
-            {event.curatedPackage.ctaLabel}
-          </Link>
+          <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-3">About the Event</h2>
+          <p className="text-text-secondary leading-relaxed">{event.fullDescription}</p>
         </div>
-      </div>
+      </section>
+ 
+      <section className="section bg-background">
+        <div className="mx-auto max-w-7xl container-x">
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="rounded-2xl border border-border bg-surface/40 p-6 text-center">
+              <h3 className="font-serif text-xl text-text-primary mb-3">Date & Time</h3>
+              <div className="flex items-center justify-center gap-2">
+                <span className="syren-pill bg-black/60 border border-white/10 text-white/90">{event.date}</span>
+                <span className="syren-pill bg-black/60 border border-white/10 text-white/90">{event.time}</span>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-border bg-surface/40 p-6 text-center">
+              <h3 className="font-serif text-xl text-text-primary mb-3">Location</h3>
+              <div className="flex items-center justify-center gap-2">
+                <span className="syren-pill bg-black/60 border border-white/10 text-white/90">{event.city}</span>
+                <span className="syren-pill bg-black/60 border border-white/10 text-white/90">{event.location}</span>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-border bg-surface/40 p-6 text-center">
+              <h3 className="font-serif text-xl text-text-primary mb-3">Tickets</h3>
+              <Link href={event.ticketUrl} target="_blank" rel="noopener noreferrer" className="syren-btn">
+                Official Ticket Website
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+ 
+      <section className="section bg-background">
+        <div className="mx-auto max-w-7xl container-x">
+          <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">Lineup</h2>
+          <div className="flex flex-wrap gap-2">
+            {event.lineup.map((artist) => (
+              <span key={artist} className="syren-pill border border-accent-gold/20 bg-accent-gold/5 text-accent-gold/80">
+                {artist}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+ 
+      <section className="section bg-background">
+        <div className="mx-auto max-w-7xl container-x">
+          <div className="rounded-2xl border border-border bg-surface/40 p-6 md:p-8">
+            <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-3">{event.curatedPackage.title}</h2>
+            <p className="text-text-secondary mb-6">{event.curatedPackage.description}</p>
+            <ul className="grid md:grid-cols-2 gap-3 mb-6">
+              {event.curatedPackage.inclusions.map((inc) => (
+                <li key={inc} className="text-text-secondary">• {inc}</li>
+              ))}
+            </ul>
+            <Link href="/quote" className="syren-btn">
+              {event.curatedPackage.ctaLabel}
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
