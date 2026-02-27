@@ -69,6 +69,12 @@ export default function RootLayout({
       <head>
         <ThemeScript />
         <script
+          id="perf-safe-head"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if(typeof window!=='undefined'){var host=window.location&&window.location.hostname;var isDev=host==='localhost'||host==='127.0.0.1';if(isDev){var perf=window.performance;if(perf&&typeof perf.measure==='function'){var orig=perf.measure.bind(perf);perf.measure=function(){try{return orig.apply(perf,arguments);}catch(e){console.warn('[PerfSafe/head] Suppressed Performance.measure error:',e);return undefined;}}}}}}catch(_){}})();`,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
