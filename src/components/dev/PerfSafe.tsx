@@ -13,9 +13,8 @@
      const perf: Performance | undefined = (typeof window !== "undefined" ? window.performance : undefined);
      if (!perf || typeof perf.measure !== "function") return;
  
-     const original = perf.measure.bind(perf);
-     // @ts-expect-error - augment Performance API dynamically
-     perf.measure = function (...args: any[]) {
+    const original: any = (perf as any).measure.bind(perf);
+    (perf as any).measure = function (...args: any[]) {
        try {
          return original(...args);
        } catch (err) {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { events } from "@/data/events";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,19 +12,14 @@ interface Props {
   params: { slug: string };
 }
 
-export async function generateStaticParams() {
-  return events.map((event) => ({
-    slug: event.slug,
-  }));
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = params;
   const event = events.find((event) => event.slug === slug);
 
   if (!event) {
     return {
-      title: "Event Not Found",
+      title: "Events | Syren",
+      description: "Explore premium events curated by Syren.",
     };
   }
 
@@ -66,10 +61,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function EventDetailPage({ params }: Props) {
   const { slug } = params;
+  if (process.env.NODE_ENV === "development") {
+    console.log("Loaded event slug:", slug);
+  }
   const event = events.find((event) => event.slug === slug);
 
   if (!event) {
-    notFound();
+    if (process.env.NODE_ENV === "development") {
+      console.warn("Event slug not found, redirecting:", slug);
+    }
+    redirect("/events");
   }
 
   return (
