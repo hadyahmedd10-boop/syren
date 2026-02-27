@@ -27,7 +27,7 @@ export default function OurVision() {
         />
       </div>
       
-      <div className="mx-auto max-w-4xl container-x relative z-10 py-12">
+      <div className="mx-auto max-w-5xl container-x relative z-10 py-16 md:py-24 text-center">
         <SectionHeader 
           id="vision-title"
           title="The Vision of Syren" 
@@ -44,13 +44,13 @@ export default function OurVision() {
           </Reveal>
           
           <Reveal delay={0.3}>
-            <p className="font-sans text-xs md:text-sm leading-relaxed text-text-secondary text-center max-w-xl mx-auto">
+            <p className="font-sans text-xs md:text-sm leading-relaxed text-text-secondary text-center max-w-2xl mx-auto">
               We don’t sell packages. We don’t reuse itineraries. We don’t believe one experience fits everyone. Every journey starts with a conversation — not a form. We listen to how you travel, what you care about, and what you want this trip to mean.
             </p>
           </Reveal>
 
           <Reveal delay={0.4}>
-            <p className="font-sans text-xs md:text-sm leading-relaxed text-text-secondary text-center max-w-xl mx-auto">
+            <p className="font-sans text-xs md:text-sm leading-relaxed text-text-secondary text-center max-w-2xl mx-auto">
               From there, we build something that fits you, not a brochure. Some travelers want depth. Some want comfort. Some want adventure. Most want a balance — and that balance looks different for everyone.
             </p>
           </Reveal>
