@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function EventPage({ params }: Props) {
+export default function EventDetailPage({ params }: Props) {
   const { slug } = params;
   const event = events.find((event) => event.slug === slug);
 

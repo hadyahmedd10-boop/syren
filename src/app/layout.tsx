@@ -8,6 +8,7 @@ import { Suspense } from "react";
 import { validateExcursionData } from "@/lib/data-validator";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import ViewportBadge from "@/components/dev/ViewportBadge";
+import PerfSafe from "@/components/dev/PerfSafe";
 import ThemeScript from "@/components/theme/ThemeScript";
 
 // Run data validation in development
@@ -85,6 +86,7 @@ export default function RootLayout({
       <body className="antialiased">
         <ThemeProvider>
           <PHProvider>
+            <PerfSafe />
             <Suspense>
               <PostHogPageView />
             </Suspense>
