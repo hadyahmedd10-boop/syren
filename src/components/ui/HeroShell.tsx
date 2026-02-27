@@ -50,7 +50,7 @@ export default function HeroShell({
       <div className="relative z-10 container-x">
         {eyebrow && (
           <p className={cn(
-            "hero-eyebrow text-[10px] md:text-[11px] uppercase tracking-[0.35em] text-white"
+            "hero-eyebrow text-[10px] md:text-[11px] uppercase tracking-[0.35em]"
           )}>
             {eyebrow}
           </p>

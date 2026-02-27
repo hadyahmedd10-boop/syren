@@ -419,9 +419,11 @@ html.light .syren-btn-primary:hover {
 }
 
 /* Hero global color enforcement and readability */
-#hero .hero-eyebrow,
 #hero .hero-subtitle {
   color: #ffffff !important;
+}
+#hero .hero-eyebrow {
+  color: #EFA84C !important;
 }
 #hero .hero-title {
   color: #EFA84C !important;
