@@ -55,10 +55,10 @@ export const events: Event[] = [
       "Zamna is returning to Egypt after last year’s legendary weekend, bringing an elevated multi-day experience that blends electronic music, culture, and curated adventures across Cairo and Giza. Expect international headliners, refined staging, and premium pacing with Syren-curated daytime journeys complementing the night. Further details TBA.",
     location: "The Great Pyramids of Giza",
     city: "Giza, Egypt",
-    date: "2026-04-24 to 2026-04-26",
-    time: "18:00–03:00",
+    date: "April 24-26, 2026",
+    time: "6:00 PM - 3:00 AM",
     duration: "3 Days",
-    lineup: ["Headline DJ A", "International Artist B", "Local Talent C"],
+    lineup: ["TBA"],
     minAge: "21+",
     ticketUrl: "https://www.technoandchill.com/events/",
     heroImage: EVENT_IMAGES["zamna-festival"],
@@ -90,11 +90,19 @@ export const events: Event[] = [
     shortDescription: "Underground culture and cutting-edge electronic music.",
     fullDescription:
       "NOART showcases avant-garde electronic artists with immersive environments and refined staging.",
-    location: "Egypt",
-    city: "Cairo",
-    date: "2026-11-04",
-    time: "17:00",
-    lineup: ["Artist X", "Artist Y", "Artist Z"],
+    location: "Human Figures Platform, Somabay",
+    city: "Soma Bay, Egypt",
+    date: "March 22, 2026",
+    time: "8:00 PM",
+    duration: "9h",
+    lineup: [
+      "ANOTR",
+      "Bella",
+      "Chris Stussy",
+      "Chloe Caillet",
+      "Job Jobse B2B Palms Trax",
+      "Misty"
+    ],
     ticketUrl: "https://tickets.example.com/noart",
     heroImage: EVENT_IMAGES["noart-festival"],
     galleryImages: [EVENT_IMAGES["noart-festival"]],
@@ -104,7 +112,7 @@ export const events: Event[] = [
     seoDescription:
       "Discover NOART in Egypt with a curated Syren package and premium logistics.",
     curatedPackage: {
-      title: "NOART Curated Package",
+      title: "Soma Bay Luxury Festival Escape",
       description:
         "Curated venue access, transport coordination, and select dining reservations.",
       inclusions: ["Transport", "Curated access", "Dining reservations"],
@@ -132,8 +140,18 @@ export const events: Event[] = [
     seoTitle: "The Moment Festival Egypt | International Lineups",
     seoDescription:
       "Experience The Moment with Syren’s concierge and premium access packages.",
+    houseRules: [
+      "No on-door tickets",
+      "No re-entry",
+      "Standing & Golden Circle Minimum Entry Age: 6+",
+      "VIP Standing Minimum Entry Age: 10+",
+      "Couples / Mixed groups only",
+      "Violent behavior will not be tolerated",
+      "Door selection applies",
+      "Paid tickets are non-refundable and non-exchangeable"
+    ],
     curatedPackage: {
-      title: "The Moment Signature Package",
+      title: "The Moment Festival Escape – Ain Sokhna",
       description:
         "Premium passes, private chauffeur service, and reserved lounge access.",
       inclusions: ["Premium passes", "Chauffeur", "Lounge access"],
@@ -161,8 +179,18 @@ export const events: Event[] = [
     seoTitle: "Shakira Live in Egypt | Premium Access",
     seoDescription:
       "Enjoy Shakira live with Syren’s premium tickets and concierge travel planning.",
+    houseRules: [
+      "No on-door tickets",
+      "No re-entry",
+      "Standing & Golden Circle Minimum Entry Age: 6+",
+      "VIP Standing Minimum Entry Age: 10+",
+      "Couples / Mixed groups only",
+      "Violent behavior will not be tolerated",
+      "Door selection applies",
+      "Paid tickets are non-refundable and non-exchangeable"
+    ],
     curatedPackage: {
-      title: "Shakira Premium Package",
+      title: "Shakira at the Pyramids – VIP Travel Experience",
       description:
         "Front-row seating options, private transfers, and post-show lounge reservations.",
       inclusions: ["VIP tickets", "Transfers", "Lounge reservations"],
@@ -206,11 +234,11 @@ export const events: Event[] = [
     shortDescription: "Beachside electronic music retreat.",
     fullDescription:
       "SANDBOX combines coastal settings with refined electronic music curation and intimate pacing.",
-    location: "Egypt",
-    city: "Gouna",
-    date: "2026-06-15",
+    location: "El Gouna, Red Sea",
+    city: "El Gouna, Egypt",
+    date: "May 7-9, 2026",
     time: "17:00",
-    lineup: ["DJ Alpha", "DJ Beta", "DJ Gamma"],
+    lineup: ["TBA"],
     ticketUrl: "https://tickets.example.com/sandbox",
     heroImage: EVENT_IMAGES["sandbox-festival"],
     galleryImages: [EVENT_IMAGES["sandbox-festival"]],
@@ -220,7 +248,7 @@ export const events: Event[] = [
     seoDescription:
       "Book SANDBOX with Syren’s coastal packages, transport, and boutique stays.",
     curatedPackage: {
-      title: "SANDBOX Coastal Package",
+      title: "SANDBOX Luxury Red Sea Retreat",
       description:
         "Boutique accommodations, beach transfers, and premium festival access.",
       inclusions: ["Accommodations", "Transfers", "Access"],
