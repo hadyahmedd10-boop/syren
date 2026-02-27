@@ -10,6 +10,7 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import ViewportBadge from "@/components/dev/ViewportBadge";
 import PerfSafe from "@/components/dev/PerfSafe";
 import ThemeScript from "@/components/theme/ThemeScript";
+import Script from "next/script";
 
 // Run data validation in development
 if (process.env.NODE_ENV === "development") {
@@ -68,6 +69,28 @@ export default function RootLayout({
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
         <ThemeScript />
+        <Script id="perf-safe-before" strategy="beforeInteractive">
+          {(`
+            (function(){
+              try{
+                if(typeof window!=='undefined'){
+                  var host=window.location&&window.location.hostname;
+                  var isDev=host==='localhost'||host==='127.0.0.1';
+                  if(isDev){
+                    var perf=window.performance;
+                    if(perf&&typeof perf.measure==='function'){
+                      var orig=perf.measure.bind(perf);
+                      perf.measure=function(){
+                        try{ return orig.apply(perf,arguments); }
+                        catch(e){ console.warn('[PerfSafe/beforeInteractive] Suppressed Performance.measure error:', e); return undefined; }
+                      };
+                    }
+                  }
+                }
+              }catch(_){}
+            })();
+          `)}
+        </Script>
         <script
           id="perf-safe-head"
           dangerouslySetInnerHTML={{
