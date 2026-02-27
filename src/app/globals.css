@@ -10,18 +10,18 @@
   --color-royal-blue: var(--royal-blue);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
-  --color-primary: var(--color-primary);
-  --color-primary-dark: var(--color-primary-dark);
-  --color-text-dark: var(--color-text-dark);
+  --color-primary: var(--accent-gold);          /* FIX: was circular var(--color-primary) */
+  --color-primary-dark: var(--color-primary-dark-val);
+  --color-text-dark: var(--color-text-dark-val);
   --color-border: var(--border);
-  --color-footer: var(--color-footer);
-  
+  --color-footer: var(--color-footer-val);
+
   --shadow-custom: var(--shadow);
   --shadow-card: var(--card-shadow);
 
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
-  
+
   --animate-slow-zoom: slow-zoom 20s ease-in-out infinite alternate;
 
   @keyframes slow-zoom {
@@ -30,32 +30,30 @@
   }
 }
 
+/* ============================================================
+   ROOT — DARK MODE (DEFAULT)
+   ============================================================ */
 :root {
-  /* DARK MODE (DEFAULT) */
   --background: #070707;
   --foreground: #ffffff;
   --surface: #0A0A0A;
   --surface-2: rgba(255,255,255,0.04);
   --border: rgba(255,255,255,0.10);
-  
+
   --text-primary: rgba(255,255,255,0.96);
   --text-secondary: rgba(255,255,255,0.64);
-  
+
   --accent-gold: #F2CD5C;
   --royal-blue: #1D4ED8;
-  
+
   --shadow: 0 18px 60px rgba(0,0,0,0.45);
   --card-shadow: 0 18px 55px rgba(0,0,0,0.38);
-  
-  /* Additional variables for compatibility */
-  --color-border: var(--border); /* Legacy alias */
-  --color-primary: #F2CD5C; /* Brand gold */
-  --color-primary-dark: #D8B74F; /* Hover/pressed */
+
+  /* FIX: renamed to avoid conflicts with @layer base below */
+  --color-primary-dark-val: #D8B74F;
   --color-accent-hover: #D8B74F;
-  
-  /* Ensure text on gold buttons is always dark */
-  --color-footer: #080C0E;
-  --color-text-dark: #0E1A1F;
+  --color-footer-val: #080C0E;
+  --color-text-dark-val: #0E1A1F;
   --color-background-light: #1A1A1A;
 
   --container-x: clamp(1rem, 4vw, 2.75rem);
@@ -68,44 +66,110 @@
   --font-playfair: ui-serif, Georgia, "Times New Roman", Times, serif;
 }
 
+/* ============================================================
+   LIGHT MODE
+   ============================================================ */
 html.light {
-  /* LIGHT MODE */
-  --background: #F6F1E7;             /* ivory */
+  --background: #F6F1E7;
   --foreground: #0B0B0B;
-  --surface: #FFFFFF;                /* card base */
-  --surface-2: rgba(10,10,10,0.035); /* subtle tint */
+  --surface: #FFFFFF;
+  --surface-2: rgba(10,10,10,0.035);
   --border: rgba(10,10,10,0.10);
 
-  --text-primary: #111111;           /* near-black for high contrast */
-  --text-secondary: #555555;         /* readable on light backgrounds */
+  --text-primary: #111111;
+  --text-secondary: #555555;
 
   --accent-gold: #F2CD5C;
   --royal-blue: #1D4ED8;
 
   --shadow: 0 20px 70px rgba(0,0,0,0.10);
   --card-shadow: 0 16px 45px rgba(0,0,0,0.12);
-  
-  /* Additional variables for compatibility */
-  --color-border: var(--border); /* Legacy alias */
-  
-  /* Ensure text on gold buttons is always dark */
-  --color-footer: #EAE5D9;
-  --color-text-dark: #0B0B0B;
+
+  --color-footer-val: #EAE5D9;
+  --color-text-dark-val: #0B0B0B;
   --color-background-light: #EAE5D9;
 }
 
-/* Smooth transition */
+/* ============================================================
+   SHADCN / RADIX UI TOKENS (kept in @layer base to avoid
+   overriding our custom :root vars above)
+   ============================================================ */
+@layer base {
+  /* light shadcn tokens */
+  .shadcn-root {
+    --shadcn-background: 0 0% 100%;
+    --shadcn-foreground: 0 0% 3.9%;
+    --shadcn-card: 0 0% 100%;
+    --shadcn-card-foreground: 0 0% 3.9%;
+    --shadcn-popover: 0 0% 100%;
+    --shadcn-popover-foreground: 0 0% 3.9%;
+    --shadcn-primary: 0 0% 9%;
+    --shadcn-primary-foreground: 0 0% 98%;
+    --shadcn-secondary: 0 0% 96.1%;
+    --shadcn-secondary-foreground: 0 0% 9%;
+    --shadcn-muted: 0 0% 96.1%;
+    --shadcn-muted-foreground: 0 0% 45.1%;
+    --shadcn-accent: 0 0% 96.1%;
+    --shadcn-accent-foreground: 0 0% 9%;
+    --shadcn-destructive: 0 84.2% 60.2%;
+    --shadcn-destructive-foreground: 0 0% 98%;
+    --shadcn-border: 0 0% 89.8%;
+    --shadcn-input: 0 0% 89.8%;
+    --shadcn-ring: 0 0% 3.9%;
+    --shadcn-radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark .shadcn-root {
+    --shadcn-background: 0 0% 3.9%;
+    --shadcn-foreground: 0 0% 98%;
+    --shadcn-card: 0 0% 3.9%;
+    --shadcn-card-foreground: 0 0% 98%;
+    --shadcn-popover: 0 0% 3.9%;
+    --shadcn-popover-foreground: 0 0% 98%;
+    --shadcn-primary: 0 0% 98%;
+    --shadcn-primary-foreground: 0 0% 9%;
+    --shadcn-secondary: 0 0% 14.9%;
+    --shadcn-secondary-foreground: 0 0% 98%;
+    --shadcn-muted: 0 0% 14.9%;
+    --shadcn-muted-foreground: 0 0% 63.9%;
+    --shadcn-accent: 0 0% 14.9%;
+    --shadcn-accent-foreground: 0 0% 98%;
+    --shadcn-destructive: 0 62.8% 30.6%;
+    --shadcn-destructive-foreground: 0 0% 98%;
+    --shadcn-border: 0 0% 14.9%;
+    --shadcn-input: 0 0% 14.9%;
+    --shadcn-ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+/* ============================================================
+   BASE HTML / BODY
+   FIX: merged duplicate html{} blocks into one
+   ============================================================ */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
 html, body {
   background: var(--background);
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-/* Scrollbar Customization */
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
 ::-webkit-scrollbar {
   width: 8px;
   background: transparent;
@@ -118,68 +182,9 @@ html {
   background: var(--accent-gold);
 }
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
-}
-
-/* Base font sizing for consistency */
-html {
-  font-size: 16px;
-}
-
-/* === Typography === */
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-playfair), serif;
   font-weight: 400;
@@ -189,7 +194,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: var(--h1);
-  color: var(--accent-gold); /* Gold H1s */
+  color: var(--accent-gold);
   margin: 0 0 0.6em;
 }
 
@@ -203,7 +208,7 @@ h3 {
   font-family: var(--font-playfair), serif;
   font-weight: 500;
   line-height: 1.2;
-  color: var(--color-text-primary);
+  color: var(--text-primary);   /* FIX: was var(--color-text-primary) which is undefined */
   margin: 0 0 0.6em;
 }
 
@@ -211,7 +216,7 @@ h4 {
   font-family: var(--font-playfair), serif;
   font-weight: 500;
   line-height: 1.2;
-  color: var(--color-text-primary);
+  color: var(--text-primary);   /* FIX: was var(--color-text-primary) which is undefined */
   margin: 0 0 0.5em;
 }
 
@@ -236,168 +241,53 @@ li {
   margin: 0.25em 0;
 }
 
-.syren-pill.mt-1\.5 {
-  display: none !important;
+label {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
-/* === Hero Light Mode Legibility === */
-html.light .hero-eyebrow,
-html.light .hero-subtitle {
-  color: #fff !important;
-}
-
-/* === Scrollbar Hide Utility === */
-.scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
-
-/* === Syren Primary Button === */ 
- .syren-btn { 
-    @apply 
-      inline-flex
-      items-center
-      justify-center
-      min-h-[44px]
-      rounded-full 
-      px-4 py-2.5 md:px-8 md:py-4 
-      text-[11px] md:text-[12px] 
-      uppercase 
-      tracking-[0.2em] 
-      font-sans 
-      font-semibold 
-      transition-all 
-      duration-500 
-      relative 
-      overflow-hidden
-      bg-primary
-      text-text-dark
-      hover:bg-primary-dark
-      hover:scale-[1.02]
-      active:scale-[0.98]
-      shadow-lg
-      shadow-primary/10;
- } 
- 
- .syren-btn-secondary { 
-    @apply 
-      inline-flex
-      items-center
-      justify-center
-      min-h-[44px]
-      rounded-full 
-      px-4 py-2.5 md:px-8 md:py-4 
-      text-[11px] md:text-[12px] 
-      uppercase 
-      tracking-[0.2em] 
-      font-sans 
-      font-semibold 
-      transition-all 
-      duration-500 
-      relative 
-      overflow-hidden
-      bg-transparent
-      text-text-primary
-      border border-text-primary/20
-      hover:bg-text-primary/5
-      hover:border-text-primary/40
-      hover:scale-[1.02]
-      active:scale-[0.98];
- }
-
- .syren-card {
-    @apply 
-      rounded-2xl 
-      transition-all 
-      duration-500 
-      ease-out;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    box-shadow: var(--card-shadow);
- }
- 
- .syren-card-hover {
-     @apply 
-       hover:-translate-y-[2px] 
-       hover:border-accent-gold/30;
-  }
-
-  .syren-card-secondary {
-     @apply 
-       bg-surface/60 
-       border border-border/40 
-       rounded-2xl 
-       transition-all 
-       duration-500 
-       ease-out;
-  }
-
-  .syren-card-hover-secondary {
-     @apply 
-       hover:-translate-y-[1px] 
-       hover:border-accent-gold/20;
-  }
-  
-  .input {
-    @apply 
-      w-full 
-      rounded-lg 
-      bg-transparent 
-      border 
-      border-border 
-      px-4 py-3 
-      text-sm 
-      text-text-primary 
-      placeholder:text-text-secondary/50 
-      focus:border-accent-gold 
-      focus:outline-none 
-      focus:ring-1 
-      focus:ring-accent-gold 
-      transition-colors;
-  }
-
-  
-  
-
-/* Links & Accents */
+/* ============================================================
+   LINKS
+   ============================================================ */
 a:not(.syren-btn-primary):not(.no-highlight):hover {
   color: var(--accent-gold);
 }
 
-html.light a:not(.syren-btn-primary):not(.no-highlight):hover {
-  color: var(--accent-gold);
+:focus-visible {
+  outline: 2px solid var(--royal-blue);
+  outline-offset: 2px;
 }
 
-.syren-btn-primary {
-  @apply inline-flex items-center justify-center bg-accent-gold text-text-dark font-serif uppercase tracking-[0.15em] transition-all duration-300 hover:bg-white hover:text-black hover:scale-[1.02] rounded-full;
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+#hero .hero-subtitle {
+  color: #ffffff !important;
+}
+#hero .hero-eyebrow {
+  color: #C8A96E !important;
+}
+#hero .hero-title {
+  color: #ffffff !important;
+  -webkit-text-stroke: 0.4px rgba(255,255,255,0.35);
+  text-shadow: 0 1px 1px rgba(255,255,255,0.25);
 }
 
-  @keyframes syren-scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .syren-marquee {
-    display: flex;
-    width: max-content;
-    animation: syren-scroll 13s linear infinite;
-    will-change: transform;
-  }
-  .syren-marquee:hover,
-  .syren-marquee:focus-within {
-    animation-play-state: paused;
-  }
-  
+/* Hero light mode legibility */
+html.light #hero .hero-eyebrow,
+html.light #hero .hero-subtitle,
+html.light #hero .text-white\/60,
+html.light #hero .text-white\/75 {
+  color: #ffffff !important;
+}
 
-/* Hero text should stay white in light mode */
 html.light .text-white\/60 {
   color: rgba(255, 255, 255, 0.68) !important;
 }
 html.light .text-white\/75 {
   color: rgba(255, 255, 255, 0.84) !important;
 }
+
 @media (max-width: 640px) {
   html.light .text-white\/60 {
     color: rgba(255, 255, 255, 0.72) !important;
@@ -410,32 +300,102 @@ html.light .text-white\/75 {
   }
 }
 
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.syren-btn {
+  @apply
+    inline-flex
+    items-center
+    justify-center
+    min-h-[44px]
+    rounded-full
+    px-4 py-2.5 md:px-8 md:py-4
+    text-[11px] md:text-[12px]
+    uppercase
+    tracking-[0.2em]
+    font-sans
+    font-semibold
+    transition-all
+    duration-500
+    relative
+    overflow-hidden
+    bg-primary
+    text-text-dark
+    hover:bg-primary-dark
+    hover:scale-[1.02]
+    active:scale-[0.98]
+    shadow-lg
+    shadow-primary/10;
+}
+
+.syren-btn-secondary {
+  @apply
+    inline-flex
+    items-center
+    justify-center
+    min-h-[44px]
+    rounded-full
+    px-4 py-2.5 md:px-8 md:py-4
+    text-[11px] md:text-[12px]
+    uppercase
+    tracking-[0.2em]
+    font-sans
+    font-semibold
+    transition-all
+    duration-500
+    relative
+    overflow-hidden
+    bg-transparent
+    text-text-primary
+    border border-text-primary/20
+    hover:bg-text-primary/5
+    hover:border-text-primary/40
+    hover:scale-[1.02]
+    active:scale-[0.98];
+}
+
+.syren-btn-primary {
+  @apply inline-flex items-center justify-center bg-accent-gold text-text-dark font-serif uppercase tracking-[0.15em] transition-all duration-300 hover:bg-white hover:text-black hover:scale-[1.02] rounded-full;
+}
+
+.btn-secondary {
+  @apply
+    inline-flex
+    items-center
+    justify-center
+    min-h-[44px]
+    rounded-full
+    px-6 py-3
+    text-[12px]
+    uppercase
+    tracking-[0.2em]
+    font-sans
+    font-semibold
+    transition-all
+    duration-500
+    bg-transparent
+    text-text-primary
+    border border-text-primary/20
+    hover:bg-text-primary/5
+    hover:border-text-primary/40;
+}
+
+/* Light mode button overrides */
 html.light .syren-btn-primary {
   color: #ffffff !important;
 }
-
 html.light .syren-btn-primary:hover {
   @apply bg-royal-blue text-white;
 }
-
-/* Hero global color enforcement and readability */
-#hero .hero-subtitle {
+html.light header .syren-btn-primary {
   color: #ffffff !important;
-}
-#hero .hero-eyebrow {
-  color: #C8A96E !important;
-}
-#hero .hero-title {
-  color: #C9A84C !important;
-  -webkit-text-stroke: 0.4px rgba(255,255,255,0.35);
-  text-shadow: 0 1px 1px rgba(255,255,255,0.25);
 }
 
 html.light .syren-btn-secondary {
   color: var(--text-primary) !important;
   border-color: rgba(17, 17, 17, 0.35) !important;
 }
-
 html.light .syren-btn-secondary:hover {
   background-color: rgba(0, 0, 0, 0.06);
   border-color: rgba(17, 17, 17, 0.5) !important;
@@ -446,135 +406,152 @@ html.light .btn-secondary {
   color: var(--text-primary) !important;
   border-color: rgba(17, 17, 17, 0.35) !important;
 }
-
 html.light .btn-secondary:hover {
   background-color: rgba(0, 0, 0, 0.06);
   border-color: rgba(17, 17, 17, 0.5) !important;
   color: var(--text-primary) !important;
 }
 
-html.light header .syren-btn-primary { color: #ffffff !important; }
-
-@layer utilities {
-  html.light p,
-  html.light div,
-  html.light a { color: var(--text-primary) !important; }
+/* ============================================================
+   CARDS
+   ============================================================ */
+.syren-card {
+  @apply
+    rounded-2xl
+    transition-all
+    duration-500
+    ease-out;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
 }
 
-  /* === Syren Input === */
-  .input { 
-    width: 100%; 
-    background: color-mix(in srgb, var(--surface) 94%, transparent); 
-    border: 1px solid var(--border); 
-    padding: 0.9rem 1rem; 
-    border-radius: 0.75rem; 
-    color: var(--text-primary); 
-  }
-  
-  .syren-input {
-    width: 100%; 
-    background: color-mix(in srgb, var(--surface) 94%, transparent); 
-    border: 1px solid var(--border); 
-    padding: 0.9rem 1rem; 
-    border-radius: 0.75rem; 
-    color: var(--text-primary); 
-  }
-  
-  .input::placeholder, .syren-input::placeholder {
-    color: color-mix(in srgb, var(--text-secondary) 82%, transparent);
-  }
+.syren-card-hover {
+  @apply
+    hover:-translate-y-[2px]
+    hover:border-accent-gold/30;
+}
 
-  .btn-secondary {
-    @apply 
-      inline-flex
-      items-center
-      justify-center
-      min-h-[44px]
-      rounded-full 
-      px-6 py-3
-      text-[12px] 
-      uppercase 
-      tracking-[0.2em] 
-      font-sans 
-      font-semibold 
-      transition-all 
-      duration-500 
-      bg-transparent
-      text-text-primary
-      border border-text-primary/20
-      hover:bg-text-primary/5
-      hover:border-text-primary/40;
-  }
+.syren-card-secondary {
+  @apply
+    bg-surface/60
+    border border-border/40
+    rounded-2xl
+    transition-all
+    duration-500
+    ease-out;
+}
 
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
+.syren-card-hover-secondary {
+  @apply
+    hover:-translate-y-[1px]
+    hover:border-accent-gold/20;
+}
 
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+/* ============================================================
+   INPUTS
+   FIX: merged duplicate .input definitions into one
+   ============================================================ */
+.input,
+.syren-input {
+  width: 100%;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  border: 1px solid var(--border);
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
 
-  .section-fade { 
-    background: linear-gradient( 
-      to bottom, 
-      transparent, 
-      rgba(0,0,0,0.6), 
-      transparent 
-    ); 
-  }
+.input:focus,
+.syren-input:focus {
+  border-color: var(--accent-gold);
+  outline: none;
+  box-shadow: 0 0 0 1px var(--accent-gold);
+}
 
-  
+.input::placeholder,
+.syren-input::placeholder {
+  color: color-mix(in srgb, var(--text-secondary) 82%, transparent);
+}
 
-  .mobile-nav-link {
-    @apply font-serif text-3xl text-text-primary tracking-wide hover:text-accent-gold transition-colors block text-center py-2;
-  }
+/* ============================================================
+   MISC COMPONENTS
+   ============================================================ */
+.syren-pill {
+  @apply inline-flex items-center rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.15em] whitespace-nowrap;
+  background-color: rgba(0,0,0,0.6);
+  color: var(--accent-gold);
+  border: 1px solid rgba(196,160,82,0.25);
+  backdrop-filter: blur(6px);
+}
 
-  .syren-nav-cta {
-    padding: 8px 12px !important;
-    min-height: auto !important;
-  }
-  
+@media (max-width: 640px) {
   .syren-pill {
-    @apply inline-flex items-center rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.15em] whitespace-nowrap;
-    background-color: rgba(0,0,0,0.6);
-    color: var(--accent-gold);
-    border: 1px solid rgba(196,160,82,0.25);
-    backdrop-filter: blur(6px);
+    @apply text-[11px] px-3 py-1.5;
   }
-  
-  @media (max-width: 640px) {
-    .syren-pill {
-      @apply text-[11px] px-3 py-1.5;
-    }
-  }
-  
-  .syren-muted {
-    color: var(--text-secondary);
-  }
-  
-  .syren-panel {
-    background: color-mix(in srgb, var(--surface) 90%, transparent);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-  }
+}
 
-  /* Form labels default visibility */
-  label {
-    color: var(--text-primary);
-    font-weight: 600;
-  }
-  
-  /* Ensure hero overlay text stays white in light mode (override generic light text rules) */
-  html.light #hero .hero-eyebrow,
-  html.light #hero .hero-subtitle,
-  html.light #hero .text-white\/60,
-  html.light #hero .text-white\/75 {
-    color: #ffffff !important;
-  }
-  
-  :focus-visible {
-    outline: 2px solid var(--royal-blue);
-    outline-offset: 2px;
-  }
+.syren-pill.mt-1\.5 {
+  display: none !important;
+}
+
+.syren-muted {
+  color: var(--text-secondary);
+}
+
+.syren-panel {
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.syren-nav-cta {
+  padding: 8px 12px !important;
+  min-height: auto !important;
+}
+
+/* ============================================================
+   MARQUEE ANIMATION
+   ============================================================ */
+@keyframes syren-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.syren-marquee {
+  display: flex;
+  width: max-content;
+  animation: syren-scroll 13s linear infinite;
+  will-change: transform;
+}
+
+.syren-marquee:hover,
+.syren-marquee:focus-within {
+  animation-play-state: paused;
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.section-fade {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0,0,0,0.6),
+    transparent
+  );
+}
+
+.mobile-nav-link {
+  @apply font-serif text-3xl text-text-primary tracking-wide hover:text-accent-gold transition-colors block text-center py-2;
+}

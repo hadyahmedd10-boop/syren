@@ -170,7 +170,7 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
         
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
           <Reveal>
-            <h1 className="mb-5 max-w-5xl font-serif text-4xl sm:text-5xl tracking-tight md:text-7xl lg:text-8xl hero-title">
+            <h1 className="mb-5 max-w-5xl font-serif font-light tracking-tight text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl hero-title">
               {experience.title}
             </h1>
           </Reveal>
