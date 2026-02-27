@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = event.seoTitle || `${event.title} | Syren`;
   const description = event.seoDescription || event.shortDescription;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://syrentravel.com";
   const heroImageUrl =
     typeof event.heroImage === "string" ? event.heroImage : event.heroImage.src;
 
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      url: `/events/${slug}`,
+      url: `${siteUrl}/events/${slug}`,
       siteName: "Syren",
       type: "article",
       images: [
@@ -46,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: heroImageUrl,
           width: 1200,
           height: 630,
-          alt: event.name,
+          alt: event.title,
         },
       ],
     },
