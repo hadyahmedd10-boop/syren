@@ -18,7 +18,10 @@ export interface Event {
   city: string;
   date: string;
   time: string;
+  duration?: string;
+  minAge?: string;
   lineup: string[];
+  houseRules?: string[];
   ticketUrl: string;
   heroImage: StaticImageData | string;
   galleryImages: (StaticImageData | string)[];
@@ -43,32 +46,40 @@ export const eventCategories: EventCategory[] = [
 
 export const events: Event[] = [
   {
-    id: "evt_zamna",
+    id: "zamna-egypt-2026",
     slug: "zamna-festival",
-    title: "Zamna Festival",
+    title: "Zamna Egypt",
     category: "Popular Events in Egypt",
-    shortDescription: "World-class electronic music experience brought to Egypt.",
+    shortDescription: "Three days of music, culture, and adventure beneath the Pyramids.",
     fullDescription:
-      "Zamna Festival brings a premium electronic music curation to Egypt with immersive staging and international artists.",
-    location: "Egypt",
-    city: "Cairo",
-    date: "2026-10-12",
-    time: "18:00",
+      "Zamna is returning to Egypt after last year’s legendary weekend, bringing an elevated multi-day experience that blends electronic music, culture, and curated adventures across Cairo and Giza. Expect international headliners, refined staging, and premium pacing with Syren-curated daytime journeys complementing the night. Further details TBA.",
+    location: "The Great Pyramids of Giza",
+    city: "Giza, Egypt",
+    date: "2026-04-24 to 2026-04-26",
+    time: "18:00–03:00",
+    duration: "3 Days",
     lineup: ["Headline DJ A", "International Artist B", "Local Talent C"],
-    ticketUrl: "https://tickets.example.com/zamna",
+    minAge: "21+",
+    ticketUrl: "https://www.technoandchill.com/events/",
     heroImage: EVENT_IMAGES["zamna-festival"],
     galleryImages: [EVENT_IMAGES["zamna-festival"]],
     isFeatured: true,
     isPopular: true,
-    seoTitle: "Zamna Festival Egypt | Premium Electronic Music",
+    seoTitle: "Zamna Egypt | Three-Day Festival at Giza",
     seoDescription:
-      "Experience Zamna in Egypt with a curated travel package and premium access.",
+      "Three days of music, culture, and adventure beneath the Pyramids.",
     curatedPackage: {
-      title: "Zamna Premiere Package",
+      title: "Syren Curated Zamna Experience",
       description:
-        "Private transfers, premium tickets, concierge support, and curated nightlife recommendations.",
-      inclusions: ["Premium tickets", "Private transfers", "Concierge"],
-      ctaLabel: "Book Travel Package",
+        "Luxury hotel stay, VIP transfers, curated Cairo daytime experiences, and priority festival access.",
+      inclusions: [
+        "4-5 star hotel accommodation",
+        "Private airport transfers",
+        "VIP festival access",
+        "Nile sunset cruise",
+        "Guided cultural tour"
+      ],
+      ctaLabel: "Book Zamna Travel Package",
     },
   },
   {
