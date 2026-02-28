@@ -7,6 +7,7 @@ import heroSiwa from "../../public/images/hero/siwa-oasis.jpg.jpg";
 import heroAlexandria from "../../public/images/hero/alexandria.jpg.jpg";
 import heroHurghada from "../../public/images/hero/hurghada.jpg.jpg";
 
+import type { StaticImageData } from "next/image";
 // Destination Images
 // Temporary fallbacks for missing assets
 const destLuxorAswan = heroLuxorAswan;
@@ -80,16 +81,15 @@ export const EXCURSION_COVERS = {
   "cairo-private-photo-session": "/images/excursions/cairo-private-photo-session/cover.jpg",
 } as const;
 
-export const EVENT_IMAGES = {
-  "cairo-jazz-festival": heroHome,
-  "zamna-festival": heroHome,
-  "noart-festival": heroHome,
-  "the-moment-festival": heroHome,
-  "shakira-live-performance": heroHome,
-  "exit-festival": heroHome,
-  "sandbox-festival": heroHome,
-  "al-tannoura-show": heroHome,
-} as const;
+export const EVENT_IMAGES: Record<string, StaticImageData | string> = {
+  "zamna-festival": "/images/events/zamna-festival.jpg",
+  "noart-festival": "/images/events/noart-festival.jpg",
+  "the-moment-festival": "/images/events/the-moment-festival.jpg",
+  "shakira-live-performance": "/images/events/shakira-live-performance.jpg",
+  "exit-festival": "/images/events/exit-festival.jpg",
+  "sandbox-festival": "/images/events/sandbox-festival.jpg",
+  "al-tannoura-show": "/images/events/al-tannoura-show.jpg",
+};
 
 export const images = {
   hero: HERO_IMAGES,
