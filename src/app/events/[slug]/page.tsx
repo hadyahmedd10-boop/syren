@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
+// no automatic navigation imports
 import { events } from "@/data/events";
 import Image from "next/image";
 import Link from "next/link";
@@ -60,17 +60,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function EventDetailPage({ params }: Props) {
-  const { slug } = params;
   if (process.env.NODE_ENV === "development") {
-    console.log("Loaded event slug:", slug);
+    console.log("Current slug:", params.slug);
   }
-  const event = events.find((event) => event.slug === slug);
+  const event = events.find((e) => e.slug === params.slug);
+  if (process.env.NODE_ENV === "development") {
+    console.log("Found event:", event);
+  }
 
   if (!event) {
-    if (process.env.NODE_ENV === "development") {
-      console.warn("Event slug not found, redirecting:", slug);
-    }
-    redirect("/events");
+    return (
+      <main className="min-h-screen bg-background flex items-center justify-center px-6">
+        <div className="text-center py-32">
+          <h1 className="text-2xl font-bold">Event not found</h1>
+          <Link href="/events">Back to Events</Link>
+        </div>
+      </main>
+    );
   }
 
   return (
@@ -89,6 +95,9 @@ export default function EventDetailPage({ params }: Props) {
           <div className="mt-4 flex items-center justify-center gap-2">
             <span className="syren-pill bg-black/60 border border-white/10 text-white/90">{event.date}</span>
             <span className="syren-pill bg-black/60 border border-white/10 text-white/90">{event.city}</span>
+            {event.minAge && (
+              <span className="syren-pill bg-black/60 border border-white/10 text-white/90">{event.minAge}</span>
+            )}
           </div>
         </div>
       </div>
@@ -107,6 +116,9 @@ export default function EventDetailPage({ params }: Props) {
               <div className="flex items-center justify-center gap-2">
                 <span className="syren-pill bg-black/60 border border-white/10 text-white/90">{event.date}</span>
                 <span className="syren-pill bg-black/60 border border-white/10 text-white/90">{event.time}</span>
+                {event.duration && (
+                  <span className="syren-pill bg-black/60 border border-white/10 text-white/90">{event.duration}</span>
+                )}
               </div>
             </div>
             <div className="rounded-2xl border border-border bg-surface/40 p-6 text-center">
@@ -126,18 +138,37 @@ export default function EventDetailPage({ params }: Props) {
         </div>
       </section>
  
-      <section className="section bg-background">
-        <div className="mx-auto max-w-7xl container-x">
-          <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">Lineup</h2>
-          <div className="flex flex-wrap gap-2">
-            {event.lineup.map((artist) => (
-              <span key={artist} className="syren-pill border border-accent-gold/20 bg-accent-gold/5 text-accent-gold/80">
-                {artist}
-              </span>
-            ))}
+      {event.lineup && event.lineup.length > 0 && (
+        <section className="section bg-background">
+          <div className="mx-auto max-w-7xl container-x">
+            <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">Lineup</h2>
+            {event.lineup.length === 1 && event.lineup[0].toUpperCase() === "TBA" ? (
+              <span className="syren-pill border border-accent-gold/20 bg-accent-gold/5 text-accent-gold/80">TBA</span>
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                {event.lineup.map((artist) => (
+                  <span key={artist} className="syren-pill border border-accent-gold/20 bg-accent-gold/5 text-accent-gold/80">
+                    {artist}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {event.houseRules && event.houseRules.length > 0 && (
+        <section className="section bg-background">
+          <div className="mx-auto max-w-7xl container-x">
+            <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">House Rules</h2>
+            <ul className="list-disc ml-6 space-y-2">
+              {event.houseRules.map((rule) => (
+                <li key={rule} className="text-text-secondary">{rule}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
  
       <section className="section bg-background">
         <div className="mx-auto max-w-7xl container-x">
