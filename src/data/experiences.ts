@@ -633,80 +633,80 @@ export const experiences: Experience[] = [
     itinerary: [
       {
         day: 1,
-        title: "Arrival & Old Cairo by Night",
-        description: "Your Egypt begins the moment you land. We meet you at the airport, handle everything, and take you straight to your hotel, after a short rest, we go for a city tour into the old city as the evening light comes on. Khan el-Khalili by night is a different world — lanterns, incense, the sound of the call to prayer echoing off Ottoman walls. We walk Al-Muizz Street and explore somewhere the tourists haven't found yet.",
+        title: "Old Cairo Nights",
+        description: "Arrival and private transfer. As the sun sets, we explore the lanterns of Khan el-Khalili and the hidden alleys of Al-Muizz Street — far from the tourist crowds.",
         tag: "Cairo",
         meals: [],
         location: "Cairo"
       },
       {
         day: 2,
-        title: "Cairo → Fayoum · Desert Day Trip",
-        description: "An hour and a half south of Cairo, the desert begins properly. Wadi El-Rayan — salt lakes in a landscape that looks like another planet. We spend the day here, spend the day living beduin life, bonfire, beduin tea, and eat mandi (the most delicious beduin food) slow-roasted for hours in a subterranean sand pit, and as the light goes, We return to Cairo.",
+        title: "Desert & Bedouin Soul",
+        description: "A journey to the salt lakes of Wadi El-Rayan. Experience authentic Bedouin life: bonfire tea and traditional Mandi slow-roasted in the sand.",
         tag: "Fayoum",
         meals: ["Lunch", "Dinner"],
         location: "Fayoum"
       },
       {
         day: 3,
-        title: "Festival Day 1",
-        description: "We drive to the Pyramids. Exit Festival. Four thousand years of history and a world-class electronic music lineup sharing the same horizon.",
+        title: "The Convergence",
+        description: "The Pyramids meet Exit Festival. 4,000 years of history paired with a world-class electronic lineup on the same horizon.",
         tag: "Exit Festival",
         meals: [],
         location: "Giza"
       },
       {
         day: 4,
-        title: "Festival Day 2",
-        description: "We drive you to a Full day at the festival.",
+        title: "High Energy",
+        description: "Full-immersion festival days. We handle the access; you enjoy the music.",
         tag: "Exit Festival",
         meals: [],
         location: "Giza"
       },
       {
         day: 5,
-        title: "Festival Day 3",
-        description: "Full day at the festival.",
+        title: "High Energy",
+        description: "Full-immersion festival days. We handle the access; you enjoy the music.",
         tag: "Exit Festival",
         meals: [],
         location: "Giza"
       },
       {
         day: 6,
-        title: "Festival Day 4 · Final Night",
-        description: "The last night. Always the best one.",
+        title: "The Finale",
+        description: "The final festival night. Always the most unforgettable.",
         tag: "Exit Festival",
         meals: [],
         location: "Giza"
       },
       {
         day: 7,
-        title: "Cairo → Hurghada",
-        description: "Morning departure. The road east cuts through the Eastern Desert — one of Egypt's most dramatic drives, four and a half hours of landscape that reminds you the country is mostly this. We arrive in Hurghada in the afternoon. we discover the city, Sheraton st, Marina walk.",
+        title: "The Red Sea Crossing",
+        description: "A cinematic 4.5-hour drive through the Eastern Desert to Hurghada. Evening exploration of the Marina and city pulse.",
         tag: "Transit",
         meals: [],
         location: "Hurghada"
       },
       {
         day: 8,
-        title: "Boat Party · Live Music & BBQ",
-        description: "Full day on the water. Private boat, departs early morning. We stop at the best places to snorkel, Expect coral gardens, parrotfish, the clearest water in Egypt. Then the boat becomes a party. Live DJ set, BBQ lunch on deck, swimming in open water. Back to shore at sunset.",
+        title: "The Private Horizon",
+        description: "A full day on a private boat. Snorkel untouched coral gardens by morning; private DJ, BBQ, and open-water party by afternoon.",
         tag: "Red Sea",
         meals: ["Lunch"],
         location: "Hurghada"
       },
       {
         day: 9,
-        title: "Beach & Farewell Dinner",
-        description: "The day is yours. Beach, pool, whatever you need. In the evening the group comes together one last time — farewell dinner somewhere worth remembering.",
+        title: "The Slow Down",
+        description: "A day for the beach or pool at your own pace. We gather for a curated farewell dinner in the evening.",
         tag: "Hurghada",
         meals: ["Dinner"],
         location: "Hurghada"
       },
       {
         day: 10,
-        title: "Return to Cairo · Departures",
-        description: "Early departure from Hurghada. The drive back through the Eastern Desert one more time. Airport drop-off in Cairo. Egypt has had you for ten days. It won't let you forget.",
+        title: "Departure",
+        description: "Final desert drive to Cairo for your airport drop-off.",
         tag: "Return",
         meals: [],
         location: "Cairo"
