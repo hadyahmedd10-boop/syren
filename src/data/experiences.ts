@@ -634,15 +634,15 @@ export const experiences: Experience[] = [
       {
         day: 1,
         title: "Arrival & Old Cairo by Night",
-        description: "Your Egypt begins the moment you land. We meet you at the airport, handle everything, and take you straight into the old city as the evening light comes on. Khan el-Khalili by night is a different world — lanterns, incense, the sound of the call to prayer echoing off Ottoman walls. We walk Al-Muizz Street, eat street food, drink mint tea, and smoke shisha somewhere the tourists haven't found yet.",
+        description: "Your Egypt begins the moment you land. We meet you at the airport, handle everything, and take you straight to your hotel, after a short rest, we go for a city tour into the old city as the evening light comes on. Khan el-Khalili by night is a different world — lanterns, incense, the sound of the call to prayer echoing off Ottoman walls. We walk Al-Muizz Street and explore somewhere the tourists haven't found yet.",
         tag: "Cairo",
         meals: [],
         location: "Cairo"
       },
       {
         day: 2,
-        title: "Cairo → Fayoum · Desert Overnight",
-        description: "An hour and a half south of Cairo, the desert begins properly. Wadi El-Rayan — salt lakes in a landscape that looks like another planet. We spend the day here, ride camels, eat a traditional Bedouin lunch, and as the light goes, make camp. Bonfire. Stars with no light pollution. Sleeping in the desert the way people have for thousands of years. We return to Cairo the next morning.",
+        title: "Cairo → Fayoum · Desert Day Trip",
+        description: "An hour and a half south of Cairo, the desert begins properly. Wadi El-Rayan — salt lakes in a landscape that looks like another planet. We spend the day here, spend the day living beduin life, bonfire, beduin tea, and eat mandi (the most delicious beduin food) slow-roasted for hours in a subterranean sand pit, and as the light goes, We return to Cairo.",
         tag: "Fayoum",
         meals: ["Lunch", "Dinner"],
         location: "Fayoum"
@@ -650,7 +650,7 @@ export const experiences: Experience[] = [
       {
         day: 3,
         title: "Festival Day 1",
-        description: "Back from Fayoum in the morning. Hotel rest. Then as evening falls — the Pyramids. Exit Festival. Four thousand years of history and a world-class electronic music lineup sharing the same horizon.",
+        description: "We drive to the Pyramids. Exit Festival. Four thousand years of history and a world-class electronic music lineup sharing the same horizon.",
         tag: "Exit Festival",
         meals: [],
         location: "Giza"
@@ -658,7 +658,7 @@ export const experiences: Experience[] = [
       {
         day: 4,
         title: "Festival Day 2",
-        description: "Full day at the festival. The Pyramids don't get smaller.",
+        description: "We drive you to a Full day at the festival.",
         tag: "Exit Festival",
         meals: [],
         location: "Giza"
@@ -682,15 +682,15 @@ export const experiences: Experience[] = [
       {
         day: 7,
         title: "Cairo → Hurghada",
-        description: "Morning departure. The road east cuts through the Eastern Desert — one of Egypt's most dramatic drives, four and a half hours of landscape that reminds you the country is mostly this. We arrive in Hurghada in the afternoon. Marina walk, the old Dahar quarter, beach time, and a seafood dinner as the Red Sea turns gold.",
+        description: "Morning departure. The road east cuts through the Eastern Desert — one of Egypt's most dramatic drives, four and a half hours of landscape that reminds you the country is mostly this. We arrive in Hurghada in the afternoon. we discover the city, Sheraton st, Marina walk.",
         tag: "Transit",
-        meals: ["Dinner"],
+        meals: [],
         location: "Hurghada"
       },
       {
         day: 8,
         title: "Boat Party · Live Music & BBQ",
-        description: "Full day on the water. Private boat, departs 10am. We stop at Giftun Island to snorkel — coral gardens, parrotfish, the clearest water in Egypt. Then the boat becomes a party. Live DJ set, BBQ lunch on deck, open bar, swimming in open water. Back to shore at sunset.",
+        description: "Full day on the water. Private boat, departs early morning. We stop at the best places to snorkel, Expect coral gardens, parrotfish, the clearest water in Egypt. Then the boat becomes a party. Live DJ set, BBQ lunch on deck, swimming in open water. Back to shore at sunset.",
         tag: "Red Sea",
         meals: ["Lunch"],
         location: "Hurghada"
@@ -708,7 +708,7 @@ export const experiences: Experience[] = [
         title: "Return to Cairo · Departures",
         description: "Early departure from Hurghada. The drive back through the Eastern Desert one more time. Airport drop-off in Cairo. Egypt has had you for ten days. It won't let you forget.",
         tag: "Return",
-        meals: ["Breakfast"],
+        meals: [],
         location: "Cairo"
       }
     ],
