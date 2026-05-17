@@ -6,6 +6,7 @@ export type Testimonial = {
   experience_slug?: string;
   rating: number;
   message: string;
+  title?: string;
   approved?: boolean;
   created_at?: string;
 };

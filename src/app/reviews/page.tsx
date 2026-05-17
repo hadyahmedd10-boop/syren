@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TrustpilotWidget from "@/components/ui/TrustpilotWidget";
+import Testimonials from "@/components/sections/Testimonials";
 
 export const metadata: Metadata = {
   title: "Traveler Reviews | Syren Egypt Travel",
@@ -40,8 +41,15 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      {/* Full Reviews List */}
+      {/* Featured Reviews */}
       <section className="py-16 md:py-20">
+        <div className="container-x mx-auto max-w-6xl">
+          <Testimonials />
+        </div>
+      </section>
+
+      {/* Full Reviews List */}
+      <section className="py-16 md:py-20 border-t border-border">
         <div className="container-x mx-auto max-w-5xl">
           <TrustpilotWidget variant="list" height="800px" className="w-full" />
 

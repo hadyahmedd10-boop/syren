@@ -1,53 +1,47 @@
-import { createClient } from "@/utils/supabase/server";
-import Reveal from "@/components/motion/Reveal";
-import { Quote } from "lucide-react";
+"use client";
 
-interface TestimonialData {
-  name: string;
-  message: string;
+import { testimonials } from "@/data/testimonials";
+
+function Stars({ count }: { count: number }) {
+  return (
+    <div className="flex gap-0.5">
+      {Array.from({ length: count }).map((_, i) => (
+        <svg key={i} className="w-5 h-5 text-[#00b67a]" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      ))}
+    </div>
+  );
 }
 
-export default async function SocialProofStrip() {
-  const supabase = await createClient();
-  let testimonials: TestimonialData[] = [];
-
-  if (supabase) {
-    const { data } = await supabase
-      .from("testimonials")
-      .select("name, message")
-      .eq("approved", true)
-      .order("created_at", { ascending: false })
-      .limit(3);
-    
-    if (data) testimonials = data;
-  }
-
-  // Fallback if no testimonials in DB
-  if (testimonials.length === 0) {
-    testimonials = [
-      { name: "Avery J.", message: "A level of access I didn't think was possible. Standing alone in the shadow of the Sphinx was life-changing." },
-      { name: "Marcus G.", message: "Every recommendation felt like a personal gift from a close friend. Truly soul-stirring." },
-      { name: "Sophie R.", message: "Everything was handled with such effortless grace. The logistics were invisible." }
-    ];
-  }
-
+export default function SocialProofStrip() {
   return (
     <section className="py-12 px-6 border-y border-border bg-background/50">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
-            <Reveal key={i} delay={i * 0.1}>
-              <div className="flex flex-col items-center text-center space-y-3">
-                <Quote className="text-accent-gold/20 w-6 h-6" />
-                <p className="font-sans text-[13px] md:text-sm text-text-secondary italic leading-relaxed line-clamp-2">
-                  &ldquo;{t.message}&rdquo;
-                </p>
-                <div className="flex items-center gap-2">
-                  <span className="w-4 h-px bg-accent-gold/30" />
-                  <span className="font-serif text-xs text-accent-gold tracking-widest uppercase">{t.name}</span>
+          {testimonials.map((review) => (
+            <div
+              key={review.id}
+              className="rounded-2xl border border-accent-gold/20 bg-surface/30 backdrop-blur-sm p-6 flex flex-col"
+            >
+              <Stars count={review.rating} />
+              <h3 className="font-serif text-lg text-text-primary mt-3 mb-2">{review.title}</h3>
+              <p className="text-sm text-text-secondary leading-relaxed flex-1 line-clamp-4">{review.message}</p>
+              <div className="mt-4 pt-4 border-t border-border/30 flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-accent-gold/20 flex items-center justify-center text-accent-gold font-serif text-sm font-bold">
+                  {review.name.charAt(0)}
+                </div>
+                <div>
+                  <div className="text-sm font-medium text-text-primary">{review.name}</div>
+                  <div className="text-xs text-text-secondary flex items-center gap-1">
+                    <svg className="w-3.5 h-3.5 text-[#00b67a]" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    Verified on Trustpilot
+                  </div>
                 </div>
               </div>
-            </Reveal>
+            </div>
           ))}
         </div>
       </div>

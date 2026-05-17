@@ -19,6 +19,7 @@ import ItineraryTimeline from "@/components/sections/ItineraryTimeline";
 import ItineraryImageDebug from "@/components/dev/ItineraryImageDebug";
 import SaveToggle from "@/components/ui/SaveToggle";
 import TrustpilotWidget from "@/components/ui/TrustpilotWidget";
+import Testimonials from "@/components/sections/Testimonials";
 
 
 interface Props {
@@ -342,27 +343,9 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
             </div>
           </section>
 
-          {/* 6. Testimonials (Trustpilot) */}
+          {/* 6. Testimonials */}
           <section className="section bg-background">
-            <div className="container-x mx-auto max-w-4xl">
-              <p className="text-xs uppercase tracking-[0.3em] text-accent-gold mb-3">
-                TRAVELER STORIES
-              </p>
-              <h2 className="font-serif text-3xl text-text-primary mb-8">
-                What Travelers Say
-              </h2>
-              <TrustpilotWidget variant="carousel" height="240px" className="w-full" />
-              <div className="mt-4">
-                <a
-                  href="https://www.trustpilot.com/review/syrentravel.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent-gold text-sm hover:underline"
-                >
-                  Read all reviews on Trustpilot →
-                </a>
-              </div>
-            </div>
+            <Testimonials />
           </section>
 
           {/* 7. Soft Conversion Section */}

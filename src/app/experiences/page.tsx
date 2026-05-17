@@ -10,7 +10,7 @@ import ExperiencesSectionNav from "@/components/sections/experiences/Experiences
 import ToursAndExcursions from "@/components/sections/experiences/ToursAndExcursions";
 import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/FinalCTA";
-import Testimonials from "@/components/sections/TestimonialsPreview";
+import Testimonials from "@/components/sections/Testimonials";
 
 export const metadata: Metadata = {
   title: "Egypt Experiences & Private Tours | Syren",

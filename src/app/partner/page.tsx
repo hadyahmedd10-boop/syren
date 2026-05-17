@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { DollarSign, Headphones, Settings, Star } from "lucide-react";
 import { HERO_IMAGES, DESTINATION_IMAGES } from "@/lib/images";
-import TrustpilotWidget from "@/components/ui/TrustpilotWidget";
+import Testimonials from "@/components/sections/Testimonials";
 
 export const metadata: Metadata = {
   title: "Partner With Syren | Egypt Travel Agency B2B Program",
@@ -185,20 +185,7 @@ export default function PartnerPage() {
       </section>
 
       <section className="py-20" style={{ backgroundImage: "radial-gradient(ellipse at center, rgba(196,160,82,0.08), transparent 60%)" }}>
-        <div className="mx-auto max-w-5xl container-x text-center">
-          <p className="font-serif text-text-secondary mb-6">Trusted by travel agencies and partners from Europe, the Gulf, and the Americas</p>
-          <TrustpilotWidget variant="mini" height="150px" />
-          <div className="text-center mt-4">
-            <a
-              href="https://www.trustpilot.com/review/syrentravel.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-gold text-sm hover:underline"
-            >
-              Read all reviews on Trustpilot →
-            </a>
-          </div>
-        </div>
+        <Testimonials />
       </section>
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-5xl container-x text-center">

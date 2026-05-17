@@ -5,7 +5,7 @@ import SectionHeader from "@/components/layout/SectionHeader";
 import HomeScrollManager from "@/components/layout/HomeScrollManager";
 import FinalCTA from "@/components/sections/FinalCTA";
 import EmailSignup from "@/components/sections/EmailSignup";
-import TrustpilotWidget from "@/components/ui/TrustpilotWidget";
+import Testimonials from "@/components/sections/Testimonials";
 import { SOCIAL_LINKS } from "@/config/social";
 import { events } from "@/data/events";
 import { getFeaturedUpcomingEvents } from "@/lib/eventUtils";
@@ -208,78 +208,7 @@ export default function Home() {
 
         {/* SECTION 5 — TRUSTPILOT REVIEWS */}
         <section className="py-16 bg-background">
-          <div className="container-x mx-auto max-w-6xl">
-            <p className="text-center text-xs uppercase tracking-[0.3em] text-accent-gold mb-3">
-              TRAVELER STORIES
-            </p>
-            <h2 className="text-center font-serif text-4xl text-text-primary mb-4">
-              What Our Travelers Say
-            </h2>
-            <p className="text-center text-text-secondary mb-10 max-w-xl mx-auto text-sm">
-              Real experiences from real travelers. Verified by Trustpilot.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                {
-                  name: "Anthony Borg",
-                  title: "3 jours aux alentours du Caire",
-                  text: "Nous avons réservé une voiture avec chauffeur pour un trajet Le Caire - Saqqarah - Dachour - Fayoum et retour au Caire sur 3 jours. Nous avons été ravis de la proposition faite par l'agence, ainsi que de par notre chauffeur qui nous toujours laisser le temps de visiter les différents sites, et à su s'adapter à notre organisation.",
-                },
-                {
-                  name: "Moon Moon",
-                  title: "Extraordinary local experiences",
-                  text: "The local experience with Syren was aaaamazinggg. I've been to two separate trips with the same local tour guide Hady, and both were extraordinary! My first was around Cairo through the streets of different places and sight seeing monuments I didn't know about. My second experience was in El Gouna and it was out of this world!",
-                },
-                {
-                  name: "Ashley Markus",
-                  title: "Felt at home, not like a tourist",
-                  text: "I had such a great experience with Syren Travel. Everything was handled so smoothly from start to finish, and I truly felt taken care of the whole time. What I loved most is that I didn't feel like just another tourist — I genuinely felt at home. The team is very trustworthy, welcoming, and professional.",
-                },
-              ].map((review) => (
-                <div key={review.name} className="rounded-2xl border border-accent-gold/20 bg-surface/30 backdrop-blur-sm p-6 flex flex-col">
-                  <div className="flex gap-0.5 mb-3">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <svg key={i} className="w-5 h-5 text-[#00b67a]" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <h3 className="font-serif text-lg text-text-primary mb-2">{review.title}</h3>
-                  <p className="text-sm text-text-secondary leading-relaxed flex-1 line-clamp-4">{review.text}</p>
-                  <div className="mt-4 pt-4 border-t border-border/30 flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-accent-gold/20 flex items-center justify-center text-accent-gold font-serif text-sm font-bold">
-                      {review.name.charAt(0)}
-                    </div>
-                    <div>
-                      <div className="text-sm font-medium text-text-primary">{review.name}</div>
-                      <div className="text-xs text-text-secondary flex items-center gap-1">
-                        <svg className="w-3.5 h-3.5 text-[#00b67a]" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        Verified on Trustpilot
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="text-center mt-8 flex items-center justify-center gap-6">
-              <Link
-                href="/reviews"
-                className="text-accent-gold text-sm hover:underline tracking-wide"
-              >
-                View All Reviews →
-              </Link>
-              <a
-                href="https://www.trustpilot.com/review/syrentravel.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent-gold text-sm hover:underline tracking-wide"
-              >
-                Read on Trustpilot →
-              </a>
-            </div>
-          </div>
+          <Testimonials />
         </section>
 
         {/* SECTION 7 — OUR MISSION */}
