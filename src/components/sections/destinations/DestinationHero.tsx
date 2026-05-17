@@ -15,6 +15,7 @@ export default function DestinationHero({ name, tagline, image }: DestinationHer
       backgroundImage={image.src}
       eyebrow={tagline}
       title={name}
+      altText={`${name} - Syren Travel Egypt`}
       heightClassName="min-h-[55vh] md:min-h-[70vh] lg:min-h-[75vh]"
     />
   );

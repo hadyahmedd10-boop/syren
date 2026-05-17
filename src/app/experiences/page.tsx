@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { experiences } from "@/data/experiences";
 import { HERO_IMAGES } from "@/lib/images";
 import HeroShell from "@/components/ui/HeroShell";
+import SectionHeader from "@/components/layout/SectionHeader";
 
 import ExperiencesGrid from "@/components/sections/experiences/ExperiencesGrid";
 import ExperiencesSectionNav from "@/components/sections/experiences/ExperiencesSectionNav";
@@ -11,16 +13,25 @@ import CTA from "@/components/sections/FinalCTA";
 import Testimonials from "@/components/sections/TestimonialsPreview";
 
 export const metadata: Metadata = {
-  title: "Ultra-Private Egyptian Experiences | Curated Journeys | Syren",
-  description: "Discover our collection of ultra-private, expertly curated Egyptian experiences. From desert expeditions to private yacht charters and exclusive VIP access.",
+  title: "Egypt Experiences & Private Tours | Syren",
+  description: "Discover Syren's curated Egypt experiences — private Nile cruises, Pyramid tours, desert adventures, and bespoke multi-day journeys crafted by local experts.",
+  keywords: [
+    "curated Egypt experiences",
+    "private tours Egypt",
+    "bespoke journeys Egypt",
+    "Europe to Egypt travel",
+    "Latin America Egypt travel",
+    "Gulf luxury Egypt travel"
+  ],
   alternates: {
     canonical: "/experiences",
   },
   openGraph: {
     title: "Our Experiences | Syren Travel",
-    description: "Discover our collection of ultra-private, expertly curated Egyptian experiences.",
-    url: "/experiences",
+    description: "Discover Syren's curated Egypt experiences — private Nile cruises, Pyramid tours, desert adventures, and bespoke multi-day journeys crafted by local experts.",
+    url: "https://www.syrentravel.com/experiences",
     type: "website",
+    images: [{ url: "https://www.syrentravel.com/images/hero/luxury.jpg", width: 1200, height: 630, alt: "Syren Travel Egypt" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -41,7 +52,7 @@ export default function ExperiencesPage() {
       "url": `${siteUrl}/experiences/${exp.slug}`,
       "name": exp.title,
       "description": exp.description,
-      "image": exp.heroImage.src
+      "image": typeof exp.heroImage === "string" ? exp.heroImage : exp.heroImage.src
     }))
   };
 
@@ -58,6 +69,7 @@ export default function ExperiencesPage() {
         title="Our Experiences" 
         subtitle="Curated journeys through the soul of Egypt. Private. Profound. Personal." 
         backgroundImage={HERO_IMAGES.home.src}
+        altText="Our Experiences - Syren Travel Egypt"
         heightClassName="min-h-[62svh] md:min-h-[68svh]"
       />
 

@@ -6,6 +6,8 @@ import heroRedSea from "../../public/images/hero/red-sea.jpg.jpg";
 import heroSiwa from "../../public/images/hero/siwa-oasis.jpg.jpg";
 import heroAlexandria from "../../public/images/hero/alexandria.jpg.jpg";
 import heroHurghada from "../../public/images/hero/hurghada.jpg.jpg";
+import heroSharmElSheikh from "../../public/images/hero/sharm-el-sheikh.jpg";
+import heroNorthCoast from "../../public/images/hero/north-coast.jpg";
 
 import type { StaticImageData } from "next/image";
 // Destination Images
@@ -17,8 +19,8 @@ const destSiwaOasis = heroSiwa;
 const destAlexandria = heroAlexandria;
 const destHurghada = heroHurghada;
 // New destinations fallback assets (until specific images are provided)
-const destSharmElSheikh = heroHurghada; // Sinai coastal fallback
-const destNorthCoast = heroAlexandria;  // Mediterranean coastal fallback
+const destSharmElSheikh = heroSharmElSheikh;
+const destNorthCoast = heroNorthCoast;
 
 // Experience Images
 import expCairo5Day from "../../public/images/experiences/cairo-5-day.jpg";
@@ -81,15 +83,29 @@ export const EXCURSION_COVERS = {
   "cairo-private-photo-session": "/images/excursions/cairo-private-photo-session/cover.jpg",
 } as const;
 
-export const EVENT_IMAGES: Record<string, StaticImageData | string> = {
+const EVENT_IMAGES_BASE: Record<string, StaticImageData | string> = {
   "zamna-festival": "/images/events/zamna-festival.jpg",
   "noart-festival": "/images/events/noart-festival.jpg",
   "the-moment-festival": "/images/events/the-moment-festival.jpg",
   "shakira-live-performance": "/images/events/shakira-live-performance.jpg",
-  "exit-festival": "/images/events/exit-festival.jpg",
+  "exit-festival": "/images/events/exit-festival.png",
   "sandbox-festival": "/images/events/sandbox-festival.jpg",
-  "al-tannoura-show": "/images/events/al-tannoura-show.jpg",
+  "al-tannoura-show": "/images/events/al-tannoura-show.jpeg",
+  "andrea-bocelli": "/images/events/andrea-bocelli.webp",
+  "beyond-van-gogh": "/images/events/beyond-van-gogh.jpg",
+  "adam-port-at-salah-el-din-citadel": "/images/events/adam-port-at-salah-el-din-citadel.png",
+  "black-coffee": "/images/events/black-coffee.jpg",
+  "solomun": "/images/events/solomun.png",
+  "naika": "/images/events/naika.jpg",
+  "korolova": "/images/events/korolova.jpg",
 };
+
+export const EVENT_IMAGES: Record<string, StaticImageData | string> = new Proxy(EVENT_IMAGES_BASE, {
+  get(target, prop: string | symbol) {
+    const key = typeof prop === "string" ? prop : String(prop);
+    return key in target ? (target as Record<string, StaticImageData | string>)[key] : "/images/hero/luxury.jpg";
+  },
+}) as Record<string, StaticImageData | string>;
 
 export const images = {
   hero: HERO_IMAGES,

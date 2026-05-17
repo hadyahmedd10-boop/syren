@@ -116,12 +116,15 @@ export default function ContactForm() {
         className={`input ${fieldErrors.name ? "border-red-400" : ""}`}
         value={formData.name}
         onChange={(e) => updateField("name", e.target.value)}
+        autoComplete="name"
       />
       {fieldErrors.name && <p className="text-xs text-red-400">{fieldErrors.name}</p>}
       <input
         required
         name="email"
         type="email"
+        inputMode="email"
+        autoComplete="email"
         placeholder="Email Address"
         className={`input ${fieldErrors.email ? "border-red-400" : ""}`}
         value={formData.email}
@@ -130,6 +133,9 @@ export default function ContactForm() {
       {fieldErrors.email && <p className="text-xs text-red-400">{fieldErrors.email}</p>}
       <input
         name="whatsapp"
+        type="tel"
+        inputMode="tel"
+        autoComplete="tel"
         placeholder="WhatsApp (optional)"
         className="input"
         value={formData.whatsapp}
@@ -140,7 +146,7 @@ export default function ContactForm() {
         name="message"
         rows={4}
         placeholder="Tell us what you’re dreaming of…"
-        className={`input ${fieldErrors.message ? "border-red-400" : ""}`}
+        className={`input resize-none ${fieldErrors.message ? "border-red-400" : ""}`}
         value={formData.message}
         onChange={(e) => updateField("message", e.target.value)}
       />

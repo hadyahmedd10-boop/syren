@@ -43,37 +43,43 @@ export const excursions: Excursion[] = [
         id: "pickup",
         title: "Hotel Pickup (Hurghada)",
         tag: "Transfer",
-        description: "Early departure (around 05:30) in a modern A/C vehicle with bottled water."
+        description: "Early departure (around 05:30) in a modern A/C vehicle with bottled water.",
+        image: "/images/excursions/steps/hurghada-luxor-day-trip/1.jpg"
       },
       {
         id: "karnak",
         title: "Karnak Temple",
         tag: "Culture",
-        description: "Explore the vast temple complex and the iconic Hypostyle Hall."
+        description: "Explore the vast temple complex and the iconic Hypostyle Hall.",
+        image: "/images/excursions/steps/hurghada-luxor-day-trip/2.jpg"
       },
       {
         id: "lunch",
         title: "Lunch",
         tag: "Lunch Included",
-        description: "Lunch at a quality local restaurant."
+        description: "Lunch at a quality local restaurant.",
+        image: "/images/excursions/steps/hurghada-luxor-day-trip/3.jpg"
       },
       {
         id: "west-bank",
         title: "West Bank",
         tag: "History",
-        description: "Visit the Colossi of Memnon, Valley of the Kings, and Temple of Hatshepsut."
+        description: "Visit the Colossi of Memnon, Valley of the Kings, and Temple of Hatshepsut.",
+        image: "/images/excursions/steps/hurghada-luxor-day-trip/4.jpg"
       },
       {
         id: "bazaar",
         title: "Luxor Bazaar Time",
         tag: "Shopping",
-        description: "Shopping or café stop before returning to Hurghada."
+        description: "Shopping or café stop before returning to Hurghada.",
+        image: "/images/excursions/steps/hurghada-luxor-day-trip/5.jpg"
       },
       {
         id: "return",
         title: "Return to Hurghada",
         tag: "Transfer",
-        description: "Relax on the drive back and transfer to your hotel."
+        description: "Relax on the drive back and transfer to your hotel.",
+        image: "/images/excursions/steps/hurghada-luxor-day-trip/6.jpg"
       }
     ],
   }, 
@@ -112,43 +118,50 @@ export const excursions: Excursion[] = [
         id: "pickup",
         title: "Hotel Pickup (Hurghada)",
         tag: "Transfer",
-        description: "Overnight departure (around 02:00) for Cairo in comfort."
+        description: "Overnight departure (around 02:00) for Cairo in comfort.",
+        image: "/images/excursions/steps/hurghada-cairo-day-trip/1.jpg"
       },
       {
         id: "giza",
         title: "Giza Plateau",
         tag: "History",
-        description: "Visit the pyramids, Sphinx, and Valley Temple."
+        description: "Visit the pyramids, Sphinx, and Valley Temple.",
+        image: "/images/excursions/steps/hurghada-cairo-day-trip/2.jpg"
       },
       {
         id: "lunch",
         title: "Lunch",
         tag: "Lunch Included",
-        description: "Local lunch in Cairo."
+        description: "Local lunch in Cairo.",
+        image: "/images/excursions/steps/hurghada-cairo-day-trip/3.jpg"
       },
       {
         id: "museum",
         title: "Egyptian Museum",
         tag: "Culture",
-        description: "Explore the world’s most valuable collection of Ancient Egyptian relics."
+        description: "Explore the world’s most valuable collection of Ancient Egyptian relics.",
+        image: "/images/excursions/steps/hurghada-cairo-day-trip/4.jpg"
       },
       {
         id: "coptic",
         title: "Coptic Cairo",
         tag: "History",
-        description: "Historic churches and Ben Ezra Synagogue."
+        description: "Historic churches and Ben Ezra Synagogue.",
+        image: "/images/excursions/steps/hurghada-cairo-day-trip/5.jpg"
       },
       {
         id: "khan",
         title: "Khan el Khalili",
         tag: "Shopping",
-        description: "End the day in Cairo’s famous bazaar."
+        description: "End the day in Cairo’s famous bazaar.",
+        image: "/images/excursions/steps/hurghada-cairo-day-trip/6.jpg"
       },
       {
         id: "return",
         title: "Return to Hurghada",
         tag: "Transfer",
-        description: "Drive back and hotel drop-off."
+        description: "Drive back and hotel drop-off.",
+        image: "/images/excursions/steps/hurghada-cairo-day-trip/7.jpg"
       }
     ],
   }, 
@@ -188,37 +201,43 @@ export const excursions: Excursion[] = [
         id: "pickup",
         title: "Pickup & Desert Drive",
         tag: "Transfer",
-        description: "4×4 jeep ride into the desert with photo stops."
+        description: "4×4 jeep ride into the desert with photo stops.",
+        image: "/images/excursions/steps/hurghada-jeep-safari/1.jpg"
       },
       {
         id: "mirage",
         title: "Mirage & Bedouin Village",
         tag: "Experience",
-        description: "Mirage viewing, cultural stop, tea and village tour."
+        description: "Mirage viewing, cultural stop, tea and village tour.",
+        image: "/images/excursions/steps/hurghada-jeep-safari/2.jpg"
       },
       {
         id: "camel",
         title: "Camel Ride",
         tag: "Activity",
-        description: "Short desert camel ride experience."
+        description: "Short desert camel ride experience.",
+        image: "/images/excursions/steps/hurghada-jeep-safari/3.jpg"
       },
       {
         id: "quad",
         title: "Quad Bike Ride",
         tag: "Adventure",
-        description: "Ride through the desert near the village."
+        description: "Ride through the desert near the village.",
+        image: "/images/excursions/steps/hurghada-jeep-safari/4.jpg"
       },
       {
         id: "dinner",
         title: "Sunset + Dinner + Show",
         tag: "Dinner & Show",
-        description: "BBQ dinner with entertainment under the stars."
+        description: "BBQ dinner with entertainment under the stars.",
+        image: "/images/excursions/steps/hurghada-jeep-safari/5.jpg"
       },
       {
         id: "return",
         title: "Return to Hurghada",
         tag: "Transfer",
-        description: "Drive back and hotel drop-off."
+        description: "Drive back and hotel drop-off.",
+        image: "/images/excursions/steps/hurghada-jeep-safari/6.jpg"
       }
     ],
   },
@@ -256,31 +275,36 @@ export const excursions: Excursion[] = [
         id: "departure",
         title: "Departure",
         tag: "Transfer",
-        description: "Morning pickup from your hotel and transfer to the marina."
+        description: "Morning pickup from your hotel and transfer to the marina.",
+        image: "/images/excursions/steps/mahmya-island-snorkeling/1.jpg"
       },
       {
         id: "boat-journey",
         title: "Boat Journey",
         tag: "Boat",
-        description: "Scenic boat ride across the Red Sea to Mahmya Island."
+        description: "Scenic boat ride across the Red Sea to Mahmya Island.",
+        image: "/images/excursions/steps/mahmya-island-snorkeling/2.jpg"
       },
       {
         id: "snorkeling",
         title: "Island Time & Snorkeling",
         tag: "Snorkeling",
-        description: "Relax on the beach and explore the vibrant coral reefs."
+        description: "Relax on the beach and explore the vibrant coral reefs.",
+        image: "/images/excursions/steps/mahmya-island-snorkeling/3.jpg"
       },
       {
         id: "lunch",
         title: "Lunch",
         tag: "Lunch Included",
-        description: "Enjoy a delicious buffet lunch on the island."
+        description: "Enjoy a delicious buffet lunch on the island.",
+        image: "/images/excursions/steps/mahmya-island-snorkeling/4.jpg"
       },
       {
         id: "return",
         title: "Return",
         tag: "Transfer",
-        description: "Cruise back to the marina and transfer to your hotel."
+        description: "Cruise back to the marina and transfer to your hotel.",
+        image: "/images/excursions/steps/mahmya-island-snorkeling/5.jpg"
       }
     ],
   },
@@ -317,31 +341,36 @@ export const excursions: Excursion[] = [
         id: "departure",
         title: "Marina Departure",
         tag: "Boat",
-        description: "Board the boat and set sail for the marine park."
+        description: "Board the boat and set sail for the marine park.",
+        image: "/images/excursions/steps/giftun-island-snorkeling/1.jpg"
       },
       {
         id: "stop-1",
         title: "First Snorkeling Stop",
         tag: "Snorkeling",
-        description: "Discover the diversity of Red Sea coral life."
+        description: "Discover the diversity of Red Sea coral life.",
+        image: "/images/excursions/steps/giftun-island-snorkeling/2.jpg"
       },
       {
         id: "island",
         title: "Island Visit",
         tag: "Relaxation",
-        description: "Time to relax on the sandy shores of Giftun Island."
+        description: "Time to relax on the sandy shores of Giftun Island.",
+        image: "/images/excursions/steps/giftun-island-snorkeling/3.jpg"
       },
       {
         id: "stop-2",
         title: "Second Snorkeling Stop",
         tag: "Snorkeling",
-        description: "Another chance to explore a different reef system."
+        description: "Another chance to explore a different reef system.",
+        image: "/images/excursions/steps/giftun-island-snorkeling/4.jpg"
       },
       {
         id: "return",
         title: "Sunset Return",
         tag: "Boat",
-        description: "Return to the marina as the sun sets over the water."
+        description: "Return to the marina as the sun sets over the water.",
+        image: "/images/excursions/steps/giftun-island-snorkeling/5.jpg"
       }
     ],
   },
@@ -378,31 +407,36 @@ export const excursions: Excursion[] = [
         id: "pickup",
         title: "Hotel Pickup",
         tag: "Transfer",
-        description: "Morning transfer to the boat pier."
+        description: "Morning transfer to the boat pier.",
+        image: "/images/excursions/steps/paradise-island-snorkeling/1.jpg"
       },
       {
         id: "sailing",
         title: "Sailing to Paradise",
         tag: "Boat",
-        description: "Relax on deck as we cruise to the island."
+        description: "Relax on deck as we cruise to the island.",
+        image: "/images/excursions/steps/paradise-island-snorkeling/2.jpg"
       },
       {
         id: "reef",
         title: "Reef Exploration",
         tag: "Snorkeling",
-        description: "Guided snorkeling at two prime locations."
+        description: "Guided snorkeling at two prime locations.",
+        image: "/images/excursions/steps/paradise-island-snorkeling/3.jpg"
       },
       {
         id: "lunch",
         title: "Island Lunch",
         tag: "Lunch Included",
-        description: "Enjoy a meal on the island's shores."
+        description: "Enjoy a meal on the island's shores.",
+        image: "/images/excursions/steps/paradise-island-snorkeling/4.jpg"
       },
       {
         id: "beach",
         title: "Beach Relaxation",
         tag: "Relaxation",
-        description: "Free time for swimming and sunbathing."
+        description: "Free time for swimming and sunbathing.",
+        image: "/images/excursions/steps/paradise-island-snorkeling/5.jpg"
       }
     ],
   },
@@ -439,25 +473,29 @@ export const excursions: Excursion[] = [
         id: "briefing",
         title: "Safety Briefing",
         tag: "Safety",
-        description: "Learn to handle the quad bike with a professional instructor."
+        description: "Learn to handle the quad bike with a professional instructor.",
+        image: "/images/excursions/steps/hurghada-quad-bike/1.jpg"
       },
       {
         id: "ride",
         title: "Desert Ride",
         tag: "Adventure",
-        description: "An hour of exciting riding across the desert plains."
+        description: "An hour of exciting riding across the desert plains.",
+        image: "/images/excursions/steps/hurghada-quad-bike/2.jpg"
       },
       {
         id: "stop",
         title: "Bedouin Stop",
         tag: "Culture",
-        description: "Rest and enjoy traditional tea in a desert camp."
+        description: "Rest and enjoy traditional tea in a desert camp.",
+        image: "/images/excursions/steps/hurghada-quad-bike/3.jpg"
       },
       {
         id: "return",
         title: "Return Ride",
         tag: "Adventure",
-        description: "Ride back to the base as the light changes over the dunes."
+        description: "Ride back to the base as the light changes over the dunes.",
+        image: "/images/excursions/steps/hurghada-quad-bike/4.jpg"
       }
     ],
   },
@@ -499,43 +537,50 @@ export const excursions: Excursion[] = [
         id: "pickup",
         title: "Hotel pickup & transfer to airport",
         tag: "Transfer",
-        description: "Private transfer from Hurghada to the airport with full assistance."
+        description: "Private transfer from Hurghada to the airport with full assistance.",
+        image: "/images/excursions/steps/cairo-in-a-day-from-hurghada/1.jpg"
       },
       {
         id: "flight",
         title: "Flight to Cairo + private welcome",
         tag: "Flight",
-        description: "Meet your Egyptologist and driver on arrival for a seamless start."
+        description: "Meet your Egyptologist and driver on arrival for a seamless start.",
+        image: "/images/excursions/steps/cairo-in-a-day-from-hurghada/2.jpg"
       },
       {
         id: "giza",
         title: "Giza Plateau",
         tag: "History",
-        description: "Pyramids, Sphinx, and the Valley Temple — unhurried and guided."
+        description: "Pyramids, Sphinx, and the Valley Temple — unhurried and guided.",
+        image: "/images/excursions/steps/cairo-in-a-day-from-hurghada/3.jpg"
       },
       {
         id: "lunch",
         title: "Refined local lunch",
         tag: "Lunch Included",
-        description: "A curated lunch stop at a trusted Cairo restaurant."
+        description: "A curated lunch stop at a trusted Cairo restaurant.",
+        image: "/images/excursions/steps/cairo-in-a-day-from-hurghada/4.jpg"
       },
       {
         id: "gem",
         title: "Grand Egyptian Museum (selected galleries)",
         tag: "Culture",
-        description: "Explore signature halls and highlights with expert context."
+        description: "Explore signature halls and highlights with expert context.",
+        image: "/images/excursions/steps/cairo-in-a-day-from-hurghada/5.jpg"
       },
       {
         id: "old-cairo",
         title: "Old Cairo landmarks",
         tag: "History",
-        description: "Hanging Church and Ben Ezra Synagogue, with storytelling and history."
+        description: "Hanging Church and Ben Ezra Synagogue, with storytelling and history.",
+        image: "/images/excursions/steps/cairo-in-a-day-from-hurghada/6.jpg"
       },
       {
         id: "khan",
         title: "Khan El Khalili walk + return flight",
         tag: "Shopping",
-        description: "A short guided walk through key lanes, then airport transfer for your flight back."
+        description: "A short guided walk through key lanes, then airport transfer for your flight back.",
+        image: "/images/excursions/steps/cairo-in-a-day-from-hurghada/7.jpg"
       }
     ]
   },
@@ -573,25 +618,29 @@ export const excursions: Excursion[] = [
         id: "pickup",
         title: "Pickup",
         tag: "Transfer",
-        description: "Hotel pickup and private transfer to board the Nile Maxim."
+        description: "Hotel pickup and private transfer to board the Nile Maxim.",
+        image: "/images/excursions/steps/nile-maxim-dinner-cruise/1.jpg"
       },
       {
         id: "boarding",
         title: "Boarding",
         tag: "Check-in",
-        description: "Step aboard the cruise ship."
+        description: "Step aboard the cruise ship.",
+        image: "/images/excursions/steps/nile-maxim-dinner-cruise/2.jpg"
       },
       {
         id: "dinner",
         title: "Dinner & Show",
         tag: "Dinner",
-        description: "Enjoy an open dinner service with Egyptian & international options, accompanied by live performances and soft Oriental music."
+        description: "Enjoy an open dinner service with Egyptian & international options, accompanied by live performances and soft Oriental music.",
+        image: "/images/excursions/steps/nile-maxim-dinner-cruise/3.jpg"
       },
       {
         id: "return",
         title: "Return",
         tag: "Transfer",
-        description: "Return transfer to your hotel."
+        description: "Return transfer to your hotel.",
+        image: "/images/excursions/steps/nile-maxim-dinner-cruise/4.jpg"
       }
     ]
   },
@@ -629,31 +678,36 @@ export const excursions: Excursion[] = [
         id: "gem",
         title: "Grand Egyptian Museum",
         tag: "Culture",
-        description: "Begin with curated highlights of the Grand Egyptian Museum."
+        description: "Begin with curated highlights of the Grand Egyptian Museum.",
+        image: "/images/excursions/steps/cairo-beyond-the-pyramids/1.jpg"
       },
       {
         id: "citadel",
         title: "Citadel & Mosque",
         tag: "History",
-        description: "Visit the Cairo Citadel and the alabaster Mohamed Ali Mosque."
+        description: "Visit the Cairo Citadel and the alabaster Mohamed Ali Mosque.",
+        image: "/images/excursions/steps/cairo-beyond-the-pyramids/2.jpg"
       },
       {
         id: "lunch",
         title: "Lunch",
         tag: "Lunch Included",
-        description: "Enjoy lunch at a quality local restaurant."
+        description: "Enjoy lunch at a quality local restaurant.",
+        image: "/images/excursions/steps/cairo-beyond-the-pyramids/3.jpg"
       },
       {
         id: "khan",
         title: "Khan El Khalili",
         tag: "Shopping",
-        description: "A guided walk through the historic bazaar."
+        description: "A guided walk through the historic bazaar.",
+        image: "/images/excursions/steps/cairo-beyond-the-pyramids/4.jpg"
       },
       {
         id: "coptic",
         title: "Coptic Cairo",
         tag: "History",
-        description: "Conclude with visits to the Hanging Church, Ben Ezra Synagogue, and Abu Serga."
+        description: "Conclude with visits to the Hanging Church, Ben Ezra Synagogue, and Abu Serga.",
+        image: "/images/excursions/steps/cairo-beyond-the-pyramids/5.jpg"
       }
     ]
   },
@@ -689,19 +743,22 @@ export const excursions: Excursion[] = [
         id: "pickup",
         title: "Pickup",
         tag: "Transfer",
-        description: "Evening hotel pickup and transfer to Wekalet El Ghoury."
+        description: "Evening hotel pickup and transfer to Wekalet El Ghoury.",
+        image: "/images/excursions/steps/tanoura-night-old-cairo/1.jpg"
       },
       {
         id: "performance",
         title: "The Performance",
         tag: "Show",
-        description: "Witness the mesmerizing live music and traditional Tanoura whirling dervish performance."
+        description: "Witness the mesmerizing live music and traditional Tanoura whirling dervish performance.",
+        image: "/images/excursions/steps/tanoura-night-old-cairo/2.jpg"
       },
       {
         id: "return",
         title: "Return",
         tag: "Transfer",
-        description: "Return transfer to your hotel."
+        description: "Return transfer to your hotel.",
+        image: "/images/excursions/steps/tanoura-night-old-cairo/3.jpg"
       }
     ]
   },
@@ -742,19 +799,22 @@ export const excursions: Excursion[] = [
         id: "meet",
         title: "Meet & Plan",
         tag: "Meeting",
-        description: "Meet your private photographer to discuss your vision."
+        description: "Meet your private photographer to discuss your vision.",
+        image: "/images/excursions/steps/cairo-private-photo-session/1.jpg"
       },
       {
         id: "session",
         title: "The Session",
         tag: "Photography",
-        description: "Visit up to three iconic locations (e.g., Giza Plateau, Sphinx, Khan El Khalili) for your shoot."
+        description: "Visit up to three iconic locations (e.g., Giza Plateau, Sphinx, Khan El Khalili) for your shoot.",
+        image: "/images/excursions/steps/cairo-private-photo-session/2.jpg"
       },
       {
         id: "wrap",
         title: "Wrap Up",
         tag: "Conclusion",
-        description: "Conclude the session and discuss delivery of your edited gallery."
+        description: "Conclude the session and discuss delivery of your edited gallery.",
+        image: "/images/excursions/steps/cairo-private-photo-session/3.jpg"
       }
     ]
   },
@@ -802,43 +862,50 @@ export const excursions: Excursion[] = [
         id: "pickup",
         title: "Pickup & Departure",
         tag: "Transfer",
-        description: "Morning pickup from your Cairo hotel. Settle into a private vehicle and head north toward Alexandria."
+        description: "Morning pickup from your Cairo hotel. Settle into a private vehicle and head north toward Alexandria.",
+        image: "/images/excursions/steps/alexandria-day-trip-from-cairo/1.jpg"
       },
       {
         id: "pompeys-pillar",
         title: "Pompey’s Pillar",
         tag: "Ancient Sites",
-        description: "Begin with one of Alexandria’s most famous Roman-era monuments, built in honor of Emperor Diocletian."
+        description: "Begin with one of Alexandria’s most famous Roman-era monuments, built in honor of Emperor Diocletian.",
+        image: "/images/excursions/steps/alexandria-day-trip-from-cairo/2.jpg"
       },
       {
         id: "serapis-catacombs",
         title: "Serapis & the Catacombs",
         tag: "History",
-        description: "Explore the ruins of the Temple of Serapis, then descend into the rock-cut Roman catacombs—three levels carved directly into the bedrock."
+        description: "Explore the ruins of the Temple of Serapis, then descend into the rock-cut Roman catacombs—three levels carved directly into the bedrock.",
+        image: "/images/excursions/steps/alexandria-day-trip-from-cairo/3.jpg"
       },
       {
         id: "lunch",
         title: "Mediterranean Lunch",
         tag: "Lunch Included",
-        description: "Enjoy a fresh seafood lunch at a trusted local spot along the coast."
+        description: "Enjoy a fresh seafood lunch at a trusted local spot along the coast.",
+        image: "/images/excursions/steps/alexandria-day-trip-from-cairo/4.jpg"
       },
       {
         id: "qaitbay",
         title: "Qaitbay Citadel",
         tag: "Coastal Landmark",
-        description: "Visit the fortress built on the legendary site of the ancient Lighthouse of Alexandria."
+        description: "Visit the fortress built on the legendary site of the ancient Lighthouse of Alexandria.",
+        image: "/images/excursions/steps/alexandria-day-trip-from-cairo/5.jpg"
       },
       {
         id: "bibliotheca",
         title: "Bibliotheca Alexandrina",
         tag: "Modern Icon",
-        description: "End the day at Alexandria’s striking modern library—an architectural symbol of the city’s intellectual legacy."
+        description: "End the day at Alexandria’s striking modern library—an architectural symbol of the city’s intellectual legacy.",
+        image: "/images/excursions/steps/alexandria-day-trip-from-cairo/6.jpg"
       },
       {
         id: "return",
         title: "Return to Cairo",
         tag: "Transfer",
-        description: "Drive back to Cairo and drop-off at your hotel in the evening."
+        description: "Drive back to Cairo and drop-off at your hotel in the evening.",
+        image: "/images/excursions/steps/alexandria-day-trip-from-cairo/7.jpg"
       }
     ]
   },
@@ -883,37 +950,43 @@ export const excursions: Excursion[] = [
         id: "pickup",
         title: "Morning Departure",
         tag: "Transfer",
-        description: "Morning departure from your hotel to the countryside south of Cairo."
+        description: "Morning departure from your hotel to the countryside south of Cairo.",
+        image: "/images/excursions/steps/saqqara-dahshur-pyramids/1.jpg"
       },
       {
         id: "dahshur",
         title: "Dahshur Necropolis",
         tag: "History",
-        description: "Visit the Red Pyramid—the first true smooth-sided pyramid—and the unique Bent Pyramid."
+        description: "Visit the Red Pyramid—the first true smooth-sided pyramid—and the unique Bent Pyramid.",
+        image: "/images/excursions/steps/saqqara-dahshur-pyramids/2.jpg"
       },
       {
         id: "saqqara",
         title: "Saqqara Complex",
         tag: "Ancient Sites",
-        description: "Explore the vast complex of Djoser, the world's oldest stone monumental building."
+        description: "Explore the vast complex of Djoser, the world's oldest stone monumental building.",
+        image: "/images/excursions/steps/saqqara-dahshur-pyramids/3.jpg"
       },
       {
         id: "lunch",
         title: "Countryside Lunch",
         tag: "Lunch Included",
-        description: "Relax with a traditional lunch near the palm groves."
+        description: "Relax with a traditional lunch near the palm groves.",
+        image: "/images/excursions/steps/saqqara-dahshur-pyramids/4.jpg"
       },
       {
         id: "unas",
         title: "Pyramid of Unas",
         tag: "History",
-        description: "Enter the tomb of Unas to see the earliest known Pyramid Texts."
+        description: "Enter the tomb of Unas to see the earliest known Pyramid Texts.",
+        image: "/images/excursions/steps/saqqara-dahshur-pyramids/5.jpg"
       },
       {
         id: "return",
         title: "Return to Cairo",
         tag: "Transfer",
-        description: "Drive back to Cairo through the lush Nile Valley farmlands."
+        description: "Drive back to Cairo through the lush Nile Valley farmlands.",
+        image: "/images/excursions/steps/saqqara-dahshur-pyramids/6.jpg"
       }
     ]
   },
@@ -958,37 +1031,43 @@ export const excursions: Excursion[] = [
         id: "pickup",
         title: "Pickup",
         tag: "Transfer",
-        description: "Morning pickup to begin your journey through time."
+        description: "Morning pickup to begin your journey through time.",
+        image: "/images/excursions/steps/giza-pyramids-grand-egyptian-museum/1.jpg"
       },
       {
         id: "giza",
         title: "Giza Plateau",
         tag: "History",
-        description: "Walk in the shadow of Khufu, Khafre, and Menkaure, and greet the Sphinx."
+        description: "Walk in the shadow of Khufu, Khafre, and Menkaure, and greet the Sphinx.",
+        image: "/images/excursions/steps/giza-pyramids-grand-egyptian-museum/2.jpg"
       },
       {
         id: "lunch",
         title: "Lunch",
         tag: "Lunch Included",
-        description: "A refined lunch break with views of the pyramids."
+        description: "A refined lunch break with views of the pyramids.",
+        image: "/images/excursions/steps/giza-pyramids-grand-egyptian-museum/3.jpg"
       },
       {
         id: "gem",
         title: "Grand Egyptian Museum",
         tag: "Modern Icon",
-        description: "Enter the monumental atrium and explore the available galleries of the GEM."
+        description: "Enter the monumental atrium and explore the available galleries of the GEM.",
+        image: "/images/excursions/steps/giza-pyramids-grand-egyptian-museum/4.jpg"
       },
       {
         id: "treasures",
         title: "Ancient Treasures",
         tag: "Culture",
-        description: "Witness the restored masterpieces of the ancient world in a state-of-the-art setting."
+        description: "Witness the restored masterpieces of the ancient world in a state-of-the-art setting.",
+        image: "/images/excursions/steps/giza-pyramids-grand-egyptian-museum/5.jpg"
       },
       {
         id: "return",
         title: "Return",
         tag: "Transfer",
-        description: "Transfer back to your hotel."
+        description: "Transfer back to your hotel.",
+        image: "/images/excursions/steps/giza-pyramids-grand-egyptian-museum/6.jpg"
       }
     ]
   }

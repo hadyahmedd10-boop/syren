@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      url: `/destinations/${slug}`,
+      url: `https://www.syrentravel.com/destinations/${slug}`,
       siteName: "Syren",
       type: "article",
       images: [
@@ -135,7 +135,7 @@ export default async function DestinationPage({ params }: Props) {
         className="bg-background border-t border-border section scroll-mt-24"
       > 
         <div className="mx-auto max-w-7xl container-x"> 
-          <SectionHeader title="Recommended Add-Ons" />
+          <SectionHeader title={`Add-Ons for ${destination.name}`} />
     
           {destinationExcursions.length > 0 ? (
             <ExcursionFilterList 

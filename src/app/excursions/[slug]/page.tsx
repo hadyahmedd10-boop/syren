@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import SectionHeader from "@/components/layout/SectionHeader";
 import FinalCTA from "@/components/sections/FinalCTA";
 import { constructMetadata } from "@/lib/seo";
-import CheckoutButton from "@/components/payments/CheckoutButton";
+import BookingTrigger from "@/components/ui/BookingTrigger";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import HeroShell from "@/components/ui/HeroShell";
 import ExcursionItinerary from "@/components/excursions/ExcursionItinerary";
@@ -13,6 +13,8 @@ import { MessageSquare } from "lucide-react";
 import { destinations } from "@/data/destinations";
 import { HERO_IMAGES } from "@/lib/images";
 import { SOCIAL_LINKS } from "@/config/social";
+import ExitIntentPopup from "@/components/ui/ExitIntentPopup";
+import SaveToggle from "@/components/ui/SaveToggle";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -28,8 +30,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!excursion) return { title: "Excursion Not Found | Syren" };
 
-  const title = `${excursion.title} | Private Egyptian Excursion | Syren`;
-  const description = excursion.shortDescription;
+  const makeTitle = (s: string) => {
+    const base = `${s} | Syren`;
+    return base.length <= 60 ? base : `${base.slice(0, 57).trimEnd()}…`;
+  };
+  const title = makeTitle(excursion.title);
+  const baseDesc = (excursion as any).seoDescription || excursion.shortDescription;
+  let description = `${baseDesc} Private guided excursion from Hurghada. Book with Syren today.`;
+  if (description.length < 150) {
+    description = `${description} Includes licensed guides, private transfers, curated pacing, and seamless logistics handled by local experts.`;
+  }
+  if (description.length > 160) {
+    description = `${description.slice(0, 157).trimEnd()}…`;
+  }
 
   return {
     title,
@@ -38,13 +51,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      url: `/excursions/${slug}`,
+      url: `https://www.syrentravel.com/excursions/${slug}`,
       type: "article",
+      images: [
+        {
+          url:
+            typeof (excursion.heroImage as any) === "string"
+              ? (excursion.heroImage as string)
+              : (excursion.heroImage as any)?.src ?? "/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: excursion.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [
+        typeof (excursion.heroImage as any) === "string"
+          ? (excursion.heroImage as string)
+          : (excursion.heroImage as any)?.src ?? "/og-image.jpg",
+      ],
     },
   };
 }
@@ -60,24 +89,31 @@ export default async function ExcursionPage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-background">
+      <ExitIntentPopup experienceTitle={excursion.title} />
       {/* Hero */}
       <HeroShell
         backgroundImage={typeof heroImage === "string" ? heroImage : heroImage.src}
         eyebrow={`${excursion.duration} · ${excursion.tourStyle} · ${excursion.availability}`}
         title={excursion.title}
         subtitle={excursion.shortDescription}
+        altText={`${excursion.title} - Syren Travel Egypt`}
         heightClassName="min-h-[60vh] md:min-h-[70vh] lg:min-h-[75vh]"
       >
+        <div className="flex justify-center">
+          <SaveToggle slug={excursion.slug} itemType="excursion" className="text-white/80" labelUnsaved="Save this" labelSaved="Saved" />
+        </div>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <WhatsAppButton 
             label="Book This Excursion"
             location="excursion_hero"
             message={`I'm interested in the ${excursion.title} excursion.`}
           />
-          <CheckoutButton 
-            itemType="excursion"
+          <BookingTrigger
+            title={excursion.title}
             slug={excursion.slug}
-            label="Book Now"
+            basePriceAmount={Math.round((excursion.priceCents || 0) / 100)}
+            basePriceCurrency={(excursion.currency || "usd").toUpperCase()}
+            buttonLabel="Reserve Now →"
           />
         </div>
       </HeroShell>
@@ -86,7 +122,7 @@ export default async function ExcursionPage({ params }: Props) {
       <section className="py-16 md:py-24 bg-surface/30 border-b border-border/50">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <SectionHeader 
-            title="Excursion Highlights" 
+            title={`Highlights of ${excursion.title}`} 
             label="Key Experiences"
             className="mb-10"
           />
@@ -108,12 +144,14 @@ export default async function ExcursionPage({ params }: Props) {
       <ExcursionItinerary 
         steps={excursion.itinerarySteps} 
         fallbackImage={(excursion.image || heroImage) as string} 
+        title={`Your ${excursion.title} Journey`}
+        parentTitle={excursion.title}
       />
 
       {/* Included */}
       <section className="section">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <SectionHeader title="What’s Included" />
+          <SectionHeader title={`What’s Included in ${excursion.title}`} />
 
           <div className="mt-12 grid gap-4 md:gap-6 md:grid-cols-2">
             <div>

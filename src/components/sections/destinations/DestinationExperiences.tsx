@@ -52,7 +52,9 @@ export default function DestinationExperiences({
                 image={experience.heroImage}
                 duration={experience.duration}
                 cities={experience.cities}
-                href={`/experiences/${experience.slug}`}
+              href={`/experiences/${experience.slug}`}
+              slug={experience.slug}
+              itemType="experience"
               />
             </Reveal>
           ))}

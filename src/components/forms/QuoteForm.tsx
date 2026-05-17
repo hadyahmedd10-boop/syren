@@ -132,6 +132,7 @@ export default function QuoteForm() {
                 id="name"
                 required
                 type="text"
+                autoComplete="name"
                 placeholder="Alexander Great"
                 className={`w-full bg-transparent border-b py-3 text-text-primary focus:outline-none focus:border-accent-gold transition-colors font-sans ${fieldErrors.name ? "border-red-400" : "border-border"}`}
                 value={formData.name}
@@ -146,6 +147,8 @@ export default function QuoteForm() {
                 id="email"
                 required
                 type="email"
+                inputMode="email"
+                autoComplete="email"
                 placeholder="alexander@luxury.com"
                 className={`w-full bg-transparent border-b py-3 text-text-primary focus:outline-none focus:border-accent-gold transition-colors font-sans ${fieldErrors.email ? "border-red-400" : "border-border"}`}
                 value={formData.email}
@@ -159,6 +162,8 @@ export default function QuoteForm() {
               <input
                 id="phone"
                 type="tel"
+                inputMode="tel"
+                autoComplete="tel"
                 placeholder="+1 234 567 890"
                 className="w-full bg-transparent border-b border-border py-3 text-text-primary focus:outline-none focus:border-accent-gold transition-colors font-sans"
                 value={formData.phone}
@@ -171,6 +176,7 @@ export default function QuoteForm() {
               <input
                 id="dates"
                 type="text"
+                inputMode="numeric"
                 placeholder="Spring 2026"
                 className="w-full bg-transparent border-b border-border py-3 text-text-primary focus:outline-none focus:border-accent-gold transition-colors font-sans"
                 value={formData.trip_dates}

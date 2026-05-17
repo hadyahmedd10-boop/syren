@@ -20,7 +20,7 @@ export default function OurVision() {
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <Image
           src={HERO_IMAGES.home}
-          alt=""
+          alt="Egypt travel background - Syren vision"
           fill
           className="object-cover object-center grayscale"
           sizes="100vw"

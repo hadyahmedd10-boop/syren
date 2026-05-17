@@ -81,7 +81,7 @@ export default function LandingShell({
   };
 
   return (
-    <div className="min-h-screen bg-background text-white selection:bg-accent-gold selection:text-black">
+    <div className="min-h-screen bg-background text-text-primary selection:bg-accent-gold selection:text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -139,7 +139,7 @@ export default function LandingShell({
       <SocialProofStrip />
 
       {/* Benefits Section */}
-      <section className="py-24 px-6 border-b border-white/5">
+      <section className="py-24 px-6 border-b border-border">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
           {benefits.map((benefit, index) => (
             <Reveal key={index} delay={0.1 * index}>
@@ -147,7 +147,7 @@ export default function LandingShell({
                 <div className="w-12 h-12 rounded-full border border-accent-gold/30 flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 className="text-accent-gold w-6 h-6" />
                 </div>
-                <h3 className="font-serif text-xl text-white tracking-wide uppercase">
+                <h3 className="font-serif text-xl text-text-primary tracking-wide uppercase">
                   {benefit}
                 </h3>
               </div>
@@ -163,7 +163,7 @@ export default function LandingShell({
       {children}
 
       {/* What You Get Section */}
-      <section className="py-24 px-6 bg-white/5">
+      <section className="py-24 px-6 bg-surface-2">
         <div className="max-w-4xl mx-auto">
           <Reveal>
             <h2 className="font-serif text-3xl md:text-4xl text-accent-gold mb-12 text-center italic">
@@ -175,7 +175,7 @@ export default function LandingShell({
             {whatYouGet.items.map((item, index) => (
               <Reveal key={index} delay={0.1 * index} className="flex items-start gap-4">
                 <span className="text-accent-gold font-serif text-xl mt-1">/</span>
-                <p className="font-sans text-white/80 text-lg leading-relaxed">
+                <p className="font-sans text-text-secondary text-lg leading-relaxed">
                   {item}
                 </p>
               </Reveal>

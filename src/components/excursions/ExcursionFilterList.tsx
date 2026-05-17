@@ -65,7 +65,7 @@ export default function ExcursionFilterList({
 
   // Render helper for a grid of excursions
   const renderGrid = (excs: Excursion[]) => (
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {excs.map((exc, index) => {
         const displayImage = exc.image || destinationHeroImage || HERO_IMAGES.home;
 
@@ -78,8 +78,12 @@ export default function ExcursionFilterList({
               alt={exc.imageAlt ?? exc.title}
               duration={exc.duration}
               cities={exc.city || destinationName}
-              buttonText="View Excursion"
+              priceAmount={typeof exc.priceCents === "number" ? Math.round(exc.priceCents / 100) : undefined}
+              priceCurrency={(exc.currency || "USD").toUpperCase()}
+              buttonText="Explore Excursions →"
               href={`/excursions/${exc.slug}`}
+              slug={exc.slug}
+              itemType="excursion"
             />
           </Reveal>
         );

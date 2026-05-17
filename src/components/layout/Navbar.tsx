@@ -139,7 +139,7 @@ const toggleMenu = () => {
           <ThemeToggle className="px-2 py-2" />
           <Link 
             href="/experiences" 
-            className="syren-btn-primary syren-nav-cta px-3 py-1 text-[10px] leading-none"
+            className="syren-btn-primary syren-nav-cta px-4 py-3 min-h-[44px] text-sm leading-none"
           > 
             Explore Experiences
           </Link> 
@@ -187,7 +187,7 @@ const toggleMenu = () => {
               <div className="flex-1 flex flex-col justify-center px-8 gap-8">
                 
                 <motion.div variants={itemVariants}>
-                  <Link href="/experiences" className="font-serif text-3xl text-text-primary hover:text-accent-gold transition-colors block">
+                  <Link href="/experiences" className={`font-serif text-3xl ${pathname?.startsWith("/experiences") ? "text-accent-gold" : "text-text-primary"} hover:text-accent-gold transition-colors block`}>
                     Experiences
                   </Link>
                 </motion.div>
@@ -213,7 +213,7 @@ const toggleMenu = () => {
                         className="overflow-hidden"
                       >
                         <div className="flex flex-col gap-3 mt-4 pl-4 border-l border-border ml-1.5">
-                          <span className="text-[10px] uppercase tracking-[0.2em] text-text-secondary mb-1 block">Destinations</span>
+                          <span className="text-xs uppercase tracking-[0.2em] text-text-secondary mb-1 block">Destinations</span>
                           {destinations.map((dest) => (
                             <Link 
                               key={dest.slug} 
@@ -227,9 +227,15 @@ const toggleMenu = () => {
                           ))}
                           <Link 
                             href="/destinations" 
-                            className="mt-2 text-[10px] uppercase tracking-[0.2em] text-accent-gold/70 hover:text-accent-gold transition-colors"
+                            className="mt-2 inline-flex items-center min-h-[44px] text-sm uppercase tracking-[0.2em] text-accent-gold/70 hover:text-accent-gold transition-colors"
                           >
                             View All Destinations
+                          </Link>
+                          <Link 
+                            href="/excursions"
+                            className="mt-1 inline-flex items-center min-h-[44px] text-sm uppercase tracking-[0.2em] text-accent-gold/70 hover:text-accent-gold transition-colors"
+                          >
+                            Explore Excursions
                           </Link>
                         </div>
                       </motion.div>
@@ -238,16 +244,17 @@ const toggleMenu = () => {
                 </motion.div>
 
                 <motion.div variants={itemVariants}>
-                  <Link href="/about" className="font-serif text-3xl text-text-primary hover:text-accent-gold transition-colors block">
-                    About
+                  <Link href="/events" className={`font-serif text-3xl ${pathname?.startsWith("/events") ? "text-accent-gold" : "text-text-primary"} hover:text-accent-gold transition-colors block`}>
+                    Events
+                  </Link>
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <Link href="/partner" className={`font-serif text-3xl ${pathname === "/partner" ? "text-accent-gold" : "text-text-primary"} hover:text-accent-gold transition-colors block`}>
+                    Partner Program
                   </Link>
                 </motion.div>
 
-                <motion.div variants={itemVariants}>
-                  <Link href="/quote" className="font-serif text-3xl text-text-primary hover:text-accent-gold transition-colors block">
-                    Contact
-                  </Link>
-                </motion.div>
+                
               </div>
               
               {/* Footer (Quiet Trust Layer) */}
@@ -258,8 +265,10 @@ const toggleMenu = () => {
                 <div className="flex flex-col gap-6 opacity-60 hover:opacity-100 transition-opacity duration-500">
                   <a href={`mailto:${SOCIAL_LINKS.email}`} className="font-serif text-lg text-text-primary hover:text-accent-gold transition-colors">{SOCIAL_LINKS.email}</a>
                   <div className="flex gap-6">
-                    <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest text-text-primary hover:text-accent-gold transition-colors">Instagram</a>
-                    <a href="#" className="text-[10px] uppercase tracking-widest text-text-primary hover:text-accent-gold transition-colors">LinkedIn</a>
+                    <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-widest text-text-primary hover:text-accent-gold transition-colors min-h-[44px] inline-flex items-center">Instagram</a>
+                    <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-widest text-text-primary hover:text-accent-gold transition-colors min-h-[44px] inline-flex items-center">LinkedIn</a>
+                    <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-widest text-text-primary hover:text-accent-gold transition-colors min-h-[44px] inline-flex items-center">WhatsApp</a>
+                    <a href={`mailto:${SOCIAL_LINKS.email}`} className="text-sm uppercase tracking-widest text-text-primary hover:text-accent-gold transition-colors min-h-[44px] inline-flex items-center">Email</a>
                   </div>
                 </div>
               </motion.div>
@@ -298,7 +307,7 @@ const toggleMenu = () => {
                    className="absolute top-full left-0 mt-4 w-64 bg-background/95 backdrop-blur-xl border border-border rounded-2xl overflow-hidden shadow-xl z-50 text-text-primary"
                  >
                    <div className="p-2">
-                     <p className="px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-accent-gold/60 font-bold">Destinations</p>
+                    <p className="px-4 py-2 text-xs uppercase tracking-[0.2em] text-accent-gold/60 font-bold">Destinations</p>
                      {destinations.map((dest) => (
                        <Link
                          key={dest.slug}
@@ -306,13 +315,13 @@ const toggleMenu = () => {
                          className="flex flex-col px-4 py-3 rounded-lg hover:bg-accent-gold/10 transition-colors group"
                        >
                          <span className="text-sm font-medium group-hover:text-accent-gold transition-colors">{dest.name}</span>
-                         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary/60 group-hover:text-accent-gold/60 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(196,160,82,0.2)] line-clamp-1">{dest.tagline}</span>
+                         <span className="text-xs font-bold uppercase tracking-[0.2em] text-text-secondary/60 group-hover:text-accent-gold/60 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(196,160,82,0.2)] line-clamp-1">{dest.tagline}</span>
                        </Link>
                      ))}
                      <div className="mt-2 pt-2 border-t border-border/50">
                        <Link
                          href="/destinations"
-                         className="flex items-center justify-center py-2 text-[11px] uppercase tracking-widest text-accent-gold hover:underline"
+                         className="flex items-center justify-center py-3 min-h-[44px] text-sm uppercase tracking-widest text-accent-gold hover:underline"
                        >
                          View All Destinations
                        </Link>
@@ -322,11 +331,10 @@ const toggleMenu = () => {
                )}
              </AnimatePresence>
            </div>
-           <Link href="/experiences" className="hover:text-accent-gold transition-colors">Experiences</Link> 
-           <Link href="/about" className="hover:text-accent-gold transition-colors">About</Link> 
-           <Link href="/quote" className="text-accent-gold hover:text-accent-gold/80 transition-colors"> 
-            Contact 
-          </Link> 
+           <Link href="/experiences" className={`${pathname?.startsWith("/experiences") ? "text-accent-gold" : ""} hover:text-accent-gold transition-colors`}>Experiences</Link> 
+           <Link href="/events" className={`${pathname?.startsWith("/events") ? "text-accent-gold" : ""} hover:text-accent-gold transition-colors`}>Events</Link> 
+           <Link href="/partner" className={`${pathname === "/partner" ? "text-accent-gold" : ""} hover:text-accent-gold transition-colors`}>Partner Program</Link> 
+          
         </div> 
 
         <div className="flex items-center gap-3">
@@ -334,7 +342,7 @@ const toggleMenu = () => {
           {/* CTA */} 
           <Link 
             href="/experiences" 
-            className="syren-btn-primary min-h-[auto] px-4 py-1.5 text-[12px] leading-none xl:px-5 xl:py-2 xl:text-[13px]" 
+            className="syren-btn-primary min-h-[44px] px-4 py-3 text-sm leading-none xl:px-5 xl:py-3 xl:text-sm" 
           > 
             Explore Experiences 
           </Link> 

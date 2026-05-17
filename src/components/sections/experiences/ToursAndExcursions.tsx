@@ -55,7 +55,7 @@ export default function ToursAndExcursions() {
            </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {filtered.map((exc, i) => {
             const destination = destinations.find(d => d.slug === exc.destinationSlug);
             const displayImage = exc.image || destination?.heroImage || HERO_IMAGES.home;
@@ -68,8 +68,12 @@ export default function ToursAndExcursions() {
                   image={displayImage}
                   alt={exc.imageAlt ?? exc.title}
                   duration={exc.duration}
+                  priceAmount={typeof exc.priceCents === "number" ? Math.round(exc.priceCents / 100) : undefined}
+                  priceCurrency={(exc.currency || "USD").toUpperCase()}
                   buttonText="Discover Excursion"
                   href={`/excursions/${exc.slug}`}
+                  slug={exc.slug}
+                  itemType="excursion"
                 />
               </Reveal>
             );

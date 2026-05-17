@@ -4,7 +4,7 @@ import Reveal from "@/components/motion/Reveal";
 import SectionHeader from "@/components/layout/SectionHeader";
 
 export default function LuxuryExperiences() {
-  const luxury = experiences.filter(exp => exp.price && exp.price.amount >= 3000);
+  const luxury = experiences.filter(exp => exp.price?.amount != null && exp.price.amount >= 3000);
 
   return (
     <div className="mx-auto max-w-7xl px-6 md:px-8">
@@ -25,6 +25,8 @@ export default function LuxuryExperiences() {
               cities={experience.cities}
               buttonText="Discover Journey"
               href={`/experiences/${experience.slug}`}
+              slug={experience.slug}
+              itemType="experience"
             />
           </Reveal>
         ))}

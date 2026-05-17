@@ -11,6 +11,7 @@ import ViewportBadge from "@/components/dev/ViewportBadge";
 import PerfSafe from "@/components/dev/PerfSafe";
 import ThemeScript from "@/components/theme/ThemeScript";
 import Script from "next/script";
+import FloatingWhatsAppFab from "@/components/ui/FloatingWhatsAppFab";
 
 // Run data validation in development
 if (process.env.NODE_ENV === "development") {
@@ -25,39 +26,61 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.syrentravel.com"),
-  title: "Syren | Private Journeys & Bespoke Experiences",
-  description: "Private journeys curated with precision.",
-  alternates: {
-    canonical: "https://www.syrentravel.com",
+  title: {
+    default: "Syren | Egypt Travel Agency — Events, Tours & Curated Experiences",
+    template: "%s | Syren Egypt",
   },
+  description:
+    "Syren is Egypt's premier travel agency. Discover curated journeys, international music events, private tours, and bespoke experiences across Cairo, the Nile, and the Red Sea.",
+  keywords: [
+    "Egypt travel agency",
+    "travel to Egypt",
+    "Egypt tours",
+    "Egypt events",
+    "music festivals Egypt",
+    "Zamna Egypt",
+    "Egypt travel packages",
+    "luxury Egypt travel",
+    "Cairo tours",
+    "Red Sea travel",
+    "Nile cruise",
+    "Egypt experiences",
+    "Gulf travelers Egypt",
+    "Europe to Egypt travel",
+    "Latin America Egypt",
+  ],
+  authors: [{ name: "Syren Travel" }],
+  creator: "Syren Travel",
+  publisher: "Syren Travel",
+  metadataBase: new URL("https://www.syrentravel.com"),
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Syren | Private Journeys & Bespoke Experiences",
-    description: "Experience the extraordinary with Syren's curated private journeys...",
-    url: process.env.NEXT_PUBLIC_SITE_URL,
-    siteName: "Syren",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
-    locale: "en_US",
     type: "website",
+    locale: "en_US",
+    url: "https://www.syrentravel.com",
+    siteName: "Syren Travel",
+    title: "Syren | Egypt's Premier Travel Agency",
+    description: "Curated journeys, international events, and bespoke experiences across Egypt.",
+    images: [{ url: "/images/hero/luxury.jpg", width: 1200, height: 630, alt: "Syren Egypt Travel" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Syren | Private Journeys & Bespoke Experiences",
-    description: "Experience the extraordinary with Syren's curated private journeys...",
-    images: ["/og-image.jpg"],
-    creator: "@syren_egypt",
+    title: "Syren | Egypt Travel Agency",
+    description: "Curated journeys, international events, and bespoke experiences across Egypt.",
+    images: ["/images/hero/luxury.jpg"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+  verification: {
+    google: "3tE6l_Fv-kIBJbdwkoUurFucRjhTB9n3EW3mqaz9Pe0",
+    other: {
+      "msvalidate.01": "F32E61A423FC78949146A9DD314145CE",
     },
   },
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
 
 export default function RootLayout({
@@ -69,6 +92,8 @@ export default function RootLayout({
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
         <ThemeScript />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="preload" as="image" href="/images/hero/luxury.jpg" fetchPriority="high" />
         <Script id="perf-safe-before" strategy="beforeInteractive">
           {(`
             (function(){
@@ -105,12 +130,16 @@ export default function RootLayout({
               "@type": "TravelAgency",
               name: "Syren Travel",
               url: "https://www.syrentravel.com",
-              logo: "https://www.syrentravel.com/logo.png",
+              logo: "https://www.syrentravel.com/syren-logo.svg.png",
               description:
                 "Luxury curated Egypt travel experiences for discerning global travelers.",
             }),
           }}
         />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//www.clarity.ms" />
+        <link rel="dns-prefetch" href="//static.hotjar.com" />
+        <link rel="preconnect" href="https://api.brevo.com" />
       </head>
       <body className="antialiased">
         <ThemeProvider>
@@ -127,6 +156,46 @@ export default function RootLayout({
             <ViewportBadge />
           </PHProvider>
         </ThemeProvider>
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "vt8xkvfec3");
+          `}
+        </Script>
+        <Script
+          id="ga4-lib"
+          src="https://www.googletagmanager.com/gtag/js?id=G-119ZX0583F"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-119ZX0583F', { page_path: window.location.pathname });
+          `}
+        </Script>
+        <Script
+          id="trustpilot-invite"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,r,n){w.TrustpilotObject=n;w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};
+              a=d.createElement(s);a.async=1;a.src=r;a.type='text/java'+s;f=d.getElementsByTagName(s)[0];
+              f.parentNode.insertBefore(a,f)})(window,document,'script','https://invitejs.trustpilot.com/tp.min.js','tp');
+              tp('register', 'ykdaMze3aKsQ6s8m');
+            `
+          }}
+        />
+        <Script
+          id="trustpilot-widget"
+          src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+          strategy="afterInteractive"
+        />
+        <FloatingWhatsAppFab />
       </body>
     </html>
   );

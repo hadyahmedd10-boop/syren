@@ -4,6 +4,67 @@ import { getItineraryDayImage } from "@/lib/getItineraryImages";
 
 export const experiences: Experience[] = [
   {
+    slug: "10-day-egypt-christmas-vacation",
+    title: "10-Day Egypt Christmas Vacation",
+    destinations: ["cairo", "luxor-aswan", "red-sea"],
+    subtitle: "Cairo · 5‑Star Nile Cruise · Red Sea",
+    duration: "10 Days / 9 Nights",
+    cities: "Cairo, Aswan, Luxor, Hurghada",
+    description: "Ten days through the soul of Egypt — Cairo, a 5-star Nile cruise from Aswan to Luxor, and the Red Sea at Hurghada. Timed for Christmas and New Year.",
+    introduction:
+      "There are holidays. And then there are the ones you spend the rest of your life talking about. Timed for Christmas or New Year: Cairo, a five-star Nile cruise from Aswan to Luxor, and the Red Sea at Hurghada.",
+    heroImage: EXPERIENCE_IMAGES["10-day-cairo-nile-red-sea-odyssey"],
+    whatsappMessage: "I am interested in the 10-Day Egypt Christmas Vacation",
+    highlights: [
+      "5‑star Nile cruise from Aswan to Luxor",
+      "Grand Egyptian Museum & Giza Pyramids",
+      "Red Sea snorkeling and island day",
+      "Desert safari with sunset Bedouin dinner",
+    ],
+    included: [
+      "Meet and assist at arrival and departure",
+      "Fast Track Service at Cairo International Airport",
+      "Syren concierge support throughout the entire journey",
+      "All transfers in air-conditioned vehicles with onboard WiFi",
+      "3 nights hotel accommodation in Cairo with breakfast",
+      "3 nights aboard a 5-star Nile cruise with full board",
+      "3 nights hotel accommodation in Hurghada with breakfast",
+      "All meals as specified in the daily itinerary",
+      "Complimentary bottled water on all tours and road transfers",
+      "Domestic flights: Cairo→Aswan and Hurghada→Cairo",
+      "All Cairo tours as per itinerary (small group)",
+      "Private guided sightseeing in Cairo",
+      "Guided excursions during the Nile cruise (shared group)",
+      "Admission tickets for all sites mentioned",
+      "English-speaking guides and drivers throughout",
+      "All service charges and taxes",
+    ],
+    notIncluded: [
+      "International flights",
+      "Egyptian entry visa",
+      "Optional tours and activities not listed in the itinerary",
+      "Personal expenses",
+      "Gratuities",
+    ],
+    seoTitle: "10-Day Egypt Christmas Vacation | Group Nile Cruise | Syren",
+    seoDescription:
+      "Celebrate Christmas or New Year in Egypt with Syren's 10-day group tour. Cairo pyramids, 5-star Nile cruise from Aswan to Luxor, and Red Sea at Hurghada.",
+    badge: "Group Tour",
+    category: "nile-cruises",
+    itinerary: [
+      { day: 1, title: "Arrival in Cairo", description: "Airport fast track. Private transfer to your hotel. Itinerary review with your Syren concierge.", meals: "Welcome Drink", image: getItineraryDayImage("10-day-egypt-christmas-vacation", 1) },
+      { day: 2, title: "The Pyramids & The Grand Egyptian Museum", description: "Giza Plateau — Great Pyramids and Sphinx — plus the new Grand Egyptian Museum.", meals: "Breakfast, Lunch", image: getItineraryDayImage("10-day-egypt-christmas-vacation", 2) },
+      { day: 3, title: "Fly to Aswan — Board Your Nile Cruise — Philae Temple", description: "Flight to Aswan. Embark your 5‑star cruise. Visit the Unfinished Obelisk and Philae Temple.", meals: "Breakfast, Lunch, Dinner", image: getItineraryDayImage("10-day-egypt-christmas-vacation", 3) },
+      { day: 4, title: "Kom Ombo, Crocodile Museum & Edfu Temple", description: "Sail to Kom Ombo and Edfu — two of the Nile's most striking temples.", meals: "Breakfast, Lunch, Afternoon Tea, Dinner", image: getItineraryDayImage("10-day-egypt-christmas-vacation", 4) },
+      { day: 5, title: "Valley of the Kings, Hatshepsut & Colossi", description: "Luxor West Bank: royal tombs, the terraces of Hatshepsut, and Memnon statues.", meals: "Breakfast, Lunch, Dinner", image: getItineraryDayImage("10-day-egypt-christmas-vacation", 5) },
+      { day: 6, title: "Karnak, Luxor Temple & Transfer to Hurghada", description: "Karnak and Luxor temples. Private drive across the desert to the Red Sea.", meals: "Breakfast", image: getItineraryDayImage("10-day-egypt-christmas-vacation", 6) },
+      { day: 7, title: "The Red Sea by Boat", description: "Snorkeling cruise to coral reefs and island stop. Lunch on board.", meals: "Breakfast, Lunch", image: getItineraryDayImage("10-day-egypt-christmas-vacation", 7) },
+      { day: 8, title: "Desert Safari, Sunset BBQ & Bedouin Evening", description: "Camel ride, sunset BBQ and Bedouin show under the stars.", meals: "Breakfast, Dinner", image: getItineraryDayImage("10-day-egypt-christmas-vacation", 8) },
+      { day: 9, title: "Return to Cairo", description: "Morning flight to Cairo. Hotel check‑in and evening at leisure.", meals: "Breakfast", image: getItineraryDayImage("10-day-egypt-christmas-vacation", 9) },
+      { day: 10, title: "Departure", description: "Private transfer to Cairo International Airport. Farewell from the Syren team.", meals: "Breakfast", image: getItineraryDayImage("10-day-egypt-christmas-vacation", 10) },
+    ],
+  },
+  {
     slug: "nile-signature",
     title: "Nile Signature",
     destinations: ["luxor-aswan"],
@@ -539,5 +600,141 @@ export const experiences: Experience[] = [
         image: getItineraryDayImage("alexandria-coastal-elegance", 3)
       }
     ]
+  },
+  {
+    id: "exit-pyramids-2026",
+    slug: "exit-at-the-pyramids",
+    title: "Exit at the Pyramids",
+    category: "festival-experiences",
+    badge: "Festival Package",
+    description: "10 nights around Exit Festival at the Pyramids of Giza — old Cairo by night, a Fayoum desert overnight, four days at the festival, then the Red Sea at Hurghada.",
+    introduction: "Some festivals happen in fields. Some happen in warehouses. And then there is Exit — happening at the foot of the Great Pyramids of Giza, one of the most extraordinary stages ever built by accident of history. This is Syren's curated 10-night journey around it. We begin in old Cairo after dark, disappear into the Fayoum desert for a night under the stars, spend four days at the festival itself, then decompress on the Red Sea with a boat party, open water, and a farewell dinner as the sun goes down over Hurghada. Egypt in October. Exit at the Pyramids. This is the trip.",
+    shortDescription: "10 nights around Exit Festival at the Pyramids of Giza — old Cairo by night, a Fayoum desert overnight, four days at the festival, then the Red Sea at Hurghada.",
+    fullDescription: "Some festivals happen in fields. Some happen in warehouses. And then there is Exit — happening at the foot of the Great Pyramids of Giza, one of the most extraordinary stages ever built by accident of history. This is Syren's curated 10-night journey around it. We begin in old Cairo after dark, disappear into the Fayoum desert for a night under the stars, spend four days at the festival itself, then decompress on the Red Sea with a boat party, open water, and a farewell dinner as the sun goes down over Hurghada. Egypt in October. Exit at the Pyramids. This is the trip.",
+    destinations: ["cairo", "fayoum", "giza", "hurghada"],
+    cities: "Cairo, Fayoum, Giza, Hurghada",
+    duration: "10 Nights / 11 Days",
+    groupSize: "Small Group",
+    minAge: "21+",
+    heroImage: EXPERIENCE_IMAGES["cairo-after-dark"],
+    galleryImages: [],
+    isFeatured: true,
+    isPopular: true,
+    price: { from: 0, currency: "USD", label: "Price on request" },
+    seoTitle: "Exit Festival Egypt Package 2026 | Syren Travel",
+    seoDescription: "Syren's 10-night Exit Festival package — Cairo by night, Fayoum desert, 4 days at Exit at the Pyramids of Giza, and the Red Sea at Hurghada. October 2026.",
+    whatsappMessage: "I am interested in the Exit at the Pyramids experience",
+    highlights: [
+      "Exit Festival at the Pyramids of Giza",
+      "Old Cairo by night and Khan el-Khalili",
+      "Fayoum desert overnight with Bedouin camp",
+      "Private boat party and snorkeling in Hurghada",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival & Old Cairo by Night",
+        description: "Your Egypt begins the moment you land. We meet you at the airport, handle everything, and take you straight into the old city as the evening light comes on. Khan el-Khalili by night is a different world — lanterns, incense, the sound of the call to prayer echoing off Ottoman walls. We walk Al-Muizz Street, eat street food, drink mint tea, and smoke shisha somewhere the tourists haven't found yet.",
+        tag: "Cairo",
+        meals: [],
+        location: "Cairo"
+      },
+      {
+        day: 2,
+        title: "Cairo → Fayoum · Desert Overnight",
+        description: "An hour and a half south of Cairo, the desert begins properly. Wadi El-Rayan — salt lakes in a landscape that looks like another planet. We spend the day here, ride camels, eat a traditional Bedouin lunch, and as the light goes, make camp. Bonfire. Stars with no light pollution. Sleeping in the desert the way people have for thousands of years. We return to Cairo the next morning.",
+        tag: "Fayoum",
+        meals: ["Lunch", "Dinner"],
+        location: "Fayoum"
+      },
+      {
+        day: 3,
+        title: "Festival Day 1",
+        description: "Back from Fayoum in the morning. Hotel rest. Then as evening falls — the Pyramids. Exit Festival. Four thousand years of history and a world-class electronic music lineup sharing the same horizon.",
+        tag: "Exit Festival",
+        meals: [],
+        location: "Giza"
+      },
+      {
+        day: 4,
+        title: "Festival Day 2",
+        description: "Full day at the festival. The Pyramids don't get smaller.",
+        tag: "Exit Festival",
+        meals: [],
+        location: "Giza"
+      },
+      {
+        day: 5,
+        title: "Festival Day 3",
+        description: "Full day at the festival.",
+        tag: "Exit Festival",
+        meals: [],
+        location: "Giza"
+      },
+      {
+        day: 6,
+        title: "Festival Day 4 · Final Night",
+        description: "The last night. Always the best one.",
+        tag: "Exit Festival",
+        meals: [],
+        location: "Giza"
+      },
+      {
+        day: 7,
+        title: "Cairo → Hurghada",
+        description: "Morning departure. The road east cuts through the Eastern Desert — one of Egypt's most dramatic drives, four and a half hours of landscape that reminds you the country is mostly this. We arrive in Hurghada in the afternoon. Marina walk, the old Dahar quarter, beach time, and a seafood dinner as the Red Sea turns gold.",
+        tag: "Transit",
+        meals: ["Dinner"],
+        location: "Hurghada"
+      },
+      {
+        day: 8,
+        title: "Boat Party · Live Music & BBQ",
+        description: "Full day on the water. Private boat, departs 10am. We stop at Giftun Island to snorkel — coral gardens, parrotfish, the clearest water in Egypt. Then the boat becomes a party. Live DJ set, BBQ lunch on deck, open bar, swimming in open water. Back to shore at sunset.",
+        tag: "Red Sea",
+        meals: ["Lunch"],
+        location: "Hurghada"
+      },
+      {
+        day: 9,
+        title: "Beach & Farewell Dinner",
+        description: "The day is yours. Beach, pool, whatever you need. In the evening the group comes together one last time — farewell dinner somewhere worth remembering.",
+        tag: "Hurghada",
+        meals: ["Dinner"],
+        location: "Hurghada"
+      },
+      {
+        day: 10,
+        title: "Return to Cairo · Departures",
+        description: "Early departure from Hurghada. The drive back through the Eastern Desert one more time. Airport drop-off in Cairo. Egypt has had you for ten days. It won't let you forget.",
+        tag: "Return",
+        meals: ["Breakfast"],
+        location: "Cairo"
+      }
+    ],
+    included: [
+      "Airport pickup and all transfers throughout the journey",
+      "9 nights hotel accommodation (Cairo, Fayoum camp, Hurghada)",
+      "1 night Bedouin desert camp in Fayoum with full board",
+      "Exit Festival access for 4 days",
+      "Private boat charter in Hurghada with BBQ lunch and open bar",
+      "Giftun Island snorkeling stop",
+      "All activities listed in the itinerary",
+      "English-speaking guide and driver throughout",
+      "24/7 Syren concierge support"
+    ],
+    notIncluded: [
+      "International flights",
+      "Egyptian entry visa",
+      "Personal expenses",
+      "Gratuities",
+      "Festival tickets (available to add on — ask your concierge)"
+    ],
+    curatedPackage: {
+      title: "Exit at the Pyramids — Syren Package",
+      description: "10 nights. Cairo, Fayoum, Exit Festival, and the Red Sea. Everything handled.",
+      inclusions: ["Airport transfers", "All accommodation", "Festival access", "Boat party", "24/7 concierge"],
+      ctaLabel: "Reserve Your Spot"
+    }
   }
 ];

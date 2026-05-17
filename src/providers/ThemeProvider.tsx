@@ -19,8 +19,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   });
 
   useEffect(() => {
-    document.documentElement.classList.toggle("light", theme === "light");
-    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
   const toggleTheme = () => {
@@ -31,11 +30,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     // Add transition class temporarily for smooth switch
     document.documentElement.classList.add("theme-transition");
     
-    if (newTheme === "light") {
-      document.documentElement.classList.add("light");
-    } else {
-      document.documentElement.classList.remove("light");
-    }
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
     
     // Remove transition class after animation
     setTimeout(() => {

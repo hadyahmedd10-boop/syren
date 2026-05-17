@@ -55,7 +55,7 @@
            "
            style={{ WebkitOverflowScrolling: "touch" }}
          >
-           <style>{`.sticky::-webkit-scrollbar{display:none}`}</style>
+          <style>{`.sticky::-webkit-scrollbar{display:none}`}</style>
            {eventCategories.map((cat) => {
              const id = `cat-${slugify(cat)}`;
              const active = activeId === id;
@@ -64,7 +64,7 @@
                  key={cat}
                  onClick={() => scrollTo(id)}
                  className={`
-                   relative rounded-full px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em]
+                  relative rounded-full px-3 py-3 min-h-[44px] text-sm font-bold uppercase tracking-[0.22em]
                    transition-all
                    ${
                      active
@@ -73,7 +73,7 @@
                    }
                  `}
                >
-                 <span className="block max-w-[220px] truncate">{cat}</span>
+                <span className="block max-w-[220px] truncate">{cat}</span>
                </button>
              );
            })}

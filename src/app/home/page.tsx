@@ -1,13 +1,23 @@
 import Hero from "@/components/sections/Hero";
-import PopularExperiences from "@/components/sections/PopularExperiences";
-import Testimonials from "@/components/sections/Testimonials";
-import Destinations from "@/components/sections/Destinations";
-import OurVision from "@/components/sections/OurVision";
-import FinalCTA from "@/components/sections/FinalCTA";
+import SectionHeader from "@/components/layout/SectionHeader";
+// replaced Popular Experiences with Best Selling Tours cards
+// Removed OurVision per final homepage spec
 import HomeScrollManager from "@/components/layout/HomeScrollManager";
+import FinalCTA from "@/components/sections/FinalCTA";
+import EmailSignup from "@/components/sections/EmailSignup";
+import TrustpilotWidget from "@/components/ui/TrustpilotWidget";
 import { SOCIAL_LINKS } from "@/config/social";
+import { events } from "@/data/events";
+import { getFeaturedUpcomingEvents } from "@/lib/eventUtils";
+import { experiences } from "@/data/experiences";
+import { excursions } from "@/data/excursions";
+import { HERO_IMAGES } from "@/lib/images";
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import Script from "next/script";
+import { Compass, Phone, Calendar, Globe } from "lucide-react";
+import Reveal from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
   title: "Syren — Luxury Travel Experiences in Egypt",
@@ -77,21 +87,314 @@ export default function Home() {
         <section className="section-hero">
           <Hero />
         </section>
-        
-        <Destinations />
 
-        <section className="section">
-          <PopularExperiences />
+        {/* SECTION 2 — BEST SELLING EXPERIENCES */}
+        <section className="py-16 bg-background">
+          <div className="mx-auto max-w-7xl container-x text-center">
+            <h2 className="font-serif text-3xl md:text-4xl text-text-primary">Best Selling Tours</h2>
+            <p id="best-selling-subtitle" className="mt-2 text-sm text-text-secondary max-w-3xl mx-auto text-center">
+              Immerse yourself in authentic experiences crafted by local experts who know and love these destinations.
+            </p>
+            <Reveal>
+              <div className="mt-8 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                {experiences.slice(0, 3).map((exp) => {
+                  const img = typeof exp.heroImage === "string" ? exp.heroImage : exp.heroImage.src;
+                  const price = exp.price?.amount;
+                  const currency = exp.price?.currency || "USD";
+                  const formatted =
+                    typeof price === "number"
+                      ? currency === "EUR"
+                        ? `€${new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(price)}`
+                        : `${currency.toUpperCase()} ${new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(price)}`
+                      : null;
+                  return (
+                    <Link key={exp.slug} href={`/experiences/${exp.slug}`} className="group block">
+                      <article className="flex flex-col">
+                        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                          <Image
+                            src={img}
+                            alt={`${exp.title} - Syren Travel Egypt`}
+                            fill
+                            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
+                        </div>
+                        <div className="mt-3 text-left">
+                          <div className="text-[10px] uppercase tracking-[0.2em] text-text-secondary">Private Tour</div>
+                          <div className="mt-1 text-text-primary">{exp.title}</div>
+                          <div className="mt-1 text-text-primary">
+                            {formatted ? `From ${formatted}` : "Custom pricing"}
+                          </div>
+                        </div>
+                      </article>
+                    </Link>
+                  );
+                })}
+              </div>
+            </Reveal>
+            <div className="mt-10">
+              <Link href="/experiences" className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold bg-text-primary/10 text-text-primary border border-text-primary/30 hover:bg-text-primary/20 transition-colors">
+                View All
+              </Link>
+            </div>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-text-secondary">
+              <span className="inline-flex items-center gap-2"><span>✓</span> Local led tours</span>
+              <span className="inline-flex items-center gap-2"><span>✓</span> Tailored Experience</span>
+              <span className="inline-flex items-center gap-2"><span>✓</span> Crew on all experiences</span>
+              <span className="inline-flex items-center gap-2"><span>✓</span> Flexible & Safe Payments</span>
+              <span className="inline-flex items-center gap-2"><span>✓</span> Sustainable Travel</span>
+            </div>
+          </div>
         </section>
 
-        <section className="section-tight">
-          <OurVision />
+        {/* SECTION 3 — TRUST STRIP */}
+        <section className="py-16 bg-surface/30">
+          <div className="mx-auto max-w-7xl container-x">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-0 text-center">
+              {[
+                { t: "Licensed Guides", s: "Egyptologist expertise" },
+                { t: "Private Transfers", s: "Door-to-door comfort" },
+                { t: "24/7 Concierge", s: "Always on your side" },
+                { t: "Secure Payments", s: "Stripe protected" },
+              ].map((x) => (
+                <div key={x.t} className="py-4">
+                  <div className="font-serif text-lg text-text-primary">{x.t}</div>
+                  <div className="text-[11px] uppercase tracking-[0.2em] text-text-secondary">{x.s}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
-        <section className="section">
-          <Testimonials />
+        {/* SECTION 4 — POPULAR EXCURSIONS */}
+        <section className="py-16 bg-background">
+          <div className="mx-auto max-w-7xl container-x">
+            <SectionHeader title="Explore More of Egypt" label="DAY EXCURSIONS" align="center" />
+            <Reveal>
+              <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 px-1 md:grid md:grid-cols-4 md:gap-4 md:overflow-visible md:snap-none">
+                {excursions.slice(0, 4).map((ex) => (
+                  <Link key={ex.slug} href={`/excursions/${ex.slug}`} className="group block min-w-[260px] w-full snap-start md:min-w-0">
+                    <article className="rounded-2xl border border-border bg-surface/30 overflow-hidden hover:border-accent-gold/50 transition-colors hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)]">
+                      <div className="relative aspect-[4/3]">
+                        <Image
+                          src={ex.heroImage as string}
+                          alt={`${ex.title} - Egypt Excursion`}
+                          fill
+                          sizes="(min-width: 1024px) 25vw, 50vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="p-3 text-left">
+                        <h3 className="font-serif text-lg text-text-primary">{ex.title}</h3>
+                        <div className="text-sm text-text-secondary">
+                          <span>{ex.duration}</span>
+                          {ex.city ? <span> · {ex.city}</span> : null}
+                        </div>
+                        <div className="mt-2 text-accent-gold text-sm">
+                          {typeof ex.priceCents === "number" ? `From USD ${Math.round(ex.priceCents / 100)}` : "Custom"}
+                        </div>
+                      </div>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+            </Reveal>
+            <div className="mt-8">
+              <Link href="/excursions" className="syren-btn-secondary">View All Excursions →</Link>
+            </div>
+          </div>
+          
         </section>
 
+        {/* SECTION 5 — TRUSTPILOT REVIEWS */}
+        <section className="py-16 bg-background">
+          <div className="container-x mx-auto max-w-6xl">
+            <p className="text-center text-xs uppercase tracking-[0.3em] text-accent-gold mb-3">
+              TRAVELER STORIES
+            </p>
+            <h2 className="text-center font-serif text-4xl text-text-primary mb-4">
+              What Our Travelers Say
+            </h2>
+            <p className="text-center text-text-secondary mb-10 max-w-xl mx-auto text-sm">
+              Real experiences from real travelers. Verified by Trustpilot.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  name: "Anthony Borg",
+                  title: "3 jours aux alentours du Caire",
+                  text: "Nous avons réservé une voiture avec chauffeur pour un trajet Le Caire - Saqqarah - Dachour - Fayoum et retour au Caire sur 3 jours. Nous avons été ravis de la proposition faite par l'agence, ainsi que de par notre chauffeur qui nous toujours laisser le temps de visiter les différents sites, et à su s'adapter à notre organisation.",
+                },
+                {
+                  name: "Moon Moon",
+                  title: "Extraordinary local experiences",
+                  text: "The local experience with Syren was aaaamazinggg. I've been to two separate trips with the same local tour guide Hady, and both were extraordinary! My first was around Cairo through the streets of different places and sight seeing monuments I didn't know about. My second experience was in El Gouna and it was out of this world!",
+                },
+                {
+                  name: "Ashley Markus",
+                  title: "Felt at home, not like a tourist",
+                  text: "I had such a great experience with Syren Travel. Everything was handled so smoothly from start to finish, and I truly felt taken care of the whole time. What I loved most is that I didn't feel like just another tourist — I genuinely felt at home. The team is very trustworthy, welcoming, and professional.",
+                },
+              ].map((review) => (
+                <div key={review.name} className="rounded-2xl border border-accent-gold/20 bg-surface/30 backdrop-blur-sm p-6 flex flex-col">
+                  <div className="flex gap-0.5 mb-3">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <svg key={i} className="w-5 h-5 text-[#00b67a]" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <h3 className="font-serif text-lg text-text-primary mb-2">{review.title}</h3>
+                  <p className="text-sm text-text-secondary leading-relaxed flex-1 line-clamp-4">{review.text}</p>
+                  <div className="mt-4 pt-4 border-t border-border/30 flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-accent-gold/20 flex items-center justify-center text-accent-gold font-serif text-sm font-bold">
+                      {review.name.charAt(0)}
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium text-text-primary">{review.name}</div>
+                      <div className="text-xs text-text-secondary flex items-center gap-1">
+                        <svg className="w-3.5 h-3.5 text-[#00b67a]" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                        Verified on Trustpilot
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-8 flex items-center justify-center gap-6">
+              <Link
+                href="/reviews"
+                className="text-accent-gold text-sm hover:underline tracking-wide"
+              >
+                View All Reviews →
+              </Link>
+              <a
+                href="https://www.trustpilot.com/review/syrentravel.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-gold text-sm hover:underline tracking-wide"
+              >
+                Read on Trustpilot →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 7 — OUR MISSION */}
+        <section className="py-16 bg-background">
+          <div className="mx-auto max-w-7xl container-x grid md:grid-cols-2 gap-8 items-center">
+            <div className="text-center md:text-center">
+              <SectionHeader title="Egypt, Like You've Never Seen Before" label="WHO WE ARE" align="center" />
+              <p className="font-serif text-lg text-text-secondary leading-relaxed font-light">
+                Syren is Egypt's premier inbound travel agency — born from a love of this country and a belief that every traveler deserves to experience it properly. We are local experts, concierge advisors, and passionate guides. We don't just book trips. We craft memories.
+              </p>
+              <div className="mt-6">
+                <Link href="/about" className="syren-btn-secondary">Learn Our Story →</Link>
+              </div>
+            </div>
+            <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden border border-border">
+              <Image
+                src={HERO_IMAGES.home}
+                alt="Syren Egypt"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/30" />
+            </div>
+          </div>
+          
+        </section>
+
+        {/* SECTION 8 — FEATURED UPCOMING EVENTS */}
+        {(() => {
+          const featuredEvents = getFeaturedUpcomingEvents(events);
+          if (featuredEvents.length === 0) return null;
+          return (
+            <section className="py-16 bg-surface/30">
+              <div className="mx-auto max-w-7xl container-x">
+                <SectionHeader title="Don't Miss These" label="UPCOMING EVENTS" align="center" />
+                <div className="mt-6 space-y-6">
+                  {featuredEvents.slice(0, 3).map((ev) => {
+                  const img = typeof ev.heroImage === "string" ? ev.heroImage : ev.heroImage.src;
+                  return (
+                    <article key={ev.slug} className="grid md:grid-cols-12 gap-4 md:gap-6 rounded-2xl border border-accent-gold/30 bg-surface/30 overflow-hidden hover:-translate-y-1 transition-transform duration-300 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)]">
+                      <div className="md:col-span-5 relative min-h-[220px]">
+                        <Image
+                          src={img}
+                          alt={`${ev.title} - Egypt Event`}
+                          fill
+                          sizes="(min-width: 1024px) 40vw, 100vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          priority={false}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+                      </div>
+                      <div className="md:col-span-7 p-5 md:p-6 flex flex-col text-left">
+                        <h3 className="font-serif text-2xl md:text-3xl text-text-primary"> {ev.title}</h3>
+                        <div className="mt-2 text-sm text-text-secondary">
+                          <span>{ev.displayDate ?? ev.date}</span>
+                          {ev.city ? <span> · {ev.city}</span> : null}
+                        </div>
+                        <p className="mt-3 font-sans text-text-secondary font-light">{ev.shortDescription}</p>
+                        <div className="mt-4">
+                          <Link href={`/events/${ev.slug}`} className="syren-btn-secondary">
+                            View Event →
+                          </Link>
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+                </div>
+                <div className="mt-8">
+                  <Link href="/events" className="syren-btn-secondary">View All Events →</Link>
+                </div>
+              </div>
+            </section>
+          );
+        })()}
+
+{/* SECTION 9 — FROM THE BLOG */}
+<section className="py-16 bg-background">
+  <div className="mx-auto max-w-7xl container-x">
+    <SectionHeader title="Travel Guides" label="FROM THE BLOG" align="center" />
+    <div className="grid gap-6 md:grid-cols-3">
+      {[
+        { href: "/is-egypt-safe", title: "Is Egypt Safe to Travel?", desc: "Practical safety notes and local insight." },
+        { href: "/best-time-to-visit-egypt", title: "Best Time to Visit Egypt", desc: "Seasons, weather and ideal trip planning." },
+        { href: "/egypt-travel-tips", title: "Egypt Travel Tips", desc: "Concierge advice to make it seamless." },
+      ].map((g) => (
+        <Link key={g.href} href={g.href} className="group block">
+          <article className="relative h-48 rounded-2xl overflow-hidden border border-border hover:-translate-y-1 transition-transform duration-300 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)]">
+            <Image
+              src={HERO_IMAGES.home}
+              alt={g.title}
+              fill
+              sizes="(min-width: 1024px) 33vw, 100vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 p-4 flex flex-col justify-end">
+              <h3 className="font-serif text-accent-gold text-lg">{g.title}</h3>
+              <p className="text-white/80 text-sm mt-1">{g.desc}</p>
+            </div>
+          </article>
+        </Link>
+      ))}
+    </div>
+    <div className="mt-8 text-center">
+      <Link href="/guides" className="syren-btn-secondary">View All Guides →</Link>
+    </div>
+  </div>
+</section>
+
+        {/* SECTION 10 — EMAIL SIGNUP */}
+        <EmailSignup />
+
+        {/* Final CTA */}
         <section id="experience-egypt" className="section-tight">
           <FinalCTA />
         </section>

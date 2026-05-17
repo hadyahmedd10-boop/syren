@@ -12,10 +12,17 @@ import HeroShell from "@/components/ui/HeroShell";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "The Spirit of Syren | Luxury Travel Curators in Egypt",
-  description: "Syren was built for travelers who don’t want Egypt explained to them — they want to experience it properly. Not rushed. Not staged. Not wrapped in clichés.",
+  title: "About Syren Travel | Egypt Luxury Specialists",
+  description: "Syren Travel—Egypt’s premier inbound agency. Local experts crafting extraordinary journeys across Cairo, the Nile and the Red Sea.",
   alternates: {
     canonical: "/about",
+  },
+  openGraph: {
+    title: "About Syren Travel | Egypt Luxury Specialists",
+    description: "Syren Travel—Egypt’s premier inbound agency. Local experts crafting extraordinary journeys across Cairo, the Nile and the Red Sea.",
+    url: "https://www.syrentravel.com/about",
+    type: "website",
+    images: [{ url: "/images/hero/luxury.jpg" }],
   },
 };
 
@@ -127,7 +134,7 @@ export default function AboutPage() {
                   {value.icon}
                 </div>
                 <div>
-                  <div className="text-accent-gold uppercase tracking-[0.2em] text-[11px] font-bold mb-2">Value {String(index + 1).padStart(2, "0")}</div>
+                  <div className="text-accent-gold uppercase tracking-[0.2em] text-xs font-bold mb-2">Value {String(index + 1).padStart(2, "0")}</div>
                   <h3 className="text-text-primary font-serif text-2xl mb-3">{value.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed">{value.description}</p>
                 </div>
@@ -156,6 +163,16 @@ export default function AboutPage() {
             <Link href="/experiences" className="syren-btn-secondary">
               Explore Experiences
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="max-w-3xl mx-auto container-x text-center border border-white/5 rounded-2xl p-8 sm:p-10 md:p-16 bg-surface/30 backdrop-blur-sm">
+          <SectionHeader title="Start Your Egypt Journey" className="mb-6" />
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Link href="/experiences" className="syren-btn-primary min-h-[44px]">Explore Experiences</Link>
+            <Link href="/quote" className="syren-btn-secondary min-h-[44px]">Request a Quote</Link>
           </div>
         </div>
       </section>

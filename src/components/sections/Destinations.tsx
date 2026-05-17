@@ -68,15 +68,17 @@ export default function Destinations() {
           return (
               <div key={dest.slug} className="min-w-[85%] md:min-w-[45%] lg:min-w-[30%] snap-center">
               <Reveal delay={0.1 * (index + 1)}>
-                <article className="group relative flex flex-col syren-card-hover h-full transition-all duration-500 ease-out">
+                <Link href={`/destinations/${dest.slug}`} className="group block cursor-pointer">
+                <article className="group relative flex flex-col syren-card-hover h-full transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)]">
                   <div className="relative aspect-[4/5] overflow-hidden syren-card group-hover:border-primary/30">
                     <Image
                       src={dest.heroImage}
-                      alt={`Discover the timeless allure of ${dest.name} with Syren's private curation`}
+                      alt={`${dest.name} - Travel to Egypt`}
                       fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                       className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
                       placeholder="blur"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-90" />
                     
@@ -94,17 +96,11 @@ export default function Destinations() {
                         0{index + 1}
                       </span>
                       <h3 className="hidden md:block font-serif text-2xl font-medium tracking-tight text-accent-gold relative z-10 transition-colors duration-500">
-                        <Link href={`/destinations/${dest.slug}`} className="focus:outline-none">
-                          <span className="absolute inset-0 z-20" aria-hidden="true" />
-                          {dest.name}
-                        </Link>
+                        <span className="line-clamp-2">{dest.name}</span>
                       </h3>
                     </div>
                     
-                    {/* Mobile Link Overlay */}
-                    <Link href={`/destinations/${dest.slug}`} className="absolute inset-0 z-20 md:hidden" aria-label={`View ${dest.name}`}>
-                      <span className="sr-only">View {dest.name}</span>
-                    </Link>
+                    {/* Mobile Link Overlay removed in favor of full-card Link */}
 
                     <div className="mt-1 h-px w-10 bg-accent-gold/20 md:w-12 mx-auto md:mx-0 transition-all duration-500 group-hover:w-16 group-hover:bg-primary/40" />
                     
@@ -113,12 +109,13 @@ export default function Destinations() {
                     </p>
                     
                     <div className="mt-auto pt-2.5">
-                      <Link href={`/destinations/${dest.slug}`} className="syren-btn-secondary py-2 text-[10px] w-full md:w-auto text-center block">
+                      <div className="syren-btn-secondary py-2 text-[10px] w-full md:w-auto text-center block pointer-events-none select-none">
                         Explore {dest.name}
-                      </Link>
+                      </div>
                     </div>
                   </div>
                 </article>
+                </Link>
               </Reveal>
             </div>
             );

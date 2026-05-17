@@ -32,14 +32,14 @@ export default async function SocialProofStrip() {
   }
 
   return (
-    <section className="py-12 px-6 border-y border-white/5 bg-background/50">
+    <section className="py-12 px-6 border-y border-border bg-background/50">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <Reveal key={i} delay={i * 0.1}>
               <div className="flex flex-col items-center text-center space-y-3">
                 <Quote className="text-accent-gold/20 w-6 h-6" />
-                <p className="font-sans text-[13px] md:text-sm text-white/70 italic leading-relaxed line-clamp-2">
+                <p className="font-sans text-[13px] md:text-sm text-text-secondary italic leading-relaxed line-clamp-2">
                   &ldquo;{t.message}&rdquo;
                 </p>
                 <div className="flex items-center gap-2">

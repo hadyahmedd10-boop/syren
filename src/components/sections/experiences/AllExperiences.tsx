@@ -24,6 +24,8 @@ export default function AllExperiences() {
               cities={experience.cities}
               buttonText="Discover Journey"
               href={`/experiences/${experience.slug}`}
+              slug={experience.slug}
+              itemType="experience"
             />
           </Reveal>
         ))}

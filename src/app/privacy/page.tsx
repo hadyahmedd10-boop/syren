@@ -3,13 +3,21 @@ import SectionHeader from "@/components/layout/SectionHeader";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Syren Travel",
-  description: "How Syren Travel collects, uses, and protects your personal information.",
+  description: "Syren Travel privacy policy: how we collect, use and protect your personal data for Egypt travel experiences and packages.",
   alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "Privacy Policy | Syren Travel",
+    description: "Syren Travel privacy policy: how we collect, use and protect your personal data for Egypt travel experiences and packages.",
+    url: "https://www.syrentravel.com/privacy",
+    type: "website",
+    images: [{ url: "https://www.syrentravel.com/images/hero/luxury.jpg", width: 1200, height: 630, alt: "Syren Travel Egypt" }],
+  },
 };
 
 export default function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen bg-background">
+      <h1 className="sr-only">Privacy Policy</h1>
       <section className="section">
         <div className="mx-auto max-w-4xl container-x">
           <SectionHeader title="Privacy Policy" label="Your Privacy Matters to Us" className="mb-8" />
@@ -164,6 +172,14 @@ export default function PrivacyPolicyPage() {
             <li>Email: <span className="underline">info@syrentravel.com</span></li>
             <li>Website: www.syrentravel.com</li>
           </ul>
+        </div>
+      </section>
+      <section className="section">
+        <div className="mx-auto max-w-4xl container-x text-center">
+          <div className="rounded-2xl bg-black/90 border border-accent-gold/30 p-8 md:p-10">
+            <h3 className="font-serif text-2xl text-text-primary mb-3">Questions? Contact Us</h3>
+            <a href="/quote" className="syren-btn-secondary inline-flex min-h-[44px]">Contact via Form</a>
+          </div>
         </div>
       </section>
     </main>

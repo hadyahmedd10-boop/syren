@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { CreditCard, ArrowRight, Loader2 } from "lucide-react"
+import { Lock, ArrowRight, Loader2 } from "lucide-react"
 import { usePostHog } from 'posthog-js/react'
 import { useState } from 'react'
 
@@ -65,15 +65,15 @@ export default function BookingButton({
     <button 
       onClick={handleBookingClick}
       disabled={loading}
-      className="syren-btn w-full py-6 flex items-center justify-center gap-4 group disabled:opacity-70 disabled:cursor-not-allowed"
+      className="syren-btn w-full h-12 flex items-center justify-center gap-3 group disabled:opacity-70 disabled:cursor-not-allowed"
     >
       {loading ? (
         <Loader2 size={20} className="animate-spin" />
       ) : (
-        <CreditCard size={20} />
+        <Lock size={18} />
       )}
-      {loading ? "PREPARING SECURE CHECKOUT..." : "PROCEED TO SECURE BOOKING"}
-      {!loading && <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}
+      {loading ? "Preparing Secure Checkout..." : "Confirm & Proceed Securely"}
+      {!loading && <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />}
     </button>
   )
 }

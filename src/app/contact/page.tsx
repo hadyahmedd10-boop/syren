@@ -11,22 +11,28 @@ import TrackedLink from "@/components/ui/TrackedLink";
 
 export const metadata: Metadata = {
   title: "Contact Us | Syren",
-  description: "Begin your extraordinary Egyptian journey. Contact our concierge team for private bookings and curated itineraries.",
+  description: "Contact Syren’s concierge 24/7 to plan your perfect Egypt journey—from private tours to festival and event packages.",
   alternates: {
     canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Us | Syren",
+    description: "Contact Syren’s concierge 24/7 to plan your perfect Egypt journey—from private tours to festival and event packages.",
+    url: "https://www.syrentravel.com/contact",
+    type: "website",
+    images: [{ url: "/images/hero/luxury.jpg" }],
   },
 };
 
 export default function ContactPage() { 
    return ( 
      <main className="min-h-screen bg-background">
-       <h1 className="sr-only">Contact Syren</h1>
-       
        <HeroShell
          backgroundImage={HERO_IMAGES.home.src}
          eyebrow="Begin Your Journey"
          title="Contact Syren"
          subtitle="Every journey begins with a conversation. Our concierge team is ready."
+        altText="Contact Syren - Syren Travel Egypt"
          heightClassName="min-h-[40vh] md:min-h-[50vh]"
        />
 

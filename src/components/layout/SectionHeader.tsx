@@ -47,7 +47,7 @@ export default function SectionHeader({
   };
 
   const getDescriptionClasses = () => {
-    const base = "font-sans text-[var(--p)] leading-relaxed text-text-secondary mt-6";
+    const base = "font-sans text-[var(--p)] leading-relaxed text-text-secondary mt-6 font-light";
     switch (align) {
       case "left":
         return `${base} max-w-2xl`;
@@ -60,7 +60,7 @@ export default function SectionHeader({
   };
 
   const getLabelClasses = () => {
-    const base = "block font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-accent-gold mb-4 transition-all duration-300 ease-out hover:text-accent-gold hover:drop-shadow-[0_0_8px_rgba(196,160,82,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background w-fit";
+    const base = "block font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold mb-4 transition-all duration-300 ease-out hover:text-accent-gold hover:drop-shadow-[0_0_8px_rgba(196,160,82,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background w-fit";
     switch (align) {
       case "left":
         return base;
@@ -86,7 +86,7 @@ export default function SectionHeader({
         
         <h2 
           id={id}
-          className="font-serif text-[var(--h2)] tracking-tight text-primary"
+          className="font-serif text-[var(--h2)] md:text-4xl tracking-tight text-text-primary antialiased"
         >
           {title}
         </h2>

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { HERO_IMAGES } from "@/lib/images";
+import { ChevronDown } from "lucide-react";
 
 export default function SplashClient() {
   return (
@@ -24,6 +25,12 @@ export default function SplashClient() {
           className="object-cover object-center"
         />
       </motion.div>
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/80"
+        initial={{ opacity: 0.6 }}
+        animate={{ opacity: 0.8 }}
+        transition={{ duration: 4, repeat: Infinity, repeatType: "reverse" }}
+      />
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80" />
@@ -38,11 +45,18 @@ export default function SplashClient() {
             Syren
           </span>
           
-          <h1 className="hero-heading hero-title mb-5 md:mb-6">
-            Egypt, Like you&apos;ve <br /> never seen before
+          <h1 className="hero-heading hero-title mb-5 md:mb-6 text-6xl md:text-7xl lg:text-8xl"
+              style={{ textShadow: "0 2px 40px rgba(0,0,0,0.8)" }}>
+            Egypt, Like you&apos;ve never seen before
           </h1>
+          <motion.div
+            className="mx-auto h-px bg-accent-gold"
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+          />
           
-          <p className="hero-subtitle max-w-xl mx-auto text-sm md:text-base font-light italic mb-10 md:mb-12 tracking-wide">
+          <p className="hero-subtitle max-w-xl mx-auto text-center text-sm md:text-base font-light italic mb-10 md:mb-12 tracking-wide">
             Private journeys designed by local experts. Delivered with absolute precision.
           </p>
 
@@ -66,8 +80,13 @@ export default function SplashClient() {
               />
             </Link>
           </motion.div>
+
+          
         </motion.div>
       </div>
+
+      {/* Quick Links removed */}
+      {/* Scroll indicator removed */}
 
       {/* Decorative corners */}
       <div className="absolute top-12 left-12 hidden h-12 w-12 border-t border-l border-accent-gold/20 sm:block" />

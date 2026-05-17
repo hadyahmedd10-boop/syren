@@ -3,6 +3,7 @@ import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { contactRateLimit, getClientIp } from "@/lib/rateLimit";
 import { sendTransactionalEmail, sendTransactionalEmailTo } from "@/lib/email/brevo";
+import { generateSyrenEmail } from "@/lib/email/syren-template";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -30,46 +31,24 @@ export async function POST(req: Request) {
     const body = await req.json();
     const validatedData = contactSchema.parse(body);
 
-    // 1. Save to Supabase (service role)
-    if (!supabaseAdmin) {
-      return NextResponse.json({ ok: false, error: "Supabase Admin not configured" }, { status: 500 });
-    }
-    const { error: dbError } = await supabaseAdmin
-      .from("contact_inquiries")
-      .insert([
-        {
-          name: validatedData.name,
-          email: validatedData.email,
-          phone: validatedData.phone,
-          message: validatedData.message,
-          pathname: validatedData.pathname,
-        },
-      ]);
-
-    if (dbError) throw dbError;
-    console.log("saved to supabase: contact_inquiries");
-
-    // 2. Send Email via Brevo
+    // Send Email via Brevo
     try {
       const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.syrentravel.com";
-      const logoUrl = `${siteUrl}/syren-logo-email.png`;
-      const htmlContent = `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-          <h2 style="color: #1a1a1a; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;">New Contact Inquiry</h2>
-          <div style="margin-top: 20px;">
-            <p><strong>Name:</strong> ${validatedData.name}</p>
-            <p><strong>Email:</strong> ${validatedData.email}</p>
-            ${validatedData.phone ? `<p><strong>Phone:</strong> ${validatedData.phone}</p>` : ""}
-            <p><strong>Subject:</strong> ${validatedData.subject || "General Inquiry"}</p>
-            <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 5px;">
-              <p><strong>Message:</strong></p>
-              <p style="white-space: pre-wrap;">${validatedData.message}</p>
-            </div>
-            <p style="margin-top: 10px; font-size: 12px; color: #666;">Sent from page: ${validatedData.pathname || "Unknown"}</p>
-          </div>
-          <p style="margin-top: 30px; font-size: 12px; color: #666; text-align: center;">Sent from Syren Travel platform</p>
-        </div>
+      const adminBody = `
+        <h2 style="color:#C9A84C; margin:0 0 12px;">New Contact Inquiry</h2>
+        <p><strong>Name:</strong> ${validatedData.name}</p>
+        <p><strong>Email:</strong> ${validatedData.email}</p>
+        ${validatedData.phone ? `<p><strong>Phone:</strong> ${validatedData.phone}</p>` : ""}
+        <p><strong>Subject:</strong> ${validatedData.subject || "General Inquiry"}</p>
+        <p><strong>Message:</strong></p>
+        <p style="white-space: pre-wrap;">${validatedData.message}</p>
+        <p style="font-size:12px; color:#7f7767;">From page: ${validatedData.pathname || "Unknown"}</p>
       `;
+      const htmlContent = generateSyrenEmail({
+        subject: `New Contact Inquiry: ${validatedData.subject || "General Inquiry"}`,
+        preheader: "A new contact inquiry was submitted",
+        bodyHtml: adminBody,
+      });
 
       const emailResult = await sendTransactionalEmail({
         subject: `New Contact Inquiry: ${validatedData.subject || "General Inquiry"}`,
@@ -81,22 +60,17 @@ export async function POST(req: Request) {
         throw new Error(emailResult.error || "Email failed");
       }
 
-      const autoReplyHtml = `
-        <div style="font-family: sans-serif; max-width: 640px; margin: 0 auto; padding: 24px; border: 1px solid #eee; border-radius: 12px;">
-          <div style="text-align:center; margin-bottom: 16px;">
-            <img src="${logoUrl}" alt="Syren" width="48" height="50" style="display:inline-block;" />
-          </div>
-          <h2 style="color: #1a1a1a; text-align:center; margin: 0 0 16px;">We received your message</h2>
-          <p style="margin: 0 0 12px;">Hi ${validatedData.name},</p>
-          <p style="margin: 0 0 16px;">Thanks for contacting Syren Travel. Our team will review your message and get back to you shortly.</p>
-          <div style="margin-top: 16px; padding: 14px; background-color: #f9f9f9; border-radius: 8px;">
-            <p style="margin: 0 0 6px;"><strong>Your message:</strong></p>
-            <p style="white-space: pre-wrap; margin: 0;">${validatedData.message}</p>
-          </div>
-          <hr style="border:none; border-top:1px solid #eee; margin: 20px 0;" />
-          <p style="font-size: 12px; color: #666; margin: 0; text-align:center;">Syren Travel · Cairo, Egypt</p>
-        </div>
-      `;
+      const autoReplyHtml = generateSyrenEmail({
+        subject: "We received your message",
+        preheader: "The Syren team will reply shortly",
+        bodyHtml:
+          `<p>Hi ${validatedData.name},</p>
+           <p>Thanks for contacting Syren Travel. Our team will review your message and get back to you shortly.</p>
+           <p><strong>Your message:</strong></p>
+           <p style="white-space: pre-wrap;">${validatedData.message}</p>`,
+        ctaLabel: "Explore Experiences",
+        ctaUrl: siteUrl + "/experiences",
+      });
       const replyTo = process.env.NOTIFY_EMAIL || process.env.EMAIL_FROM || "noreply@syrentravel.com";
       const autoRes = await sendTransactionalEmailTo({
         to: validatedData.email,
@@ -107,7 +81,20 @@ export async function POST(req: Request) {
       if (!autoRes.success) {
         console.error("brevo auto-reply failure:", autoRes.error);
       }
-      console.log("brevo email success: contact inquiry + auto-reply");
+      try {
+        if (supabaseAdmin) {
+          await supabaseAdmin.from("contact_inquiries").insert([{
+            name: validatedData.name,
+            email: validatedData.email,
+            phone: validatedData.phone || null,
+            message: validatedData.message,
+            pathname: validatedData.pathname || null,
+            created_at: new Date().toISOString(),
+          }]);
+        }
+      } catch (e) {
+        console.error("Supabase insert failed (contact):", e);
+      }
       return NextResponse.json({ ok: true }, { status: 200 });
     } catch (emailErr) {
       console.error("brevo email failure:", emailErr);

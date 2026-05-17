@@ -19,18 +19,18 @@ export default function AdminHeader() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/5">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <Link href="/admin" className="font-serif text-xl text-white tracking-tight">
+          <Link href="/admin" className="font-serif text-xl text-text-primary tracking-tight">
             Syren <span className="text-accent-gold italic">Admin</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
-            <Link href="/admin/leads" className="text-xs uppercase tracking-widest text-text-secondary hover:text-white transition-colors">
+            <Link href="/admin/leads" className="text-xs uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors">
               Leads
             </Link>
-            <Link href="/admin/testimonials" className="text-xs uppercase tracking-widest text-text-secondary hover:text-white transition-colors">
+            <Link href="/admin/testimonials" className="text-xs uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors">
               Testimonials
             </Link>
           </nav>
@@ -38,7 +38,7 @@ export default function AdminHeader() {
 
         <button
           onClick={handleLogout}
-          className="flex items-center gap-2 text-text-secondary hover:text-white transition-colors font-sans text-xs uppercase tracking-widest"
+          className="flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors font-sans text-xs uppercase tracking-widest"
         >
           <LogOut size={16} />
           Logout

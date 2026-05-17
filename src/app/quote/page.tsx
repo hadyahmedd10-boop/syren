@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/quote",
   },
+  openGraph: {
+    title: "Request a Quote | Syren",
+    description: "Request a personalized quote for a private, curated Egypt journey with Syren.",
+    url: "https://www.syrentravel.com/quote",
+    type: "website",
+    images: [{ url: "https://www.syrentravel.com/images/hero/luxury.jpg", width: 1200, height: 630, alt: "Syren Travel Egypt" }],
+  },
 };
 
 export default function QuotePage() {
@@ -19,6 +26,7 @@ export default function QuotePage() {
         eyebrow="Bespoke Journeys"
         title="Request a Quote"
         subtitle="Tell us your vision. We'll craft the reality."
+        altText="Request a Quote - Syren Travel Egypt"
         heightClassName="min-h-[40vh] md:min-h-[50vh]"
       />
       

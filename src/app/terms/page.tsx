@@ -3,13 +3,21 @@ import SectionHeader from "@/components/layout/SectionHeader";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Syren Travel",
-  description: "The terms governing bookings, payments, cancellations, refunds, and policies for Syren Travel.",
+  description: "Syren Travel terms: booking policy, payment terms, cancellations and refunds for Egypt travel experiences and packages.",
   alternates: { canonical: "/terms" },
+  openGraph: {
+    title: "Terms of Service | Syren Travel",
+    description: "Syren Travel terms: booking policy, payment, cancellations and refunds for Egypt travel experiences and packages.",
+    url: "https://www.syrentravel.com/terms",
+    type: "website",
+    images: [{ url: "https://www.syrentravel.com/images/hero/luxury.jpg", width: 1200, height: 630, alt: "Syren Travel Egypt" }],
+  },
 };
 
 export default function TermsOfServicePage() {
   return (
     <main className="min-h-screen bg-background">
+      <h1 className="sr-only">Terms of Service</h1>
       <section className="section">
         <div className="mx-auto max-w-4xl container-x">
           <SectionHeader title="Terms of Service" label="Syren Travel" className="mb-8" />
@@ -169,6 +177,14 @@ export default function TermsOfServicePage() {
           </ul>
           <div className="h-px w-full bg-border mt-8" />
           <p className="mt-6 text-sm text-text-secondary">_____________</p>
+        </div>
+      </section>
+      <section className="section">
+        <div className="mx-auto max-w-4xl container-x text-center">
+          <div className="rounded-2xl bg-black/90 border border-accent-gold/30 p-8 md:p-10">
+            <h3 className="font-serif text-2xl text-text-primary mb-3">Questions? Contact Us</h3>
+            <a href="/quote" className="syren-btn-secondary inline-flex min-h-[44px]">Contact via Form</a>
+          </div>
         </div>
       </section>
     </main>
