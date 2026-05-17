@@ -616,7 +616,7 @@ export const experiences: Experience[] = [
     duration: "10 Nights / 11 Days",
     groupSize: "Small Group",
     minAge: "21+",
-    heroImage: EXPERIENCE_IMAGES["cairo-after-dark"],
+    heroImage: EXPERIENCE_IMAGES["exit-at-the-pyramids"],
     galleryImages: [],
     isFeatured: true,
     isPopular: true,

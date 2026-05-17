@@ -27,6 +27,7 @@ import expCairo5Day from "../../public/images/experiences/cairo-5-day.jpg";
 import exp10DayOdyssey from "../../public/images/experiences/10-day-odyssey.jpg";
 import expHoneymoon from "../../public/images/experiences/honeymoon.png";
 import expFamily from "../../public/images/experiences/family-adventure.png";
+import expExit from "../../public/images/experiences/Exit-at-the-Pyramids.jpg.jpg";
 // import expCairoAfterDark from "../../public/images/experiences/party.jpg"; // File missing, using fallback
 
 export const HERO_IMAGES = {
@@ -51,6 +52,7 @@ export const EXPERIENCE_IMAGES = {
   "12-day-egyptian-honeymoon-odyssey": expHoneymoon,
   "family-adventure": expFamily,
   "alexandria-coastal-elegance": heroHome,
+  "exit-at-the-pyramids": expExit,
 } as const;
 
 export const EXCURSION_IMAGES = {
