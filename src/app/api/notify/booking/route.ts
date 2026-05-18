@@ -118,20 +118,26 @@ export async function POST(req: Request) {
 
     try {
       if (supabaseAdmin) {
-        const emailVal = /\S+@\S+\.\S+/.test(data.contact) ? data.contact : null;
-        const phoneVal = !emailVal ? data.contact : null;
-        const tripDates = data.startDate || data.endDate ? `${data.startDate || ""}${data.endDate ? ` → ${data.endDate}` : ""}`.trim() : null;
+        const isEmail = /\S+@\S+\.\S+/.test(data.contact);
+        const emailVal = isEmail ? data.contact : `phone.${Date.now()}@booking.syren`;
+        const phoneVal = isEmail ? null : data.contact;
+        const tripDates = data.startDate || data.endDate
+          ? `${data.startDate || ""}${data.endDate ? ` → ${data.endDate}` : ""}`.trim()
+          : null;
+        const messageParts = [
+          `Experience: ${data.experienceTitle}`,
+          `Travelers: ${data.travelers}`,
+          data.totalPrice ? `Est. Total: ${data.totalPrice.toLocaleString()} ${data.currency}` : null,
+          data.notes ? `Notes: ${data.notes}` : null,
+        ].filter(Boolean).join(" | ");
         await supabaseAdmin.from("quote_requests").insert([{
-          name: null,
+          name: data.contact,
           email: emailVal,
           phone: phoneVal,
           trip_dates: tripDates,
-          experience: data.experienceTitle,
-          travelers: data.travelers,
-          notes: data.notes || null,
-          total_price: data.totalPrice || null,
+          message: messageParts,
           source: "booking_drawer",
-          created_at: new Date().toISOString(),
+          status: "pending",
         }]);
       }
     } catch (e) {
