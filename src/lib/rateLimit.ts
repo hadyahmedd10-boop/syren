@@ -1,14 +1,23 @@
 import { Redis } from "@upstash/redis"; 
  import { Ratelimit } from "@upstash/ratelimit"; 
  
- // Only initialize if environment variables are present
+ // Only initialize if environment variables are present (trim to handle accidental newlines)
+ const redisUrl = process.env.UPSTASH_REDIS_REST_URL?.trim();
+ const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN?.trim();
  const hasUpstashVars = 
-   process.env.UPSTASH_REDIS_REST_URL && 
-   process.env.UPSTASH_REDIS_REST_URL !== "PASTE_HERE" &&
-   process.env.UPSTASH_REDIS_REST_TOKEN &&
-   process.env.UPSTASH_REDIS_REST_TOKEN !== "PASTE_HERE";
+   redisUrl && 
+   redisUrl !== "PASTE_HERE" &&
+   redisToken &&
+   redisToken !== "PASTE_HERE";
 
- const redis = hasUpstashVars ? Redis.fromEnv() : null; 
+ let redis: Redis | null = null;
+ if (hasUpstashVars) {
+   try {
+     redis = new Redis({ url: redisUrl!, token: redisToken! });
+   } catch (e) {
+     console.error("Failed to initialize Upstash Redis:", e);
+   }
+ }
  
  // General form limiter: 5 requests per 10 minutes per IP 
  export const formRateLimit = redis ? new Ratelimit({ 
