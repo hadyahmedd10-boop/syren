@@ -53,6 +53,7 @@ export const EXPERIENCE_IMAGES = {
   "family-adventure": expFamily,
   "alexandria-coastal-elegance": heroHome,
   "exit-at-the-pyramids": expExit,
+  "5-day-nile-cruise": heroLuxorAswan,
 } as const;
 
 export const EXCURSION_IMAGES = {
