@@ -11,7 +11,7 @@ const quoteSchema = z.object({
   phone: z.string().optional(),
   trip_dates: z.string().optional(),
   budget: z.string().optional(),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  message: z.string().min(1, "Message is required"),
 });
 
 export async function POST(req: Request) {
@@ -103,6 +103,9 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: true, warning: "Email failed" }, { status: 200 });
     }
   } catch (err) {
+    if (err instanceof z.ZodError) {
+      return NextResponse.json({ ok: false, error: err.issues[0]?.message || "Invalid input" }, { status: 400 });
+    }
     console.error("Notify route failed:", err);
     return NextResponse.json({ ok: false, error: "Failed to save request" }, { status: 500 });
   }
