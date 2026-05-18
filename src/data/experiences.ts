@@ -13,7 +13,7 @@ export const experiences: Experience[] = [
     description: "Ten days through the soul of Egypt — Cairo, a 5-star Nile cruise from Aswan to Luxor, and the Red Sea at Hurghada. Timed for Christmas and New Year.",
     introduction:
       "There are holidays. And then there are the ones you spend the rest of your life talking about. Timed for Christmas or New Year: Cairo, a five-star Nile cruise from Aswan to Luxor, and the Red Sea at Hurghada.",
-    heroImage: EXPERIENCE_IMAGES["10-day-cairo-nile-red-sea-odyssey"],
+    heroImage: EXPERIENCE_IMAGES["10-day-egypt-christmas-vacation"],
     whatsappMessage: "I am interested in the 10-Day Egypt Christmas Vacation",
     highlights: [
       "5‑star Nile cruise from Aswan to Luxor",
@@ -63,81 +63,6 @@ export const experiences: Experience[] = [
       { day: 9, title: "Return to Cairo", description: "Morning flight to Cairo. Hotel check‑in and evening at leisure.", meals: "Breakfast", image: getItineraryDayImage("10-day-egypt-christmas-vacation", 9) },
       { day: 10, title: "Departure", description: "Private transfer to Cairo International Airport. Farewell from the Syren team.", meals: "Breakfast", image: getItineraryDayImage("10-day-egypt-christmas-vacation", 10) },
     ],
-  },
-  {
-    slug: "nile-signature",
-    title: "Nile Signature",
-    destinations: ["luxor-aswan"],
-    subtitle: "The Quintessential River Journey",
-    duration: "6 Days / 5 Nights",
-    cities: "Luxor, Aswan",
-    description: "A refined journey along the lifeblood of Egypt. Experience the majesty of the Nile on a private traditionally-styled dahabiya.",
-    introduction: "The Nile is the soul of Egypt. This signature experience focuses on the slow, majestic flow of the river, connecting you to the most powerful temples of the south in absolute privacy.",
-    heroImage: EXPERIENCE_IMAGES["nile-signature"],
-    whatsappMessage: "I am interested in the Nile Signature experience",
-    highlights: [
-      "Private Dahabiya sailing between Luxor and Aswan",
-      "Exclusive dinner at the Temple of Philae",
-      "Sunrise hot air balloon over the Valley of the Kings",
-      "Private guided visits to Edfu and Kom Ombo",
-    ],
-    included: [
-      "5 nights on a private luxury Dahabiya",
-      "Private Egyptologist for the entire journey",
-      "All meals prepared by a private chef",
-      "All temple entry fees and permits",
-    ],
-    notIncluded: [
-      "Flights to/from Luxor/Aswan",
-      "Gratuities for the crew",
-      "Personal expenses",
-    ],
-    // Custom quote (no upfront price to show booking section)
-    category: "luxury",
-    itinerary: [
-      {
-        day: 1,
-        title: "Luxor Embarkation",
-        description: "Transfer from Luxor airport to your private Dahabiya. Afternoon visit to Karnak Temple at sunset.",
-        meals: "Lunch, Dinner",
-        image: getItineraryDayImage("nile-signature", 1)
-      },
-      {
-        day: 2,
-        title: "The West Bank",
-        description: "Early morning balloon ride followed by the Valley of the Kings. Set sail southward in the afternoon.",
-        meals: "Breakfast, Lunch, Dinner",
-        image: getItineraryDayImage("nile-signature", 2)
-      },
-      {
-        day: 3,
-        title: "Sailing Through Time",
-        description: "A day of pure sailing and relaxation. Stop at local villages and hidden river islands.",
-        meals: "Breakfast, Lunch, Dinner",
-        image: getItineraryDayImage("nile-signature", 3)
-      },
-      {
-        day: 4,
-        title: "Temples of the South",
-        description: "Visit the Horus Temple in Edfu and the unique double temple of Kom Ombo as evening falls.",
-        meals: "Breakfast, Lunch, Dinner",
-        image: getItineraryDayImage("nile-signature", 4)
-      },
-      {
-        day: 5,
-        title: "Aswan Sanctuary",
-        description: "Arrive in Aswan. Visit Philae Temple followed by a farewell dinner on the river.",
-        meals: "Breakfast, Lunch, Dinner",
-        image: getItineraryDayImage("nile-signature", 5)
-      },
-      {
-        day: 6,
-        title: "Departure",
-        description: "Final breakfast on board before private transfer to Aswan airport.",
-        meals: "Breakfast",
-        image: getItineraryDayImage("nile-signature", 6)
-      }
-    ]
   },
   {
     slug: "5-day-cairo-experience",
@@ -538,66 +463,6 @@ export const experiences: Experience[] = [
         description: "Final family breakfast before transfer to Luxor airport for your flight home.",
         meals: "Breakfast",
         image: getItineraryDayImage("family-adventure", 7)
-      }
-    ]
-  },
-  {
-    slug: "alexandria-coastal-elegance",
-    title: "Alexandria Coastal Elegance",
-    destinations: ["alexandria"],
-    subtitle: "Mediterranean Heritage & Royal Charm",
-    duration: "3 Days / 2 Nights",
-    cities: "Alexandria",
-    description: "Rediscover the Pearl of the Mediterranean. A curated journey through Alexandria's Greco-Roman history and Belle Époque elegance.",
-    introduction: "Alexandria is a city of layers, where Mediterranean breezes carry the scent of history. This experience invites you to explore its grand libraries, ancient catacombs, and royal gardens, all while staying in the city's most iconic historic hotel.",
-    heroImage: EXPERIENCE_IMAGES["alexandria-coastal-elegance"],
-    whatsappMessage: "I am interested in the Alexandria Coastal Elegance experience",
-    highlights: [
-      "Private tour of the Bibliotheca Alexandrina",
-      "Exploration of the Catacombs of Kom El Shoqafa",
-      "Sunset at the Citadel of Qaitbay, built on the site of the Lighthouse",
-      "Guided walk through the royal gardens of Montaza Palace",
-      "Gourmet seafood lunch overlooking the Mediterranean"
-    ],
-    included: [
-      "2 nights in a historic luxury hotel",
-      "Private guided tours with local historians",
-      "All transfers in private A/C vehicles",
-      "Daily breakfast and select gourmet lunches",
-      "Entry fees to all historical sites"
-    ],
-    notIncluded: [
-      "International flights",
-      "Personal expenses",
-      "Dinner (allowing for local exploration)"
-    ],
-    price: {
-      amount: 950,
-      currency: "USD",
-      perPerson: true
-    },
-    category: "luxury",
-    itinerary: [
-      {
-        day: 1,
-        title: "Mediterranean Arrival",
-        description: "Private transfer from Cairo to Alexandria. Check into your historic hotel and enjoy a sunset walk along the Corniche.",
-        meals: "Lunch",
-        image: getItineraryDayImage("alexandria-coastal-elegance", 1)
-      },
-      {
-        day: 2,
-        title: "Greco-Roman Heritage",
-        description: "Explore the Catacombs of Kom El Shoqafa and the Citadel of Qaitbay with your private Egyptologist.",
-        meals: "Breakfast, Lunch",
-        image: getItineraryDayImage("alexandria-coastal-elegance", 2)
-      },
-      {
-        day: 3,
-        title: "Royal Gardens & Departure",
-        description: "Wander through the Montaza Palace gardens. Enjoy a final seafood lunch before your private transfer.",
-        meals: "Breakfast, Lunch",
-        image: getItineraryDayImage("alexandria-coastal-elegance", 3)
       }
     ]
   },
