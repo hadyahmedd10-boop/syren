@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
-import { contactRateLimit, getClientIp } from "@/lib/rateLimit";
+import { contactRateLimit, getClientIp, safeLimit } from "@/lib/rateLimit";
 import { sendTransactionalEmail, sendTransactionalEmailTo } from "@/lib/email/brevo";
 import { generateSyrenEmail } from "@/lib/email/syren-template";
 
@@ -17,14 +17,12 @@ const contactSchema = z.object({
 export async function POST(req: Request) {
   // Rate Limiting
   const ip = getClientIp(req);
-  if (contactRateLimit) {
-    const { success } = await contactRateLimit.limit(ip);
-    if (!success) {
-      return NextResponse.json(
-        { ok: false, error: "Too many requests. Please try again later." },
-        { status: 429 }
-      );
-    }
+  const { blocked } = await safeLimit(contactRateLimit, ip);
+  if (blocked) {
+    return NextResponse.json(
+      { ok: false, error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
   }
 
   try {

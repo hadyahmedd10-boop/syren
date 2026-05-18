@@ -50,11 +50,24 @@ export const quoteRateLimit = redis ? new Ratelimit({
   prefix: "syren:rl:quote",
 }) : null; 
  
- export function getClientIp(req: Request) { 
-   const ip = 
-     req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || 
-     req.headers.get("x-real-ip")?.trim() || 
-     "unknown"; 
-   return ip; 
- }
+export function getClientIp(req: Request) { 
+  const ip = 
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || 
+    req.headers.get("x-real-ip")?.trim() || 
+    "unknown"; 
+  return ip; 
+}
 
+export async function safeLimit(
+  limiter: Ratelimit | null,
+  identifier: string
+): Promise<{ blocked: boolean }> {
+  if (!limiter) return { blocked: false };
+  try {
+    const { success } = await limiter.limit(identifier);
+    return { blocked: !success };
+  } catch (e) {
+    console.error("Rate limit check failed (Redis error):", e);
+    return { blocked: false };
+  }
+}

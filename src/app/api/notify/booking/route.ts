@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { quoteRateLimit, getClientIp } from "@/lib/rateLimit";
+import { quoteRateLimit, getClientIp, safeLimit } from "@/lib/rateLimit";
 import { sendTransactionalEmail, sendTransactionalEmailTo } from "@/lib/email/brevo";
 import { generateSyrenEmail } from "@/lib/email/syren-template";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
@@ -19,14 +19,12 @@ const bookingSchema = z.object({
 
 export async function POST(req: Request) {
   const ip = getClientIp(req);
-  if (quoteRateLimit) {
-    const { success } = await quoteRateLimit.limit(ip);
-    if (!success) {
-      return NextResponse.json(
-        { ok: false, error: "Too many requests. Please try again later." },
-        { status: 429 }
-      );
-    }
+  const { blocked } = await safeLimit(quoteRateLimit, ip);
+  if (blocked) {
+    return NextResponse.json(
+      { ok: false, error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
   }
 
   try {
