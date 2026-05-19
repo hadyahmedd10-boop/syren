@@ -50,5 +50,24 @@
     "/images/itineraries/exit-at-the-pyramids/day-8.png",
     "/images/itineraries/exit-at-the-pyramids/day-9.png",
     "/images/itineraries/exit-at-the-pyramids/day-10.jpg"
+  ],
+  "exit-cairo-festival-hurghada": [
+    "/images/itineraries/exit-cairo-festival-hurghada/day-01.jpg",
+    "/images/itineraries/exit-cairo-festival-hurghada/day-02.jpg",
+    "/images/itineraries/exit-cairo-festival-hurghada/day-03.jpg",
+    "/images/itineraries/exit-cairo-festival-hurghada/day-04.jpg",
+    "/images/itineraries/exit-cairo-festival-hurghada/day-05.jpg",
+    "/images/itineraries/exit-cairo-festival-hurghada/day-06.jpg",
+    "/images/itineraries/exit-cairo-festival-hurghada/day-07.png",
+    "/images/itineraries/exit-cairo-festival-hurghada/day-08.png",
+    "/images/itineraries/exit-cairo-festival-hurghada/day-09.png",
+    "/images/itineraries/exit-cairo-festival-hurghada/day-10.jpg"
+  ],
+  "exit-festival-pyramids-only": [
+    "/images/itineraries/exit-festival-pyramids-only/day-01.jpg",
+    "/images/itineraries/exit-festival-pyramids-only/day-02.jpg",
+    "/images/itineraries/exit-festival-pyramids-only/day-03.jpg",
+    "/images/itineraries/exit-festival-pyramids-only/day-04.jpg",
+    "/images/itineraries/exit-festival-pyramids-only/day-05.jpg"
   ]
 }
