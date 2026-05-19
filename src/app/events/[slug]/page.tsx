@@ -451,6 +451,16 @@ export default async function EventDetailPage({ params }: Props) {
                   View Full Package Details →
                 </Link>
               )}
+              {event.slug === "exit-festival" && (
+                <div className="mt-4 flex flex-col gap-2">
+                  <a href="/experiences/exit-cairo-festival-hurghada" className="text-accent-gold text-sm hover:underline">
+                    → Cairo + Festival + Red Sea (9 nights)
+                  </a>
+                  <a href="/experiences/exit-festival-pyramids-only" className="text-accent-gold text-sm hover:underline">
+                    → Festival Only — Pyramids Hotel & Transfers (4 nights)
+                  </a>
+                </div>
+              )}
               {event.slug !== "exit-festival" && (
                 <Link href="/experiences" className="syren-btn-secondary w-full md:w-auto">
                   Explore Experiences →

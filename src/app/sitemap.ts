@@ -57,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${base}/experiences/${x.slug}`,
     lastModified: now,
     changeFrequency: "weekly",
-    priority: x.slug === "exit-at-the-pyramids" ? 0.9 : 0.8,
+    priority: ["exit-at-the-pyramids", "exit-cairo-festival-hurghada", "exit-festival-pyramids-only"].includes(x.slug) ? 0.9 : 0.8,
   }));
   const excursionEntries: MetadataRoute.Sitemap = excursions.map((x) => ({
     url: `${base}/excursions/${x.slug}`,
