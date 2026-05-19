@@ -30,6 +30,8 @@ import expFamily from "../../public/images/experiences/family-adventure.png";
 import expExit from "../../public/images/experiences/Exit-at-the-Pyramids.jpg.jpg";
 import expNileCruise5Day from "../../public/images/experiences/5-day-nile-cruise.png";
 import expChristmasVacation from "../../public/images/experiences/10-day-egypt-christmas-vacation.png";
+import expCairoFestivalHurghada from "../../public/images/experiences/exit-cairo-festival-hurghada.jpg.jpg";
+import exp4NightsFestival from "../../public/images/experiences/4-nights-exit-festival-experience.jpg";
 // import expCairoAfterDark from "../../public/images/experiences/party.jpg"; // File missing, using fallback
 
 export const HERO_IMAGES = {
@@ -57,6 +59,8 @@ export const EXPERIENCE_IMAGES = {
   "alexandria-coastal-elegance": heroHome,
   "exit-at-the-pyramids": expExit,
   "5-day-nile-cruise": expNileCruise5Day,
+  "exit-cairo-festival-hurghada": expCairoFestivalHurghada,
+  "exit-festival-pyramids-only": exp4NightsFestival,
 } as const;
 
 export const EXCURSION_IMAGES = {
