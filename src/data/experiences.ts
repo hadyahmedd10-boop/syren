@@ -808,7 +808,7 @@ export const experiences: Experience[] = [
   {
     id: "exit-festival-only-2026",
     slug: "exit-festival-pyramids-only",
-    title: "Exit Festival — Pyramids Only",
+    title: "Exit Festival 4 Nights",
     category: "festival-experiences",
     badge: "Festival Essentials",
     description: "Four nights at Exit Festival by the Pyramids of Giza. Private transfers from Cairo airport, Pyramid-view hotel, and 24/7 Syren concierge. Nothing else to think about.",
