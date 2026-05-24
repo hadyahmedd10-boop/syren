@@ -44,7 +44,6 @@ export default function LuxuryEgyptToursPage() {
           <BookingTrigger
             title="Luxury Egypt Tours"
             slug="luxury-egypt-tours"
-            basePriceAmount={undefined}
             buttonLabel="Plan Your Journey"
             variant="secondary"
           />
@@ -69,7 +68,6 @@ export default function LuxuryEgyptToursPage() {
             <BookingTrigger
               title="Luxury Egypt Tours"
               slug="luxury-egypt-tours"
-              basePriceAmount={undefined}
               buttonLabel="Plan Your Journey"
               variant="secondary"
             />

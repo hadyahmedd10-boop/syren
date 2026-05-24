@@ -33,7 +33,6 @@ import BookingTrigger from "@/components/ui/BookingTrigger";
                 <BookingTrigger
                   title={event.title}
                   slug={event.slug}
-                  basePriceAmount={undefined}
                   buttonLabel="Reserve Now →"
                   variant="secondary"
                 />

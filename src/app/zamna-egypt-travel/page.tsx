@@ -43,7 +43,6 @@ export default function ZamnaEgyptTravel() {
           <BookingTrigger
             title="Zamna Egypt 2026"
             slug="zamna-festival"
-            basePriceAmount={undefined}
             buttonLabel="Book Travel Package"
             variant="secondary"
           />
@@ -86,7 +85,6 @@ export default function ZamnaEgyptTravel() {
             <BookingTrigger
               title="Zamna Egypt 2026"
               slug="zamna-festival"
-              basePriceAmount={undefined}
               buttonLabel="Book a Syren Package"
               variant="secondary"
             />

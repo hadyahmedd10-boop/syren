@@ -73,8 +73,6 @@ export default function BookingSection({
         <BookingTrigger
           title={experienceTitle}
           slug={experienceSlug}
-          basePriceAmount={totalPrice}
-          basePriceCurrency="USD"
           buttonLabel="Reserve Now →"
         />
 

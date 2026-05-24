@@ -3,9 +3,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Check, Clock, Users } from "lucide-react";
-import dynamic from "next/dynamic";
-import type { BookingDrawerHandle } from "@/components/ui/BookingDrawer";
-const BookingDrawer = dynamic(() => import("@/components/ui/BookingDrawer"), { ssr: false });
+
+function buildWhatsAppUrl(title: string) {
+  const text = `Hi Syren, I'm interested in booking ${title}. I'd love to know more about available packages.`;
+  return `https://wa.me/201016015723?text=${encodeURIComponent(text)}`;
+}
 
 type StickyBookingPanelProps = {
   heroId?: string;
@@ -31,7 +33,6 @@ export default function StickyBookingPanel({
   const [show, setShow] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const drawerRef = useRef<BookingDrawerHandle | null>(null);
 
   useEffect(() => {
     const hero = document.getElementById(heroId);
@@ -61,8 +62,6 @@ export default function StickyBookingPanel({
 
   const priceSuffix =
     perPerson && priceAmount !== undefined ? `${priceCurrency} / person` : priceCurrency;
-
-  const quoteHref = `/quote?experience=${encodeURIComponent(slug)}`;
 
   return (
     <>
@@ -106,17 +105,17 @@ export default function StickyBookingPanel({
             )}
           </div>
 
-          <button
-            onClick={() => drawerRef.current?.open()}
+          <a
+            href={buildWhatsAppUrl(title)}
+            target="_blank"
+            rel="noopener noreferrer"
             className="syren-btn w-full justify-center"
           >
             Reserve Now →
-          </button>
+          </a>
 
-          <div className="mt-3">
-            <Link href={quoteHref} className="text-accent-gold underline text-sm">
-              Request a Quote →
-            </Link>
+          <div className="mt-3 text-center">
+            <span className="text-[11px] text-white/50">Opens WhatsApp</span>
           </div>
 
           <ul className="mt-5 space-y-2">
@@ -124,7 +123,7 @@ export default function StickyBookingPanel({
               <Check size={14} className="text-accent-gold" /> Free cancellation up to 30 days
             </li>
             <li className="flex items-center gap-2 text-[12px] text-white/70">
-              <Check size={14} className="text-accent-gold" /> Secured by Stripe
+              <Check size={14} className="text-accent-gold" /> 24/7 concierge support
             </li>
             <li className="flex items-center gap-2 text-[12px] text-white/70">
               <Check size={14} className="text-accent-gold" /> Instant confirmation
@@ -153,23 +152,16 @@ export default function StickyBookingPanel({
               </span>
             )}
           </div>
-          <button
-            onClick={() => drawerRef.current?.open()}
+          <a
+            href={buildWhatsAppUrl(title)}
+            target="_blank"
+            rel="noopener noreferrer"
             className="syren-btn px-5 py-2"
           >
             Reserve Now
-          </button>
+          </a>
         </div>
       </div>
-      <BookingDrawer
-        ref={drawerRef}
-        experienceTitle={title}
-        experienceSlug={slug}
-        basePriceAmount={priceAmount}
-        basePriceCurrency={priceCurrency}
-        perPerson={perPerson}
-        showFloatingTrigger={false}
-      />
     </>
   );
 }

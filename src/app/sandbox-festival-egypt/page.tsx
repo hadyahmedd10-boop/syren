@@ -43,7 +43,6 @@ export default function SandboxFestivalEgypt() {
           <BookingTrigger
             title="Sandbox Festival Egypt 2026"
             slug="sandbox-festival"
-            basePriceAmount={undefined}
             buttonLabel="Book Travel Package"
             variant="secondary"
           />
@@ -75,7 +74,6 @@ export default function SandboxFestivalEgypt() {
             <BookingTrigger
               title="Sandbox Festival Egypt 2026"
               slug="sandbox-festival"
-              basePriceAmount={undefined}
               buttonLabel="Plan Your Journey"
               variant="secondary"
             />

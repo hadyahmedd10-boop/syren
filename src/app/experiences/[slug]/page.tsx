@@ -364,8 +364,6 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
                     <BookingTrigger
                       title={experience.title}
                       slug={slug}
-                      basePriceAmount={experience.price?.amount}
-                      basePriceCurrency={experience.price?.currency || "USD"}
                       buttonLabel="Reserve this Journey"
                     />
                   </div>

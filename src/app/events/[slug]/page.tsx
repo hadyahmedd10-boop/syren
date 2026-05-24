@@ -408,22 +408,7 @@ export default async function EventDetailPage({ params }: Props) {
         </section>
       )}
 
-      {/* Explore More Events */}
-      <section className="section bg-background border-t border-accent-gold/20 pt-8 pb-12">
-        <div className="container-x mx-auto max-w-7xl">
-          <span className="uppercase tracking-wider text-accent-gold text-xs">Explore More</span>
-          <div className="mt-4 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {events
-              .filter((e) => e.slug !== event.slug && isEventUpcoming(e))
-              .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-              .slice(0, 3)
-              .map((e) => (
-                <EventCard key={e.slug} event={e} />
-              ))}
-          </div>
-        </div>
-      </section>
-
+      {/* Curated Package */}
       <section className="section bg-background border-t border-accent-gold/20 py-12">
         <div className="container-x mx-auto max-w-7xl">
               <div className="rounded-2xl bg-black/90 border border-accent-gold/30 p-8 md:p-10 text-white grid md:grid-cols-3 gap-8">
@@ -442,13 +427,16 @@ export default async function EventDetailPage({ params }: Props) {
               <BookingTrigger
                 title={event.slug === "exit-festival" ? "Exit at the Pyramids Package" : event.title}
                 slug={event.slug}
-                basePriceAmount={undefined}
-                basePriceCurrency="USD"
                 buttonLabel={event.slug === "exit-festival" ? "Reserve Your Exit Package →" : "Reserve Now →"}
               />
               {event.slug === "exit-festival" && (
                 <Link href="/experiences/exit-at-the-pyramids" className="syren-btn-secondary w-full md:w-auto text-center">
                   View Full Package Details →
+                </Link>
+              )}
+              {event.slug === "exit-festival" && (
+                <Link href="/exit-festival-egypt" className="text-accent-gold text-sm hover:underline text-center md:text-left">
+                  View Full Experience Guide →
                 </Link>
               )}
               {event.slug === "exit-festival" && (
@@ -467,6 +455,22 @@ export default async function EventDetailPage({ params }: Props) {
                 </Link>
               )}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Explore More Events */}
+      <section className="section bg-background border-t border-accent-gold/20 pt-8 pb-12">
+        <div className="container-x mx-auto max-w-7xl">
+          <span className="uppercase tracking-wider text-accent-gold text-xs">Explore More</span>
+          <div className="mt-4 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {events
+              .filter((e) => e.slug !== event.slug && isEventUpcoming(e))
+              .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+              .slice(0, 3)
+              .map((e) => (
+                <EventCard key={e.slug} event={e} />
+              ))}
           </div>
         </div>
       </section>

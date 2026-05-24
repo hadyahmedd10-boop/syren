@@ -35,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/saved", priority: 0.6, changeFrequency: "monthly" as const },
     { path: "/home", priority: 0.5, changeFrequency: "monthly" as const },
     { path: "/egypt-holiday-packages", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/exit-festival-egypt", priority: 0.95, changeFrequency: "weekly" as const },
     { path: "/faq", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/partner", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/reviews", priority: 0.7, changeFrequency: "weekly" as const },

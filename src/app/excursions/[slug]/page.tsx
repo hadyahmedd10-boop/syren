@@ -111,8 +111,6 @@ export default async function ExcursionPage({ params }: Props) {
           <BookingTrigger
             title={excursion.title}
             slug={excursion.slug}
-            basePriceAmount={Math.round((excursion.priceCents || 0) / 100)}
-            basePriceCurrency={(excursion.currency || "usd").toUpperCase()}
             buttonLabel="Reserve Now →"
           />
         </div>

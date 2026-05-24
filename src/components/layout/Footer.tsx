@@ -41,7 +41,8 @@ export default function Footer() {
             <li><Link href="/egypt-travel-tips" className="hover:text-accent-gold transition-colors">Egypt Travel Tips</Link></li> 
             <li><Link href="/hurghada-to-cairo-day-trip" className="hover:text-accent-gold transition-colors">Hurghada to Cairo</Link></li> 
             <li><Link href="/things-to-do-cairo" className="hover:text-accent-gold transition-colors">Things to Do in Cairo</Link></li> 
-            <li><Link href="/egypt-music-festivals-2026" className="hover:text-accent-gold transition-colors">Egypt Music Festivals 2026</Link></li> 
+            <li><Link href="/egypt-music-festivals-2026" className="hover:text-accent-gold transition-colors">Egypt Music Festivals 2026</Link></li>
+            <li><Link href="/exit-festival-egypt" className="hover:text-accent-gold transition-colors">Exit Festival Egypt 2026</Link></li>
           </ul> 
         </div> 
 
