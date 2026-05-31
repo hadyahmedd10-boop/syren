@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image";
+﻿import { StaticImageData } from "next/image";
 import { EVENT_IMAGES } from "@/lib/images";
 
 export type EventCategory =
@@ -23,6 +23,12 @@ export interface Event {
   duration?: string;
   minAge?: string;
   lineup: string[];
+  lineupTiers?: {
+    headliners: { name: string; note?: string }[];
+    keyArtists?: string[];
+    supporting?: string[];
+  };
+  relatedExperienceSlugs?: string[];
   afterParties?: {
     name: string;
     venue: string;
@@ -242,15 +248,76 @@ export const events: Event[] = [
     date: "2026-10-08",
     displayDate: "October 8-11, 2026",
     time: "18:00",
-    lineup: ["TBA"],
+    lineup: [
+      "Adriatique",
+      "Michael Bibi",
+      "Pete Tong",
+      "Vintage Culture",
+      "WhoMadeWho (Hybrid DJ Set)",
+      "Awen",
+      "Deer Jade",
+      "Fiona Kraft",
+      "Floyd Lavine",
+      "Layla Benitez",
+      "Abou Samra",
+      "Adham Dou",
+      "Ahmed Salah",
+      "Akasyon",
+      "Alyssa & Gia",
+      "Ashmawy",
+      "Avantika",
+      "Awadly",
+      "Baset",
+      "Coeus",
+      "Delrady",
+      "Divolly & Markward",
+      "Dodge_Ramzz",
+      "F Spins",
+      "Jade",
+      "Juno",
+      "La Familia",
+      "Lanna",
+      "Mizo & Riad",
+      "Moti",
+      "Nic Merheb",
+      "Rolbac",
+      "Stasi Sanlin",
+      "Taef",
+      "Tamara Kezz",
+      "Tala Mortada",
+      "Tebra",
+      "ThatgirlSherryK",
+      "Ziad Mousa",
+    ],
+    lineupTiers: {
+      headliners: [
+        { name: "Adriatique" },
+        { name: "Michael Bibi" },
+        { name: "Pete Tong" },
+        { name: "Vintage Culture" },
+        { name: "WhoMadeWho", note: "Hybrid DJ Set" },
+      ],
+      keyArtists: ["Awen", "Deer Jade", "Fiona Kraft", "Floyd Lavine", "Layla Benitez"],
+      supporting: [
+        "Abou Samra", "Adham Dou", "Ahmed Salah", "Akasyon", "Alyssa & Gia", "Ashmawy", "Avantika",
+        "Awadly", "Baset", "Coeus", "Delrady", "Divolly & Markward", "Dodge_Ramzz", "F Spins",
+        "Jade", "Juno", "La Familia", "Lanna", "Mizo & Riad", "Moti", "Nic Merheb", "Rolbac",
+        "Stasi Sanlin", "Taef", "Tamara Kezz", "Tala Mortada", "Tebra", "ThatgirlSherryK", "Ziad Mousa",
+      ],
+    },
+    relatedExperienceSlugs: [
+      "exit-at-the-pyramids",
+      "exit-cairo-festival-hurghada",
+      "exit-festival-pyramids-only",
+    ],
     ticketUrl: "https://tickets.example.com/exit",
     heroImage: EVENT_IMAGES["exit-festival"] ?? "/images/placeholder.jpg",
     galleryImages: [EVENT_IMAGES["exit-festival"]],
     isFeatured: false,
     isPopular: true,
-    seoTitle: "EXIT Festival Egypt | International Edition",
+    seoTitle: "Exit Festival Egypt 2026 — Lineup & Travel Package | Syren",
     seoDescription:
-      "Explore EXIT’s Egypt edition with Syren’s premium logistics and curated packages.",
+      "Exit Festival Egypt 2026 lineup: Adriatique, Pete Tong, Michael Bibi, Vintage Culture, WhoMadeWho & more - Pyramids of Giza, Oct 8-11. Syren curated travel packages.",
     curatedPackage: {
       title: "Exit at the Pyramids — Syren Package",
       description: "10 nights curated around Exit Festival. Old Cairo by night, a Fayoum desert overnight, four days at the festival, then the Red Sea at Hurghada. Everything handled by Syren.",
@@ -614,6 +681,44 @@ export const events: Event[] = [
         "Exclusive dining reservations"
       ],
       ctaLabel: "Book Korolova Package",
+    },
+  },
+  {
+    id: "evt_rampa_me",
+    slug: "keinmusik-rampa-b2b-me",
+    title: "Keinmusik's Rampa b2b &Me",
+    category: "Popular Events in Egypt",
+    categories: ["Popular Events in Egypt", "International Music Festivals"],
+    shortDescription: "Keinmusik label heads Rampa and &Me bring their signature sound to Egypt's North Coast.",
+    fullDescription:
+      "Keinmusik's Rampa and &Me unite for a special back-to-back set on Egypt's North Coast. Known for their deep, melodic house sound and the distinctive Keinmusik aesthetic, this night promises an immersive journey through underground electronic music. Set against the Mediterranean backdrop, expect extended sets, hypnotic grooves, and the chemistry that has defined their collaborative performances across the globe.",
+    location: "North Coast",
+    city: "North Coast, Egypt",
+    date: "2026-08-14",
+    displayDate: "Friday, August 14, 2026",
+    time: "9:00 PM",
+    duration: "6h",
+    lineup: ["Rampa", "&Me"],
+    ticketUrl: "https://ticketegypt.venflare.com/events/tba",
+    heroImage: EVENT_IMAGES["keinmusik-rampa-b2b-me"] ?? "/images/hero/luxury.jpg",
+    galleryImages: [EVENT_IMAGES["keinmusik-rampa-b2b-me"] ?? "/images/hero/luxury.jpg"],
+    isFeatured: true,
+    isPopular: true,
+    seoTitle: "Rampa b2b &Me North Coast Egypt | Keinmusik",
+    seoDescription:
+      "Keinmusik's Rampa and &Me bring their signature deep house sound to Egypt's North Coast. Book VIP tickets and curated travel packages with Syren.",
+    curatedPackage: {
+      title: "Keinmusik North Coast Experience",
+      description:
+        "Luxury North Coast accommodation, private beach access, VIP event entry, and seamless transfers from Cairo for this exclusive Keinmusik night.",
+      inclusions: [
+        "Boutique North Coast villa or hotel stay",
+        "Private transfers from Cairo",
+        "VIP beachfront event access",
+        "Private beach club reservations",
+        "Sunset dining experiences"
+      ],
+      ctaLabel: "Book Rampa &Me Package",
     },
   },
 ];
