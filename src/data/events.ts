@@ -721,4 +721,41 @@ export const events: Event[] = [
       ctaLabel: "Book Rampa &Me Package",
     },
   },
+  {
+    id: "evt_argy_neworld",
+    slug: "argy-neworld",
+    title: "ARGY NEWORLD",
+    category: "Popular Events in Egypt",
+    categories: ["Popular Events in Egypt", "International Music Festivals"],
+    shortDescription: "ARGY brings his NEWORLD experience to the Pyramids of Giza.",
+    fullDescription:
+      "ARGY brings NEWORLD to the Pyramids of Giza on November 6th, 2026. Set against one of the world's most iconic backdrops, the night unfolds through his signature melodic techno sound — hypnotic, emotional, and built for a once-in-a-lifetime setting where ancient history meets electronic music.",
+    location: "Pyramids of Giza",
+    city: "Giza, Egypt",
+    date: "2026-11-06",
+    displayDate: "November 6, 2026",
+    time: "8:00 PM",
+    lineup: ["ARGY"],
+    ticketUrl: "https://ticketegypt.venflare.com/events/tba",
+    heroImage: EVENT_IMAGES["argy-neworld"] ?? "/images/hero/luxury.jpg",
+    galleryImages: [EVENT_IMAGES["argy-neworld"] ?? "/images/hero/luxury.jpg"],
+    isFeatured: true,
+    isPopular: true,
+    seoTitle: "ARGY NEWORLD at the Pyramids of Giza | Egypt 2026",
+    seoDescription:
+      "ARGY brings NEWORLD to the Pyramids of Giza. Book premium tickets and curated travel packages with Syren Egypt.",
+    curatedPackage: {
+      title: "ARGY NEWORLD Pyramids Experience",
+      description:
+        "Luxury Cairo hotel stay, private transfers, VIP event access, and curated daytime experiences around the Pyramids.",
+      inclusions: [
+        "Premium hotel accommodation in Cairo",
+        "Private airport transfers",
+        "VIP event access",
+        "Private Pyramids tour by day",
+        "Curated dining reservations"
+      ],
+      ctaLabel: "Book ARGY Package",
+    },
+  },
 ];
