@@ -721,42 +721,4 @@ export const events: Event[] = [
       ctaLabel: "Book Rampa &Me Package",
     },
   },
-  {
-    id: "evt_argy_neworld",
-    slug: "argy-neworld",
-    title: "ARGY NEWORLD",
-    category: "Popular Events in Egypt",
-    categories: ["Popular Events in Egypt", "International Music Festivals"],
-    shortDescription: "Argy brings his NEWORLD show to the Pyramids of Giza.",
-    fullDescription:
-      "Argy lands in Egypt with NEWORLD, his acclaimed live show, staged against the Pyramids of Giza on November 6th, 2026. The Greek producer behind some of the decade's most recognisable melodic house records builds sets that move between euphoric peaks and hypnotic depth, and NEWORLD extends that into a full audio-visual production. One night, one of the world's most extraordinary settings, and a sound made for it.",
-    location: "Pyramids of Giza",
-    city: "Giza, Egypt",
-    date: "2026-11-06",
-    displayDate: "Friday, November 6, 2026",
-    time: "8:00 PM",
-    duration: "6h",
-    lineup: ["Argy"],
-    ticketUrl: "https://ticketegypt.venflare.com/events/tba",
-    heroImage: EVENT_IMAGES["argy-neworld"] ?? "/images/hero/luxury.jpg",
-    galleryImages: [EVENT_IMAGES["argy-neworld"] ?? "/images/hero/luxury.jpg"],
-    isFeatured: true,
-    isPopular: true,
-    seoTitle: "Argy NEWORLD at the Pyramids of Giza | November 2026",
-    seoDescription:
-      "Argy brings NEWORLD to the Pyramids of Giza on November 6, 2026. Book VIP tickets and curated travel packages with Syren.",
-    curatedPackage: {
-      title: "Argy NEWORLD Pyramids Experience",
-      description:
-        "Luxury Cairo stay, private transfers to the Giza Plateau, VIP event access, and curated daytime exploration around the Pyramids.",
-      inclusions: [
-        "4-5 star Cairo hotel accommodation",
-        "Private airport transfers",
-        "VIP event access",
-        "Guided Pyramids & Grand Egyptian Museum tour",
-        "Nile sunset dining reservations"
-      ],
-      ctaLabel: "Book Argy NEWORLD Package",
-    },
-  },
 ];
