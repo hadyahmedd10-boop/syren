@@ -721,4 +721,91 @@ export const events: Event[] = [
       ctaLabel: "Book Rampa &Me Package",
     },
   },
+  {
+    id: "evt_zamna_south_sinai",
+    slug: "zamna-south-sinai",
+    title: "ZAMNA South Sinai",
+    category: "International Music Festivals",
+    categories: ["International Music Festivals", "Popular Events in Egypt"],
+    shortDescription: "Three days of electronic music in the stunning Khoroum Valley, South Sinai Desert.",
+    fullDescription:
+      "ZAMNA returns to Egypt with a spectacular new location in the South Sinai Desert. Set in the breathtaking Khoroum Valley, this three-day festival brings together world-class electronic music artists in one of the most unique natural settings on Earth. Experience the magic of the desert night with an immersive sound system, curated art installations, and the distinctive ZAMNA atmosphere that has made their events legendary worldwide.",
+    location: "Khoroum Valley, South Sinai Desert",
+    city: "South Sinai, Egypt",
+    date: "2026-11-20",
+    displayDate: "November 20–22, 2026",
+    time: "6:00 PM",
+    duration: "3 Days",
+    lineup: [
+      "Korolova",
+      "Mestiza",
+      "Mind Against",
+      "MRAK",
+      "Sasha & John Digweed",
+      "Shimza"
+    ],
+    minAge: "21+",
+    ticketUrl: "https://www.technoandchill.com/events/",
+    heroImage: EVENT_IMAGES["zamna-south-sinai"] ?? "/images/placeholder.jpg",
+    galleryImages: [EVENT_IMAGES["zamna-south-sinai"] ?? "/images/placeholder.jpg"],
+    isFeatured: true,
+    isPopular: true,
+    seoTitle: "ZAMNA South Sinai 2026 | Khoroum Valley Festival",
+    seoDescription:
+      "ZAMNA South Sinai: Korolova, Mind Against, MRAK, Sasha & John Digweed, Shimza & more in Khoroum Valley, Nov 20-22. Book luxury travel packages with Syren.",
+    curatedPackage: {
+      title: "ZAMNA South Sinai Desert Experience",
+      description:
+        "Luxury desert camp accommodation, private transfers from Sharm El Sheikh or Taba, VIP festival access, and curated desert adventures.",
+      inclusions: [
+        "Luxury desert camp accommodation",
+        "Private airport transfers",
+        "VIP festival access",
+        "Desert safari excursions",
+        "Stargazing experiences",
+        "24/7 concierge support"
+      ],
+      ctaLabel: "Book ZAMNA South Sinai Package",
+    },
+  },
+  {
+    id: "evt_argy_neworld",
+    slug: "argy-neworld",
+    title: "ARGY NEWORLD",
+    category: "Popular Events in Egypt",
+    categories: ["Popular Events in Egypt", "International Music Festivals"],
+    shortDescription: "ARGY brings his signature sound to the iconic Pyramids of Giza.",
+    fullDescription:
+      "ARGY NEWORLD descends upon the Great Pyramids of Giza for an unforgettable night of electronic music. The rising star of the melodic house and techno scene brings his distinctive sound to one of the world's most iconic locations. Expect a mesmerizing performance set against the ancient backdrop of the Pyramids, creating a fusion of history and contemporary sound that defines the NEWORLD experience.",
+    location: "The Great Pyramids of Giza",
+    city: "Giza, Egypt",
+    date: "2026-11-06",
+    displayDate: "November 6, 2026",
+    time: "8:00 PM",
+    duration: "6h",
+    lineup: ["ARGY"],
+    minAge: "21+",
+    ticketUrl: "https://ticketegypt.venflare.com/events/tba",
+    heroImage: EVENT_IMAGES["argy-neworld"] ?? "/images/placeholder.jpg",
+    galleryImages: [EVENT_IMAGES["argy-neworld"] ?? "/images/placeholder.jpg"],
+    isFeatured: true,
+    isPopular: true,
+    seoTitle: "ARGY NEWORLD at Pyramids of Giza | Egypt 2026",
+    seoDescription:
+      "ARGY NEWORLD performs at the Great Pyramids of Giza on November 6, 2026. Book VIP tickets and luxury travel packages with Syren Egypt.",
+    curatedPackage: {
+      title: "ARGY NEWORLD Pyramids Experience",
+      description:
+        "Luxury Cairo accommodation, private transfers, VIP event access at the Pyramids, and curated cultural experiences.",
+      inclusions: [
+        "5-star hotel accommodation in Cairo",
+        "Private airport transfers",
+        "VIP Pyramids event access",
+        "Private Giza Plateau tour",
+        "Nile dinner cruise",
+        "24/7 Syren concierge"
+      ],
+      ctaLabel: "Book ARGY NEWORLD Package",
+    },
+  },
 ];
