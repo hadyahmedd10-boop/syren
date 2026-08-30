@@ -3,7 +3,7 @@ export default function ThemeScript() {
 (function() { 
   try { 
     var stored = localStorage.getItem("syren_theme"); 
-    var theme = stored || "dark"; 
+    var theme = stored || "light"; 
     var root = document.documentElement; 
     if (theme === "dark") root.classList.add("dark");
     else root.classList.remove("dark");
