@@ -68,7 +68,7 @@ export default async function AdminDashboard() {
             <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-accent-gold mb-4 block">
               Control Center
             </span>
-            <h1 className="font-serif text-4xl md:text-6xl tracking-tight text-white">
+            <h1 className="font-serif text-4xl md:text-6xl tracking-tight text-text-primary">
               Admin Dashboard
             </h1>
           </Reveal>
@@ -82,11 +82,11 @@ export default async function AdminDashboard() {
                   {card.icon}
                 </div>
                 
-                <h3 className="text-white/60 font-sans text-xs uppercase tracking-[0.2em] mb-2">
+                <h3 className="text-text-primary/60 font-sans text-xs uppercase tracking-[0.2em] mb-2">
                   {card.title}
                 </h3>
                 
-                <div className="text-3xl font-serif text-white mb-6">
+                <div className="text-3xl font-serif text-text-primary mb-6">
                   {card.count}
                 </div>
 
@@ -99,11 +99,11 @@ export default async function AdminDashboard() {
                     <ArrowRight size={14} />
                   </Link>
                 ) : card.linkLabel ? (
-                  <span className="mt-auto text-white/20 font-sans text-xs uppercase tracking-widest">
+                  <span className="mt-auto text-text-primary/20 font-sans text-xs uppercase tracking-widest">
                     {card.linkLabel}
                   </span>
                 ) : (
-                  <span className="mt-auto text-white/40 font-sans text-xs uppercase tracking-widest">
+                  <span className="mt-auto text-text-primary/40 font-sans text-xs uppercase tracking-widest">
                     {card.label}
                   </span>
                 )}

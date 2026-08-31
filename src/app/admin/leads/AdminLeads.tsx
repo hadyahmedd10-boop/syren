@@ -49,7 +49,7 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
     <div className="space-y-8 animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="font-serif text-3xl text-white tracking-tight">Leads Management</h1>
+          <h1 className="font-serif text-3xl text-text-primary tracking-tight">Leads Management</h1>
           <p className="text-text-secondary text-sm mt-1">Review and manage your inquiries and quote requests.</p>
         </div>
 
@@ -57,7 +57,7 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
           <button
             onClick={() => setActiveTab("quotes")}
             className={`px-4 py-2 rounded-md text-sm transition-all ${
-              activeTab === "quotes" ? "bg-accent-gold text-black font-medium" : "text-text-secondary hover:text-white"
+              activeTab === "quotes" ? "bg-accent-gold text-black font-medium" : "text-text-secondary hover:text-text-primary"
             }`}
           >
             Quotes ({quotes.length})
@@ -65,7 +65,7 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
           <button
             onClick={() => setActiveTab("inquiries")}
             className={`px-4 py-2 rounded-md text-sm transition-all ${
-              activeTab === "inquiries" ? "bg-accent-gold text-black font-medium" : "text-text-secondary hover:text-white"
+              activeTab === "inquiries" ? "bg-accent-gold text-black font-medium" : "text-text-secondary hover:text-text-primary"
             }`}
           >
             Inquiries ({inquiries.length})
@@ -92,13 +92,13 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
                   quotes.map((quote) => (
                     <tr key={quote.id} className="hover:bg-white/[0.02] transition-colors group">
                       <td className="px-6 py-6 whitespace-nowrap align-top">
-                        <div className="text-sm text-white">{format(new Date(quote.created_at), "MMM d, yyyy")}</div>
+                        <div className="text-sm text-text-primary">{format(new Date(quote.created_at), "MMM d, yyyy")}</div>
                         <div className="text-[10px] text-text-secondary mt-1">{format(new Date(quote.created_at), "HH:mm")}</div>
                       </td>
                       <td className="px-6 py-6 align-top">
                         <div className="space-y-2">
-                          <div className="font-medium text-white">{quote.name}</div>
-                          <div className="flex items-center gap-2 text-xs text-text-secondary hover:text-white transition-colors">
+                          <div className="font-medium text-text-primary">{quote.name}</div>
+                          <div className="flex items-center gap-2 text-xs text-text-secondary hover:text-text-primary transition-colors">
                             <Mail size={12} className="text-accent-gold" />
                             <a href={`mailto:${quote.email}`}>{quote.email}</a>
                             <button
@@ -171,13 +171,13 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
                 inquiries.map((inquiry) => (
                   <tr key={inquiry.id} className="hover:bg-white/[0.02] transition-colors group">
                     <td className="px-6 py-6 whitespace-nowrap align-top">
-                      <div className="text-sm text-white">{format(new Date(inquiry.created_at), "MMM d, yyyy")}</div>
+                      <div className="text-sm text-text-primary">{format(new Date(inquiry.created_at), "MMM d, yyyy")}</div>
                       <div className="text-[10px] text-text-secondary mt-1">{format(new Date(inquiry.created_at), "HH:mm")}</div>
                     </td>
                     <td className="px-6 py-6 align-top">
                       <div className="space-y-2">
-                        <div className="font-medium text-white">{inquiry.name}</div>
-                        <div className="flex items-center gap-2 text-xs text-text-secondary hover:text-white transition-colors">
+                        <div className="font-medium text-text-primary">{inquiry.name}</div>
+                        <div className="flex items-center gap-2 text-xs text-text-secondary hover:text-text-primary transition-colors">
                           <Mail size={12} className="text-accent-gold" />
                           <a href={`mailto:${inquiry.email}`}>{inquiry.email}</a>
                           <button
@@ -212,7 +212,7 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
                       </div>
                     </td>
                     <td className="px-6 py-6 align-top">
-                      <div className="text-sm text-white font-medium">{inquiry.subject || "General Inquiry"}</div>
+                      <div className="text-sm text-text-primary font-medium">{inquiry.subject || "General Inquiry"}</div>
                     </td>
                     <td className="px-6 py-6 align-top max-w-md">
                       <div className="flex gap-2">
@@ -246,11 +246,11 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
           <div className="w-full max-w-2xl rounded-2xl border border-white/10 bg-surface shadow-2xl">
             <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
-              <div className="text-white font-medium">{openMessage.title}</div>
+              <div className="text-text-primary font-medium">{openMessage.title}</div>
               <button
                 type="button"
                 onClick={() => setOpenMessage(null)}
-                className="text-text-secondary hover:text-white"
+                className="text-text-secondary hover:text-text-primary"
                 aria-label="Close message"
               >
                 <X size={18} />
