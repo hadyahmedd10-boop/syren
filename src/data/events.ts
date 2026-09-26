@@ -724,7 +724,7 @@ export const events: Event[] = [
   {
     id: "evt_zamna_south_sinai",
     slug: "zamna-south-sinai",
-    title: "ZAMNA South Sinai",
+    title: "Zamna Sharm el Sheikh",
     category: "International Music Festivals",
     categories: ["International Music Festivals", "Popular Events in Egypt"],
     shortDescription: "Three days of electronic music in the stunning Khoroum Valley, South Sinai Desert.",
@@ -750,11 +750,11 @@ export const events: Event[] = [
     galleryImages: [EVENT_IMAGES["zamna-south-sinai"] ?? "/images/placeholder.jpg"],
     isFeatured: true,
     isPopular: true,
-    seoTitle: "ZAMNA South Sinai 2026 | Khoroum Valley Festival",
+    seoTitle: "Zamna Sharm el Sheikh 2026 | Khoroum Valley Festival",
     seoDescription:
-      "ZAMNA South Sinai: Korolova, Mind Against, MRAK, Sasha & John Digweed, Shimza & more in Khoroum Valley, Nov 20-22. Book luxury travel packages with Syren.",
+      "Zamna Sharm el Sheikh: Korolova, Mind Against, MRAK, Sasha & John Digweed, Shimza & more in Khoroum Valley, Nov 20-22. Book luxury travel packages with Syren.",
     curatedPackage: {
-      title: "ZAMNA South Sinai Desert Experience",
+      title: "Zamna Sharm el Sheikh Desert Experience",
       description:
         "Luxury desert camp accommodation, private transfers from Sharm El Sheikh or Taba, VIP festival access, and curated desert adventures.",
       inclusions: [
@@ -765,7 +765,7 @@ export const events: Event[] = [
         "Stargazing experiences",
         "24/7 concierge support"
       ],
-      ctaLabel: "Book ZAMNA South Sinai Package",
+      ctaLabel: "Book Zamna Sharm el Sheikh Package",
     },
   },
   {
