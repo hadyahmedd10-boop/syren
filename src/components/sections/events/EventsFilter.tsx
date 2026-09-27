@@ -182,7 +182,7 @@ export default function EventsFilter() {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {pastEvents.map((e) => (
                       <div key={e.slug} className="relative opacity-60 hover:opacity-80 transition-opacity">
-                        <div className="absolute top-2 left-2 z-10 bg-black/60 text-white text-xs px-2 py-1 rounded">
+                        <div className="absolute top-2 left-2 z-10 bg-black/60 text-white dark:bg-black/60 dark:text-white bg-text-primary/80 text-background text-xs px-2 py-1 rounded">
                           Past Event
                         </div>
                         <EventCard event={e} />

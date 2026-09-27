@@ -308,7 +308,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/50" />
             <div className="absolute inset-0 p-4 flex flex-col justify-end">
               <h3 className="font-serif text-accent-gold text-lg">{g.title}</h3>
-              <p className="text-white/80 text-sm mt-1">{g.desc}</p>
+              <p className="text-text-secondary text-sm mt-1">{g.desc}</p>
             </div>
           </article>
         </Link>

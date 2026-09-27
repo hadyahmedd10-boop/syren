@@ -225,15 +225,15 @@ export default async function EventDetailPage({ params }: Props) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 pb-10">
-          <div className="container-x mx-auto max-w-7xl px-6 text-white">
+          <div className="container-x mx-auto max-w-7xl px-6 text-text-primary">
             <h1 className="font-serif text-4xl md:text-6xl text-accent-gold">{event.title}</h1>
             <div className="mt-3 flex flex-wrap items-center gap-2">
-                <span className="syren-pill bg-black/60 border border-border text-white/90">{event.category}</span>
+                <span className="syren-pill bg-black/60 border border-border text-text-primary/90">{event.category}</span>
               {(event.displayDate ?? event.date) && (
-                <span className="syren-pill bg-black/60 border border-border text-white/90">{event.displayDate ?? event.date}</span>
+                <span className="syren-pill bg-black/60 border border-border text-text-primary/90">{event.displayDate ?? event.date}</span>
               )}
               {event.minAge && (
-                <span className="syren-pill bg-black/60 border border-border text-white/90">{event.minAge}</span>
+                <span className="syren-pill bg-black/60 border border-border text-text-primary/90">{event.minAge}</span>
               )}
             </div>
           </div>
@@ -411,13 +411,13 @@ export default async function EventDetailPage({ params }: Props) {
       {/* Curated Package */}
       <section className="section bg-background border-t border-accent-gold/20 py-12">
         <div className="container-x mx-auto max-w-7xl">
-              <div className="rounded-2xl bg-black/90 border border-accent-gold/30 p-8 md:p-10 text-white grid md:grid-cols-3 gap-8">
+              <div className="rounded-2xl bg-black/90 dark:bg-black/90 border border-accent-gold/30 p-8 md:p-10 text-text-primary grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <h2 className="font-serif text-3xl md:text-4xl mb-3">{event.curatedPackage.title}</h2>
-              <p className="text-white/80 mb-6">{event.curatedPackage.description}</p>
+              <p className="text-text-secondary mb-6">{event.curatedPackage.description}</p>
               <ul className="grid md:grid-cols-2 gap-3 mb-6">
                 {event.curatedPackage.inclusions.map((inc) => (
-                  <li key={inc} className="text-white/80">
+                  <li key={inc} className="text-text-secondary">
                     ✓ {inc}
                   </li>
                 ))}

@@ -50,7 +50,7 @@ function LoginForm() {
   return (
     <div className="max-w-md w-full">
       <div className="text-center mb-10">
-        <h1 className="text-4xl font-serif text-white mb-2">Syren Admin</h1>
+        <h1 className="text-4xl font-serif text-text-primary mb-2">Syren Admin</h1>
         <p className="text-text-secondary">Please sign in to continue</p>
       </div>
 
@@ -63,7 +63,7 @@ function LoginForm() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-gold transition-colors"
+            className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-accent-gold transition-colors"
             placeholder="admin@syren.com"
             required
           />
@@ -77,7 +77,7 @@ function LoginForm() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-gold transition-colors"
+            className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-accent-gold transition-colors"
             placeholder="••••••••"
             required
           />
@@ -104,7 +104,7 @@ function LoginForm() {
 export default function LoginPage() {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-6">
-      <Suspense fallback={<div className="text-white">Loading...</div>}>
+      <Suspense fallback={<div className="text-text-primary">Loading...</div>}>
         <LoginForm />
       </Suspense>
     </div>

@@ -157,8 +157,8 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
         <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-4">
           <div className="bg-green-500/10 border border-green-500/20 backdrop-blur-md p-6 rounded-2xl text-center">
             <CheckCircle2 className="mx-auto text-green-500 mb-4" size={32} />
-            <h3 className="text-white font-serif text-xl mb-2">Booking Confirmed!</h3>
-            <p className="text-white/70 text-sm">Thank you for choosing Syren. Our curators will contact you within 24 hours to finalize your itinerary.</p>
+            <h3 className="text-text-primary font-serif text-xl mb-2">Booking Confirmed!</h3>
+            <p className="text-text-secondary text-sm">Thank you for choosing Syren. Our curators will contact you within 24 hours to finalize your itinerary.</p>
           </div>
         </div>
       )}
@@ -166,8 +166,8 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
       {canceled === "true" && (
         <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-4">
           <div className="bg-red-500/10 border border-red-500/20 backdrop-blur-md p-6 rounded-2xl text-center">
-            <h3 className="text-white font-serif text-xl mb-2">Booking Canceled</h3>
-            <p className="text-white/70 text-sm">Your payment was not processed. Feel free to contact us if you have any questions.</p>
+            <h3 className="text-text-primary font-serif text-xl mb-2">Booking Canceled</h3>
+            <p className="text-text-secondary text-sm">Your payment was not processed. Feel free to contact us if you have any questions.</p>
           </div>
         </div>
       )}
@@ -207,11 +207,11 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
           </Reveal>
           <Reveal delay={0.2}>
             <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
-              <span className="font-sans text-sm uppercase tracking-[0.3em] text-white/60 font-medium md:text-base">
+              <span className="font-sans text-sm uppercase tracking-[0.3em] text-text-secondary font-medium md:text-base">
                 {experience.duration}
               </span>
-              <div className="hidden h-px w-8 bg-white/30 md:block" />
-              <span className="font-sans text-sm uppercase tracking-[0.3em] text-white/90 font-light md:text-base">
+              <div className="hidden h-px w-8 bg-border md:block" />
+              <span className="font-sans text-sm uppercase tracking-[0.3em] text-text-primary font-light md:text-base">
                 {experience.cities}
               </span>
             </div>

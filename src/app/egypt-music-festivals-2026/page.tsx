@@ -56,7 +56,7 @@ export default function EgyptMusicFestivals2026() {
                   <h3 className="font-serif text-2xl text-text-primary mb-2">{ev.title}</h3>
                   <div className="flex flex-wrap items-center gap-2 mb-3">
                     {displayDate && <span className="syren-pill border border-accent-gold text-accent-gold font-serif bg-transparent">{displayDate}</span>}
-                    {location && <span className="syren-pill bg-black/60 border border-white/10 text-white/90">{location}</span>}
+                    {location && <span className="syren-pill bg-black/60 border border-border text-text-primary/90">{location}</span>}
                   </div>
                   <p className="text-text-secondary mb-4">{ev.shortDescription}</p>
                   <Link href={href} className="syren-btn-secondary">
