@@ -73,7 +73,7 @@ export default function AdminTestimonials() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-white p-6 md:p-12">
+    <div className="min-h-screen bg-background text-text-primary p-6 md:p-12">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
           <div>
@@ -122,7 +122,7 @@ export default function AdminTestimonials() {
                         <Star 
                           key={i} 
                           size={14} 
-                          className={`${i < (t.rating || 5) ? 'text-accent-gold fill-accent-gold' : 'text-white/10'}`} 
+                          className={`${i < (t.rating || 5) ? 'text-accent-gold fill-accent-gold' : 'text-text-primary/10'}`} 
                         />
                       ))}
                     </div>
@@ -150,7 +150,7 @@ export default function AdminTestimonials() {
                       <button
                         disabled={actionId === t.id}
                         onClick={() => updateStatus(t.id, false)}
-                        className="flex items-center justify-center gap-2 px-6 py-3 bg-white/5 text-white border border-white/10 rounded-full hover:bg-white/10 transition-all text-xs uppercase tracking-widest disabled:opacity-50"
+                        className="flex items-center justify-center gap-2 px-6 py-3 bg-white/5 text-text-primary border border-white/10 rounded-full hover:bg-white/10 transition-all text-xs uppercase tracking-widest disabled:opacity-50"
                       >
                         {actionId === t.id ? <Loader2 className="animate-spin" size={14} /> : <X size={14} />}
                         Unapprove

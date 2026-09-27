@@ -26,7 +26,7 @@ function WAButton({
       href={WA_LINK}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-3 bg-[#25D366] text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-[#20b558] transition-all duration-300 shadow-lg hover:shadow-[#25D366]/30 hover:shadow-xl ${className}`}
+      className={`inline-flex items-center gap-3 bg-[#25D366] text-text-primary font-semibold px-8 py-4 rounded-full text-lg hover:bg-[#20b558] transition-all duration-300 shadow-lg hover:shadow-[#25D366]/30 hover:shadow-xl ${className}`}
     >
       <WhatsAppIcon />
       {label}
@@ -102,7 +102,7 @@ function ProgressBar() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-black/20">
+    <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-black/20 dark:bg-black/20 bg-gray-200/20">
       <div
         className="h-full transition-[width] duration-100 bg-gradient-to-r from-[#7B6FA0] via-[#C1433A] to-[#2A8C72]"
         style={{ width: `${progress}%` }}
@@ -122,7 +122,7 @@ function StickyBar() {
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur border-t border-[#C9A84C]/20 py-3 px-6 transition-transform duration-300 ${
+      className={`fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-t border-[#C9A84C]/20 py-3 px-6 transition-transform duration-300 ${
         visible ? "translate-y-0" : "translate-y-full"
       }`}
     >
@@ -134,7 +134,7 @@ function StickyBar() {
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-semibold px-6 py-2.5 rounded-full text-sm hover:bg-[#20b558] transition-all"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] text-text-primary font-semibold px-6 py-2.5 rounded-full text-sm hover:bg-[#20b558] transition-all"
         >
           <WhatsAppIcon className="w-4 h-4" />
           Message Us →
@@ -235,7 +235,7 @@ export default function ExitFestivalContent() {
       <StickyBar />
 
       {/* ── SECTION 1: HERO ─────────────────────────────── */}
-      <section className="relative min-h-screen bg-[#0a0a0a] flex flex-col justify-center overflow-hidden px-6 md:px-12">
+      <section className="relative min-h-screen bg-background flex flex-col justify-center overflow-hidden px-6 md:px-12">
         <CompassWatermark className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-[50vw] max-w-[600px] text-[#C9A84C] opacity-5 pointer-events-none select-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto w-full pt-24 pb-40">
@@ -244,18 +244,18 @@ export default function ExitFestivalContent() {
           </p>
 
           <h1 className="font-black uppercase leading-[0.88] mb-8">
-            <span className="block text-6xl md:text-8xl lg:text-[9rem] text-white">
+            <span className="block text-6xl md:text-8xl lg:text-[9rem] text-text-primary">
               THIS IS NOT
             </span>
             <span className="block text-6xl md:text-8xl lg:text-[9rem] text-[#C9A84C]">
               A FESTIVAL
             </span>
-            <span className="block text-6xl md:text-8xl lg:text-[9rem] text-white/30">
+            <span className="block text-6xl md:text-8xl lg:text-[9rem] text-text-primary/30">
               TRIP.
             </span>
           </h1>
 
-          <p className="font-serif italic text-xl md:text-2xl text-white/60 mb-10 max-w-xl">
+          <p className="font-serif italic text-xl md:text-2xl text-text-primary/60 mb-10 max-w-xl">
             This is the community you&apos;ve been looking for.
           </p>
 
@@ -263,7 +263,7 @@ export default function ExitFestivalContent() {
         </div>
 
         {/* Stats bar */}
-        <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-black/60 backdrop-blur-sm">
+        <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-black/60 dark:bg-black/60 backdrop-blur-sm bg-gray-900/60">
           <div className="max-w-7xl mx-auto px-6 py-5 grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { value: "10", label: "NIGHTS" },
@@ -275,7 +275,7 @@ export default function ExitFestivalContent() {
                 <div className="font-black text-2xl md:text-3xl text-[#C9A84C]">
                   {stat.value}
                 </div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 mt-0.5">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-text-primary/40 mt-0.5">
                   {stat.label}
                 </div>
               </div>
@@ -284,7 +284,7 @@ export default function ExitFestivalContent() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-24 right-6 md:right-12 flex flex-col items-center gap-2 text-white/25 select-none">
+        <div className="absolute bottom-24 right-6 md:right-12 flex flex-col items-center gap-2 text-text-primary/25 select-none">
           <span className="text-[9px] uppercase tracking-[0.3em] [writing-mode:vertical-rl] rotate-180">
             SCROLL TO EXPLORE
           </span>
@@ -293,7 +293,7 @@ export default function ExitFestivalContent() {
       </section>
 
       {/* ── SECTION 2: WHAT SYREN IS ────────────────────── */}
-      <section className="relative bg-[#0a0a0a] py-20 md:py-28 px-6 md:px-12 border-t border-white/5 overflow-hidden">
+      <section className="relative bg-background py-20 md:py-28 px-6 md:px-12 border-t border-white/5 overflow-hidden">
         <CompassWatermark className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-[40vw] max-w-[500px] text-[#C9A84C] opacity-5 pointer-events-none select-none" />
         <div className="max-w-7xl mx-auto">
           <Reveal>
@@ -301,22 +301,22 @@ export default function ExitFestivalContent() {
               ABOUT SYREN
             </p>
             <h2 className="font-black uppercase leading-[0.9] text-5xl md:text-7xl mb-12">
-              <span className="block text-white">MORE THAN</span>
-              <span className="block text-white">
+              <span className="block text-text-primary">MORE THAN</span>
+              <span className="block text-text-primary">
                 A <span className="text-[#C9A84C]">TRAVEL</span> COMPANY
               </span>
             </h2>
           </Reveal>
 
           <Reveal className="max-w-3xl mb-14">
-            <p className="font-serif italic text-white/65 text-lg leading-relaxed mb-6">
+            <p className="font-serif italic text-text-primary/65 text-lg leading-relaxed mb-6">
               &ldquo;Syren is a curated travel movement built for the generation
               that lives at the intersection of music, culture, and adventure. We
               don&apos;t sell tour packages. We design shared experiences —
               bringing together like-minded travelers from London, Madrid, Dubai,
               New York, São Paulo, and everywhere in between.&rdquo;
             </p>
-            <p className="font-serif italic text-white/65 text-lg leading-relaxed">
+            <p className="font-serif italic text-text-primary/65 text-lg leading-relaxed">
               &ldquo;In Egypt, we hold the keys others don&apos;t. The rooftop
               nobody else finds. The desert camp where the bonfire outlasts
               midnight. The boat where the DJ plays until the Red Sea turns
@@ -361,13 +361,13 @@ export default function ExitFestivalContent() {
               ].map((card) => (
                 <div
                   key={card.title}
-                  className="bg-[#111] rounded-xl p-6 border-t-2 border-[#C9A84C] hover:shadow-[0_0_24px_rgba(201,168,76,0.12)] transition-all duration-300"
+                  className="bg-surface rounded-xl p-6 border-t-2 border-[#C9A84C] hover:shadow-[0_0_24px_rgba(201,168,76,0.12)] transition-all duration-300"
                 >
                   <div className="text-2xl mb-3 text-[#C9A84C]">{card.icon}</div>
-                  <h3 className="font-black uppercase text-white text-xs tracking-[0.2em] mb-2">
+                  <h3 className="font-black uppercase text-text-primary text-xs tracking-[0.2em] mb-2">
                     {card.title}
                   </h3>
-                  <p className="text-white/55 text-sm leading-relaxed">
+                  <p className="text-text-primary/55 text-sm leading-relaxed">
                     {card.desc}
                   </p>
                 </div>
@@ -378,23 +378,23 @@ export default function ExitFestivalContent() {
       </section>
 
       {/* ── SECTION 3: THE COMMUNITY ────────────────────── */}
-      <section className="bg-[#0a0a0a] py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
+      <section className="bg-background py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
           <Reveal>
             <p className="text-[#C9A84C] text-[10px] uppercase tracking-[0.4em] mb-6">
               CURATED SOCIAL TRAVEL · EGYPT · OCT 6–15, 2026
             </p>
-            <h2 className="font-black uppercase text-5xl md:text-6xl leading-[0.9] mb-3 text-white">
+            <h2 className="font-black uppercase text-5xl md:text-6xl leading-[0.9] mb-3 text-text-primary">
               THIS IS NOT A FESTIVAL TRIP.
             </h2>
-            <p className="font-serif italic text-xl text-white/50 mb-14">
+            <p className="font-serif italic text-xl text-text-primary/50 mb-14">
               This is the community you&apos;ve been looking for.
             </p>
           </Reveal>
 
           <div className="grid md:grid-cols-2 gap-12 md:gap-20">
             <Reveal>
-              <p className="text-white/65 text-lg leading-relaxed font-serif">
+              <p className="text-text-primary/65 text-lg leading-relaxed font-serif">
                 Syren brings together festival travelers from across the world,
                 people who share the same music, energy, and appetite for the
                 extraordinary. Together, we don&apos;t just attend Egypt&apos;s
@@ -414,7 +414,7 @@ export default function ExitFestivalContent() {
                   "Private concierge · 24/7 support",
                   "Everything handled. Nothing missed.",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/75">
+                  <li key={item} className="flex items-start gap-3 text-text-primary/75">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 flex-shrink-0" />
                     <span className="font-sans text-base">{item}</span>
                   </li>
@@ -426,14 +426,14 @@ export default function ExitFestivalContent() {
       </section>
 
       {/* ── SECTION 5: DAY BY DAY ───────────────────────── */}
-      <section className="bg-[#0a0a0a] py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
+      <section className="bg-background py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
           <Reveal>
             <p className="text-[#C9A84C] text-[10px] uppercase tracking-[0.4em] mb-6">
               THE JOURNEY DAY BY DAY
             </p>
             <h2 className="font-black uppercase leading-[0.9] text-5xl md:text-7xl mb-16">
-              <span className="block text-white">THE FULL</span>
+              <span className="block text-text-primary">THE FULL</span>
               <span className="block text-[#C9A84C]">EXPERIENCE</span>
             </h2>
           </Reveal>
@@ -442,31 +442,31 @@ export default function ExitFestivalContent() {
             {DAYS.map((card) => (
               <Reveal key={card.title}>
                 <div
-                  className={`bg-[#111] rounded-xl p-6 border-l-4 h-full flex flex-col`}
+                  className={`bg-surface rounded-xl p-6 border-l-4 h-full flex flex-col`}
                   style={{ borderLeftColor: card.phaseColor }}
                 >
                   <div className="mb-4">
                     <span
-                      className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full text-white"
+                      className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full text-text-primary"
                       style={{ backgroundColor: card.phaseColor }}
                     >
                       {card.phase}
                     </span>
                   </div>
-                  <h3 className="font-black uppercase text-white text-lg mb-1">
+                  <h3 className="font-black uppercase text-text-primary text-lg mb-1">
                     {card.title}
                   </h3>
-                  <p className="text-white/35 text-xs uppercase tracking-wider mb-3">
+                  <p className="text-text-primary/35 text-xs uppercase tracking-wider mb-3">
                     {card.date}
                   </p>
-                  <p className="text-white/65 text-sm leading-relaxed flex-1">
+                  <p className="text-text-primary/65 text-sm leading-relaxed flex-1">
                     {card.desc}
                   </p>
                   <div className="flex flex-wrap gap-1.5 mt-5">
                     {card.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-[10px] uppercase tracking-wider border border-white/15 text-white/40 px-2 py-0.5 rounded-full"
+                        className="text-[10px] uppercase tracking-wider border border-white/15 text-text-primary/40 px-2 py-0.5 rounded-full"
                       >
                         {tag}
                       </span>
@@ -480,11 +480,11 @@ export default function ExitFestivalContent() {
           {/* Mid CTA */}
           <Reveal>
             <div className="text-center py-14">
-              <p className="text-white/35 text-xs mb-5 uppercase tracking-[0.3em]">
+              <p className="text-text-primary/35 text-xs mb-5 uppercase tracking-[0.3em]">
                 Ready to join?
               </p>
               <WAButton />
-              <p className="text-white/25 text-xs mt-3">
+              <p className="text-text-primary/25 text-xs mt-3">
                 We respond within minutes
               </p>
             </div>
@@ -493,14 +493,14 @@ export default function ExitFestivalContent() {
       </section>
 
       {/* ── SECTION 6: EVERYTHING HANDLED ──────────────── */}
-      <section className="bg-[#0a0a0a] py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
+      <section className="bg-background py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
           <Reveal>
             <p className="text-[#C9A84C] text-[10px] uppercase tracking-[0.4em] mb-6">
               PACKAGE INCLUSIONS · BOTH TIERS
             </p>
             <h2 className="font-black uppercase leading-[0.9] text-5xl md:text-7xl mb-16">
-              <span className="block text-white">EVERYTHING</span>
+              <span className="block text-text-primary">EVERYTHING</span>
               <span className="block text-[#C9A84C]">HANDLED</span>
             </h2>
           </Reveal>
@@ -514,8 +514,8 @@ export default function ExitFestivalContent() {
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 flex-shrink-0" />
                   <div>
-                    <h3 className="font-bold text-white mb-1">{item.title}</h3>
-                    <p className="text-white/45 text-sm leading-relaxed">
+                    <h3 className="font-bold text-text-primary mb-1">{item.title}</h3>
+                    <p className="text-text-primary/45 text-sm leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -527,13 +527,13 @@ export default function ExitFestivalContent() {
       </section>
 
       {/* ── SECTION 7: TWO PACKAGE OPTIONS ─────────────── */}
-      <section className="bg-[#0a0a0a] py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
+      <section className="bg-background py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
           <Reveal>
             <p className="text-[#C9A84C] text-[10px] uppercase tracking-[0.4em] mb-6">
               CHOOSE YOUR EXPERIENCE
             </p>
-            <h2 className="font-black uppercase text-5xl md:text-6xl leading-[0.9] mb-16 text-white">
+            <h2 className="font-black uppercase text-5xl md:text-6xl leading-[0.9] mb-16 text-text-primary">
               Two Ways to Join
             </h2>
           </Reveal>
@@ -541,17 +541,17 @@ export default function ExitFestivalContent() {
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Full Experience */}
             <Reveal>
-              <div className="bg-[#111] rounded-2xl p-8 border border-[#C9A84C]/40 hover:border-[#C9A84C] transition-all duration-300 flex flex-col h-full">
+              <div className="bg-surface rounded-2xl p-8 border border-[#C9A84C]/40 hover:border-[#C9A84C] transition-all duration-300 flex flex-col h-full">
                 <div className="mb-6">
                   <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-[#C9A84C] text-black">
                     MOST POPULAR
                   </span>
                 </div>
-                <h3 className="font-black uppercase text-white text-2xl mb-1">
+                <h3 className="font-black uppercase text-text-primary text-2xl mb-1">
                   Cairo + Festival + Red Sea
                 </h3>
                 <p className="text-[#C9A84C] text-sm mb-1">9 Nights / 10 Days</p>
-                <p className="text-white/35 text-xs uppercase tracking-wider mb-6">
+                <p className="text-text-primary/35 text-xs uppercase tracking-wider mb-6">
                   Oct 6–15, 2026
                 </p>
                 <ul className="space-y-2.5 mb-8 flex-1">
@@ -564,7 +564,7 @@ export default function ExitFestivalContent() {
                   ].map((h) => (
                     <li
                       key={h}
-                      className="flex items-center gap-2 text-white/65 text-sm"
+                      className="flex items-center gap-2 text-text-primary/65 text-sm"
                     >
                       <span className="text-[#C9A84C]">✓</span> {h}
                     </li>
@@ -574,7 +574,7 @@ export default function ExitFestivalContent() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#20b558] transition-all w-full"
+                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-text-primary font-semibold px-6 py-3 rounded-full hover:bg-[#20b558] transition-all w-full"
                 >
                   <WhatsAppIcon className="w-4 h-4" /> Reserve This →
                 </a>
@@ -589,17 +589,17 @@ export default function ExitFestivalContent() {
 
             {/* Festival Only */}
             <Reveal>
-              <div className="bg-[#111] rounded-2xl p-8 border border-white/10 hover:border-white/25 transition-all duration-300 flex flex-col h-full">
+              <div className="bg-surface rounded-2xl p-8 border border-white/10 hover:border-white/25 transition-all duration-300 flex flex-col h-full">
                 <div className="mb-6">
-                  <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-white/10 text-white/50">
+                  <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-white/10 text-text-primary/50">
                     ESSENTIALS
                   </span>
                 </div>
-                <h3 className="font-black uppercase text-white text-2xl mb-1">
+                <h3 className="font-black uppercase text-text-primary text-2xl mb-1">
                   Festival Only — Pyramids
                 </h3>
                 <p className="text-[#C9A84C] text-sm mb-1">4 Nights / 5 Days</p>
-                <p className="text-white/35 text-xs uppercase tracking-wider mb-6">
+                <p className="text-text-primary/35 text-xs uppercase tracking-wider mb-6">
                   Oct 8–12, 2026
                 </p>
                 <ul className="space-y-2.5 mb-8 flex-1">
@@ -612,7 +612,7 @@ export default function ExitFestivalContent() {
                   ].map((h) => (
                     <li
                       key={h}
-                      className="flex items-center gap-2 text-white/65 text-sm"
+                      className="flex items-center gap-2 text-text-primary/65 text-sm"
                     >
                       <span className="text-[#C9A84C]">✓</span> {h}
                     </li>
@@ -622,7 +622,7 @@ export default function ExitFestivalContent() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#20b558] transition-all w-full"
+                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-text-primary font-semibold px-6 py-3 rounded-full hover:bg-[#20b558] transition-all w-full"
                 >
                   <WhatsAppIcon className="w-4 h-4" /> Reserve This →
                 </a>
@@ -639,7 +639,7 @@ export default function ExitFestivalContent() {
       </section>
 
       {/* ── SECTION 8: FINAL CTA ────────────────────────── */}
-      <section className="relative bg-[#0a0a0a] py-28 md:py-40 px-6 md:px-12 border-t border-white/5 overflow-hidden">
+      <section className="relative bg-background py-28 md:py-40 px-6 md:px-12 border-t border-white/5 overflow-hidden">
         <CompassWatermark className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-[40vw] max-w-[500px] text-[#C9A84C] opacity-5 pointer-events-none select-none" />
         <div className="absolute inset-0 bg-gradient-radial from-[#C9A84C]/5 via-transparent to-transparent pointer-events-none" />
 
@@ -648,16 +648,16 @@ export default function ExitFestivalContent() {
             <h2 className="font-serif italic text-5xl md:text-7xl text-[#C9A84C] mb-4">
               Egypt is ready.
             </h2>
-            <p className="font-black uppercase text-3xl md:text-5xl text-white mb-8 leading-tight">
+            <p className="font-black uppercase text-3xl md:text-5xl text-text-primary mb-8 leading-tight">
               The question is whether you are.
             </p>
-            <p className="text-white/55 text-lg leading-relaxed mb-12 max-w-xl mx-auto">
+            <p className="text-text-primary/55 text-lg leading-relaxed mb-12 max-w-xl mx-auto">
               Spots are limited. The crew is forming. Message us on WhatsApp and
               we&apos;ll send you everything — pricing, availability, and what to
               expect.
             </p>
             <WAButton label="Message Us on WhatsApp →" />
-            <p className="text-white/25 text-xs mt-8 tracking-wider">
+            <p className="text-text-primary/25 text-xs mt-8 tracking-wider">
               syrentravel.com · info@syrentravel.com · +20 1016015723
             </p>
           </Reveal>

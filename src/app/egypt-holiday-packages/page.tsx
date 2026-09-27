@@ -135,9 +135,9 @@ export default function EgyptHolidayPackagesPage() {
       <section className="section">
         <div className="container-x mx-auto max-w-5xl">
           <div className="flex flex-wrap items-center justify-center gap-6 text-center">
-            <div className="font-sans text-sm uppercase tracking-[0.25em] text-white/60">Local Egypt Experts</div>
-            <div className="font-sans text-sm uppercase tracking-[0.25em] text-white/60">24/7 Concierge</div>
-            <div className="font-sans text-sm uppercase tracking-[0.25em] text-white/60">Trusted by Travelers from 30+ Countries</div>
+            <div className="font-sans text-sm uppercase tracking-[0.25em] text-text-primary/60">Local Egypt Experts</div>
+            <div className="font-sans text-sm uppercase tracking-[0.25em] text-text-primary/60">24/7 Concierge</div>
+            <div className="font-sans text-sm uppercase tracking-[0.25em] text-text-primary/60">Trusted by Travelers from 30+ Countries</div>
           </div>
         </div>
       </section>

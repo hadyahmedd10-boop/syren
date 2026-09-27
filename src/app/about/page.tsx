@@ -153,7 +153,7 @@ export default function AboutPage() {
               <>
                 <p className="mb-4 text-accent-gold uppercase tracking-widest text-xs font-bold">Not trips. Not schedules. Not content for social media.</p>
                 <p className="mb-4">We build experiences that feel real while you’re in them — and meaningful after you’re home.</p>
-                <p className="text-white font-serif italic text-xl">That’s Syren. Simple as that.</p>
+                <p className="text-text-primary font-serif italic text-xl">That’s Syren. Simple as that.</p>
               </>
             }
             className="mb-12"
