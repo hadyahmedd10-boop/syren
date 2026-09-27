@@ -112,7 +112,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section id="values" className="section bg-black/40">
+      <section id="values" className="section bg-surface-2">
         <div className="max-w-3xl mx-auto container-x text-center">
           <SectionHeader 
             title="Our Values" 
@@ -124,7 +124,7 @@ export default function AboutPage() {
 
       {values.map((value, index) => {
         const id = `value-${slugify(value.title)}`;
-        const sectionBg = index % 2 === 0 ? "bg-black/30" : "bg-black/20";
+        const sectionBg = index % 2 === 0 ? "bg-surface" : "bg-background";
         return (
         <section key={value.title} id={id} className={`section ${sectionBg} border-t border-border/40`}>
           <div className="mx-auto max-w-5xl container-x">

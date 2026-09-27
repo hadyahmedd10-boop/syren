@@ -68,7 +68,7 @@ export default function SplashClient() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/experiences"
-                className="group relative inline-flex items-center justify-center px-10 py-4 border border-accent-gold/30 text-accent-gold bg-black/40 backdrop-blur-sm overflow-hidden transition-all hover:border-accent-gold hover:bg-black/60"
+                className="group relative inline-flex items-center justify-center px-10 py-4 border border-accent-gold/30 text-accent-gold bg-black/60 backdrop-blur-md overflow-hidden transition-all hover:border-accent-gold hover:bg-black/80"
               >
                 <span className="relative z-10 font-sans text-[11px] font-bold uppercase tracking-[0.3em]">
                   Explore Experiences →
@@ -82,7 +82,7 @@ export default function SplashClient() {
               </Link>
               <Link
                 href="/events"
-                className="group relative inline-flex items-center justify-center px-10 py-4 border border-accent-gold/30 text-accent-gold bg-black/40 backdrop-blur-sm overflow-hidden transition-all hover:border-accent-gold hover:bg-black/60"
+                className="group relative inline-flex items-center justify-center px-10 py-4 border border-accent-gold/30 text-accent-gold bg-black/60 backdrop-blur-md overflow-hidden transition-all hover:border-accent-gold hover:bg-black/80"
               >
                 <span className="relative z-10 font-sans text-[11px] font-bold uppercase tracking-[0.3em]">
                   View Events →

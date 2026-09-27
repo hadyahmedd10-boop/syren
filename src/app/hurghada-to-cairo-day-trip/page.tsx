@@ -66,7 +66,7 @@ export default function HurghadaToCairoPage() {
             </p>
           </div>
 
-          <div className="rounded-2xl bg-black/90 border border-accent-gold/30 p-8 md:p-10 text-center">
+          <div className="rounded-2xl bg-surface-2 border border-accent-gold/30 p-8 md:p-10 text-center">
             <div className="font-serif text-2xl text-text-primary mb-3">Book Your Cairo Day Trip</div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/excursions/hurghada-cairo-day-trip" className="syren-btn">Reserve Now →</Link>

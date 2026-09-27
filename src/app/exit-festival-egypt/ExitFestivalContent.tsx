@@ -102,7 +102,7 @@ function ProgressBar() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-black/20 dark:bg-black/20 bg-gray-200/20">
+    <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-surface-2">
       <div
         className="h-full transition-[width] duration-100 bg-gradient-to-r from-[#7B6FA0] via-[#C1433A] to-[#2A8C72]"
         style={{ width: `${progress}%` }}
@@ -263,7 +263,7 @@ export default function ExitFestivalContent() {
         </div>
 
         {/* Stats bar */}
-        <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-black/60 dark:bg-black/60 backdrop-blur-sm bg-gray-900/60">
+        <div className="absolute bottom-0 left-0 right-0 border-t border-border bg-surface-2/80 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-6 py-5 grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { value: "10", label: "NIGHTS" },

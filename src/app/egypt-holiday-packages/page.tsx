@@ -120,7 +120,7 @@ export default function EgyptHolidayPackagesPage() {
         </div>
       </section>
 
-      <section className="section bg-black/90 border-t border-border">
+      <section className="section bg-surface-2 border-t border-border">
         <div className="container-x mx-auto max-w-4xl text-center">
           <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-3">Can&apos;t Find What You&apos;re Looking For?</h2>
           <p className="font-serif text-text-secondary leading-relaxed mb-6">

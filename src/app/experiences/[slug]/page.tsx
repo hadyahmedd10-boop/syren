@@ -263,7 +263,7 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
                         : Star;
                     return (
                       <Reveal key={idx} delay={0.08 * idx}>
-                        <div className="rounded-lg border border-accent-gold/20 bg-black/40 p-3 md:p-4 hover:border-accent-gold/60 transition-colors duration-300">
+                        <div className="rounded-lg border border-accent-gold/20 bg-surface-2 p-3 md:p-4 hover:border-accent-gold/60 transition-colors duration-300">
                           <div className="flex items-center gap-3">
                             <Icon size={16} className="text-accent-gold shrink-0" />
                             <p className="font-serif text-sm md:text-base text-text-primary truncate">

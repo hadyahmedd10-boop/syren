@@ -94,7 +94,7 @@ export default function BestTimeToVisitPage() {
               <Link href="/experiences/nile-signature" className="text-accent-gold underline">Nile Signature</Link> itinerary.
             </p>
           </div>
-          <div className="rounded-2xl bg-black/90 border border-accent-gold/30 p-8 md:p-10 text-center">
+          <div className="rounded-2xl bg-surface-2 border border-accent-gold/30 p-8 md:p-10 text-center">
             <div className="font-serif text-2xl text-text-primary mb-3">Plan Your Egypt Trip</div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/experiences" className="syren-btn">Explore Experiences →</Link>

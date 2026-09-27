@@ -97,7 +97,7 @@ export default function EgyptTravelTipsPage() {
               </li>
             ))}
           </ol>
-          <div className="mt-10 rounded-2xl bg-black/90 border border-accent-gold/30 p-8 md:p-10 text-center">
+          <div className="mt-10 rounded-2xl bg-surface-2 border border-accent-gold/30 p-8 md:p-10 text-center">
             <div className="font-serif text-2xl text-text-primary mb-3">Start Planning With Syren</div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/experiences" className="syren-btn">Explore Experiences →</Link>
