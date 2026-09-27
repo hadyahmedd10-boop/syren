@@ -5,6 +5,9 @@ import { DollarSign, Headphones, Settings, Star } from "lucide-react";
 import { HERO_IMAGES, DESTINATION_IMAGES } from "@/lib/images";
 import Testimonials from "@/components/sections/Testimonials";
 
+export const revalidate = 3600;
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: "Partner With Syren | Egypt Travel Agency B2B Program",
   description:

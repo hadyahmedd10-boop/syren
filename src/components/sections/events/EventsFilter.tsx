@@ -160,11 +160,11 @@ export default function EventsFilter() {
             <div className="mt-16 pt-8 border-t border-border/50">
               <button
                 onClick={() => setShowPastEvents(!showPastEvents)}
-                className="flex items-center gap-2 mx-auto text-sm text-text-secondary hover:text-accent-gold transition-colors"
+                className="flex items-center gap-2 mx-auto text-xs uppercase tracking-[0.3em] text-accent-gold hover:text-accent-gold/80 transition-colors"
               >
                 <span>{showPastEvents ? "Hide" : "View"} Past Events</span>
                 <svg
-                  className={`w-4 h-4 transition-transform ${showPastEvents ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 transition-transform duration-300 ${showPastEvents ? "rotate-180" : ""}`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -172,7 +172,11 @@ export default function EventsFilter() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {showPastEvents && (
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  showPastEvents ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
                 <div className="mt-8">
                   <p className="text-xs uppercase tracking-widest text-text-secondary mb-6 text-center">Past Events Archive</p>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -186,7 +190,7 @@ export default function EventsFilter() {
                     ))}
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           )}
         </div>

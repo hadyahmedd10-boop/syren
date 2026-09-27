@@ -124,38 +124,6 @@ export default function Footer() {
           <p className="text-sm opacity-70 font-sans mb-4"> 
             WhatsApp & Private Concierge available 24/7 
           </p> 
-          <form 
-            onSubmit={async (e) => {
-              e.preventDefault();
-              const form = e.currentTarget;
-              const email = (form.elements.namedItem('email') as HTMLInputElement).value;
-              const button = form.querySelector('button');
-              if (button) button.disabled = true;
-              
-              try {
-                await fetch('/api/notify/contact', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({
-                    name: 'Newsletter Subscriber',
-                    email: email,
-                    subject: 'Newsletter Signup',
-                    message: 'New newsletter signup from footer/CTA.',
-                    pathname: window.location.pathname
-                  })
-                });
-                alert('Thank you for joining our updates!');
-                form.reset();
-              } catch (err) {
-                console.error('Newsletter error:', err);
-              } finally {
-                if (button) button.disabled = false;
-              }
-            }}
-          > 
-            <input placeholder="Email" name="email" type="email" className="input mb-2" required /> 
-            <button type="submit" className="btn-secondary w-full min-h-[44px] text-sm">Join Updates</button> 
-          </form> 
         </div> 
       </div> 
 

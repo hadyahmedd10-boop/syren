@@ -146,7 +146,7 @@ export default function ExperiencesGrid() {
                 <div>
                   <div className="mb-2 text-[10px] tracking-[0.2em] text-text-secondary">CATEGORY</div>
                   <div className="flex gap-2 flex-wrap">
-                    {["All", "Nile Cruises", "Luxury", "Adventure", "Cultural", "Cairo Experiences"].map((d) => {
+                    {["All", "Nile Cruises", "Luxury", "Adventure", "Cultural", "Cairo Experiences", "Festival Experiences"].map((d) => {
                       const active = categoryFilter === d;
                       const base = "rounded-full min-h-[36px] px-4 py-1.5 text-sm font-medium tracking-wide transition-all duration-200";
                       const cls = active

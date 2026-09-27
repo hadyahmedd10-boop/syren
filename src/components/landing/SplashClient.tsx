@@ -65,20 +65,36 @@ export default function SplashClient() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.5 }}
           >
-            <Link
-              href="/home"
-              className="group relative inline-flex items-center justify-center px-10 py-4 border border-accent-gold/30 text-accent-gold overflow-hidden transition-all hover:border-accent-gold"
-            >
-              <span className="relative z-10 font-sans text-[11px] font-bold uppercase tracking-[0.3em]">
-                Enter Experience
-              </span>
-              <motion.div 
-                className="absolute inset-0 bg-accent-gold"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: 0 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-              />
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/experiences"
+                className="group relative inline-flex items-center justify-center px-10 py-4 border border-accent-gold/30 text-accent-gold overflow-hidden transition-all hover:border-accent-gold"
+              >
+                <span className="relative z-10 font-sans text-[11px] font-bold uppercase tracking-[0.3em]">
+                  Explore Experiences →
+                </span>
+                <motion.div 
+                  className="absolute inset-0 bg-accent-gold"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                />
+              </Link>
+              <Link
+                href="/events"
+                className="group relative inline-flex items-center justify-center px-10 py-4 border border-accent-gold/30 text-accent-gold overflow-hidden transition-all hover:border-accent-gold"
+              >
+                <span className="relative z-10 font-sans text-[11px] font-bold uppercase tracking-[0.3em]">
+                  View Events →
+                </span>
+                <motion.div 
+                  className="absolute inset-0 bg-accent-gold"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                />
+              </Link>
+            </div>
           </motion.div>
 
           

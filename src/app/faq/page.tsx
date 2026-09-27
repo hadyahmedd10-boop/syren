@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { WHATSAPP_LINK } from "@/config/social";
 
+export const revalidate = 3600;
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: "FAQ — Egypt Travel Questions Answered | Syren",
   description:

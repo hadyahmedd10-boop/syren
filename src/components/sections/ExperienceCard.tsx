@@ -147,6 +147,15 @@ export default function ExperienceCard({
             <div className="syren-btn-secondary w-full pointer-events-none select-none text-center min-h-[44px] text-sm transition-colors duration-300 group-hover:bg-accent-gold group-hover:text-black group-hover:border-accent-gold">
               {buttonText}
             </div>
+            <a
+              href={`https://wa.me/201016015723?text=Hi Syren, I'm interested in ${encodeURIComponent(title)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block mt-2 text-center text-xs text-accent-gold hover:text-accent-gold/80 transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Enquire on WhatsApp →
+            </a>
           </div>
         </div>
       </article>

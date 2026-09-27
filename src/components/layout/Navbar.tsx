@@ -138,13 +138,6 @@ const toggleMenu = () => {
         
         <div className="flex items-center gap-2 relative z-10">
           <ThemeToggle className="px-2 py-2" />
-          <Link 
-            href="/experiences" 
-            className="syren-btn-primary syren-nav-cta px-4 py-3 min-h-[44px] text-sm leading-none"
-          > 
-            Explore Experiences
-          </Link> 
-        
           <button 
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             onClick={toggleMenu} 

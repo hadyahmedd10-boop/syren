@@ -4,6 +4,9 @@ import HeroShell from "@/components/ui/HeroShell";
 import SectionHeader from "@/components/layout/SectionHeader";
 import { HERO_IMAGES } from "@/lib/images";
 
+export const revalidate = 3600;
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: "Egypt Travel Tips for First Timers | Syren",
   description: "Essential Egypt travel tips for first-time visitors. Visa advice, currency, transport, packing list, cultural etiquette, and safety guidance from local experts.",

@@ -4,6 +4,9 @@ import { HERO_IMAGES } from "@/lib/images";
 import HeroShell from "@/components/ui/HeroShell";
 import ExitIntentPopup from "@/components/ui/ExitIntentPopup";
 
+export const revalidate = 3600;
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: "Is Egypt Safe to Travel? 2026 Guide | Syren",
   description:

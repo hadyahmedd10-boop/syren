@@ -4,6 +4,9 @@ import HeroShell from "@/components/ui/HeroShell";
 import SectionHeader from "@/components/layout/SectionHeader";
 import { HERO_IMAGES } from "@/lib/images";
 
+export const revalidate = 3600;
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: "Best Time to Visit Egypt 2026 | Syren",
   description: "Planning a trip to Egypt? Discover the best time to visit month by month — weather, crowds, festivals, and expert tips from Syren's local team in Cairo.",

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import ExitFestivalContent from "./ExitFestivalContent";
 
+export const revalidate = 3600;
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: "Exit Festival Egypt 2026 — Travel Package | Syren",
   description:
