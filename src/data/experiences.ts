@@ -683,6 +683,55 @@ export const experiences: Experience[] = [
     ],
   },
   {
+    slug: "hot-air-balloon-luxor",
+    title: "Hot Air Balloon Ride over Luxor",
+    destinations: ["luxor-aswan"],
+    subtitle: "Sunrise Flight Over Ancient Egypt",
+    duration: "1 Day",
+    cities: "Luxor",
+    description: "Fly over Luxor's West Bank on an early morning hot air balloon flight. Soar above the Nile and see ancient landmarks like the Colossi of Memnon, Valley of the Kings & Hatshepsut Temple.",
+    introduction: "Experience the magic of Luxor from above as the sun rises over the ancient West Bank. This early morning hot air balloon flight offers breathtaking aerial views of Egypt's most iconic landmarks — the Nile winding through the landscape, the Colossi of Memnon standing guard, the Valley of the Kings hidden in the hills, and the magnificent Temple of Hatshepsut. A once-in-a-lifetime perspective on 4,000 years of history.",
+    heroImage: EXPERIENCE_IMAGES["hot-air-balloon-luxor"],
+    whatsappMessage: "I am interested in the Hot Air Balloon Ride over Luxor",
+    badge: "Day Tour",
+    highlights: [
+      "Sunrise flight over Luxor's West Bank",
+      "Aerial views of Valley of the Kings",
+      "See Hatshepsut Temple from above",
+      "Colossi of Memnon at sunrise",
+      "Professional certified pilots",
+      "Light breakfast included"
+    ],
+    included: [
+      "Early morning hotel transfer",
+      "45-60 minute hot air balloon flight",
+      "Professional certified pilot",
+      "Safety briefing and equipment",
+      "Light breakfast after landing",
+      "Flight certificate",
+      "Return transfer to hotel"
+    ],
+    notIncluded: [
+      "International flights",
+      "Egyptian entry visa",
+      "Personal expenses",
+      "Gratuities",
+      "Optional activities"
+    ],
+    seoTitle: "Hot Air Balloon Ride Luxor | Sunrise Flight | Syren Travel",
+    seoDescription: "Experience a sunrise hot air balloon ride over Luxor's West Bank. See the Valley of the Kings, Hatshepsut Temple, and Colossi of Memnon from above with Syren.",
+    category: "luxor-experiences",
+    itinerary: [
+      {
+        day: 1,
+        title: "Sunrise Balloon Flight",
+        description: "Early morning pickup from your Luxor hotel (around 4:00 AM). Transfer to the launch site for a safety briefing. Watch the balloon inflate as the sky begins to lighten. Take off at sunrise for a 45-60 minute flight over the West Bank, enjoying panoramic views of the Nile, temples, and ancient monuments. Celebrate with a light breakfast after landing before returning to your hotel.",
+        meals: "Light Breakfast",
+        image: getItineraryDayImage("hot-air-balloon-luxor", 1)
+      }
+    ]
+  },
+  {
     id: "exit-cairo-festival-hurghada-2026",
     slug: "exit-cairo-festival-hurghada",
     title: "Exit Festival — Cairo, Pyramids & Red Sea",

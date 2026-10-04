@@ -38,7 +38,7 @@ export interface Experience {
     label?: string;
   };
   whatsappMessage?: string;
-  category?: 'nightlife' | 'luxury' | 'adventure' | 'cultural' | 'cairo-experiences' | 'nile-cruises' | 'festival-experiences';
+  category?: 'nightlife' | 'luxury' | 'adventure' | 'cultural' | 'cairo-experiences' | 'nile-cruises' | 'festival-experiences' | 'luxor-experiences';
   style?: string;
   idealFor?: string;
   shortDescription?: string;

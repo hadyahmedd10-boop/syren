@@ -32,6 +32,8 @@ import expNileCruise5Day from "../../public/images/experiences/5-day-nile-cruise
 import expChristmasVacation from "../../public/images/experiences/10-day-egypt-christmas-vacation.png";
 import expCairoFestivalHurghada from "../../public/images/experiences/exit-cairo-festival-hurghada.jpg.jpg";
 import exp4NightsFestival from "../../public/images/experiences/4-nights-exit-festival-experience.jpg";
+// import expHotAirBalloon from "../../public/images/experiences/hot-air-balloon-luxor.jpg"; // TODO: Add actual image
+const expHotAirBalloon = heroHome; // Fallback until image is added
 // import expCairoAfterDark from "../../public/images/experiences/party.jpg"; // File missing, using fallback
 
 export const HERO_IMAGES = {
@@ -61,6 +63,7 @@ export const EXPERIENCE_IMAGES = {
   "5-day-nile-cruise": expNileCruise5Day,
   "exit-cairo-festival-hurghada": expCairoFestivalHurghada,
   "exit-festival-pyramids-only": exp4NightsFestival,
+  "hot-air-balloon-luxor": expHotAirBalloon,
 } as const;
 
 export const EXCURSION_IMAGES = {

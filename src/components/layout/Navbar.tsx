@@ -305,6 +305,12 @@ const toggleMenu = () => {
                         >
                           Explore Excursions
                         </Link>
+                        <Link
+                          href="/transfers"
+                          className="mt-1 inline-flex items-center min-h-[44px] text-sm uppercase tracking-[0.2em] text-accent-gold/70 hover:text-accent-gold transition-colors"
+                        >
+                          Private Transfers
+                        </Link>
                       </div>
                     </motion.div>
                   )}

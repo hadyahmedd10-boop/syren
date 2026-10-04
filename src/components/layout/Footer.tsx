@@ -24,6 +24,7 @@ export default function Footer() {
             <li><Link href="/destinations" className="hover:text-accent-gold transition-colors">Destinations</Link></li> 
             <li><Link href="/experiences" className="hover:text-accent-gold transition-colors">Experiences</Link></li> 
             <li><Link href="/excursions" className="hover:text-accent-gold transition-colors">Excursions</Link></li> 
+            <li><Link href="/transfers" className="hover:text-accent-gold transition-colors">Private Transfers</Link></li> 
             <li><Link href="/egypt-holiday-packages" className="hover:text-accent-gold transition-colors">Holiday Packages</Link></li> 
             <li><Link href="/saved" className="hover:text-accent-gold transition-colors">Saved</Link></li>
             <li><Link href="/reviews" className="hover:text-accent-gold transition-colors">Traveler Reviews</Link></li>

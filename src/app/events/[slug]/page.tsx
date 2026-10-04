@@ -8,7 +8,9 @@ import ExitIntentPopup from "@/components/ui/ExitIntentPopup";
 import BookingTrigger from "@/components/ui/BookingTrigger";
 import EventMobileBar from "@/components/ui/EventMobileBar";
 import EventCard from "@/components/sections/events/EventCard";
+import VehicleClassification from "@/components/ui/VehicleClassification";
 import { isEventUpcoming } from "@/lib/eventUtils";
+import { MessageSquare } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -390,6 +392,50 @@ export default async function EventDetailPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      {/* Need a Ride? Section */}
+      <section className="section bg-surface/30">
+        <div className="container-x mx-auto max-w-4xl">
+          <p className="text-xs uppercase tracking-[0.3em] text-accent-gold mb-3">
+            PRIVATE TRANSFERS
+          </p>
+          <h2 className="font-serif text-3xl text-text-primary mb-3">
+            Need a Ride to {event.title}?
+          </h2>
+          <p className="text-text-secondary mb-8 max-w-2xl">
+            We handle all transfers to and from the festival — airport pickups, hotel runs,
+            and group vehicles. Private, punctual, and stress-free.
+          </p>
+
+          <div className="flex flex-wrap gap-3 mb-8">
+            {["Economy · Up to 3", "Business · Up to 3", "Minivan · Up to 6", "Minibus · Up to 14"].map(v => (
+              <span key={v} className="border border-accent-gold/30 text-accent-gold text-sm px-4 py-2 rounded-full">
+                {v}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <a
+              href={`https://wa.me/201016015723?text=Hi Syren, I need a transfer for ${event.title} on ${event.displayDate || event.date}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-[#25D366] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#20b558] transition-all"
+            >
+              <MessageSquare size={20} />
+              Book Transfer on WhatsApp
+            </a>
+            <a
+              href="/transfers"
+              className="inline-flex items-center justify-center gap-2 border border-accent-gold text-accent-gold px-6 py-3 rounded-full hover:bg-accent-gold hover:text-black transition-all"
+            >
+              View All Vehicle Options →
+            </a>
+          </div>
+
+          <VehicleClassification compact={true} />
+        </div>
+      </section>
 
       {event.houseRules && event.houseRules.length > 0 && (
         <section className="section bg-background border-t border-accent-gold/20 py-12">
