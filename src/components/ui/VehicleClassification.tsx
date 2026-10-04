@@ -9,6 +9,7 @@ const vehicles = [
     id: "economy",
     name: "Economy",
     image: "/images/transfers/economy.jpg",
+    mainImage: "/images/transfers/economy-main.jpg",
     passengers: 3,
     luggage: 3,
     examples: "Toyota Corolla, Hyundai Elantra and similar",
@@ -21,6 +22,7 @@ const vehicles = [
     id: "comfort",
     name: "Comfort",
     image: "/images/transfers/comfort.jpg",
+    mainImage: "/images/transfers/comfort-main.jpg",
     passengers: 3,
     luggage: 3,
     examples: "Toyota Camry, Kia K5 and similar",
@@ -33,6 +35,7 @@ const vehicles = [
     id: "business",
     name: "Business",
     image: "/images/transfers/business.jpg",
+    mainImage: "/images/transfers/business-main.jpg",
     passengers: 3,
     luggage: 3,
     examples: "Mercedes-Benz E-Class and similar",
@@ -45,6 +48,7 @@ const vehicles = [
     id: "luxury",
     name: "Luxury",
     image: "/images/transfers/luxury.jpg",
+    mainImage: "/images/transfers/luxury-main.jpg",
     passengers: 3,
     luggage: 3,
     examples: "Mercedes-Benz S-Class and similar",
@@ -57,6 +61,7 @@ const vehicles = [
     id: "minivan",
     name: "Minivan",
     image: "/images/transfers/minivan.jpg",
+    mainImage: "/images/transfers/minivan-main.jpg",
     passengers: 6,
     luggage: 6,
     examples: "Mercedes-Benz V-Class, Toyota Hiace and similar",
@@ -69,6 +74,7 @@ const vehicles = [
     id: "suv",
     name: "SUV",
     image: "/images/transfers/suv.jpg",
+    mainImage: "/images/transfers/suv-main.jpg",
     passengers: 5,
     luggage: 4,
     examples: "GMC Yukon, Chevrolet Suburban and similar",
@@ -81,6 +87,7 @@ const vehicles = [
     id: "minibus",
     name: "Minibus",
     image: "/images/transfers/minibus.jpg",
+    mainImage: "/images/transfers/minibus-main.jpg",
     passengers: 14,
     luggage: 10,
     examples: "Mercedes-Benz Sprinter and similar",
@@ -260,7 +267,7 @@ export default function VehicleClassification({ compact = false }: VehicleClassi
             <div className="bg-surface rounded-2xl p-6 aspect-[16/9] flex items-center justify-center">
               <div className="relative w-full h-full opacity-0 transition-opacity duration-300" style={{ opacity: 1 }}>
                 <Image
-                  src={activeVehicle.image}
+                  src={activeVehicle.mainImage || activeVehicle.image}
                   alt={activeVehicle.name}
                   fill
                   className="object-contain"
