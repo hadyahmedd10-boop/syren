@@ -4,14 +4,10 @@ import { useState } from "react";
 import { Users, Luggage } from "lucide-react";
 import Image from "next/image";
 
-// TODO: Replace with actual vehicle photos
-const FALLBACK_IMAGE = "/images/hero/luxury.jpg";
-
 const vehicles = [
   {
     id: "economy",
     name: "Economy",
-    emoji: "🚗",
     image: "/images/transfers/economy.jpg",
     passengers: 3,
     luggage: 3,
@@ -24,7 +20,6 @@ const vehicles = [
   {
     id: "comfort",
     name: "Comfort",
-    emoji: "🚙",
     image: "/images/transfers/comfort.jpg",
     passengers: 3,
     luggage: 3,
@@ -37,7 +32,6 @@ const vehicles = [
   {
     id: "business",
     name: "Business",
-    emoji: "🏅",
     image: "/images/transfers/business.jpg",
     passengers: 3,
     luggage: 3,
@@ -50,7 +44,6 @@ const vehicles = [
   {
     id: "luxury",
     name: "Luxury",
-    emoji: "⭐",
     image: "/images/transfers/luxury.jpg",
     passengers: 3,
     luggage: 3,
@@ -63,7 +56,6 @@ const vehicles = [
   {
     id: "minivan",
     name: "Minivan",
-    emoji: "🚐",
     image: "/images/transfers/minivan.jpg",
     passengers: 6,
     luggage: 6,
@@ -76,7 +68,6 @@ const vehicles = [
   {
     id: "suv",
     name: "SUV",
-    emoji: "🚙",
     image: "/images/transfers/suv.jpg",
     passengers: 5,
     luggage: 4,
@@ -89,7 +80,6 @@ const vehicles = [
   {
     id: "minibus",
     name: "Minibus",
-    emoji: "🚌",
     image: "/images/transfers/minibus.jpg",
     passengers: 14,
     luggage: 10,
@@ -179,12 +169,12 @@ export default function VehicleClassification({ compact = false }: VehicleClassi
 
         {/* Vehicle Tab Selector */}
         <div className="mb-8">
-          <div className="flex gap-6 overflow-x-auto pb-4 border-b border-border scrollbar-hide snap-x">
+          <div className="flex gap-4 overflow-x-auto pb-4 border-b border-border scrollbar-hide snap-x">
             {vehicles.map((vehicle) => (
               <button
                 key={vehicle.id}
                 onClick={() => setActiveVehicle(vehicle)}
-                className={`relative flex-shrink-0 pb-3 px-2 transition-all snap-start ${
+                className={`relative flex-shrink-0 pb-3 px-2 transition-all snap-start min-w-[100px] ${
                   activeVehicle.id === vehicle.id
                     ? "text-accent-gold font-semibold border-b-2 border-accent-gold -mb-px"
                     : "text-text-secondary hover:text-text-primary"
@@ -193,10 +183,18 @@ export default function VehicleClassification({ compact = false }: VehicleClassi
                 {vehicle.badge && (
                   <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-accent-gold rounded-full" />
                 )}
-                <span className="flex items-center gap-2">
-                  <span>{vehicle.emoji}</span>
-                  <span>{vehicle.name}</span>
-                </span>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-12 rounded-lg overflow-hidden bg-surface">
+                    <Image
+                      src={vehicle.image}
+                      alt={vehicle.name}
+                      width={64}
+                      height={48}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <span className="text-sm">{vehicle.name}</span>
+                </div>
               </button>
             ))}
           </div>
@@ -262,7 +260,7 @@ export default function VehicleClassification({ compact = false }: VehicleClassi
             <div className="bg-surface rounded-2xl p-6 aspect-[16/9] flex items-center justify-center">
               <div className="relative w-full h-full opacity-0 transition-opacity duration-300" style={{ opacity: 1 }}>
                 <Image
-                  src={FALLBACK_IMAGE}
+                  src={activeVehicle.image}
                   alt={activeVehicle.name}
                   fill
                   className="object-contain"
