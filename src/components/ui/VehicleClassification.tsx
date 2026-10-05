@@ -1,100 +1,108 @@
 "use client";
 
 import { useState } from "react";
-import { Users, Luggage } from "lucide-react";
+import { Users, Luggage, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 const vehicles = [
   {
-    id: "economy",
-    name: "Economy",
-    image: "/images/transfers/economy.jpg",
-    mainImage: "/images/transfers/economy-main.jpg",
+    id: "standard",
+    name: "Standard",
+    image: "/images/transfers/standard.jpg",
+    mainImage: "/images/transfers/standard-main.jpg",
+    model: "Toyota Corolla, Hyundai Elantra and similar",
+    class: "C-Class",
     passengers: 3,
     luggage: 3,
-    examples: "Toyota Corolla, Hyundai Elantra and similar",
-    class: "C-Class",
-    description: "The smart choice for solo travelers and couples. Clean, reliable, air-conditioned, and handled by a professional Syren driver.",
-    ideal: "Airport transfers · City runs · Quick transfers",
-    badge: null
+    description: "A reliable option for solo travelers and couples. Clean, air-conditioned, and handled by a professional Syren driver."
   },
   {
     id: "comfort",
     name: "Comfort",
     image: "/images/transfers/comfort.jpg",
     mainImage: "/images/transfers/comfort-main.jpg",
+    model: "Toyota Camry, Kia K5 and similar",
+    class: "D-Class",
     passengers: 3,
     luggage: 3,
-    examples: "Toyota Camry, Kia K5 and similar",
-    class: "D-Class",
-    description: "Extra space, better sound insulation, and a noticeably smoother ride. Perfect for longer drives between cities or when you want to arrive relaxed.",
-    ideal: "City transfers · Hurghada–Cairo road trip · Luxor runs",
-    badge: null
+    description: "Extra space, better sound insulation, and a noticeably smoother ride. Perfect for longer drives between cities."
+  },
+  {
+    id: "business-light",
+    name: "Business Light",
+    image: "/images/transfers/business-light.jpg",
+    mainImage: "/images/transfers/business-light-main.jpg",
+    model: "Mercedes-Benz C-Class and similar",
+    class: "E-Class",
+    passengers: 3,
+    luggage: 3,
+    description: "Premium comfort without the full luxury price point. Ideal for business travelers who value reliability and presentation."
   },
   {
     id: "business",
     name: "Business",
     image: "/images/transfers/business.jpg",
     mainImage: "/images/transfers/business-main.jpg",
+    model: "Mercedes-Benz E-Class and similar",
+    class: "E-Class",
     passengers: 3,
     luggage: 3,
-    examples: "Mercedes-Benz E-Class and similar",
-    class: "E-Class",
-    description: "Premium and refined. When the journey is part of the experience. Our most requested vehicle for VIP arrivals, honeymoon transfers, and special occasions.",
-    ideal: "VIP airport arrival · Honeymoon · Special occasions",
-    badge: "Most Popular"
+    description: "Premium and refined. When the journey is part of the experience. Our most requested vehicle for VIP arrivals and special occasions."
   },
   {
     id: "luxury",
     name: "Luxury",
     image: "/images/transfers/luxury.jpg",
     mainImage: "/images/transfers/luxury-main.jpg",
+    model: "Mercedes-Benz S-Class and similar",
+    class: "F-Class",
     passengers: 3,
     luggage: 3,
-    examples: "Mercedes-Benz S-Class and similar",
-    class: "F-Class",
-    description: "For those who expect the very best. Executive-level comfort, impeccably presented. The right way to arrive at the Pyramids.",
-    ideal: "First-class arrival · Corporate · Delegations",
-    badge: null
+    description: "For those who expect the very best. Executive-level comfort, impeccably presented. The right way to arrive at the Pyramids."
   },
   {
     id: "minivan",
     name: "Minivan",
     image: "/images/transfers/minivan.jpg",
     mainImage: "/images/transfers/minivan-main.jpg",
+    model: "Mercedes-Benz V-Class, Toyota Hiace and similar",
+    class: "M-Class",
     passengers: 6,
     luggage: 6,
-    examples: "Mercedes-Benz V-Class, Toyota Hiace and similar",
+    description: "Perfect for families, groups, and anyone traveling with extra luggage. Everyone rides together in comfort without compromise."
+  },
+  {
+    id: "minivan-vip",
+    name: "Minivan VIP",
+    image: "/images/transfers/minivan-vip.jpg",
+    mainImage: "/images/transfers/minivan-vip-main.jpg",
+    model: "Mercedes-Benz V-Class VIP and similar",
     class: "M-Class",
-    description: "Perfect for families, groups, and anyone traveling with extra luggage. Everyone rides together in comfort without compromise.",
-    ideal: "Family travel · Groups · Festival transfers",
-    badge: null
+    passengers: 6,
+    luggage: 6,
+    description: "Premium minivan with upgraded interior, leather seating, and enhanced comfort features for discerning groups."
   },
   {
     id: "suv",
     name: "SUV",
     image: "/images/transfers/suv.jpg",
     mainImage: "/images/transfers/suv-main.jpg",
+    model: "GMC Yukon, Chevrolet Suburban and similar",
+    class: "M-Class",
     passengers: 5,
     luggage: 4,
-    examples: "GMC Yukon, Chevrolet Suburban and similar",
-    class: "M-Class",
-    description: "Presentation and capability in one. The best choice for desert road trips, festival runs, and anyone who wants to arrive making a statement.",
-    ideal: "Desert transfers · Festival groups · Road trips",
-    badge: null
+    description: "Presentation and capability in one. The best choice for desert road trips, festival runs, and anyone who wants to arrive making a statement."
   },
   {
     id: "minibus",
     name: "Minibus",
     image: "/images/transfers/minibus.jpg",
     mainImage: "/images/transfers/minibus-main.jpg",
+    model: "Mercedes-Benz Sprinter and similar",
+    class: "M-Class",
     passengers: 14,
     luggage: 10,
-    examples: "Mercedes-Benz Sprinter and similar",
-    class: "M-Class",
-    description: "The ideal solution for large groups, corporate delegations, and event travel. One vehicle, everyone together, zero stress.",
-    ideal: "Group tours · Corporate · Festival delegations",
-    badge: null
+    description: "A reliable option for corporate trips, sightseeing tours, and transfers for performing groups. One vehicle, everyone together, zero stress."
   }
 ];
 
@@ -104,11 +112,23 @@ interface VehicleClassificationProps {
 
 export default function VehicleClassification({ compact = false }: VehicleClassificationProps) {
   const [activeVehicle, setActiveVehicle] = useState(vehicles[0]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrevious = () => {
+    const newIndex = currentIndex === 0 ? vehicles.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+    setActiveVehicle(vehicles[newIndex]);
+  };
+
+  const handleNext = () => {
+    const newIndex = currentIndex === vehicles.length - 1 ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+    setActiveVehicle(vehicles[newIndex]);
+  };
 
   if (compact) {
     return (
       <div className="mt-6">
-        {/* Compact tab selector */}
         <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
           {vehicles.map((vehicle) => (
             <button
@@ -125,7 +145,6 @@ export default function VehicleClassification({ compact = false }: VehicleClassi
           ))}
         </div>
 
-        {/* Compact vehicle summary */}
         <div className="mt-4 p-4 bg-surface rounded-xl border border-border">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -159,123 +178,135 @@ export default function VehicleClassification({ compact = false }: VehicleClassi
   }
 
   return (
-    <section className="section">
-      <div className="container-x mx-auto max-w-6xl">
+    <section className="py-16 bg-white">
+      <div className="container mx-auto max-w-[1600px] px-6">
         {/* Section Header */}
         <div className="text-center mb-8">
-          <p className="text-xs uppercase tracking-[0.3em] text-accent-gold mb-3">
-            PRIVATE TRANSFERS
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl text-text-primary mb-3">
-            Your Ride, Your Standard
+          <h2 className="text-[52px] md:text-[56px] font-bold text-[#1a1a1a] tracking-tight">
+            Vehicle classification
           </h2>
-          <p className="text-text-secondary max-w-2xl mx-auto">
-            Every Syren transfer is private — no shared shuttles, no strangers. Just your group, a professional driver, and the road.
-          </p>
         </div>
 
-        {/* Vehicle Tab Selector */}
-        <div className="mb-8">
-          <div className="flex gap-4 overflow-x-auto pb-4 border-b border-border scrollbar-hide snap-x">
+        {/* Vehicle Category Navigation */}
+        <div className="mb-12">
+          <div className="flex gap-2.5 overflow-x-auto pb-4 scrollbar-hide">
             {vehicles.map((vehicle) => (
               <button
                 key={vehicle.id}
-                onClick={() => setActiveVehicle(vehicle)}
-                className={`relative flex-shrink-0 pb-3 px-2 transition-all snap-start min-w-[100px] ${
+                onClick={() => {
+                  setActiveVehicle(vehicle);
+                  setCurrentIndex(vehicles.findIndex(v => v.id === vehicle.id));
+                }}
+                className={`relative flex-shrink-0 w-[150px] h-[115px] rounded-[22px] border transition-all ${
                   activeVehicle.id === vehicle.id
-                    ? "text-accent-gold font-semibold border-b-2 border-accent-gold -mb-px"
-                    : "text-text-secondary hover:text-text-primary"
+                    ? "bg-[#f1f3f3] border-[#dedede]"
+                    : "bg-white border-[#dededa] hover:bg-[#fafafa]"
                 }`}
               >
-                {vehicle.badge && (
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-accent-gold rounded-full" />
-                )}
-                <div className="flex flex-col items-center gap-2">
-                  <div className="w-16 h-12 rounded-lg overflow-hidden bg-surface">
+                <div className="flex flex-col items-center justify-center h-full gap-2">
+                  <div className="w-[115px] h-[55px] flex items-center justify-center">
                     <Image
                       src={vehicle.image}
                       alt={vehicle.name}
-                      width={64}
-                      height={48}
-                      className="object-cover w-full h-full"
+                      width={115}
+                      height={55}
+                      className="object-contain"
                     />
                   </div>
-                  <span className="text-sm">{vehicle.name}</span>
+                  <span className={`text-[15px] font-medium ${
+                    activeVehicle.id === vehicle.id ? "text-[#4a7c59]" : "text-[#1a1a1a]"
+                  }`}>
+                    {vehicle.name}
+                  </span>
                 </div>
               </button>
             ))}
           </div>
         </div>
 
-        {/* Vehicle Detail Panel */}
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* Left Side - Details */}
-          <div className="md:w-[55%]">
-            <h3 className="font-serif text-3xl text-text-primary mb-3">
-              {activeVehicle.name}
-            </h3>
-            
-            <div className="mb-4">
-              <span className="inline-block text-xs border border-accent-gold/30 text-accent-gold px-3 py-1 rounded-full">
-                {activeVehicle.class} · Vehicle not older than 5 years
-              </span>
-            </div>
-
-            <div className="flex items-center gap-6 mb-4 text-accent-gold">
-              <div className="flex items-center gap-2">
-                <Users size={20} />
-                <span className="font-medium">{activeVehicle.passengers} passengers</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Luggage size={20} />
-                <span className="font-medium">{activeVehicle.luggage} bags</span>
-              </div>
-            </div>
-
-            <p className="text-text-secondary leading-relaxed mb-4">
-              {activeVehicle.description}
-            </p>
-
-            <p className="text-text-secondary italic text-sm mb-4">
-              Ideal for: {activeVehicle.ideal}
-            </p>
-
-            <p className="text-text-secondary text-xs mb-6">
-              e.g. {activeVehicle.examples}
-            </p>
-
-            {activeVehicle.badge && (
-              <div className="mb-6">
-                <span className="inline-flex items-center gap-1 text-xs text-accent-gold font-medium">
-                  ★ {activeVehicle.badge}
-                </span>
-              </div>
-            )}
-
-            <a
-              href={`https://wa.me/201016015723?text=Hi Syren, I'd like to book a ${activeVehicle.name} transfer in Egypt`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-full md:w-auto bg-accent-gold text-black font-semibold px-8 py-3 rounded-full hover:bg-accent-gold/90 transition-all"
-            >
-              Book This Transfer →
-            </a>
-          </div>
-
-          {/* Right Side - Image */}
-          <div className="md:w-[45%]">
-            <div className="bg-surface rounded-2xl p-6 aspect-[16/9] flex items-center justify-center">
-              <div className="relative w-full h-full opacity-0 transition-opacity duration-300" style={{ opacity: 1 }}>
+        {/* Main Vehicle Detail Area */}
+        <div className="flex flex-col lg:flex-row gap-12 items-center mb-12">
+          {/* Left Side - Large Vehicle Image */}
+          <div className="w-full lg:w-[52%]">
+            <div className="relative w-full h-[305px] rounded-[50px] overflow-hidden bg-[#f0f2f2]">
+              {/* Decorative background shape */}
+              <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-[#dfeae5] opacity-50" />
+              
+              {/* Vehicle image */}
+              <div className="relative w-full h-full flex items-center justify-center">
                 <Image
                   src={activeVehicle.mainImage || activeVehicle.image}
                   alt={activeVehicle.name}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 45vw"
+                  width={650}
+                  height={305}
+                  className="object-contain max-h-[280px]"
                 />
               </div>
             </div>
           </div>
+
+          {/* Right Side - Information */}
+          <div className="w-full lg:w-[48%] pl-0 lg:pl-12">
+            {/* Vehicle title row */}
+            <div className="flex items-center gap-4 mb-[18px]">
+              <h3 className="text-[36px] font-bold text-[#1a1a1a]">
+                {activeVehicle.name}
+              </h3>
+              
+              {/* Capacity badge */}
+              <div className="flex items-center gap-3 px-4 py-2.5 bg-[#f0f2f2] rounded-lg w-[115px] h-[45px]">
+                <div className="flex items-center gap-1">
+                  <Users size={18} className="text-[#1a1a1a]" />
+                  <span className="text-[#1a1a1a] font-medium">{activeVehicle.passengers}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Luggage size={18} className="text-[#1a1a1a]" />
+                  <span className="text-[#1a1a1a] font-medium">{activeVehicle.luggage}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Vehicle model name */}
+            <div className="mb-[10px]">
+              <p className="text-[29px] font-bold text-[#1a1a1a] leading-tight">
+                {activeVehicle.model}
+              </p>
+              <p className="text-[18px] font-medium text-[#4a4a4a] mt-[10px]">
+                {activeVehicle.class}
+              </p>
+            </div>
+
+            {/* Description */}
+            <p className="text-[18px] text-[#4a4a4a] leading-relaxed max-w-[650px]">
+              {activeVehicle.description}
+            </p>
+
+            {/* Book button */}
+            <a
+              href={`https://wa.me/201016015723?text=Hi Syren, I'd like to book a ${activeVehicle.name} transfer in Egypt`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center mt-6 bg-[#1a1a1a] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#333] transition-all"
+            >
+              Book This Transfer →
+            </a>
+          </div>
+        </div>
+
+        {/* Navigation Arrows */}
+        <div className="flex items-center justify-center gap-2.5">
+          <button
+            onClick={handlePrevious}
+            className="w-[60px] h-[60px] rounded-full bg-[#f0f2f2] flex items-center justify-center hover:bg-[#e0e2e2] transition-colors"
+          >
+            <ChevronLeft size={28} className="text-[#1a1a1a]" />
+          </button>
+          <button
+            onClick={handleNext}
+            className="w-[60px] h-[60px] rounded-full bg-[#f0f2f2] flex items-center justify-center hover:bg-[#e0e2e2] transition-colors"
+          >
+            <ChevronRight size={28} className="text-[#1a1a1a]" />
+          </button>
         </div>
       </div>
     </section>
