@@ -41,8 +41,8 @@ const vehicles = [
   {
     id: "minivan",
     name: "Minivan",
-    image: "/images/transfers/minivan.jpg",
-    mainImage: "/images/transfers/minivan-main.jpg",
+    image: "/images/transfers/minivan.png",
+    mainImage: "/images/transfers/minivan-main.png",
     model: "Mercedes-Benz V-Class, Toyota Hiace and similar",
     class: "M-Class",
     passengers: 6,
@@ -52,8 +52,8 @@ const vehicles = [
   {
     id: "suv",
     name: "SUV",
-    image: "/images/transfers/suv.jpg",
-    mainImage: "/images/transfers/suv-main.jpg",
+    image: "/images/transfers/suv.png",
+    mainImage: "/images/transfers/suv-main.png",
     model: "GMC Yukon, Chevrolet Suburban and similar",
     class: "M-Class",
     passengers: 5,
