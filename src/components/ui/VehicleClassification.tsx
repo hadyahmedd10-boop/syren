@@ -19,8 +19,8 @@ const vehicles = [
   {
     id: "comfort",
     name: "Comfort",
-    image: "/images/transfers/comfort.jpg",
-    mainImage: "/images/transfers/comfort-main.jpg",
+    image: "/images/transfers/comfort.png",
+    mainImage: "/images/transfers/comfort-main.png",
     model: "Toyota Camry, Kia K5 and similar",
     class: "D-Class",
     passengers: 3,
@@ -63,8 +63,8 @@ const vehicles = [
   {
     id: "minibus",
     name: "Minibus",
-    image: "/images/transfers/minibus.jpg",
-    mainImage: "/images/transfers/minibus-main.jpg",
+    image: "/images/transfers/minibus.png",
+    mainImage: "/images/transfers/minibus-main.png",
     model: "Mercedes-Benz Sprinter and similar",
     class: "M-Class",
     passengers: 14,
@@ -171,13 +171,13 @@ export default function VehicleClassification({ compact = false }: VehicleClassi
                 }`}
               >
                 <div className="flex flex-col items-center justify-center h-full gap-2">
-                  <div className="w-[115px] h-[55px] flex items-center justify-center">
+                  <div className="w-[115px] h-[55px] flex items-center justify-center bg-transparent">
                     <Image
                       src={vehicle.image}
                       alt={vehicle.name}
                       width={115}
                       height={55}
-                      className="object-contain"
+                      className="object-contain w-full h-full"
                     />
                   </div>
                   <span className={`text-[15px] font-medium ${
@@ -200,13 +200,13 @@ export default function VehicleClassification({ compact = false }: VehicleClassi
               <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-[#dfeae5] opacity-50" />
               
               {/* Vehicle image */}
-              <div className="relative w-full h-full flex items-center justify-center">
+              <div className="relative w-full h-full flex items-center justify-center p-8">
                 <Image
                   src={activeVehicle.mainImage || activeVehicle.image}
                   alt={activeVehicle.name}
-                  width={650}
+                  width={700}
                   height={305}
-                  className="object-contain max-h-[280px]"
+                  className="object-contain w-full h-full"
                 />
               </div>
             </div>
