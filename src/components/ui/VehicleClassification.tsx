@@ -6,10 +6,10 @@ import Image from "next/image";
 
 const vehicles = [
   {
-    id: "standard",
-    name: "Standard",
-    image: "/images/transfers/standard.jpg",
-    mainImage: "/images/transfers/standard-main.jpg",
+    id: "economy",
+    name: "Economy",
+    image: "/images/transfers/economy.jpg",
+    mainImage: "/images/transfers/economy-main.jpg",
     model: "Toyota Corolla, Hyundai Elantra and similar",
     class: "C-Class",
     passengers: 3,
@@ -28,17 +28,6 @@ const vehicles = [
     description: "Extra space, better sound insulation, and a noticeably smoother ride. Perfect for longer drives between cities."
   },
   {
-    id: "business-light",
-    name: "Business Light",
-    image: "/images/transfers/business-light.jpg",
-    mainImage: "/images/transfers/business-light-main.jpg",
-    model: "Mercedes-Benz C-Class and similar",
-    class: "E-Class",
-    passengers: 3,
-    luggage: 3,
-    description: "Premium comfort without the full luxury price point. Ideal for business travelers who value reliability and presentation."
-  },
-  {
     id: "business",
     name: "Business",
     image: "/images/transfers/business.jpg",
@@ -50,17 +39,6 @@ const vehicles = [
     description: "Premium and refined. When the journey is part of the experience. Our most requested vehicle for VIP arrivals and special occasions."
   },
   {
-    id: "luxury",
-    name: "Luxury",
-    image: "/images/transfers/luxury.jpg",
-    mainImage: "/images/transfers/luxury-main.jpg",
-    model: "Mercedes-Benz S-Class and similar",
-    class: "F-Class",
-    passengers: 3,
-    luggage: 3,
-    description: "For those who expect the very best. Executive-level comfort, impeccably presented. The right way to arrive at the Pyramids."
-  },
-  {
     id: "minivan",
     name: "Minivan",
     image: "/images/transfers/minivan.jpg",
@@ -70,17 +48,6 @@ const vehicles = [
     passengers: 6,
     luggage: 6,
     description: "Perfect for families, groups, and anyone traveling with extra luggage. Everyone rides together in comfort without compromise."
-  },
-  {
-    id: "minivan-vip",
-    name: "Minivan VIP",
-    image: "/images/transfers/minivan-vip.jpg",
-    mainImage: "/images/transfers/minivan-vip-main.jpg",
-    model: "Mercedes-Benz V-Class VIP and similar",
-    class: "M-Class",
-    passengers: 6,
-    luggage: 6,
-    description: "Premium minivan with upgraded interior, leather seating, and enhanced comfort features for discerning groups."
   },
   {
     id: "suv",
