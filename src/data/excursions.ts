@@ -818,6 +818,83 @@ export const excursions: Excursion[] = [
       }
     ]
   },
+  // Luxor Tours
+  {
+    slug: "hot-air-balloon-luxor",
+    destinationSlug: "luxor-aswan",
+    city: "Luxor",
+    title: "Hot Air Balloon Ride over Luxor",
+    duration: "1 Day",
+    tourStyle: "Private Guided Tour",
+    availability: "Daily Departures",
+    shortDescription: "Fly over Luxor's West Bank on an early morning hot air balloon flight. Soar above the Nile and see ancient landmarks like the Colossi of Memnon, Valley of the Kings & Hatshepsut Temple.",
+    heroImage: EXCURSION_COVERS["hot-air-balloon-luxor"],
+    image: EXCURSION_IMAGES["hot-air-balloon-luxor"],
+    imageAlt: "Hot air balloon flying over Luxor's West Bank at sunrise",
+    priceCents: 15000, // $150.00
+    highlights: [
+      "Sunrise flight over Luxor's West Bank",
+      "Aerial views of Valley of the Kings",
+      "See Hatshepsut Temple from above",
+      "Colossi of Memnon at sunrise",
+      "Professional certified pilots",
+      "Light breakfast included"
+    ],
+    included: [
+      "Early morning hotel transfer",
+      "45-60 minute hot air balloon flight",
+      "Professional certified pilot",
+      "Safety briefing and equipment",
+      "Light breakfast after landing",
+      "Flight certificate",
+      "Return transfer to hotel"
+    ],
+    notIncluded: [
+      "International flights",
+      "Egyptian entry visa",
+      "Personal expenses",
+      "Gratuities",
+      "Optional activities"
+    ],
+    itinerarySteps: [
+      {
+        id: "pickup",
+        title: "Early Morning Pickup",
+        tag: "Transfer",
+        description: "Early morning pickup from your Luxor hotel (around 4:00 AM).",
+        image: "/images/excursions/steps/hot-air-balloon-luxor/1.jpg"
+      },
+      {
+        id: "briefing",
+        title: "Safety Briefing",
+        tag: "Safety",
+        description: "Transfer to the launch site for a safety briefing and watch the balloon inflate.",
+        image: "/images/excursions/steps/hot-air-balloon-luxor/2.jpg"
+      },
+      {
+        id: "flight",
+        title: "Sunrise Flight",
+        tag: "Experience",
+        description: "Take off at sunrise for a 45-60 minute flight over the West Bank, enjoying panoramic views of the Nile, temples, and ancient monuments.",
+        image: "/images/excursions/steps/hot-air-balloon-luxor/3.jpg"
+      },
+      {
+        id: "breakfast",
+        title: "Celebration Breakfast",
+        tag: "Lunch Included",
+        description: "Celebrate with a light breakfast after landing.",
+        image: "/images/excursions/steps/hot-air-balloon-luxor/4.jpg"
+      },
+      {
+        id: "return",
+        title: "Return to Hotel",
+        tag: "Transfer",
+        description: "Return transfer to your hotel.",
+        image: "/images/excursions/steps/hot-air-balloon-luxor/5.jpg"
+      }
+    ],
+  },
+
   // New Tours (Alexandria + Pyramids)
   {
     slug: "alexandria-day-trip-from-cairo",

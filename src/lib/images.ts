@@ -79,6 +79,7 @@ export const EXCURSION_IMAGES = {
   "cairo-beyond-the-pyramids": "/images/excursions/cairo-beyond-the-pyramids/cairo-beyond-the-pyramids.jpg",
   "tanoura-night-old-cairo": "/images/excursions/tanoura-night-old-cairo/tanoura-night-old-cairo.jpg",
   "cairo-private-photo-session": "/images/excursions/cairo-private-photo-session/cairo-private-photo-session.jpg",
+  "hot-air-balloon-luxor": "/images/excursions/Hot Air Balloon Ride over Luxor/hot-air-balloon-luxor.jpg",
 } as const;
 
 export const EXCURSION_COVERS = {
@@ -94,6 +95,7 @@ export const EXCURSION_COVERS = {
   "cairo-beyond-the-pyramids": "/images/excursions/cairo-beyond-the-pyramids/cover.jpg",
   "tanoura-night-old-cairo": "/images/excursions/tanoura-night-old-cairo/cover.jpg",
   "cairo-private-photo-session": "/images/excursions/cairo-private-photo-session/cover.jpg",
+  "hot-air-balloon-luxor": "/images/excursions/Hot Air Balloon Ride over Luxor/cover.jpg",
 } as const;
 
 const EVENT_IMAGES_BASE: Record<string, StaticImageData | string> = {
