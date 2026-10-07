@@ -837,15 +837,13 @@ export const excursions: Excursion[] = [
       "Aerial views of Valley of the Kings",
       "See Hatshepsut Temple from above",
       "Colossi of Memnon at sunrise",
-      "Professional certified pilots",
-      "Light breakfast included"
+      "Professional certified pilots"
     ],
     included: [
       "Early morning hotel transfer",
       "45-60 minute hot air balloon flight",
       "Professional certified pilot",
       "Safety briefing and equipment",
-      "Light breakfast after landing",
       "Flight certificate",
       "Return transfer to hotel"
     ],
@@ -879,18 +877,11 @@ export const excursions: Excursion[] = [
         image: "/images/excursions/steps/hot-air-balloon-luxor/3.jpg"
       },
       {
-        id: "breakfast",
-        title: "Celebration Breakfast",
-        tag: "Lunch Included",
-        description: "Celebrate with a light breakfast after landing.",
-        image: "/images/excursions/steps/hot-air-balloon-luxor/4.jpg"
-      },
-      {
         id: "return",
         title: "Return to Hotel",
         tag: "Transfer",
         description: "Return transfer to your hotel.",
-        image: "/images/excursions/steps/hot-air-balloon-luxor/5.jpg"
+        image: "/images/excursions/steps/hot-air-balloon-luxor/4.jpg"
       }
     ],
   },
