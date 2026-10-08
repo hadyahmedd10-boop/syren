@@ -245,7 +245,7 @@ export const events: Event[] = [
       "Set on the desert sands beside Great Pyramids of Giza, one of the world's most significant symbols of ancient civilization, the festival will unite the global electronic music and festival community within a setting shaped by thousands of years of history.",
     location: "The Great Pyramids of Giza",
     city: "Giza, Egypt",
-    date: "2026-10-08",
+    date: "2026-10-11",
     displayDate: "October 8-11, 2026",
     time: "18:00",
     lineup: [
