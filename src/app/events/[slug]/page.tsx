@@ -313,22 +313,22 @@ export default async function EventDetailPage({ params }: Props) {
         <section className="section bg-background border-t border-accent-gold/20 pt-8 pb-12">
           <div className="container-x mx-auto max-w-7xl">
             <span className="uppercase tracking-wider text-accent-gold text-xs">The Lineup</span>
-            <div className="mt-3">
+            <div className="mt-6">
             {event.lineup.length === 1 && event.lineup[0].toUpperCase() === "TBA" ? (
               <div className="flex justify-center">
-                <span className="syren-pill border border-accent-gold text-accent-gold font-serif bg-transparent">
+                <span className="uppercase tracking-widest text-text-primary font-medium">
                   To Be Announced
                 </span>
               </div>
             ) : (
-              <div className="flex flex-wrap gap-3">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {event.lineup.map((artist) => (
-                  <span
+                  <div
                     key={artist}
-                    className="syren-pill border border-accent-gold text-accent-gold font-serif bg-transparent"
+                    className="text-text-primary font-medium uppercase tracking-wide text-sm"
                   >
                     {artist}
-                  </span>
+                  </div>
                 ))}
               </div>
             )}
@@ -362,14 +362,14 @@ export default async function EventDetailPage({ params }: Props) {
                       {ap.time && <div>{ap.time}</div>}
                     </div>
                     {Array.isArray(ap.lineup) && ap.lineup.length > 0 && (
-                      <div className="mt-3 flex flex-wrap gap-2">
+                      <div className="mt-3 space-y-1">
                         {ap.lineup.map((artist) => (
-                          <span
+                          <div
                             key={artist}
-                            className="syren-pill border border-accent-gold text-accent-gold font-serif bg-transparent text-[11px]"
+                            className="text-text-primary font-medium uppercase tracking-wide text-xs"
                           >
                             {artist}
-                          </span>
+                          </div>
                         ))}
                       </div>
                     )}
