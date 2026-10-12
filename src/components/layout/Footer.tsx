@@ -35,37 +35,12 @@ export default function Footer() {
         </div> 
 
         <div> 
-          <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Travel Guides</h4> 
-          <ul className="space-y-2 text-sm opacity-70 font-sans"> 
-            <li><Link href="/is-egypt-safe" className="hover:text-accent-gold transition-colors">Is Egypt Safe?</Link></li> 
-            <li><Link href="/best-time-to-visit-egypt" className="hover:text-accent-gold transition-colors">Best Time to Visit</Link></li> 
-            <li><Link href="/egypt-travel-tips" className="hover:text-accent-gold transition-colors">Egypt Travel Tips</Link></li> 
-            <li><Link href="/hurghada-to-cairo-day-trip" className="hover:text-accent-gold transition-colors">Hurghada to Cairo</Link></li> 
-            <li><Link href="/things-to-do-cairo" className="hover:text-accent-gold transition-colors">Things to Do in Cairo</Link></li> 
-            <li><Link href="/egypt-music-festivals-2026" className="hover:text-accent-gold transition-colors">Egypt Music Festivals 2026</Link></li>
-            <li><Link href="/exit-festival-egypt" className="hover:text-accent-gold transition-colors">Exit Festival Egypt 2026</Link></li>
-          </ul> 
-        </div> 
-
-        <div> 
           <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Help Center</h4> 
           <ul className="space-y-2 text-sm opacity-70 font-sans"> 
             <li><Link href="/faq" className="hover:text-accent-gold transition-colors">FAQ</Link></li> 
             <li><Link href="/contact" className="hover:text-accent-gold transition-colors">Concierge Support</Link></li> 
           </ul> 
-        </div> 
-
-        <div> 
-          <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Plan Your Trip</h4> 
-          <ul className="space-y-2 text-sm opacity-70 font-sans"> 
-            <li><Link href="/egypt-travel-europe" className="hover:text-accent-gold transition-colors">Traveling from Europe</Link></li> 
-            <li><Link href="/egypt-travel-gulf" className="hover:text-accent-gold transition-colors">Traveling from the Gulf</Link></li> 
-            <li><Link href="/egypt-travel-latin-america" className="hover:text-accent-gold transition-colors">Traveling from Latin America</Link></li> 
-            <li><Link href="/zamna-egypt-travel" className="hover:text-accent-gold transition-colors">Zamna Egypt Travel</Link></li> 
-            <li><Link href="/sandbox-festival-egypt" className="hover:text-accent-gold transition-colors">Sandbox Festival Guide</Link></li> 
-            <li><Link href="/luxury-egypt-tours" className="hover:text-accent-gold transition-colors">Luxury Egypt Tours</Link></li> 
-          </ul> 
-        </div> 
+        </div>
 
         <div> 
           <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Work With Us</h4> 

@@ -286,36 +286,32 @@ export default function Home() {
           );
         })()}
 
-{/* SECTION 9 — FROM THE BLOG */}
+{/* SECTION 9 — PRIVATE TRANSFERS */}
 <section className="py-16 bg-background">
   <div className="mx-auto max-w-7xl container-x">
-    <SectionHeader title="Travel Guides" label="FROM THE BLOG" align="center" />
-    <div className="grid gap-6 md:grid-cols-3">
+    <SectionHeader title="Private Transfers" label="GET AROUND EGYPT" align="center" />
+    <div className="mt-6 text-center max-w-2xl mx-auto">
+      <p className="text-text-secondary text-base leading-relaxed">
+        No shared shuttles. No waiting for strangers. Private airport transfers, city runs, and intercity travel across Egypt — professional drivers, fixed prices, on time.
+      </p>
+    </div>
+    <div className="mt-8 grid gap-4 md:grid-cols-3">
       {[
-        { href: "/is-egypt-safe", title: "Is Egypt Safe to Travel?", desc: "Practical safety notes and local insight." },
-        { href: "/best-time-to-visit-egypt", title: "Best Time to Visit Egypt", desc: "Seasons, weather and ideal trip planning." },
-        { href: "/egypt-travel-tips", title: "Egypt Travel Tips", desc: "Concierge advice to make it seamless." },
-      ].map((g) => (
-        <Link key={g.href} href={g.href} className="group block">
-          <article className="relative h-48 rounded-2xl overflow-hidden border border-border hover:-translate-y-1 transition-transform duration-300 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)]">
-            <Image
-              src={HERO_IMAGES.home}
-              alt={g.title}
-              fill
-              sizes="(min-width: 1024px) 33vw, 100vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-surface-2/70" />
-            <div className="absolute inset-0 p-4 flex flex-col justify-end">
-              <h3 className="font-serif text-accent-gold text-lg">{g.title}</h3>
-              <p className="text-text-secondary text-sm mt-1">{g.desc}</p>
-            </div>
+        { title: "Economy", desc: "Toyota Corolla · 3 passengers", icon: "C-Class" },
+        { title: "Business", desc: "Mercedes E-Class · 3 passengers", icon: "E-Class" },
+        { title: "Minivan", desc: "Mercedes V-Class · 6 passengers", icon: "M-Class" },
+      ].map((v) => (
+        <Link key={v.title} href="/transfers" className="group block">
+          <article className="p-6 rounded-2xl border border-border bg-surface/30 hover:border-accent-gold/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)]">
+            <div className="text-accent-gold text-xs uppercase tracking-widest mb-2">{v.icon}</div>
+            <h3 className="font-serif text-xl text-text-primary">{v.title}</h3>
+            <p className="text-text-secondary text-sm mt-1">{v.desc}</p>
           </article>
         </Link>
       ))}
     </div>
     <div className="mt-8 text-center">
-      <Link href="/guides" className="syren-btn-secondary">View All Guides →</Link>
+      <Link href="/transfers" className="syren-btn-secondary">View All Vehicles →</Link>
     </div>
   </div>
 </section>
