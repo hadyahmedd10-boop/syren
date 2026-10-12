@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Users, Luggage, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Users, Luggage } from "lucide-react";
 import Image from "next/image";
 
 const vehicles = [
@@ -79,18 +79,15 @@ interface VehicleClassificationProps {
 
 export default function VehicleClassification({ compact = false }: VehicleClassificationProps) {
   const [activeVehicle, setActiveVehicle] = useState(vehicles[0]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
-  const handlePrevious = () => {
-    const newIndex = currentIndex === 0 ? vehicles.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-    setActiveVehicle(vehicles[newIndex]);
-  };
-
-  const handleNext = () => {
-    const newIndex = currentIndex === vehicles.length - 1 ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-    setActiveVehicle(vehicles[newIndex]);
+  const handleVehicleChange = (vehicle: typeof vehicles[0]) => {
+    if (vehicle.id === activeVehicle.id) return;
+    setIsAnimating(true);
+    setTimeout(() => {
+      setActiveVehicle(vehicle);
+      setIsAnimating(false);
+    }, 150);
   };
 
   if (compact) {
@@ -145,135 +142,136 @@ export default function VehicleClassification({ compact = false }: VehicleClassi
   }
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-background">
       <div className="container mx-auto max-w-[1600px] px-6">
         {/* Section Header */}
         <div className="text-center mb-8">
-          <h2 className="text-[52px] md:text-[56px] font-bold text-[#1a1a1a] tracking-tight">
-            Vehicle classification
+          <h2 className="font-serif text-5xl md:text-6xl text-text-primary font-light tracking-tight">
+            Vehicle Classification
           </h2>
         </div>
 
-        {/* Vehicle Category Navigation */}
+        {/* Vehicle Category Navigation - Text-based tabs */}
         <div className="mb-12">
-          <div className="flex gap-2.5 overflow-x-auto pb-4 scrollbar-hide">
+          <div className="flex gap-8 md:gap-12 overflow-x-auto scrollbar-hide pb-0 border-b border-border justify-center">
             {vehicles.map((vehicle) => (
               <button
                 key={vehicle.id}
-                onClick={() => {
-                  setActiveVehicle(vehicle);
-                  setCurrentIndex(vehicles.findIndex(v => v.id === vehicle.id));
-                }}
-                className={`relative flex-shrink-0 w-[150px] h-[115px] rounded-[22px] border transition-all ${
+                onClick={() => handleVehicleChange(vehicle)}
+                className={`relative flex-shrink-0 pb-4 text-sm font-medium tracking-widest uppercase transition-all ${
                   activeVehicle.id === vehicle.id
-                    ? "bg-[#f1f3f3] border-[#dedede]"
-                    : "bg-white border-[#dededa] hover:bg-[#fafafa]"
+                    ? "text-accent-gold border-b-2 border-accent-gold font-semibold"
+                    : "text-text-secondary hover:text-text-primary border-b-2 border-transparent"
                 }`}
               >
-                <div className="flex flex-col items-center justify-center h-full gap-2">
-                  <div className="w-[115px] h-[55px] flex items-center justify-center bg-transparent">
-                    <Image
-                      src={vehicle.image}
-                      alt={vehicle.name}
-                      width={115}
-                      height={55}
-                      className="object-contain w-full h-full"
-                    />
-                  </div>
-                  <span className={`text-[15px] font-medium ${
-                    activeVehicle.id === vehicle.id ? "text-[#4a7c59]" : "text-[#1a1a1a]"
-                  }`}>
-                    {vehicle.name}
-                  </span>
-                </div>
+                {vehicle.id === "business" && (
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-accent-gold rounded-full" />
+                )}
+                {vehicle.name}
               </button>
             ))}
           </div>
         </div>
 
         {/* Main Vehicle Detail Area */}
-        <div className="flex flex-col lg:flex-row gap-12 items-center mb-12">
-          {/* Left Side - Large Vehicle Image */}
-          <div className="w-full lg:w-[52%]">
-            <div className="relative w-full h-[305px] rounded-[50px] overflow-hidden bg-[#f0f2f2]">
-              {/* Decorative background shape */}
-              <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-[#dfeae5] opacity-50" />
-              
-              {/* Vehicle image */}
-              <div className="relative w-full h-full flex items-center justify-center p-8">
+        <div
+          className={`transition-opacity duration-400 ${
+            isAnimating ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* LEFT COLUMN - VEHICLE INFO */}
+            <div className="order-2 md:order-1">
+              {/* Class badge */}
+              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-accent-gold/10 border border-accent-gold/20 text-accent-gold text-xs">
+                {activeVehicle.class} · Not older than 5 years
+              </div>
+
+              {/* Vehicle name */}
+              <h3 className="font-serif text-5xl md:text-6xl text-text-primary font-light mt-4">
+                {activeVehicle.name}
+              </h3>
+
+              {/* Divider */}
+              <div className="w-12 h-px bg-accent-gold mt-4 mb-6" />
+
+              {/* Passenger + luggage row */}
+              <div className="flex gap-6 items-center">
+                <div className="flex items-center gap-2">
+                  <Users size={20} className="text-accent-gold" />
+                  <span className="text-text-primary font-semibold text-lg">{activeVehicle.passengers}</span>
+                  <span className="text-text-secondary text-sm">passengers</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Luggage size={20} className="text-accent-gold" />
+                  <span className="text-text-primary font-semibold text-lg">{activeVehicle.luggage}</span>
+                  <span className="text-text-secondary text-sm">bags</span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-text-secondary leading-relaxed text-base mt-6">
+                {activeVehicle.description}
+              </p>
+
+              {/* Ideal for */}
+              <div className="mt-4 text-sm">
+                <div className="text-accent-gold text-xs uppercase tracking-widest">IDEAL FOR</div>
+                <div className="text-text-secondary italic mt-1">
+                  {activeVehicle.id === "economy" && "Solo travelers and couples on a budget"}
+                  {activeVehicle.id === "comfort" && "Longer drives between cities"}
+                  {activeVehicle.id === "business" && "VIP arrivals and special occasions"}
+                  {activeVehicle.id === "minivan" && "Families and groups traveling together"}
+                  {activeVehicle.id === "suv" && "Desert road trips and festival runs"}
+                  {activeVehicle.id === "minibus" && "Corporate trips and sightseeing tours"}
+                </div>
+              </div>
+
+              {/* Car examples */}
+              <div className="mt-2 text-xs text-text-secondary/60">
+                e.g. {activeVehicle.model}
+              </div>
+
+              {/* CTA Button */}
+              <a
+                href={`https://wa.me/201016015723?text=Hi Syren, I'd like to book a ${activeVehicle.name} transfer in Egypt`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-3 border border-accent-gold text-accent-gold px-8 py-3.5 rounded-full font-medium tracking-wide hover:bg-accent-gold hover:text-black transition-all duration-300 group"
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current opacity-70 group-hover:opacity-100">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Book via WhatsApp
+              </a>
+            </div>
+
+            {/* RIGHT COLUMN - VEHICLE IMAGE */}
+            <div className="order-1 md:order-2">
+              <div className="bg-surface rounded-2xl overflow-hidden aspect-[4/3] relative shadow-inner">
                 <Image
                   src={activeVehicle.mainImage || activeVehicle.image}
                   alt={activeVehicle.name}
-                  width={700}
-                  height={305}
-                  className="object-contain w-full h-full"
+                  width={800}
+                  height={600}
+                  className="object-contain p-6 w-full h-full transition-opacity duration-400"
                 />
               </div>
-            </div>
-          </div>
-
-          {/* Right Side - Information */}
-          <div className="w-full lg:w-[48%] pl-0 lg:pl-12">
-            {/* Vehicle title row */}
-            <div className="flex items-center gap-4 mb-[18px]">
-              <h3 className="text-[36px] font-bold text-[#1a1a1a]">
-                {activeVehicle.name}
-              </h3>
-              
-              {/* Capacity badge */}
-              <div className="flex items-center gap-3 px-4 py-2.5 bg-[#f0f2f2] rounded-lg w-[115px] h-[45px]">
-                <div className="flex items-center gap-1">
-                  <Users size={18} className="text-[#1a1a1a]" />
-                  <span className="text-[#1a1a1a] font-medium">{activeVehicle.passengers}</span>
+              {/* Thumbnail strip */}
+              <div className="mt-4 flex items-center gap-3">
+                <div className="h-16 w-auto opacity-60">
+                  <Image
+                    src={activeVehicle.image}
+                    alt={`${activeVehicle.name} exterior view`}
+                    width={80}
+                    height={64}
+                    className="object-contain"
+                  />
                 </div>
-                <div className="flex items-center gap-1">
-                  <Luggage size={18} className="text-[#1a1a1a]" />
-                  <span className="text-[#1a1a1a] font-medium">{activeVehicle.luggage}</span>
-                </div>
+                <span className="text-xs text-text-secondary/60">exterior view</span>
               </div>
             </div>
-
-            {/* Vehicle model name */}
-            <div className="mb-[10px]">
-              <p className="text-[29px] font-bold text-[#1a1a1a] leading-tight">
-                {activeVehicle.model}
-              </p>
-              <p className="text-[18px] font-medium text-[#4a4a4a] mt-[10px]">
-                {activeVehicle.class}
-              </p>
-            </div>
-
-            {/* Description */}
-            <p className="text-[18px] text-[#4a4a4a] leading-relaxed max-w-[650px]">
-              {activeVehicle.description}
-            </p>
-
-            {/* Book button */}
-            <a
-              href={`https://wa.me/201016015723?text=Hi Syren, I'd like to book a ${activeVehicle.name} transfer in Egypt`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center mt-6 bg-[#1a1a1a] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#333] transition-all"
-            >
-              Book This Transfer →
-            </a>
           </div>
-        </div>
-
-        {/* Navigation Arrows */}
-        <div className="flex items-center justify-center gap-2.5">
-          <button
-            onClick={handlePrevious}
-            className="w-[60px] h-[60px] rounded-full bg-[#f0f2f2] flex items-center justify-center hover:bg-[#e0e2e2] transition-colors"
-          >
-            <ChevronLeft size={28} className="text-[#1a1a1a]" />
-          </button>
-          <button
-            onClick={handleNext}
-            className="w-[60px] h-[60px] rounded-full bg-[#f0f2f2] flex items-center justify-center hover:bg-[#e0e2e2] transition-colors"
-          >
-            <ChevronRight size={28} className="text-[#1a1a1a]" />
-          </button>
         </div>
       </div>
     </section>
