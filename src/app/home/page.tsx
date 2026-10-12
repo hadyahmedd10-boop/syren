@@ -6,6 +6,7 @@ import HomeScrollManager from "@/components/layout/HomeScrollManager";
 import FinalCTA from "@/components/sections/FinalCTA";
 import EmailSignup from "@/components/sections/EmailSignup";
 import Testimonials from "@/components/sections/Testimonials";
+import VehicleClassification from "@/components/ui/VehicleClassification";
 import { SOCIAL_LINKS } from "@/config/social";
 import { events } from "@/data/events";
 import { getFeaturedUpcomingEvents } from "@/lib/eventUtils";
@@ -286,35 +287,21 @@ export default function Home() {
           );
         })()}
 
-{/* SECTION 9 — PRIVATE TRANSFERS */}
-<section className="py-16 bg-background">
-  <div className="mx-auto max-w-7xl container-x">
-    <SectionHeader title="Private Transfers" label="GET AROUND EGYPT" align="center" />
-    <div className="mt-6 text-center max-w-2xl mx-auto">
-      <p className="text-text-secondary text-base leading-relaxed">
-        No shared shuttles. No waiting for strangers. Private airport transfers, city runs, and intercity travel across Egypt — professional drivers, fixed prices, on time.
-      </p>
-    </div>
-    <div className="mt-8 grid gap-4 md:grid-cols-3">
-      {[
-        { title: "Economy", desc: "Toyota Corolla · 3 passengers", icon: "C-Class" },
-        { title: "Business", desc: "Mercedes E-Class · 3 passengers", icon: "E-Class" },
-        { title: "Minivan", desc: "Mercedes V-Class · 6 passengers", icon: "M-Class" },
-      ].map((v) => (
-        <Link key={v.title} href="/transfers" className="group block">
-          <article className="p-6 rounded-2xl border border-border bg-surface/30 hover:border-accent-gold/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)]">
-            <div className="text-accent-gold text-xs uppercase tracking-widest mb-2">{v.icon}</div>
-            <h3 className="font-serif text-xl text-text-primary">{v.title}</h3>
-            <p className="text-text-secondary text-sm mt-1">{v.desc}</p>
-          </article>
-        </Link>
-      ))}
-    </div>
-    <div className="mt-8 text-center">
-      <Link href="/transfers" className="syren-btn-secondary">View All Vehicles →</Link>
-    </div>
-  </div>
-</section>
+      {/* SECTION 9 — VEHICLE CLASSIFICATION */}
+      <section className="py-16 bg-background">
+        <div className="container-x mx-auto max-w-6xl text-center mb-12">
+          <p className="text-xs uppercase tracking-[0.3em] text-accent-gold mb-4">
+            FLEET
+          </p>
+          <h2 className="font-serif text-4xl text-text-primary font-light mb-4">
+            Vehicle Classification
+          </h2>
+          <p className="text-text-secondary max-w-2xl mx-auto">
+            Every vehicle is privately assigned to your group. No shared rides. No compromises.
+          </p>
+        </div>
+        <VehicleClassification />
+      </section>
 
         {/* SECTION 10 — EMAIL SIGNUP */}
         <EmailSignup />
