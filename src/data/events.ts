@@ -848,4 +848,44 @@ export const events: Event[] = [
       ctaLabel: "Book Starlight Festival Package",
     },
   },
+  {
+    id: "evt_longines_gct_cairo",
+    slug: "longines-global-champions-tour-cairo",
+    title: "Longines Global Champions Tour Cairo",
+    category: "Popular Events in Egypt",
+    categories: ["Popular Events in Egypt", "International Music Festivals"],
+    shortDescription: "World-class show jumping at the Great Pyramids of Giza.",
+    fullDescription:
+      "The Longines Global Champions Tour brings elite equestrian show jumping to the iconic Great Pyramids of Giza. Watch the world's top riders and horses compete against one of history's most breathtaking backdrops. This prestigious event combines athletic excellence with the timeless majesty of ancient Egypt.",
+    location: "The Great Pyramids of Giza, Panorama 2",
+    city: "Cairo, Egypt",
+    date: "2026-10-22",
+    displayDate: "October 22–24, 2026",
+    time: "Thursday & Friday: 5:00 PM - 10:00 PM, Saturday: 12:00 PM - 5:00 PM",
+    duration: "3 Days",
+    lineup: ["To be announced"],
+    minAge: "All ages",
+    ticketUrl: "https://tickets.example.com/longines-gct-cairo",
+    heroImage: EVENT_IMAGES["exit-festival"] ?? "/images/placeholder.jpg",
+    galleryImages: [EVENT_IMAGES["exit-festival"] ?? "/images/placeholder.jpg"],
+    isFeatured: true,
+    isPopular: true,
+    seoTitle: "Longines Global Champions Tour Cairo 2026 | Pyramids of Giza",
+    seoDescription:
+      "Longines Global Champions Tour at the Great Pyramids of Giza, October 22-24, 2026. Book luxury travel packages with Syren Egypt.",
+    curatedPackage: {
+      title: "Longines GCT Cairo VIP Experience",
+      description:
+        "Luxury Cairo accommodation, private transfers, VIP event access at the Pyramids, and curated cultural experiences.",
+      inclusions: [
+        "5-star hotel accommodation in Cairo",
+        "Private airport transfers",
+        "VIP Pyramids event access",
+        "Private Giza Plateau tour",
+        "Nile dinner cruise",
+        "24/7 Syren concierge"
+      ],
+      ctaLabel: "Book Longines GCT Package",
+    },
+  },
 ];
