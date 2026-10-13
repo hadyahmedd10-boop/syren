@@ -102,10 +102,10 @@ export default function TransfersPage() {
             FLEET
           </p>
           <h2 className="font-serif text-4xl text-text-primary font-light mb-4">
-            Vehicle Classification
+            Private Transportation, Refined.
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto">
-            Every vehicle is privately assigned to your group. No shared rides. No compromises.
+            A considered fleet for seamless journeys across Egypt. Every transfer is private to your group, with no shared rides.
           </p>
         </div>
         <VehicleClassification />
