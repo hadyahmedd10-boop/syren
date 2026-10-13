@@ -142,10 +142,10 @@ export default function PartnerPage() {
             {[
               { key: "cairo", name: "Cairo & Giza" },
               { key: "luxor-aswan", name: "Luxor & Aswan" },
-              { key: "north-coast", name: "Red Sea" },
+              { key: "north-coast", name: "North Coast" },
               { key: "siwa-oasis", name: "Siwa Oasis" },
               { key: "alexandria", name: "Alexandria" },
-              { key: "hurghada", name: "Nile Cruises" },
+              { key: "hurghada", name: "Hurghada" },
             ].map((d) => {
               const img = (DESTINATION_IMAGES as any)[d.key];
               const src = typeof img === "string" ? img : img.src;
