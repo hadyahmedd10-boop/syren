@@ -808,4 +808,44 @@ export const events: Event[] = [
       ctaLabel: "Book ARGY NEWORLD Package",
     },
   },
+  {
+    id: "evt_starlight_2027",
+    slug: "starlight-festival-2027",
+    title: "Starlight Festival",
+    category: "International Music Festivals",
+    categories: ["International Music Festivals", "Popular Events in Egypt"],
+    shortDescription: "An electronic music festival beneath the Great Pyramids of Giza.",
+    fullDescription:
+      "Starlight Festival returns to the Great Pyramids of Giza for two nights of electronic music in one of the world's most iconic settings. Set against the ancient backdrop of the Pyramids, the festival brings together international artists for an unforgettable experience where history meets contemporary sound.",
+    location: "The Great Pyramids of Giza",
+    city: "Giza, Egypt",
+    date: "2027-11-05",
+    displayDate: "November 5–6, 2027",
+    time: "6:00 PM",
+    duration: "2 Days",
+    lineup: ["To be announced"],
+    minAge: "21+",
+    ticketUrl: "https://tickets.example.com/starlight-festival-2027",
+    heroImage: EVENT_IMAGES["exit-festival"] ?? "/images/placeholder.jpg",
+    galleryImages: [EVENT_IMAGES["exit-festival"] ?? "/images/placeholder.jpg"],
+    isFeatured: true,
+    isPopular: true,
+    seoTitle: "Starlight Festival 2027 | Pyramids of Giza",
+    seoDescription:
+      "Starlight Festival at the Great Pyramids of Giza, November 5–6, 2027. Book luxury travel packages with Syren Egypt.",
+    curatedPackage: {
+      title: "Starlight Festival Pyramids Experience",
+      description:
+        "Luxury Cairo accommodation, private transfers, VIP festival access at the Pyramids, and curated cultural experiences.",
+      inclusions: [
+        "5-star hotel accommodation in Cairo",
+        "Private airport transfers",
+        "VIP Pyramids festival access",
+        "Private Giza Plateau tour",
+        "Nile dinner cruise",
+        "24/7 Syren concierge"
+      ],
+      ctaLabel: "Book Starlight Festival Package",
+    },
+  },
 ];
