@@ -4,7 +4,7 @@ import { MessageCircle } from "lucide-react";
 const WHATSAPP_NUMBER = "201016015723";
 const PREFILL = "Hi Syren, I'm interested in planning a trip to Egypt";
 const HREF = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(PREFILL)}`;
-const GREEN = "#25D366";
+const GOLD = "#C9A84C";
 
 export default function FloatingWhatsAppFab() {
   return (
@@ -17,12 +17,12 @@ export default function FloatingWhatsAppFab() {
     >
       <span
         className="absolute inset-0 rounded-full animate-ping opacity-75"
-        style={{ backgroundColor: GREEN }}
+        style={{ backgroundColor: GOLD }}
         aria-hidden
       />
       <div
         className="relative w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-transform duration-200 group-hover:scale-110"
-        style={{ backgroundColor: GREEN }}
+        style={{ backgroundColor: GOLD }}
       >
         <MessageCircle size={26} className="text-white" aria-hidden />
       </div>

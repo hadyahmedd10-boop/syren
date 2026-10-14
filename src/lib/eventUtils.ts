@@ -10,10 +10,21 @@ export function isEventUpcoming(event: Event): boolean {
   // Always use the ISO date field for comparison
   const eventDate = new Date(event.date);
 
-  // For multi-day events use the last day
-  // If date is a range we use the end date
-  // For single day events the event is hidden the day after
-  const endDate = new Date(eventDate);
+  // For multi-day events, try to extract end date from displayDate
+  let endDate = new Date(eventDate);
+  if (event.displayDate) {
+    // Parse displayDate to find end date
+    // Formats: "April 24–25, 2026", "October 8-11, 2026", "April–June, 2026"
+    const rangeMatch = event.displayDate.match(/(\d{1,2})[-–](\d{1,2})/);
+    if (rangeMatch) {
+      const endDay = parseInt(rangeMatch[2], 10);
+      const month = eventDate.getMonth();
+      const year = eventDate.getFullYear();
+      endDate = new Date(year, month, endDay);
+    }
+  }
+
+  // Set end of day for comparison
   endDate.setHours(23, 59, 59, 999);
 
   return endDate >= today;

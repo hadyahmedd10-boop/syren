@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description:
     "Private luxury journeys through Egypt. Discover Cairo, the Nile, the Red Sea, and hidden sanctuaries — curated for the discerning traveler.",
   alternates: {
-    canonical: "/home",
+    canonical: "/",
   },
   openGraph: {
     title: "Syren Travel",

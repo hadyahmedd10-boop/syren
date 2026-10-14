@@ -235,13 +235,13 @@ export default function TransfersPage() {
               </div>
               <div className="flex flex-col gap-3">
                 <div className="border border-accent-gold/30 text-accent-gold text-sm px-4 py-2 rounded-full">
-                  Exit Festival · Oct 2026
+                  Shakira · Nov 2026
                 </div>
                 <div className="border border-accent-gold/30 text-accent-gold text-sm px-4 py-2 rounded-full">
-                  Zamna Egypt · Apr 2026
+                  ARGY NEWORLD · Nov 2026
                 </div>
                 <div className="border border-accent-gold/30 text-accent-gold text-sm px-4 py-2 rounded-full">
-                  Sandbox Festival · May 2026
+                  Longines GCT Cairo · Oct 2026
                 </div>
               </div>
             </div>

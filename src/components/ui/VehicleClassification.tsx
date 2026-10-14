@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Users, Luggage } from "lucide-react";
 import Image from "next/image";
 
