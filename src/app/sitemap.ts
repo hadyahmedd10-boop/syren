@@ -40,6 +40,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/faq", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/partner", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/reviews", priority: 0.7, changeFrequency: "weekly" as const },
+    { path: "/nile-cruises", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/cairo-private-tours", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/festival-travel-egypt", priority: 0.9, changeFrequency: "weekly" as const },
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((r) => ({
