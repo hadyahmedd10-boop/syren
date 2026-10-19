@@ -100,6 +100,7 @@ export const EXCURSION_COVERS = {
 
 const EVENT_IMAGES_BASE: Record<string, StaticImageData | string> = {
   "zamna-festival": "/images/events/zamna-festival.jpg",
+  "zamna-giza": "/images/events/Zamna-giza.jpg",
   "noart-festival": "/images/events/noart-festival.jpg",
   "the-moment-festival": "/images/events/the-moment-festival.jpg",
   "shakira-live-performance": "/images/events/shakira-live-performance.jpg",
