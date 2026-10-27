@@ -62,41 +62,6 @@ export const eventCategories: EventCategory[] = [
 
 export const events: Event[] = [
   {
-    id: "zamna-giza-2027",
-    slug: "zamna-giza-10th-anniversary",
-    title: "Zamna Giza | 10th Anniversary World Tour",
-    category: "International Music Festivals",
-    shortDescription: "Come for Zamna. Experience Egypt. Zamna returns to the Pyramids of Giza for its third edition in Egypt.",
-    fullDescription: "Come for Zamna. Experience Egypt. Zamna returns to the Pyramids of Giza for its third edition in Egypt, celebrating its 10th Anniversary World Tour with an experience that reaches far beyond the dance floor.",
-    location: "The Great Pyramids Of Giza",
-    city: "Giza, Egypt",
-    date: "2027-05-21",
-    displayDate: "May 21–23, 2027",
-    time: "7:00 PM - 3:00 AM",
-    duration: "3 Days",
-    lineup: ["To Be Announced"],
-    minAge: "21+",
-    ticketUrl: "https://www.technoandchill.com/events/",
-    heroImage: EVENT_IMAGES["zamna-giza"] ?? "/images/placeholder.jpg",
-    galleryImages: [EVENT_IMAGES["zamna-giza"]],
-    isFeatured: true,
-    isPopular: true,
-    seoTitle: "Zamna Giza | 10th Anniversary World Tour at Pyramids",
-    seoDescription: "Come for Zamna. Experience Egypt. Zamna returns to the Pyramids of Giza for its third edition in Egypt, celebrating its 10th Anniversary World Tour.",
-    curatedPackage: {
-      title: "Syren Curated Zamna Giza Experience",
-      description: "Luxury hotel stay, VIP transfers, curated Cairo daytime experiences, and priority festival access.",
-      inclusions: [
-        "4-5 star hotel accommodation",
-        "Private airport transfers",
-        "VIP festival access",
-        "Nile sunset cruise",
-        "Guided cultural tour"
-      ],
-      ctaLabel: "Book Zamna Giza Travel Package",
-    },
-  },
-  {
     id: "zamna-egypt-2026",
     slug: "zamna-festival",
     title: "Zamna Egypt",
@@ -921,6 +886,57 @@ export const events: Event[] = [
         "24/7 Syren concierge"
       ],
       ctaLabel: "Book Longines GCT Package",
+    },
+  },
+  {
+    id: "evt_recap_festival",
+    slug: "recap-festival",
+    title: "RECAP FESTIVAL",
+    category: "International Music Festivals",
+    shortDescription: "ONE LAST ORBIT - Your year deserves a grand finale at El Gouna, Red Sea.",
+    fullDescription:
+      "This New Year, we're taking over El Gouna, Red Sea for five days of international DJs, electronic and commercial music, beach parties, sunset sessions, curated dinners, creative workshops, and so much more. The main festival takes place from December 30 to January 1, bringing three days of music, entertainment, and unforgettable celebrations. Available packages are for the three main days. But the experience doesn't stop there! Stay tuned for December 29 and January 2, as we'll be revealing additional activities, experiences, and special surprises, with separate packages and pricing to be announced soon. Five days. One destination. Endless memories.",
+    location: "El Gouna, Red Sea",
+    city: "El Gouna, Egypt",
+    date: "2026-12-30",
+    displayDate: "December 29, 2026 – January 2, 2027",
+    time: "8:00 PM",
+    duration: "5 Days",
+    lineup: [
+      "Joseph Capriati",
+      "Fleur Shore",
+      "Birds of Mind",
+      "Rivo",
+      "Fideles",
+      "Desiree",
+      "Seth Troxler",
+      "Max Styler",
+      "Pawsa"
+    ],
+    minAge: "18+",
+    ticketUrl: "https://tickets.example.com/recap-festival",
+    heroImage: EVENT_IMAGES["recap-festival"] ?? "/images/placeholder.jpg",
+    galleryImages: [EVENT_IMAGES["recap-festival"] ?? "/images/placeholder.jpg"],
+    isFeatured: true,
+    isPopular: true,
+    seoTitle: "RECAP FESTIVAL 2026 | New Year's Eve El Gouna | Syren",
+    seoDescription:
+      "RECAP FESTIVAL: Five days of music, beach parties, and celebrations at El Gouna, Red Sea. December 29, 2026 – January 2, 2027. Book travel packages with Syren.",
+    curatedPackage: {
+      title: "RECAP FESTIVAL Travel Package",
+      description:
+        "Luxury El Gouna accommodation, private transfers, festival access, beach parties, sunset sessions, curated dinners, and creative workshops.",
+      inclusions: [
+        "5-star resort accommodation in El Gouna",
+        "Private airport transfers (Hurghada to El Gouna)",
+        "3-day festival access (Dec 30 - Jan 1)",
+        "Beach party access",
+        "Sunset sessions",
+        "Curated dinners",
+        "Creative workshops",
+        "24/7 Syren concierge"
+      ],
+      ctaLabel: "Book RECAP FESTIVAL Package",
     },
   },
 ];
