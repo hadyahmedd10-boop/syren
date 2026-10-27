@@ -310,24 +310,32 @@ export default async function EventDetailPage({ params }: Props) {
       </section>
 
       {event.lineup && event.lineup.length > 0 && (
-        <section className="section bg-background border-t border-accent-gold/20 pt-8 pb-12">
+        <section className="section bg-background border-t border-accent-gold/20 pt-12 pb-16">
           <div className="container-x mx-auto max-w-7xl">
-            <span className="uppercase tracking-wider text-accent-gold text-xs">The Lineup</span>
+            <h2 className="font-black uppercase text-4xl md:text-5xl lg:text-6xl text-text-primary leading-[0.9] mb-2">
+              THE LINEUP
+            </h2>
+            <div className="w-24 h-1 bg-accent-gold mb-10" />
             <div className="mt-6">
             {event.lineup.length === 1 && event.lineup[0].toUpperCase() === "TBA" ? (
-              <div className="flex justify-center">
-                <span className="uppercase tracking-widest text-text-primary font-medium">
-                  To Be Announced
+              <div className="flex justify-center py-16">
+                <span className="font-black uppercase tracking-[0.3em] text-text-primary/40 text-2xl md:text-3xl">
+                  TO BE ANNOUNCED
                 </span>
               </div>
             ) : (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {event.lineup.map((artist) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+                {event.lineup.map((artist, index) => (
                   <div
                     key={artist}
-                    className="text-text-primary font-medium uppercase tracking-wide text-sm"
+                    className="py-4 md:py-5 border-b border-border/30 last:border-0 flex items-center"
                   >
-                    {artist}
+                    <span className="text-accent-gold/50 font-black text-sm md:text-base mr-4">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="font-black uppercase tracking-[0.15em] text-text-primary text-lg md:text-xl lg:text-2xl">
+                      {artist}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -362,13 +370,18 @@ export default async function EventDetailPage({ params }: Props) {
                       {ap.time && <div>{ap.time}</div>}
                     </div>
                     {Array.isArray(ap.lineup) && ap.lineup.length > 0 && (
-                      <div className="mt-3 space-y-1">
-                        {ap.lineup.map((artist) => (
+                      <div className="mt-4 space-y-0">
+                        {ap.lineup.map((artist, index) => (
                           <div
                             key={artist}
-                            className="text-text-primary font-medium uppercase tracking-wide text-xs"
+                            className="py-2 border-b border-border/20 last:border-0 flex items-center"
                           >
-                            {artist}
+                            <span className="text-accent-gold/40 font-black text-xs mr-3">
+                              {String(index + 1).padStart(2, '0')}
+                            </span>
+                            <span className="font-black uppercase tracking-[0.15em] text-text-primary text-sm">
+                              {artist}
+                            </span>
                           </div>
                         ))}
                       </div>
