@@ -783,7 +783,13 @@ export const events: Event[] = [
     displayDate: "November 6, 2026",
     time: "8:00 PM",
     duration: "6h",
-    lineup: ["ARGY"],
+    lineup: [
+      "ARGY",
+      "AMÉMÉ",
+      "SAMM B2B AJNA",
+      "BASET B2B TNY",
+      "INÈS RAU"
+    ],
     minAge: "21+",
     ticketUrl: "https://ticketegypt.venflare.com/events/tba",
     heroImage: EVENT_IMAGES["argy-neworld"] ?? "/images/placeholder.jpg",
