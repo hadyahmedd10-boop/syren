@@ -62,13 +62,50 @@ export const eventCategories: EventCategory[] = [
 
 export const events: Event[] = [
   {
+    id: "zamna-giza-2027",
+    slug: "zamna-giza-10th-anniversary",
+    title: "Zamna Giza | 10th Anniversary World Tour",
+    category: "International Music Festivals",
+    shortDescription: "Come for Zamna. Experience Egypt. Zamna returns to the Pyramids of Giza for its third edition in Egypt.",
+    fullDescription:
+      "Come for Zamna. Experience Egypt. Zamna returns to the Pyramids of Giza for its third edition in Egypt, celebrating its 10th Anniversary World Tour with an experience that reaches far beyond the dance floor.",
+    location: "The Great Pyramids Of Giza",
+    city: "Giza, Egypt",
+    date: "2027-05-21",
+    displayDate: "May 21–23, 2027",
+    time: "7:00 PM - 3:00 AM",
+    duration: "3 Days",
+    lineup: ["To Be Announced"],
+    minAge: "21+",
+    ticketUrl: "https://www.technoandchill.com/events/",
+    heroImage: EVENT_IMAGES["zamna-giza"] ?? "/images/placeholder.jpg",
+    galleryImages: [EVENT_IMAGES["zamna-giza"]],
+    isFeatured: true,
+    isPopular: true,
+    seoTitle: "Zamna Giza | 10th Anniversary World Tour at Pyramids",
+    seoDescription:
+      "Come for Zamna. Experience Egypt. Zamna returns to the Pyramids of Giza for its third edition in Egypt, celebrating its 10th Anniversary World Tour.",
+    curatedPackage: {
+      title: "Syren Curated Zamna Giza Experience",
+      description: "Luxury hotel stay, VIP transfers, curated Cairo daytime experiences, and priority festival access.",
+      inclusions: [
+        "4-5 star hotel accommodation",
+        "Private airport transfers",
+        "VIP festival access",
+        "Nile sunset cruise",
+        "Guided cultural tour"
+      ],
+      ctaLabel: "Book Zamna Giza Travel Package",
+    },
+  },
+  {
     id: "zamna-egypt-2026",
     slug: "zamna-festival",
     title: "Zamna Egypt",
     category: "International Music Festivals",
     shortDescription: "Three days of music, culture, and adventure beneath the Pyramids.",
     fullDescription:
-      "Zamna is returning to Egypt after last year’s legendary weekend, bringing an elevated multi-day experience that blends electronic music, culture, and curated adventures across Cairo and Giza. Expect international headliners, refined staging, and premium pacing with Syren-curated daytime journeys complementing the night. Further details TBA.",
+      "Zamna is returning to Egypt after last year's legendary weekend, bringing an elevated multi-day experience that blends electronic music, culture, and curated adventures across Cairo and Giza. Expect international headliners, refined staging, and premium pacing with Syren-curated daytime journeys complementing the night. Further details TBA.",
     location: "The Great Pyramids of Giza",
     city: "Giza, Egypt",
     date: "2026-04-24",
