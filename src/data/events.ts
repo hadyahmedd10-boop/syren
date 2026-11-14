@@ -945,4 +945,51 @@ export const events: Event[] = [
       ctaLabel: "Book RECAP FESTIVAL Package",
     },
   },
+  {
+    id: "evt_anyma_pyramids",
+    slug: "anyma-pyramids",
+    title: "ANYMA - ÆDEN MILLENNIUM",
+    category: "International Music Festivals",
+    categories: ["International Music Festivals", "Popular Events in Egypt"],
+    shortDescription: "ANYMA returns to the Great Pyramids of Giza for two legendary nights with Jean-Michel Jarre. Experience electronic music history at the world's most iconic venue.",
+    fullDescription:
+      "ANYMA announces his monumental return to Egypt for two headline shows at the Great Pyramids of Giza in Spring 2027. Following his groundbreaking debut at this UNESCO World Heritage site, ANYMA brings his ÆDEN MILLENNIUM experience back to the ancient wonder for two unforgettable nights. Electronic music pioneer Jean-Michel Jarre will join ANYMA on both performances, creating a historic collaboration between two visionary artists against the timeless backdrop of the Pyramids. This fusion of cutting-edge audiovisual production and 4,500-year-old architecture represents the pinnacle of immersive electronic music experiences. Witness the future of live performance at the monument that has captivated humanity for millennia. VIP travel packages available including luxury Cairo accommodation, private transfers, exclusive Pyramids access, and curated Egyptian experiences.",
+    location: "The Great Pyramids of Giza",
+    city: "Giza, Egypt",
+    date: "2027-03-19",
+    displayDate: "March 19 & 26, 2027",
+    time: "8:00 PM",
+    duration: "2 Nights",
+    lineup: [
+      "ANYMA",
+      "Jean-Michel Jarre"
+    ],
+    minAge: "18+",
+    ticketUrl: "https://ticketegypt.venflare.com/events/tba",
+    heroImage: EVENT_IMAGES["anyma-pyramids"] ?? "/images/placeholder.jpg",
+    galleryImages: [EVENT_IMAGES["anyma-pyramids"] ?? "/images/placeholder.jpg"],
+    isFeatured: true,
+    isPopular: true,
+    seoTitle: "ANYMA Egypt 2027 | Pyramids of Giza Events | ÆDEN MILLENNIUM | Jean-Michel Jarre",
+    seoDescription:
+      "ANYMA returns to Egypt for two legendary nights at the Great Pyramids of Giza, March 19 & 26, 2027. Join Jean-Michel Jarre for ÆDEN MILLENNIUM - the ultimate Pyramids event. Book luxury travel packages, VIP tickets, and exclusive experiences with Syren Egypt. ANYMA by the Pyramids, Egypt electronic music events, Giza concerts 2027.",
+    curatedPackage: {
+      title: "ANYMA Pyramids VIP Experience",
+      description:
+        "Ultra-luxury Cairo accommodation, private helicopter transfers to the Pyramids, VIP front-row seating, exclusive after-party access, private Pyramids plateau tour, and personalized concierge service for the ultimate ANYMA Egypt experience.",
+      inclusions: [
+        "5-star luxury hotel accommodation in Cairo",
+        "Private helicopter transfers to Pyramids of Giza",
+        "VIP front-row seating for both nights",
+        "Exclusive backstage access",
+        "Private Pyramids plateau tour at sunset",
+        "Gourmet dining experiences",
+        "Exclusive after-party invitations",
+        "24/7 dedicated Syren concierge",
+        "Private Egyptologist guide",
+        "Luxury ground transportation"
+      ],
+      ctaLabel: "Book ANYMA Pyramids VIP Package",
+    },
+  },
 ];

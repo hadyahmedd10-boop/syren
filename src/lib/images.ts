@@ -118,6 +118,7 @@ const EVENT_IMAGES_BASE: Record<string, StaticImageData | string> = {
   "argy-neworld": "/images/events/argy-neworld.jpg",
   "longines-global-champions-tour-cairo": "/images/events/Longines-Global-Champions-Tour-Cairo.jpg",
   "recap-festival": "/images/events/recap-festival.png",
+  "anyma-pyramids": "/images/events/anyma-pyramids.jpg",
 };
 
 export const EVENT_IMAGES: Record<string, StaticImageData | string> = new Proxy(EVENT_IMAGES_BASE, {
