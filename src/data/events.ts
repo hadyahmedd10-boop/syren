@@ -974,22 +974,19 @@ export const events: Event[] = [
     seoDescription:
       "ANYMA returns to Egypt for two legendary nights at the Great Pyramids of Giza, March 19 & 26, 2027. Join Jean-Michel Jarre for ÆDEN MILLENNIUM - the ultimate Pyramids event. Book luxury travel packages, VIP tickets, and exclusive experiences with Syren Egypt. ANYMA by the Pyramids, Egypt electronic music events, Giza concerts 2027.",
     curatedPackage: {
-      title: "ANYMA Pyramids VIP Experience",
+      title: "ANYMA Pyramids Travel Experience",
       description:
-        "Ultra-luxury Cairo accommodation, private helicopter transfers to the Pyramids, VIP front-row seating, exclusive after-party access, private Pyramids plateau tour, and personalized concierge service for the ultimate ANYMA Egypt experience.",
+        "High-end travel experiences including luxury Cairo accommodation, premium transfers, VIP event access, and curated Egyptian experiences for the ultimate ANYMA Egypt journey.",
       inclusions: [
         "5-star luxury hotel accommodation in Cairo",
-        "Private helicopter transfers to Pyramids of Giza",
-        "VIP front-row seating for both nights",
-        "Exclusive backstage access",
-        "Private Pyramids plateau tour at sunset",
-        "Gourmet dining experiences",
-        "Exclusive after-party invitations",
-        "24/7 dedicated Syren concierge",
-        "Private Egyptologist guide",
-        "Luxury ground transportation"
+        "Premium private transfers",
+        "VIP event access for both nights",
+        "Private Pyramids plateau tour",
+        "Curated dining experiences",
+        "24/7 Syren concierge support",
+        "Private Egyptologist guide"
       ],
-      ctaLabel: "Book ANYMA Pyramids VIP Package",
+      ctaLabel: "Book ANYMA Pyramids Package",
     },
   },
 ];
