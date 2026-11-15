@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import HeroShell from "@/components/ui/HeroShell";
 import JsonLd from "@/components/seo/JsonLd";
+import VehicleSelector from "@/components/ui/VehicleSelector";
 import FestivalPackagesSection from "./FestivalPackagesSection";
 import FestivalEnquiryCta from "./FestivalEnquiryCta";
 import {
@@ -147,6 +148,23 @@ export default function FestivalLanding({
         intro={packagesIntro}
         emptyNotice={packagesEmptyNotice}
       />
+
+      {/* Your transfers — group-size helper */}
+      <section className="section border-t border-border bg-surface/20">
+        <div className="container-x mx-auto max-w-4xl">
+          <h2 className="font-serif text-2xl text-text-primary md:text-3xl">Your transfers</h2>
+          <div className="mt-4 grid gap-2 text-sm text-text-secondary">
+            <p>Arrival — private airport pickup.</p>
+            <p>Event nights — private festival transfers (hotel to venue and back).</p>
+            <p>Departure — private airport drop-off.</p>
+          </div>
+          <VehicleSelector variant="compact" />
+          <p className="mt-4 text-sm text-text-secondary">
+            Tell us your group size and we&apos;ll suggest the right vehicle. Fixed price quoted
+            before you confirm.
+          </p>
+        </div>
+      </section>
 
       {/* Where to stay, getting there, inclusions, booking, FAQ */}
       <section className="section border-t border-border bg-background">

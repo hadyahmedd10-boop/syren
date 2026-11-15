@@ -5,6 +5,7 @@ import SectionHeader from "@/components/layout/SectionHeader";
 import FinalCTA from "@/components/sections/FinalCTA";
 import { constructMetadata } from "@/lib/seo";
 import BookingTrigger from "@/components/ui/BookingTrigger";
+import AddTransferLine from "@/components/ui/AddTransferLine";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import HeroShell from "@/components/ui/HeroShell";
 import ExcursionItinerary from "@/components/excursions/ExcursionItinerary";
@@ -176,6 +177,13 @@ export default async function ExcursionPage({ params }: Props) {
               </div>
             ) : null}
           </div>
+        </div>
+      </section>
+
+      {/* Add private transfer */}
+      <section className="section-tight">
+        <div className="mx-auto max-w-7xl px-6 md:px-8">
+          <AddTransferLine title={excursion.title} slug={excursion.slug} />
         </div>
       </section>
 

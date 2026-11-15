@@ -6,7 +6,7 @@ import HomeScrollManager from "@/components/layout/HomeScrollManager";
 import FinalCTA from "@/components/sections/FinalCTA";
 import EmailSignup from "@/components/sections/EmailSignup";
 import Testimonials from "@/components/sections/Testimonials";
-import VehicleClassification from "@/components/ui/VehicleClassification";
+import OnTheGround from "@/components/sections/OnTheGround";
 import { SOCIAL_LINKS } from "@/config/social";
 import { events } from "@/data/events";
 import { getFeaturedUpcomingEvents } from "@/lib/eventUtils";
@@ -207,6 +207,9 @@ export default function Home() {
           
         </section>
 
+        {/* SECTION 4b — ON THE GROUND */}
+        <OnTheGround />
+
         {/* SECTION 5 — TRUSTPILOT REVIEWS */}
         <section className="py-16 bg-background">
           <Testimonials />
@@ -307,22 +310,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* SECTION 9 — VEHICLE CLASSIFICATION */}
-      <section className="py-16 bg-background">
-        <div className="container-x mx-auto max-w-6xl text-center mb-12">
-          <p className="text-xs uppercase tracking-[0.3em] text-accent-gold mb-4">
-            FLEET
-          </p>
-          <h2 className="font-serif text-4xl text-text-primary font-light mb-4">
-            Private Transportation, Refined.
-          </h2>
-          <p className="text-text-secondary max-w-2xl mx-auto">
-            A considered fleet for seamless journeys across Egypt. Every transfer is private to your group, with no shared rides.
-          </p>
-        </div>
-        <VehicleClassification />
-      </section>
 
         {/* SECTION 10 — EMAIL SIGNUP */}
         <EmailSignup />

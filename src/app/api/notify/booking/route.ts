@@ -15,6 +15,9 @@ const bookingSchema = z.object({
   notes: z.string().optional().nullable(),
   totalPrice: z.number().optional().nullable(),
   currency: z.string().optional().default("USD"),
+  addTransfer: z.boolean().optional().default(false),
+  arrivalDate: z.string().optional().nullable(),
+  flightNumber: z.string().optional().nullable(),
 });
 
 export async function POST(req: Request) {
@@ -37,6 +40,11 @@ export async function POST(req: Request) {
     if (data.startDate) lines.push(`<p><strong>Start Date:</strong> ${data.startDate}</p>`);
     if (data.endDate) lines.push(`<p><strong>End Date:</strong> ${data.endDate}</p>`);
     lines.push(`<p><strong>Travelers:</strong> ${data.travelers}</p>`);
+    if (data.addTransfer) {
+      lines.push(`<p><strong>Private airport transfers:</strong> Yes</p>`);
+      if (data.arrivalDate) lines.push(`<p><strong>Arrival date:</strong> ${data.arrivalDate}</p>`);
+      if (data.flightNumber) lines.push(`<p><strong>Flight number:</strong> ${data.flightNumber}</p>`);
+    }
     lines.push(`<p><strong>Contact:</strong> ${data.contact}</p>`);
     if (data.totalPrice !== undefined && data.totalPrice !== null) {
       lines.push(`<p><strong>Estimated Total:</strong> ${data.totalPrice.toLocaleString()} ${data.currency}</p>`);
@@ -87,6 +95,13 @@ export async function POST(req: Request) {
           <li><strong>Experience:</strong> ${data.experienceTitle}</li>
           <li><strong>Travel Dates:</strong> ${travelDates}</li>
           <li><strong>Travelers:</strong> ${data.travelers}</li>
+          ${
+            data.addTransfer
+              ? `<li><strong>Private airport transfers:</strong> Yes${
+                  data.arrivalDate ? ` — arrival ${data.arrivalDate}` : ""
+                }${data.flightNumber ? ` (flight ${data.flightNumber})` : ""}</li>`
+              : ""
+          }
           <li><strong>Estimated Total:</strong> ${estimatedTotal}</li>
         </ul>
         <h3 style="color:#C9A84C; margin-top:16px;">What Happens Next</h3>
@@ -125,6 +140,9 @@ export async function POST(req: Request) {
         const messageParts = [
           `Experience: ${data.experienceTitle}`,
           `Travelers: ${data.travelers}`,
+          data.addTransfer
+            ? `Private airport transfers: Yes${data.arrivalDate ? `, arrival ${data.arrivalDate}` : ""}${data.flightNumber ? `, flight ${data.flightNumber}` : ""}`
+            : null,
           data.totalPrice ? `Est. Total: ${data.totalPrice.toLocaleString()} ${data.currency}` : null,
           data.notes ? `Notes: ${data.notes}` : null,
         ].filter(Boolean).join(" | ");

@@ -14,6 +14,7 @@ import HeroShell from "@/components/ui/HeroShell";
 import SectionHeader from "@/components/layout/SectionHeader";
 import BookingSection from "@/components/checkout/BookingSection";
 import BookingTrigger from "@/components/ui/BookingTrigger";
+import AddTransferLine from "@/components/ui/AddTransferLine";
 import { excursions } from "@/data/excursions";
 import ItineraryTimeline from "@/components/sections/ItineraryTimeline";
 import ItineraryImageDebug from "@/components/dev/ItineraryImageDebug";
@@ -342,6 +343,9 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
               </Reveal>
             </div>
           </section>
+
+          {/* 5b. Add private transfer */}
+          <AddTransferLine title={experience.title} slug={slug} />
 
           {/* 6. Testimonials */}
           <section className="section bg-background">

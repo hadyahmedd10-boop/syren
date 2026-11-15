@@ -11,12 +11,14 @@ type BookingDrawerProps = {
   basePriceCurrency?: string;
   perPerson?: boolean;
   showFloatingTrigger?: boolean;
+  /** Pre-tick the "Add private airport transfers" add-on. */
+  defaultTransfer?: boolean;
   /** Optional analytics hook fired once the booking request is accepted. */
   onSubmitted?: () => void;
 };
 
 export type BookingDrawerHandle = {
-  open: () => void;
+  open: (options?: { withTransfer?: boolean }) => void;
   close: () => void;
 };
 
@@ -36,6 +38,7 @@ const BookingDrawer = forwardRef<BookingDrawerHandle, BookingDrawerProps>(functi
     basePriceCurrency = "USD",
     perPerson = true,
     showFloatingTrigger = false,
+    defaultTransfer = false,
     onSubmitted,
   },
   ref
@@ -47,6 +50,9 @@ const BookingDrawer = forwardRef<BookingDrawerHandle, BookingDrawerProps>(functi
   const [contact, setContact] = useState("");
   const [contactError, setContactError] = useState<string | null>(null);
   const [notes, setNotes] = useState("");
+  const [addTransfer, setAddTransfer] = useState(defaultTransfer);
+  const [arrivalDate, setArrivalDate] = useState("");
+  const [flightNumber, setFlightNumber] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -56,7 +62,10 @@ const BookingDrawer = forwardRef<BookingDrawerHandle, BookingDrawerProps>(functi
   const isIntlPhone = (v: string) => /^\+?[\d\s\-\(\)]{7,}$/.test(v);
 
   useImperativeHandle(ref, () => ({
-    open: () => setOpen(true),
+    open: (options) => {
+      if (options?.withTransfer) setAddTransfer(true);
+      setOpen(true);
+    },
     close: () => setOpen(false),
   }));
 
@@ -185,6 +194,53 @@ const BookingDrawer = forwardRef<BookingDrawerHandle, BookingDrawerProps>(functi
               </div>
             </div>
 
+            <div className="rounded-2xl border border-accent-gold/30 bg-black/30 p-4">
+              <label className="flex cursor-pointer items-start gap-3">
+                <input
+                  type="checkbox"
+                  checked={addTransfer}
+                  onChange={(e) => setAddTransfer(e.target.checked)}
+                  className="mt-1 h-4 w-4 accent-[#C9A84C]"
+                />
+                <span>
+                  <span className="block text-sm text-white">Add private airport transfers</span>
+                  <span className="mt-1 block text-[11px] text-white/60">
+                    Arrival and departure, private to your group. Fixed price quoted before you
+                    confirm.
+                  </span>
+                </span>
+              </label>
+
+              {addTransfer && (
+                <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <div>
+                    <label className="mb-2 block text-[11px] uppercase tracking-[0.2em] text-white/60">
+                      Arrival date
+                    </label>
+                    <input
+                      type="date"
+                      value={arrivalDate}
+                      onChange={(e) => setArrivalDate(e.target.value)}
+                      min={todayStr}
+                      className="w-full rounded-lg border border-accent-gold/30 bg-black/40 px-3 py-2 text-white outline-none focus:border-accent-gold/60"
+                    />
+                  </div>
+                  <div>
+                    <label className="mb-2 block text-[11px] uppercase tracking-[0.2em] text-white/60">
+                      Flight number
+                    </label>
+                    <input
+                      type="text"
+                      value={flightNumber}
+                      onChange={(e) => setFlightNumber(e.target.value)}
+                      placeholder="e.g. MS 778"
+                      className="w-full rounded-lg border border-accent-gold/30 bg-black/40 px-3 py-2 text-white outline-none focus:border-accent-gold/60"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
             <div>
               <label className="block text-[11px] uppercase tracking-[0.2em] text-white/60 mb-2">
                 Your Email or WhatsApp Number
@@ -279,6 +335,9 @@ const BookingDrawer = forwardRef<BookingDrawerHandle, BookingDrawerProps>(functi
                       notes,
                       totalPrice: typeof totalPrice === "number" ? totalPrice : undefined,
                       currency: basePriceCurrency,
+                      addTransfer,
+                      arrivalDate: addTransfer ? arrivalDate : undefined,
+                      flightNumber: addTransfer ? flightNumber : undefined,
                     }),
                   });
                   const json = await res.json();

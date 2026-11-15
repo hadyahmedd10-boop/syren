@@ -122,6 +122,17 @@ export default function FestivalPackageCard({ pkg, page, className = "" }: Props
           </ul>
         )}
 
+        <div className="mt-4 rounded-lg border border-border bg-surface-2/30 p-4">
+          <h4 className="text-[11px] uppercase tracking-[0.2em] text-text-secondary">
+            Your transfers
+          </h4>
+          <ul className="mt-2 space-y-1 text-sm text-text-secondary">
+            <li>Arrival — private airport pickup</li>
+            <li>Event nights — private festival transfers (hotel to venue and back)</li>
+            <li>Departure — private airport drop-off</li>
+          </ul>
+        </div>
+
         <div className="mt-4 rounded-lg border border-accent-gold/30 bg-surface-2/40 p-4">
           <h4 className="font-serif text-sm text-text-primary">Festival tickets</h4>
           <p className="mt-1 text-sm leading-relaxed text-text-secondary">
