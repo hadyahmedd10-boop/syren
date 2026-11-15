@@ -5,7 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import type { FestivalPackage, PackageStatus } from "@/data/festivalPackages";
-import { formatPackagePrice, getLandingPathForPackage } from "@/data/festivalPackages";
+import {
+  FESTIVAL_TICKETS_COPY,
+  formatPackagePrice,
+  getLandingPathForPackage,
+  ticketsWhatsappMessage,
+} from "@/data/festivalPackages";
 import { getFestivalImage } from "@/lib/festivalMeta";
 import { waLink } from "@/lib/whatsapp";
 import BookingDrawer, { type BookingDrawerHandle } from "@/components/ui/BookingDrawer";
@@ -51,6 +56,8 @@ export default function FestivalPackageCard({ pkg, page, className = "" }: Props
 
   const whatsappMessage = `Hi Syren — I'd like to join the early-access list for the ${pkg.name} festival travel package.`;
   const waHref = waLink(whatsappMessage);
+  const ticketsHref = waLink(ticketsWhatsappMessage(pkg.name));
+  const isFlexibleStay = pkg.stayWindows.some((w) => w.flexible);
 
   useEffect(() => {
     trackFestivalPackageView({ page, packageId: pkg.id, status: pkg.status });
@@ -80,17 +87,24 @@ export default function FestivalPackageCard({ pkg, page, className = "" }: Props
         <h3 className="font-serif text-xl text-text-primary">{pkg.name}</h3>
 
         {pkg.stayWindows.length > 0 ? (
-          <ul className="mt-3 space-y-1 text-sm text-text-secondary">
-            {pkg.stayWindows.map((w) => (
-              <li key={`${w.checkIn}-${w.checkOut}`}>
-                {formatDayMonth(w.checkIn)} – {formatDayMonth(w.checkOut)}
-                <span className="text-text-secondary/70">
-                  {" "}
-                  · {w.nights} nights · show {formatDayMonth(w.showDate)}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-3">
+            {isFlexibleStay && (
+              <p className="text-[11px] uppercase tracking-[0.2em] text-text-secondary">
+                Suggested stay (flexible)
+              </p>
+            )}
+            <ul className="mt-1 space-y-1 text-sm text-text-secondary">
+              {pkg.stayWindows.map((w) => (
+                <li key={`${w.checkIn}-${w.checkOut}`}>
+                  {formatDayMonth(w.checkIn)} – {formatDayMonth(w.checkOut)}
+                  <span className="text-text-secondary/70">
+                    {" "}
+                    · {w.nights} nights · show {formatDayMonth(w.showDate)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         ) : (
           <p className="mt-3 text-sm text-text-secondary">
             Stay dates to be confirmed with the festival announcement.
@@ -107,6 +121,22 @@ export default function FestivalPackageCard({ pkg, page, className = "" }: Props
             ))}
           </ul>
         )}
+
+        <div className="mt-4 rounded-lg border border-accent-gold/30 bg-surface-2/40 p-4">
+          <h4 className="font-serif text-sm text-text-primary">Festival tickets</h4>
+          <p className="mt-1 text-sm leading-relaxed text-text-secondary">
+            {FESTIVAL_TICKETS_COPY}
+          </p>
+          <a
+            href={ticketsHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackWhatsappClick({ page, packageId: pkg.id })}
+            className="mt-2 inline-block text-xs text-accent-gold transition-colors hover:text-accent-gold/80"
+          >
+            Ask about tickets →
+          </a>
+        </div>
 
         <div className="mt-5 flex items-baseline justify-between border-t border-border pt-4">
           {pkg.priceFrom !== null && (

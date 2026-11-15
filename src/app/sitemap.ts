@@ -3,6 +3,8 @@ import { events } from "@/data/events";
 import { experiences } from "@/data/experiences";
 import { excursions } from "@/data/excursions";
 import { destinations } from "@/data/destinations";
+import { isBespokeLandingSlug } from "@/data/festivalPackages";
+import { isEventUpcoming } from "@/lib/eventUtils";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.syrentravel.com";
@@ -79,5 +81,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticEntries, ...eventEntries, ...experienceEntries, ...excursionEntries, ...destinationEntries];
+  // Generic festival travel pages are generated for every upcoming event that
+  // does not ship a bespoke landing page (and is not excluded from packages).
+  const generatedFestivalEntries: MetadataRoute.Sitemap = events
+    .filter((e) => isEventUpcoming(e))
+    .filter((e) => !e.excludeFromPackages)
+    .filter((e) => !isBespokeLandingSlug(e.slug))
+    .map((e) => ({
+      url: `${base}/festival-travel-egypt/${e.slug}`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    }));
+
+  return [
+    ...staticEntries,
+    ...eventEntries,
+    ...experienceEntries,
+    ...excursionEntries,
+    ...destinationEntries,
+    ...generatedFestivalEntries,
+  ];
 }

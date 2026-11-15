@@ -32,6 +32,8 @@ export type FestivalLandingProps = {
   /** Optional extra block, e.g. an edition history. */
   extraSections?: React.ReactNode;
   whereToStay: React.ReactNode;
+  /** Defaults to "Where to stay near the Pyramids". */
+  whereToStayHeading?: string;
   howToGetThere: React.ReactNode;
   included: string[];
   notIncluded: string[];
@@ -65,6 +67,7 @@ export default function FestivalLanding({
   packagesEmptyNotice,
   extraSections,
   whereToStay,
+  whereToStayHeading = "Where to stay near the Pyramids",
   howToGetThere,
   included,
   notIncluded,
@@ -150,7 +153,7 @@ export default function FestivalLanding({
         <div className="container-x mx-auto max-w-4xl space-y-12">
           <div>
             <h2 className="font-serif text-2xl md:text-3xl text-text-primary">
-              Where to stay near the Pyramids
+              {whereToStayHeading}
             </h2>
             <div className="mt-3 space-y-3 leading-relaxed text-text-secondary">
               {whereToStay}

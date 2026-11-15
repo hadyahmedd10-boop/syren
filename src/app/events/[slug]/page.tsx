@@ -10,6 +10,7 @@ import EventMobileBar from "@/components/ui/EventMobileBar";
 import EventCard from "@/components/sections/events/EventCard";
 import VehicleClassification from "@/components/ui/VehicleClassification";
 import FestivalPackagesSection from "@/components/sections/festival/FestivalPackagesSection";
+import { getLandingPathForEventSlug, shortEventName } from "@/data/festivalPackages";
 import { safeTicketUrl } from "@/lib/festivalMeta";
 import { waLink } from "@/lib/whatsapp";
 import { isEventUpcoming } from "@/lib/eventUtils";
@@ -352,6 +353,8 @@ export default async function EventDetailPage({ params }: Props) {
         page={`/events/${event.slug}`}
         heading="Travel packages"
         intro={`Syren festival travel packages for ${event.title} — private airport transfers, a 24/7 WhatsApp concierge and hotel stays near the venue. Inclusions are confirmed in writing before any payment.`}
+        guideHref={getLandingPathForEventSlug(event.slug)}
+        guideLabel={`Read the full ${shortEventName(event.title)} travel guide →`}
       />
 
       {event.afterParties && event.afterParties.length > 0 && (

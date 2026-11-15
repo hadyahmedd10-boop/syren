@@ -1,4 +1,4 @@
-﻿import { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 import { EVENT_IMAGES } from "@/lib/images";
 
 export type EventCategory =
@@ -43,6 +43,8 @@ export interface Event {
   galleryImages: (StaticImageData | string)[];
   isFeatured: boolean;
   isPopular: boolean;
+  /** Set true to keep an event out of the auto-generated travel packages. */
+  excludeFromPackages?: boolean;
   seoTitle: string;
   seoDescription: string;
   curatedPackage: {

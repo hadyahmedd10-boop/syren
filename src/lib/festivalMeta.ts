@@ -1,5 +1,6 @@
 import type { StaticImageData } from "next/image";
 import { EVENT_IMAGES } from "@/lib/images";
+import type { Event } from "@/data/events";
 
 const FALLBACK = "/images/hero/luxury.jpg";
 
@@ -17,6 +18,16 @@ export function getFestivalImage(eventSlug: string): StaticImageData | string {
 /** og:image / twitter:image need a plain string path. */
 export function getFestivalImageUrl(eventSlug: string): string {
   const img = getFestivalImage(eventSlug);
+  return typeof img === "string" ? img : img.src;
+}
+
+/** Image for a generated festival page — the event's own hero, with a fallback. */
+export function getEventImage(event: Event): StaticImageData | string {
+  return event.heroImage ?? EVENT_IMAGES[event.slug] ?? FALLBACK;
+}
+
+export function getEventImageUrl(event: Event): string {
+  const img = getEventImage(event);
   return typeof img === "string" ? img : img.src;
 }
 

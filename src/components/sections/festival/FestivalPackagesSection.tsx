@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getPackagesByEventSlug } from "@/data/festivalPackages";
 import FestivalPackageCard from "./FestivalPackageCard";
 
@@ -6,6 +7,9 @@ type Props = {
   page: string;
   heading?: string;
   intro?: string;
+  /** Optional link to the event's landing page (set from the event detail page). */
+  guideHref?: string;
+  guideLabel?: string;
   /** Rendered instead of the grid when the festival has no published packages. */
   emptyNotice?: React.ReactNode;
 };
@@ -15,6 +19,8 @@ export default function FestivalPackagesSection({
   page,
   heading = "Festival travel packages",
   intro,
+  guideHref,
+  guideLabel,
   emptyNotice,
 }: Props) {
   const packages = getPackagesByEventSlug(eventSlug);
@@ -42,6 +48,14 @@ export default function FestivalPackagesSection({
             <FestivalPackageCard key={pkg.id} pkg={pkg} page={page} />
           ))}
         </div>
+        {guideHref && (
+          <Link
+            href={guideHref}
+            className="mt-6 inline-block text-sm text-accent-gold underline underline-offset-2"
+          >
+            {guideLabel}
+          </Link>
+        )}
         <p className="mt-6 text-sm text-text-secondary">
           Package inclusions are confirmed in writing before any payment. Prices are shown only
           once agreed with our suppliers — &ldquo;Price on request&rdquo; means we quote you
