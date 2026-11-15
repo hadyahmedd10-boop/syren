@@ -1,54 +1,38 @@
 "use client";
 
-import { useEffect } from "react";
-
 /**
- * Analytics utility for Syren.
+ * Analytics for Syren — consent gated.
  *
- * Two responsibilities live here:
- *  1. `track()` — a lightweight event stub used by landing-page components.
- *  2. The deferred loader for GA4 and Microsoft Clarity.
+ * No third-party analytics script loads, and no analytics cookie is set, until
+ * the visitor accepts the "Analytics" cookie category. Before consent every
+ * helper here is a safe no-op: it does not throw and it never queues work that
+ * would fire later without consent.
+ *
+ * Google Consent Mode v2 runs in "basic" mode. The four denied defaults are set
+ * in the document head (see src/app/layout.tsx) before any gtag call, and
+ * gtag.js itself is only injected once consent is granted.
+ *
+ * Microsoft Clarity uses the current official Consent API v2:
+ *   window.clarity('consentv2', { ad_Storage, analytics_Storage })
+ * https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-consent-api-v2
  */
+
+import { analyticsAllowed } from "@/lib/consent";
 
 type EventPayload = Record<string, string | number | boolean | null | undefined>;
-
-export function track(eventName: string, payload?: EventPayload) {
-  // Only log in development
-  if (process.env.NODE_ENV === "development") {
-    console.log(`[Analytics] Track Event: ${eventName}`, payload || "");
-  }
-
-  // Future integration points:
-  // - window.gtag('event', eventName, payload)
-  // - window.fbq('trackCustom', eventName, payload)
-}
-
-/**
- * Third-party analytics loader.
- *
- * Google Analytics 4 and Microsoft Clarity are heavy third-party bundles. On a
- * throttled mobile device they block the main thread for roughly 0.6s and 0.25s
- * respectively, which dominates Total Blocking Time on the festival pages.
- *
- * Instead of loading them on page load we wait for the first real user
- * interaction. GA4 events fired before that point are not lost: the gtag stub
- * in the root layout pushes them onto `window.dataLayer`, and gtag.js replays
- * the queue as soon as it loads.
- */
 
 const GA_MEASUREMENT_ID = "G-119ZX0583F";
 const CLARITY_PROJECT_ID = "vt8xkvfec3";
 
-const INTERACTION_EVENTS = [
-  "pointerdown",
-  "pointermove",
-  "keydown",
-  "touchstart",
-  "scroll",
-  "wheel",
-];
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+    clarity?: ((...args: unknown[]) => void) & { q?: unknown[] };
+  }
+}
 
-let started = false;
+let activated = false;
 
 function injectScript(src: string) {
   if (typeof document === "undefined") return;
@@ -59,41 +43,76 @@ function injectScript(src: string) {
   document.head.appendChild(script);
 }
 
-/** Loads GA4 and Clarity. Safe to call more than once; only the first call acts. */
-export function loadAnalytics() {
-  if (started || typeof window === "undefined") return;
-  started = true;
+/** Ensures the gtag stub exists so queued Consent Mode commands can be flushed. */
+function ensureGtagStub() {
+  if (typeof window === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
+  if (typeof window.gtag !== "function") {
+    window.gtag = function gtag(...args: unknown[]) {
+      window.dataLayer?.push(args);
+    };
+  }
+}
+
+/**
+ * Microsoft Clarity expects `window.clarity` to exist as a command queue before
+ * its tag loads, so consent is registered ahead of injection.
+ */
+function ensureClarityStub() {
+  if (typeof window === "undefined") return;
+  if (typeof window.clarity === "function") return;
+  const clarity = ((...args: unknown[]) => {
+    clarity.q = clarity.q || [];
+    clarity.q.push(args);
+  }) as ((...args: unknown[]) => void) & { q?: unknown[] };
+  clarity.q = [];
+  window.clarity = clarity;
+}
+
+/**
+ * Loads GA4 and Microsoft Clarity. Called only after analytics consent is
+ * granted (from the consent banner). Safe to call more than once.
+ */
+export function activateAnalytics() {
+  if (activated || typeof window === "undefined") return;
+  activated = true;
+
+  // Google Consent Mode v2 — grant analytics storage, keep ad signals denied.
+  ensureGtagStub();
+  window.gtag?.("consent", "update", {
+    ad_storage: "denied",
+    analytics_storage: "granted",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
+  window.gtag?.("js", new Date());
+  window.gtag?.("config", GA_MEASUREMENT_ID, {
+    page_path: window.location.pathname,
+  });
   injectScript(`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`);
+
+  // Microsoft Clarity Consent API v2 — registered before the tag loads.
+  ensureClarityStub();
+  window.clarity?.("consentv2", {
+    ad_Storage: "denied",
+    analytics_Storage: "granted",
+  });
   injectScript(`https://www.clarity.ms/tag/${CLARITY_PROJECT_ID}`);
 }
 
-/** Starts analytics on the first user interaction, so it stays off the critical path. */
-export function armAnalyticsOnInteraction() {
-  if (typeof window === "undefined") return;
+/**
+ * GA4 event. Safe no-op without analytics consent, and never throws.
+ */
+export function track(eventName: string, payload?: EventPayload) {
+  if (process.env.NODE_ENV === "development") {
+    console.log(`[Analytics] Track Event: ${eventName}`, payload || "");
+  }
 
-  const trigger = () => {
-    INTERACTION_EVENTS.forEach((event) => window.removeEventListener(event, trigger));
-    loadAnalytics();
-  };
+  if (!analyticsAllowed()) return;
 
-  INTERACTION_EVENTS.forEach((event) =>
-    window.addEventListener(event, trigger, { once: true, passive: true })
-  );
-
-  // Safety net: a visitor who reads and leaves without interacting is still counted
-  // when the page is hidden.
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "hidden") {
-      INTERACTION_EVENTS.forEach((event) => window.removeEventListener(event, trigger));
-      loadAnalytics();
-    }
-  });
-}
-
-/** Mounts the interaction listener once. Renders nothing. */
-export function AnalyticsOnInteraction() {
-  useEffect(() => {
-    armAnalyticsOnInteraction();
-  }, []);
-  return null;
+  try {
+    window.gtag?.("event", eventName, payload || {});
+  } catch {
+    // never let analytics break the UI
+  }
 }

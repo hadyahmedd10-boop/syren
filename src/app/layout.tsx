@@ -12,7 +12,7 @@ import PerfSafe from "@/components/dev/PerfSafe";
 import ThemeScript from "@/components/theme/ThemeScript";
 import Script from "next/script";
 import FloatingWhatsAppFab from "@/components/ui/FloatingWhatsAppFab";
-import { AnalyticsOnInteraction } from "@/lib/analytics";
+import { ConsentProvider } from "@/providers/ConsentProvider";
 
 // Run data validation in development
 if (process.env.NODE_ENV === "development") {
@@ -92,6 +92,18 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
+        {/*
+          Google Consent Mode v2 — "basic" mode.
+          The denied defaults must be set before any gtag call. gtag.js itself is
+          NOT loaded here; it is injected only after analytics consent is granted
+          (see src/lib/analytics.ts).
+        */}
+        <script
+          id="consent-mode-default"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});`,
+          }}
+        />
         <ThemeScript />
         <link rel="icon" href="/favicon.png" type="image/png" />
         <Script id="perf-safe-before" strategy="beforeInteractive">
@@ -143,28 +155,21 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <ThemeProvider>
-          <PHProvider>
-            <PerfSafe />
-            <Suspense>
-              <PostHogPageView />
-            </Suspense>
-            <Navbar />
-            <main id="main-content" role="main" className="pt-20">
-              {children}
-            </main>
-            <FooterGate />
-            <ViewportBadge />
-          </PHProvider>
+          <ConsentProvider>
+            <PHProvider>
+              <PerfSafe />
+              <Suspense>
+                <PostHogPageView />
+              </Suspense>
+              <Navbar />
+              <main id="main-content" role="main" className="pt-20">
+                {children}
+              </main>
+              <FooterGate />
+              <ViewportBadge />
+            </PHProvider>
+          </ConsentProvider>
         </ThemeProvider>
-        <AnalyticsOnInteraction />
-        <Script id="ga4-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-119ZX0583F', { page_path: window.location.pathname });
-          `}
-        </Script>
         <Script
           id="trustpilot-invite"
           strategy="lazyOnload"

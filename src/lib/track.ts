@@ -1,13 +1,14 @@
 "use client";
 import posthog from "posthog-js";
+import { analyticsAllowed } from "@/lib/consent";
+import { track } from "@/lib/analytics";
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
-
+/**
+ * PostHog capture. Consent gated: it is a safe no-op until the visitor accepts
+ * analytics cookies (which is also when PostHog is initialised).
+ */
 export function trackCta(event: string, props?: Record<string, unknown>) {
+  if (!analyticsAllowed() || !posthog.__loaded) return;
   try {
     posthog.capture(event, props);
   } catch {
@@ -26,13 +27,7 @@ type FestivalEventProps = {
 
 /** GA4 + PostHog event used by the festival travel pages. */
 export function trackFestivalEvent(eventName: string, props: FestivalEventProps) {
-  try {
-    if (typeof window !== "undefined" && typeof window.gtag === "function") {
-      window.gtag("event", eventName, props);
-    }
-  } catch {
-    // no-op
-  }
+  track(eventName, props);
   trackCta(eventName, props);
 }
 

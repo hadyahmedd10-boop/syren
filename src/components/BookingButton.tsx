@@ -3,6 +3,7 @@
 import { Lock, ArrowRight, Loader2 } from "lucide-react"
 import { usePostHog } from 'posthog-js/react'
 import { useState } from 'react'
+import { analyticsAllowed } from '@/lib/consent'
 
 interface BookingButtonProps {
   experienceTitle: string
@@ -24,7 +25,7 @@ export default function BookingButton({
     try {
       setLoading(true)
       
-      if (posthog) {
+      if (analyticsAllowed() && posthog?.__loaded) {
         posthog.capture('checkout_clicked', {
           experience_title: experienceTitle,
           experience_slug: experienceSlug,

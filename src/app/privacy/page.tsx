@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
       <section className="section">
         <div className="mx-auto max-w-4xl container-x">
           <SectionHeader title="Privacy Policy" label="Your Privacy Matters to Us" className="mb-8" />
-          <p className="mb-2 text-sm text-text-secondary">Last updated: February 24th, 2026</p>
+          <p className="mb-2 text-sm text-text-secondary">Last updated: November 15th, 2026</p>
           <p className="mb-6">
             Syren Travel (“we,” “us,” or “our”) respects your privacy and is committed to protecting your personal
             information. This Privacy Policy explains what information we collect, how we use it, and your rights when you
@@ -64,34 +64,36 @@ export default function PrivacyPolicyPage() {
           </ul>
           <p className="mb-10">We do not sell your personal data for monetary gain.</p>
 
-          <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-3">3) Advertising, Analytics &amp; Remarketing</h2>
-          <p className="mb-4">We may use third-party services such as:</p>
+          <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-3">3) Analytics &amp; Cookies</h2>
+          <p className="mb-4">
+            We use a small number of third-party analytics services. None of them load, and none of them set a
+            cookie, until you accept analytics cookies in our cookie banner. You can accept or reject analytics
+            cookies, and change your choice at any time.
+          </p>
+          <p className="mb-4">The services we use are:</p>
           <ul className="list-disc ml-6 mb-4">
-            <li>Google Analytics</li>
-            <li>Google Ads</li>
-            <li>Meta (Facebook &amp; Instagram) advertising tools</li>
+            <li>
+              <strong>Google Analytics 4 (GA4)</strong> — measures how visitors use the site, such as pages viewed
+              and actions taken, so we can improve it. Under Google Consent Mode v2, advertising storage and
+              personalisation signals remain denied.
+            </li>
+            <li>
+              <strong>Microsoft Clarity</strong> — provides anonymised session recordings and heatmaps that help us
+              find usability problems. It uses Microsoft&rsquo;s Consent API v2 and only records after you consent.
+            </li>
+            <li>
+              <strong>PostHog</strong> — product analytics that shows which experiences and pages visitors engage
+              with, so we can improve the booking journey.
+            </li>
           </ul>
-          <p className="mb-4">These tools help us:</p>
-          <ul className="list-disc ml-6 mb-4">
-            <li>Understand website usage</li>
-            <li>Measure advertising performance</li>
-            <li>Show relevant travel advertisements (remarketing)</li>
-          </ul>
-          <p className="mb-4">To do this, certain data may be collected or shared, including:</p>
-          <ul className="list-disc ml-6 mb-4">
-            <li>Website activity (pages viewed, actions taken)</li>
-            <li>Device and browser data</li>
-            <li>IP address</li>
-            <li>Cookie or advertising identifiers</li>
-          </ul>
-          <p className="mb-6">
-            In some cases, limited customer information (such as encrypted/hashed email addresses) may be shared with advertising
-            platforms for audience measurement or enhanced conversions. These platforms may combine this information with other data
-            they hold, in accordance with their own privacy policies.
+          <p className="mb-4">
+            When you consent, these services may collect or process website activity (pages viewed, actions taken),
+            device and browser data, IP address and cookie identifiers.
           </p>
           <p className="mb-10">
-            You may control cookies via your browser settings and available cookie banners. You can also manage ad preferences through
-            Google and Meta ad settings.
+            <strong>How to change your choice:</strong> use the &ldquo;Cookie settings&rdquo; link in the footer to
+            reopen the cookie banner and accept or reject analytics cookies again. You can also clear this
+            site&rsquo;s cookies and stored data through your browser settings.
           </p>
 
           <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-3">4) When We Share Your Information</h2>

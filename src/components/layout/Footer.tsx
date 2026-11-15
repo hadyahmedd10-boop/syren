@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { SOCIAL_LINKS, WHATSAPP_LINK, SOCIAL_EVENTS } from "@/config/social";
 import { trackCta } from "@/lib/track";
+import { openCookieSettings } from "@/lib/consent";
 import { Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
 import TrustpilotWidget from "@/components/ui/TrustpilotWidget";
 
@@ -31,6 +32,15 @@ export default function Footer() {
             <li><Link href="/contact" className="hover:text-accent-gold transition-colors">Contact</Link></li> 
             <li><Link href="/terms" className="hover:text-accent-gold transition-colors">Terms of Service</Link></li> 
             <li><Link href="/privacy" className="hover:text-accent-gold transition-colors">Privacy Policy</Link></li> 
+            <li>
+              <button
+                type="button"
+                onClick={openCookieSettings}
+                className="hover:text-accent-gold transition-colors text-left"
+              >
+                Cookie settings
+              </button>
+            </li>
           </ul> 
         </div> 
 

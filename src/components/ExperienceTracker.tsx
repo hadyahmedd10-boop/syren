@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import { usePostHog } from 'posthog-js/react'
+import { analyticsAllowed } from '@/lib/consent'
 
 interface ExperienceTrackerProps {
   experienceTitle: string
@@ -12,7 +13,8 @@ export default function ExperienceTracker({ experienceTitle, experienceSlug }: E
   const posthog = usePostHog()
 
   useEffect(() => {
-    if (posthog) {
+    // Only after analytics cookies are accepted.
+    if (analyticsAllowed() && posthog?.__loaded) {
       posthog.capture('experience_viewed', {
         experience_title: experienceTitle,
         experience_slug: experienceSlug,
