@@ -6,9 +6,9 @@ export const revalidate = 3600;
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: "FAQ — Egypt Travel Questions Answered | Syren",
+  title: "FAQ — Egypt Travel Questions Answered",
   description:
-    "Find answers to the most common Egypt travel questions — visa requirements, safety, booking process, cancellation policy, packing tips, and concierge support.",
+    "Find answers to the most common Egypt travel questions — visa requirements, safety, booking process, cancellation policy, packing tips and more.",
   alternates: { canonical: "/faq" },
 };
 

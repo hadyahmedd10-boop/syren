@@ -8,9 +8,9 @@ export const revalidate = 3600;
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: "Is Egypt Safe to Travel? 2026 Guide | Syren",
+  title: "Is Egypt Safe to Travel? 2026 Guide",
   description:
-    "Is Egypt safe to travel in 2026? Our honest local guide covers tourist safety, solo female travel, practical tips, and why millions visit Egypt safely every year.",
+    "Is Egypt safe to travel in 2026? Our honest local guide covers tourist safety, solo female travel, and practical tips for planning your Egypt journey.",
   keywords: [
     "is egypt safe",
     "is it safe to travel to egypt",
@@ -23,18 +23,18 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/is-egypt-safe" },
   openGraph: {
-    title: "Is Egypt Safe to Travel? 2026 Guide | Syren",
+    title: "Is Egypt Safe to Travel? 2026 Guide",
     description:
-      "Is Egypt safe to travel in 2026? Our honest local guide covers tourist safety, solo female travel, practical tips, and why millions visit Egypt safely every year.",
+      "Is Egypt safe to travel in 2026? Our honest local guide covers tourist safety, solo female travel, and practical tips for planning your Egypt journey.",
     type: "article",
     url: "https://www.syrentravel.com/is-egypt-safe",
     images: [{ url: HERO_IMAGES.home.src }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Is Egypt Safe to Travel? 2026 Guide | Syren",
+    title: "Is Egypt Safe to Travel? 2026 Guide",
     description:
-      "Is Egypt safe to travel? Honest answers on solo travel, women travelers, safety tips, and why millions visit Egypt safely every year.",
+      "Is Egypt safe to travel in 2026? Our honest local guide covers tourist safety, solo female travel, and practical tips for planning your Egypt journey.",
   },
 };
 

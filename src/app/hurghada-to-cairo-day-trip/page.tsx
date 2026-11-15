@@ -5,12 +5,12 @@ import SectionHeader from "@/components/layout/SectionHeader";
 import { HERO_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Hurghada to Cairo Day Trip Guide | Syren",
+  title: "Hurghada to Cairo Day Trip Guide",
   description: "Plan the perfect Hurghada to Cairo day trip in 2026. By car or plane, what to see, how long it takes, and how to book a private guided tour with Syren.",
   keywords: ["hurghada to cairo day trip", "cairo day trip from hurghada", "hurghada cairo transfer", "day trip cairo from hurghada", "hurghada cairo by plane"],
   alternates: { canonical: "/hurghada-to-cairo-day-trip" },
   openGraph: {
-    title: "Hurghada to Cairo Day Trip Guide | Syren",
+    title: "Hurghada to Cairo Day Trip Guide",
     description: "Plan the perfect Hurghada to Cairo day trip in 2026. By car or plane, what to see, how long it takes, and how to book a private guided tour with Syren.",
     url: "https://www.syrentravel.com/hurghada-to-cairo-day-trip",
     type: "article",

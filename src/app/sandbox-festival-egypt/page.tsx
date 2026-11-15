@@ -5,23 +5,23 @@ import { HERO_IMAGES } from "@/lib/images";
 import HeroShell from "@/components/ui/HeroShell";
 
 export const metadata: Metadata = {
-  title: "Sandbox Festival Egypt 2026 — El Gouna Travel Guide | Syren",
+  title: "Sandbox Festival Egypt 2026 — El Gouna Guide",
   description:
-    "Sandbox Festival 2026 guide—El Gouna, Red Sea. Book travel packages with Syren and experience Egypt’s boutique coastal festival.",
+    "Your complete guide to Sandbox Festival 2026 in El Gouna, Red Sea. Book your travel package with Syren and experience this boutique coastal festival.",
   alternates: { canonical: "/sandbox-festival-egypt" },
   openGraph: {
-    title: "Sandbox Festival Egypt 2026 — El Gouna Travel Guide | Syren",
+    title: "Sandbox Festival Egypt 2026 — El Gouna Guide",
     description:
-      "Sandbox Festival 2026 guide—El Gouna, Red Sea. Book travel packages with Syren and experience Egypt’s boutique coastal festival.",
+      "Your complete guide to Sandbox Festival 2026 in El Gouna, Red Sea. Book your travel package with Syren and experience this boutique coastal festival.",
     url: "https://www.syrentravel.com/sandbox-festival-egypt",
     type: "website",
     images: [{ url: HERO_IMAGES.home.src }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sandbox Festival Egypt 2026 — El Gouna Travel Guide | Syren",
+    title: "Sandbox Festival Egypt 2026 — El Gouna Guide",
     description:
-      "Your complete guide to Sandbox Festival 2026 in El Gouna, Red Sea. Book your travel package with Syren and experience Egypt's finest coastal festival.",
+      "Your complete guide to Sandbox Festival 2026 in El Gouna, Red Sea. Book your travel package with Syren and experience this boutique coastal festival.",
   },
 };
 

@@ -9,8 +9,8 @@ import { Ship, Calendar, MapPin, Star, Clock } from "lucide-react";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "Luxury Nile Cruise Egypt | Private Nile Tours | Syren",
-  description: "Experience Egypt's legendary Nile with Syren's luxury cruises. 5-star ships from Aswan to Luxor, private charters, and curated temple itineraries with expert Egyptologists.",
+  title: "Luxury Nile Cruise Egypt | Private Nile Tours",
+  description: "Experience Egypt's legendary Nile with Syren's luxury cruises. 5-star ships from Aswan to Luxor, private charters, and expert-guided temple itineraries.",
   keywords: [
     "luxury Nile cruise Egypt",
     "Nile cruise from Aswan to Luxor",
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/nile-cruises" },
   openGraph: {
-    title: "Luxury Nile Cruise Egypt | Private Nile Tours | Syren",
-    description: "Experience Egypt's legendary Nile with Syren's luxury cruises. 5-star ships from Aswan to Luxor, private charters, and curated temple itineraries with expert Egyptologists.",
+    title: "Luxury Nile Cruise Egypt | Private Nile Tours",
+    description: "Experience Egypt's legendary Nile with Syren's luxury cruises. 5-star ships from Aswan to Luxor, private charters, and expert-guided temple itineraries.",
     url: "https://www.syrentravel.com/nile-cruises",
     type: "website",
     images: [{ url: HERO_IMAGES.home.src }],

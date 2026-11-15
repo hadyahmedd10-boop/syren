@@ -10,8 +10,8 @@ import { Pyramid, MapPin, Clock, User, Star } from "lucide-react";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "Private Cairo Tours | Egyptologist Guide | Syren",
-  description: "Book private Cairo tours with expert Egyptologists. Giza Pyramids, Grand Egyptian Museum, Islamic Cairo, and customized itineraries for discerning travelers.",
+  title: "Private Cairo Tours | Egyptologist Guide",
+  description: "Book private Cairo tours with expert Egyptologists. Giza Pyramids, Grand Egyptian Museum, Islamic Cairo, and customized itineraries for travelers.",
   keywords: [
     "private Cairo tours",
     "Cairo private tour guide",
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/cairo-private-tours" },
   openGraph: {
-    title: "Private Cairo Tours | Egyptologist Guide | Syren",
-    description: "Book private Cairo tours with expert Egyptologists. Giza Pyramids, Grand Egyptian Museum, Islamic Cairo, and customized itineraries for discerning travelers.",
+    title: "Private Cairo Tours | Egyptologist Guide",
+    description: "Book private Cairo tours with expert Egyptologists. Giza Pyramids, Grand Egyptian Museum, Islamic Cairo, and customized itineraries for travelers.",
     url: "https://www.syrentravel.com/cairo-private-tours",
     type: "website",
     images: [{ url: HERO_IMAGES.home.src }],

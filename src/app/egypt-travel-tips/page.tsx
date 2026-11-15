@@ -8,13 +8,13 @@ export const revalidate = 3600;
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: "Egypt Travel Tips for First Timers | Syren",
-  description: "Essential Egypt travel tips for first-time visitors. Visa advice, currency, transport, packing list, cultural etiquette, and safety guidance from local experts.",
+  title: "Egypt Travel Tips for First Timers",
+  description: "Essential Egypt travel tips for first-time visitors. Visa advice, currency, transport, packing list, cultural etiquette, and local safety guidance.",
   keywords: ["egypt travel tips", "egypt travel advice", "visiting egypt first time", "egypt tourist tips", "egypt travel guide"],
   alternates: { canonical: "/egypt-travel-tips" },
   openGraph: {
-    title: "Egypt Travel Tips for First Timers | Syren",
-    description: "Essential Egypt travel tips for first-time visitors. Visa advice, currency, transport, packing list, cultural etiquette, and safety guidance from local experts.",
+    title: "Egypt Travel Tips for First Timers",
+    description: "Essential Egypt travel tips for first-time visitors. Visa advice, currency, transport, packing list, cultural etiquette, and local safety guidance.",
     url: "https://www.syrentravel.com/egypt-travel-tips",
     type: "article",
     images: [{ url: HERO_IMAGES.home.src }],

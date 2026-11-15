@@ -6,23 +6,23 @@ import { experiences } from "@/data/experiences";
 import { destinations } from "@/data/destinations";
 
 export const metadata: Metadata = {
-  title: "Things to Do in Cairo — Curated Guide | Syren",
+  title: "Things to Do in Cairo — Curated Guide",
   description:
-    "Best things to do in Cairo—from the Pyramids to rooftops, Nile nights and underground events—Syren’s inside guide.",
+    "Discover the best things to do in Cairo, from the Pyramids to hidden rooftops, Nile cruises to underground events — a local insider guide to the city.",
   alternates: { canonical: "/things-to-do-cairo" },
   openGraph: {
-    title: "Things to Do in Cairo — Curated Guide | Syren",
+    title: "Things to Do in Cairo — Curated Guide",
     description:
-      "Best things to do in Cairo—from the Pyramids to rooftops, Nile nights and underground events—Syren’s inside guide.",
+      "Discover the best things to do in Cairo, from the Pyramids to hidden rooftops, Nile cruises to underground events — a local insider guide to the city.",
     url: "/things-to-do-cairo",
     type: "website",
     images: [{ url: HERO_IMAGES.home.src }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Things to Do in Cairo — Curated Guide | Syren",
+    title: "Things to Do in Cairo — Curated Guide",
     description:
-      "Discover the best things to do in Cairo. From the Pyramids to hidden rooftops, Nile cruises to underground events — Syren's insider Cairo guide.",
+      "Discover the best things to do in Cairo, from the Pyramids to hidden rooftops, Nile cruises to underground events — a local insider guide to the city.",
   },
 };
 

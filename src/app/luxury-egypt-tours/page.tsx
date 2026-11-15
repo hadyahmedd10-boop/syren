@@ -5,25 +5,25 @@ import { HERO_IMAGES } from "@/lib/images";
 import HeroShell from "@/components/ui/HeroShell";
 
 export const metadata: Metadata = {
-  title: "Luxury Egypt Tours & Private Journeys | Syren",
+  title: "Luxury Egypt Tours & Private Journeys",
   description:
-    "Luxury Egypt tours and private journeys—Nile cruises, desert trips and curated Cairo experiences for discerning travelers.",
+    "Luxury Egypt tours and private journeys—Nile cruises, desert trips and curated Cairo experiences for discerning travelers. Plan your journey with Syren.",
   alternates: {
     canonical: "/luxury-egypt-tours",
   },
   openGraph: {
-    title: "Luxury Egypt Tours & Private Journeys | Syren",
+    title: "Luxury Egypt Tours & Private Journeys",
     description:
-      "Luxury Egypt tours and private journeys—Nile cruises, desert trips and curated Cairo experiences for discerning travelers.",
+      "Luxury Egypt tours and private journeys—Nile cruises, desert trips and curated Cairo experiences for discerning travelers. Plan your journey with Syren.",
     url: "https://www.syrentravel.com/luxury-egypt-tours",
     type: "website",
     images: [{ url: HERO_IMAGES.home.src }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luxury Egypt Tours & Private Journeys | Syren",
+    title: "Luxury Egypt Tours & Private Journeys",
     description:
-      "Luxury Egypt tours and private journeys—Nile cruises, desert trips and curated Cairo experiences for discerning travelers.",
+      "Luxury Egypt tours and private journeys—Nile cruises, desert trips and curated Cairo experiences for discerning travelers. Plan your journey with Syren.",
   },
 };
 

@@ -31,8 +31,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const title = `${destination.name} | Luxury Travel Guide | Syren`;
-  const description = `Explore ${destination.name} with Syren. ${destination.description}`;
+  // The root layout appends " | Syren Egypt" (14 chars), so the page title must
+  // stay <= 46 chars and must not repeat the brand.
+  const clampTitle = (s: string) => {
+    const t = s.trim();
+    if (t.length <= 46) return t;
+    const cut = t.slice(0, 45);
+    const sp = cut.lastIndexOf(" ");
+    const base = sp > 20 ? cut.slice(0, sp) : cut;
+    return `${base.replace(/[\s,;:–—-]+$/, "")}…`;
+  };
+  const title = clampTitle(`${destination.name} | Luxury Travel Guide`);
+  let description = `Explore ${destination.name} with Syren. ${destination.description}`;
+  if (description.length < 140) {
+    description = `${description} Plan your journey with our local experts.`;
+  }
+  if (description.length > 155) {
+    description = `${description.slice(0, 154).trimEnd()}…`;
+  }
   const heroImageUrl = destination.heroImage.src;
 
   return {

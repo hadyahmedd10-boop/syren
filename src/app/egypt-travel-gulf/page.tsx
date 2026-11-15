@@ -4,9 +4,9 @@ import { HERO_IMAGES } from "@/lib/images";
 import HeroShell from "@/components/ui/HeroShell";
 
 export const metadata: Metadata = {
-  title: "Egypt Travel Packages from the Gulf | Syren",
+  title: "Egypt Travel Packages from the Gulf",
   description:
-    "Egypt travel from the Gulf—premium experiences, festivals, private tours and luxury stays for UAE, Saudi and Kuwait travelers.",
+    "Egypt travel from the Gulf — premium experiences, festivals, private tours, and luxury stays for travelers from the UAE, Saudi Arabia, and Kuwait.",
   keywords: [
     "Egypt travel from UAE",
     "Egypt from Saudi Arabia",
@@ -16,18 +16,18 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/egypt-travel-gulf" },
   openGraph: {
-    title: "Egypt Travel Packages from the Gulf | Syren",
+    title: "Egypt Travel Packages from the Gulf",
     description:
-      "Egypt travel from the Gulf—premium experiences, festivals, private tours and luxury stays for UAE, Saudi and Kuwait travelers.",
+      "Egypt travel from the Gulf — premium experiences, festivals, private tours, and luxury stays for travelers from the UAE, Saudi Arabia, and Kuwait.",
     url: "https://www.syrentravel.com/egypt-travel-gulf",
     type: "website",
     images: [{ url: HERO_IMAGES.home.src }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Egypt Travel Packages from the Gulf | Syren",
+    title: "Egypt Travel Packages from the Gulf",
     description:
-      "Traveling to Egypt from UAE, Saudi Arabia, or Kuwait? Syren curates premium Egyptian experiences for Gulf travelers — festivals, private tours, and luxury stays.",
+      "Egypt travel from the Gulf — premium experiences, festivals, private tours, and luxury stays for travelers from the UAE, Saudi Arabia, and Kuwait.",
   },
 };
 

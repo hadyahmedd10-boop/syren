@@ -5,23 +5,23 @@ import HeroShell from "@/components/ui/HeroShell";
 import { events } from "@/data/events";
 
 export const metadata: Metadata = {
-  title: "Egypt Music Festivals 2026 | Syren",
+  title: "Egypt Music Festivals 2026",
   description:
-    "Guide to Egypt’s 2026 music festivals—Zamna, NOART, Sandbox and more—with travel packages and insider tips.",
+    "Guide to the 2026 music festivals in Egypt — Zamna, NOART, Sandbox and more — with travel packages, dates, and insider tips for planning your trip.",
   alternates: { canonical: "/egypt-music-festivals-2026" },
   openGraph: {
-    title: "Egypt Music Festivals 2026 | Syren",
+    title: "Egypt Music Festivals 2026",
     description:
-      "Guide to Egypt’s 2026 music festivals—Zamna, NOART, Sandbox and more—with travel packages and insider tips.",
+      "Guide to the 2026 music festivals in Egypt — Zamna, NOART, Sandbox and more — with travel packages, dates, and insider tips for planning your trip.",
     url: "https://www.syrentravel.com/egypt-music-festivals-2026",
     type: "website",
     images: [{ url: HERO_IMAGES.home.src }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Egypt Music Festivals 2026 | Syren",
+    title: "Egypt Music Festivals 2026",
     description:
-      "The complete guide to music festivals in Egypt in 2026. Zamna, NOART, Sandbox, and more — with travel packages and insider tips from Syren.",
+      "Guide to the 2026 music festivals in Egypt — Zamna, NOART, Sandbox and more — with travel packages, dates, and insider tips for planning your trip.",
   },
 };
 

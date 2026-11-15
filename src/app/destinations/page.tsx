@@ -4,8 +4,8 @@ import HeroShell from "@/components/ui/HeroShell";
 import { HERO_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = { 
-  title: "Egypt Destinations: Cairo, Luxor & Red Sea | Syren", 
-  description: "Explore Egypt's most spectacular destinations with Syren. Private tours to Cairo, Luxor, Aswan, the Red Sea, Siwa Oasis, and Alexandria crafted for discerning travelers.", 
+  title: "Egypt Destinations: Cairo, Luxor & Red Sea", 
+  description: "Explore the top destinations in Egypt: Cairo, Luxor, Aswan, the Red Sea, Siwa Oasis, and Alexandria — private tours crafted for discerning travelers.", 
   keywords: [
     "Egypt destinations",
     "Cairo Red Sea Luxor Aswan",
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     canonical: "/destinations",
   },
   openGraph: {
-    title: "Egypt Destinations: Cairo, Luxor & Red Sea | Syren",
-    description: "Explore Egypt's most spectacular destinations with Syren. Private tours to Cairo, Luxor, Aswan, the Red Sea, Siwa Oasis, and Alexandria crafted for discerning travelers.",
+    title: "Egypt Destinations: Cairo, Luxor & Red Sea",
+    description: "Explore the top destinations in Egypt: Cairo, Luxor, Aswan, the Red Sea, Siwa Oasis, and Alexandria — private tours crafted for discerning travelers.",
     url: "https://www.syrentravel.com/destinations",
     type: "website",
     images: [{ url: HERO_IMAGES.home.src }],

@@ -4,12 +4,12 @@ import SavedList from "@/components/saved/SavedList";
 import { HERO_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Your Saved Experiences | Syren",
-  description: "View your saved experiences and excursions.",
+  title: "Your Saved Experiences | Egypt Travel",
+  description: "View your saved experiences and excursions, then pick up right where you left off. Keep your favorite Egypt journeys and day trips in one place.",
   alternates: { canonical: "/saved" },
   openGraph: {
-    title: "Your Saved Experiences | Syren",
-    description: "View your saved experiences and excursions.",
+    title: "Your Saved Experiences | Egypt Travel",
+    description: "View your saved experiences and excursions, then pick up right where you left off. Keep your favorite Egypt journeys and day trips in one place.",
     url: "https://www.syrentravel.com/saved",
     type: "website",
     images: [{ url: "https://www.syrentravel.com/images/hero/luxury.jpg", width: 1200, height: 630, alt: "Syren Travel Egypt" }],

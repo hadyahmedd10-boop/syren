@@ -3,7 +3,7 @@ import TrustpilotWidget from "@/components/ui/TrustpilotWidget";
 import Testimonials from "@/components/sections/Testimonials";
 
 export const metadata: Metadata = {
-  title: "Traveler Reviews | Syren Egypt Travel",
+  title: "Traveler Reviews | Egypt Travel",
   description:
     "Read genuine reviews from travelers who have experienced Egypt with Syren. Verified reviews on Trustpilot from our global community of travelers.",
   alternates: {

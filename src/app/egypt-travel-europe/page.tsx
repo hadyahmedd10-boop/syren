@@ -4,9 +4,9 @@ import { HERO_IMAGES } from "@/lib/images";
 import HeroShell from "@/components/ui/HeroShell";
 
 export const metadata: Metadata = {
-  title: "Egypt Travel Packages for Europeans | Syren",
+  title: "Egypt Travel Packages for Europeans",
   description:
-    "Egypt travel for European visitors—curated packages, festivals and private tours tailored to European tastes and timing.",
+    "Planning a trip to Egypt from Europe? Syren offers curated travel packages, festival experiences, and private tours crafted for European travelers.",
   keywords: [
     "Egypt travel from Europe",
     "Egypt holiday Europe",
@@ -16,16 +16,16 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/egypt-travel-europe" },
   openGraph: {
-    title: "Egypt Travel Packages for Europeans | Syren",
+    title: "Egypt Travel Packages for Europeans",
     description:
-      "Egypt travel for European visitors—curated packages, festivals and private tours tailored to European tastes and timing.",
+      "Planning a trip to Egypt from Europe? Syren offers curated travel packages, festival experiences, and private tours crafted for European travelers.",
     url: "https://www.syrentravel.com/egypt-travel-europe",
     type: "website",
     images: [{ url: HERO_IMAGES.home.src }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Egypt Travel Packages for Europeans | Syren",
+    title: "Egypt Travel Packages for Europeans",
     description:
       "Planning a trip to Egypt from Europe? Syren offers curated travel packages, festival experiences, and private tours crafted for European travelers.",
   },

@@ -31,18 +31,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!excursion) return { title: "Excursion Not Found | Syren" };
 
-  const makeTitle = (s: string) => {
-    const base = `${s} | Syren`;
-    return base.length <= 60 ? base : `${base.slice(0, 57).trimEnd()}…`;
+  // The root layout appends " | Syren Egypt" (14 chars), so the page title must
+  // stay <= 46 chars and must not repeat the brand.
+  const clampTitle = (s: string) => {
+    const t = s.trim();
+    if (t.length <= 46) return t;
+    const cut = t.slice(0, 45);
+    const sp = cut.lastIndexOf(" ");
+    const base = sp > 20 ? cut.slice(0, sp) : cut;
+    return `${base.replace(/[\s,;:–—-]+$/, "")}…`;
   };
-  const title = makeTitle(excursion.title);
+  const title = clampTitle(excursion.title);
   const baseDesc = (excursion as any).seoDescription || excursion.shortDescription;
   let description = `${baseDesc} Private guided excursion from Hurghada. Book with Syren today.`;
-  if (description.length < 150) {
-    description = `${description} Includes licensed guides, private transfers, curated pacing, and seamless logistics handled by local experts.`;
+  if (description.length < 140) {
+    description = `${description} Includes licensed guides and private transfers.`;
   }
-  if (description.length > 160) {
-    description = `${description.slice(0, 157).trimEnd()}…`;
+  if (description.length > 155) {
+    description = `${description.slice(0, 154).trimEnd()}…`;
   }
 
   return {

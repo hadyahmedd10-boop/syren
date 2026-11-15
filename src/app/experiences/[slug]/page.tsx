@@ -46,18 +46,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const makeTitle = (s: string) => {
-    const base = `${s} | Syren`;
-    return base.length <= 60 ? base : `${base.slice(0, 57).trimEnd()}…`;
+  // The root layout appends " | Syren Egypt" (14 chars), so the page title must
+  // stay <= 46 chars and must not repeat the brand.
+  const clampTitle = (s: string) => {
+    const t = s.trim();
+    if (t.length <= 46) return t;
+    const cut = t.slice(0, 45);
+    const sp = cut.lastIndexOf(" ");
+    const base = sp > 20 ? cut.slice(0, sp) : cut;
+    return `${base.replace(/[\s,;:–—-]+$/, "")}…`;
   };
-  const title = makeTitle(experience.title);
+  const title = clampTitle(experience.title);
   const baseDesc = (experience as any).seoDescription || (experience as any).shortDescription || experience.description;
   let description = `${baseDesc} Book your private Egypt experience with Syren today.`;
-  if (description.length < 150) {
-    description = `${description} Discover Nile cruises, Pyramid access, Red Sea escapes, and curated multi-day journeys with local experts.`;
+  if (description.length < 140) {
+    description = `${description} Plan your private Egypt journey with our local experts.`;
   }
-  if (description.length > 160) {
-    description = `${description.slice(0, 157).trimEnd()}…`;
+  if (description.length > 155) {
+    description = `${description.slice(0, 154).trimEnd()}…`;
   }
   const ogImage = typeof experience.heroImage === "string" ? experience.heroImage : experience.heroImage.src;
 
@@ -124,19 +130,22 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
       "@type": "Brand",
       "name": "Syren"
     },
-    "offers": {
-      "@type": "Offer",
-      "url": `${siteUrl}/experiences/${slug}`,
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/PreOrder",
-      "seller": {
-        "@type": "Organization",
-        "name": "Syren"
-      },
-      ...(experience.price && {
-        "price": experience.price.amount,
-      })
-    }
+    // Only emit an Offer when a real price exists — an unpriced Offer is invalid.
+    ...(experience.price?.amount
+      ? {
+          offers: {
+            "@type": "Offer",
+            url: `${siteUrl}/experiences/${slug}`,
+            priceCurrency: experience.price.currency || "USD",
+            price: experience.price.amount,
+            availability: "https://schema.org/PreOrder",
+            seller: {
+              "@type": "Organization",
+              name: "Syren"
+            }
+          }
+        }
+      : {})
   };
 
   const whatsappLink = `${SOCIAL_LINKS.whatsapp}?text=${encodeURIComponent(

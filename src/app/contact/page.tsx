@@ -10,14 +10,14 @@ import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import TrackedLink from "@/components/ui/TrackedLink";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Syren",
-  description: "Contact Syren’s concierge 24/7 to plan your perfect Egypt journey—from private tours to festival and event packages.",
+  title: "Contact Us | Egypt Travel Concierge",
+  description: "Contact Syren’s concierge 24/7 to plan your perfect Egypt journey—from private tours to festival and event packages, built around your interests.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Us | Syren",
-    description: "Contact Syren’s concierge 24/7 to plan your perfect Egypt journey—from private tours to festival and event packages.",
+    title: "Contact Us | Egypt Travel Concierge",
+    description: "Contact Syren’s concierge 24/7 to plan your perfect Egypt journey—from private tours to festival and event packages, built around your interests.",
     url: "https://www.syrentravel.com/contact",
     type: "website",
     images: [{ url: "/images/hero/luxury.jpg" }],

@@ -8,12 +8,12 @@ export const revalidate = 3600;
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: "Best Time to Visit Egypt 2026 | Syren",
+  title: "Best Time to Visit Egypt 2026: Month-by-Month",
   description: "Planning a trip to Egypt? Discover the best time to visit month by month — weather, crowds, festivals, and expert tips from Syren's local team in Cairo.",
   keywords: ["best time to visit egypt", "egypt weather", "when to visit egypt", "egypt travel seasons", "egypt climate"],
   alternates: { canonical: "/best-time-to-visit-egypt" },
   openGraph: {
-    title: "Best Time to Visit Egypt 2026 | Syren",
+    title: "Best Time to Visit Egypt 2026: Month-by-Month",
     description: "Planning a trip to Egypt? Discover the best time to visit month by month — weather, crowds, festivals, and expert tips from Syren's local team in Cairo.",
     url: "https://www.syrentravel.com/best-time-to-visit-egypt",
     type: "article",

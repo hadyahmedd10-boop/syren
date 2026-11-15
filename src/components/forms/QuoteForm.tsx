@@ -105,9 +105,9 @@ export default function QuoteForm() {
           <span className="font-serif text-accent-gold tracking-[0.4em] text-xs uppercase">
             Bespoke Journeys
           </span>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-text-primary tracking-tight">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-text-primary tracking-tight">
             Request a Quote
-          </h1>
+          </h2>
           <p className="text-text-secondary font-light italic text-lg">
             Tell us about your dream Egyptian odyssey.
           </p>

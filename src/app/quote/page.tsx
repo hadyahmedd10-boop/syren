@@ -4,14 +4,14 @@ import HeroShell from "@/components/ui/HeroShell";
 import { HERO_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Request a Quote | Bespoke Egyptian Journeys | Syren",
-  description: "Begin your extraordinary Egyptian journey. Request a personalized quote for a private, curated luxury experience tailored to your vision.",
+  title: "Request a Quote | Bespoke Egyptian Journeys",
+  description: "Begin your extraordinary Egyptian journey. Request a personalized quote for a private, curated luxury experience tailored to your vision. Start today.",
   alternates: {
     canonical: "/quote",
   },
   openGraph: {
-    title: "Request a Quote | Syren",
-    description: "Request a personalized quote for a private, curated Egypt journey with Syren.",
+    title: "Request a Quote | Bespoke Egyptian Journeys",
+    description: "Begin your extraordinary Egyptian journey. Request a personalized quote for a private, curated luxury experience tailored to your vision. Start today.",
     url: "https://www.syrentravel.com/quote",
     type: "website",
     images: [{ url: "https://www.syrentravel.com/images/hero/luxury.jpg", width: 1200, height: 630, alt: "Syren Travel Egypt" }],

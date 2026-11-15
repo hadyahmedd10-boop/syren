@@ -8,9 +8,9 @@ import ExperienceCard from "@/components/sections/ExperienceCard";
 import { Car, User, Building, Phone, Calendar, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Egypt Holiday Packages 2026 | Syren Travel",
+  title: "Egypt Holiday Packages 2026",
   description:
-    "Browse Syren's Egypt holiday packages for 2026. Private tours, Nile cruises, Red Sea escapes, and bespoke multi-day journeys curated by local Egypt experts.",
+    "Browse Syren's Egypt holiday packages for 2026. Private tours, Nile cruises, Red Sea escapes, and multi-day journeys curated by local Egypt experts.",
   keywords: [
     "egypt holiday packages",
     "egypt vacation packages",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/egypt-holiday-packages" },
   openGraph: {
-    title: "Egypt Holiday Packages 2026 | Syren Travel",
+    title: "Egypt Holiday Packages 2026",
     description:
-      "Browse Syren's Egypt holiday packages for 2026. Private tours, Nile cruises, Red Sea escapes, and bespoke multi-day journeys curated by local Egypt experts.",
+      "Browse Syren's Egypt holiday packages for 2026. Private tours, Nile cruises, Red Sea escapes, and multi-day journeys curated by local Egypt experts.",
     url: "https://www.syrentravel.com/egypt-holiday-packages",
     type: "website",
     images: [{ url: "/images/hero/luxury.jpg" }],

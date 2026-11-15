@@ -4,9 +4,9 @@ import { HERO_IMAGES } from "@/lib/images";
 import HeroShell from "@/components/ui/HeroShell";
 
 export const metadata: Metadata = {
-  title: "Egypt Travel Packages from Latin America | Syren",
+  title: "Egypt Travel Packages from Latin America",
   description:
-    "Egypt travel from Latin America—curated journeys, festivals and private tours designed for adventurous explorers.",
+    "Discover Egypt from Latin America with Syren. Curated journeys, international music festivals, and private tours designed for Latin American explorers.",
   keywords: [
     "Egypt travel Latin America",
     "Egypt trip from Brazil",
@@ -15,16 +15,16 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/egypt-travel-latin-america" },
   openGraph: {
-    title: "Egypt Travel Packages from Latin America | Syren",
+    title: "Egypt Travel Packages from Latin America",
     description:
-      "Egypt travel from Latin America—curated journeys, festivals and private tours designed for adventurous explorers.",
+      "Discover Egypt from Latin America with Syren. Curated journeys, international music festivals, and private tours designed for Latin American explorers.",
     url: "https://www.syrentravel.com/egypt-travel-latin-america",
     type: "website",
     images: [{ url: HERO_IMAGES.home.src }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Egypt Travel Packages from Latin America | Syren",
+    title: "Egypt Travel Packages from Latin America",
     description:
       "Discover Egypt from Latin America with Syren. Curated journeys, international music festivals, and private tours designed for Latin American explorers.",
   },

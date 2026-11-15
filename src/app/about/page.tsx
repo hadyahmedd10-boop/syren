@@ -12,14 +12,14 @@ import HeroShell from "@/components/ui/HeroShell";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Syren Travel | Egypt Luxury Specialists",
-  description: "Syren Travel—Egypt’s premier inbound agency. Local experts crafting extraordinary journeys across Cairo, the Nile and the Red Sea.",
+  title: "About Our Egypt Luxury Travel Specialists",
+  description: "Syren Travel—Egypt’s premier inbound agency. Local experts crafting extraordinary journeys across Cairo, the Nile and the Red Sea, tailored to you.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Syren Travel | Egypt Luxury Specialists",
-    description: "Syren Travel—Egypt’s premier inbound agency. Local experts crafting extraordinary journeys across Cairo, the Nile and the Red Sea.",
+    title: "About Our Egypt Luxury Travel Specialists",
+    description: "Syren Travel—Egypt’s premier inbound agency. Local experts crafting extraordinary journeys across Cairo, the Nile and the Red Sea, tailored to you.",
     url: "https://www.syrentravel.com/about",
     type: "website",
     images: [{ url: "/images/hero/luxury.jpg" }],

@@ -9,9 +9,9 @@ export const revalidate = 3600;
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: "Partner With Syren | Egypt Travel Agency B2B Program",
+  title: "Partner With Us | Egypt Travel Agency",
   description:
-    "Are you a travel agent or agency looking for an Egypt ground handler? Partner with Syren for competitive commissions, expert local support, and seamless client experiences.",
+    "Are you a travel agent or agency looking for an Egypt ground handler? Partner with us for competitive commissions and seamless client experiences.",
   alternates: { canonical: "/partner" },
 };
 

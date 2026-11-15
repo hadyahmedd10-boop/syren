@@ -5,9 +5,9 @@ export const revalidate = 3600;
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: "Exit Festival Egypt 2026 — Travel Package | Syren",
+  title: "Exit Festival Egypt 2026 — Travel Package",
   description:
-    "Syren's curated Exit Festival Egypt package. 10 nights — Old Cairo, 4 nights at Exit by the Pyramids of Giza, Red Sea Hurghada. October 6-15, 2026. Everything handled.",
+    "Syren's curated Exit Festival Egypt package. 10 nights — Old Cairo, 4 nights at Exit by the Pyramids of Giza, Red Sea Hurghada. October 6-15, 2026.",
   keywords: [
     "exit festival egypt",
     "exit festival 2026",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/exit-festival-egypt" },
   openGraph: {
-    title: "Exit Festival Egypt 2026 — Travel Package | Syren",
+    title: "Exit Festival Egypt 2026 — Travel Package",
     description:
-      "Syren's curated Exit Festival Egypt package. 10 nights — Old Cairo, 4 nights at Exit by the Pyramids of Giza, Red Sea Hurghada. October 6-15, 2026. Everything handled.",
+      "Syren's curated Exit Festival Egypt package. 10 nights — Old Cairo, 4 nights at Exit by the Pyramids of Giza, Red Sea Hurghada. October 6-15, 2026.",
     url: "https://www.syrentravel.com/exit-festival-egypt",
     images: [
       {

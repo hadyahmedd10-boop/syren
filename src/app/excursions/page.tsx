@@ -5,11 +5,11 @@ import ExcursionsList from "@/components/excursions/ExcursionsList";
 import SectionHeader from "@/components/layout/SectionHeader";
 
 export const metadata: Metadata = {
-  title: "Private Day Trips & Excursions in Egypt | Syren",
+  title: "Private Day Trips & Excursions in Egypt",
   description: "Book premium day excursions across Egypt with Syren. Hurghada Jeep safari, Luxor day trip, island snorkeling, Nile dinner cruise, and private Cairo tours.",
   alternates: { canonical: "/excursions" },
   openGraph: {
-    title: "Private Day Trips & Excursions in Egypt | Syren",
+    title: "Private Day Trips & Excursions in Egypt",
     description: "Book premium day excursions across Egypt with Syren. Hurghada Jeep safari, Luxor day trip, island snorkeling, Nile dinner cruise, and private Cairo tours.",
     url: "https://www.syrentravel.com/excursions",
     type: "website",

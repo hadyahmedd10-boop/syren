@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import SectionHeader from "@/components/layout/SectionHeader";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Syren Travel",
-  description: "Syren Travel terms: booking policy, payment terms, cancellations and refunds for Egypt travel experiences and packages.",
+  title: "Terms of Service | Egypt Travel",
+  description: "Syren Travel terms: booking policy, payment terms, cancellations and refunds for Egypt travel experiences and packages. Please read them before booking.",
   alternates: { canonical: "/terms" },
   openGraph: {
-    title: "Terms of Service | Syren Travel",
-    description: "Syren Travel terms: booking policy, payment, cancellations and refunds for Egypt travel experiences and packages.",
+    title: "Terms of Service | Egypt Travel",
+    description: "Syren Travel terms: booking policy, payment terms, cancellations and refunds for Egypt travel experiences and packages. Please read them before booking.",
     url: "https://www.syrentravel.com/terms",
     type: "website",
     images: [{ url: "https://www.syrentravel.com/images/hero/luxury.jpg", width: 1200, height: 630, alt: "Syren Travel Egypt" }],

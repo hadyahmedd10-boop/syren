@@ -1,7 +1,9 @@
-// SEO audit for the festival travel pages.
+// SEO audit for syrentravel.com.
 //
-// Fails (exit code 1) on any of the following, across every audited page:
-//   - a duplicated brand ("Syren") in the <title>
+// The URL list is read from the site's own /sitemap.xml (never hard-coded), so
+// every indexable page is covered. Fails (exit code 1) on any of the following,
+// across every audited page:
+//   - a <title> that does not contain the brand exactly once (duplicate brand)
 //   - a <title> longer than 60 characters
 //   - a meta description outside 140–155 characters
 //   - a missing or wrong canonical
@@ -26,22 +28,6 @@ import { dirname, join } from "node:path";
 
 const BASE = process.env.AUDIT_BASE_URL || "http://localhost:3000";
 const SITE_URL = "https://www.syrentravel.com";
-
-/** Pages that must pass every check. */
-const PAGES = [
-  "/festival-travel-egypt",
-  "/anyma-egypt-2027",
-  "/starlight-festival-egypt",
-  "/zamna-egypt-travel",
-  "/events/anyma-pyramids",
-  "/events/starlight-festival-2027",
-  "/events/zamna-giza-10th-anniversary",
-  "/events/zamna-south-sinai",
-  "/events",
-  "/experiences",
-  "/guides",
-  "/home",
-];
 
 /**
  * Pre-existing deliberate cross-canonicals between the splash page and the home
@@ -134,7 +120,12 @@ const normPath = (p) => {
 // Checks
 // ----------------------------------------------------------------------------
 const failures = [];
-const fail = (path, message) => failures.push(`${path}: ${message}`);
+const failuresByPath = new Map();
+const fail = (path, message) => {
+  failures.push(`${path}: ${message}`);
+  if (!failuresByPath.has(path)) failuresByPath.set(path, []);
+  failuresByPath.get(path).push(message);
+};
 
 function checkPage(path, html, packages) {
   // <title>
@@ -142,6 +133,7 @@ function checkPage(path, html, packages) {
   const title = titleMatch ? decode(titleMatch[1]).trim() : "";
   if (!title) fail(path, "missing <title>");
   const brandCount = (title.match(/syren/gi) || []).length;
+  if (brandCount === 0) fail(path, `title does not name the brand: "${title}"`);
   if (brandCount > 1) fail(path, `duplicated brand in title: "${title}"`);
   if (title.length > 60) fail(path, `title is ${title.length} chars (> 60): "${title}"`);
 
@@ -248,8 +240,42 @@ async function get(path) {
   return { res, html };
 }
 
+/** Read every <loc> from the site's own sitemap and return them as local paths. */
+async function getSitemapPaths() {
+  const res = await fetch(`${BASE}/sitemap.xml`, {
+    headers: { "user-agent": "syren-seo-audit" },
+  });
+  if (!res.ok) throw new Error(`sitemap returned status ${res.status}`);
+  const xml = await res.text();
+  const locs = [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/gi)].map((m) => m[1]);
+  const paths = [];
+  for (const loc of locs) {
+    try {
+      const url = new URL(loc);
+      paths.push(normPath(url.pathname) || "/");
+    } catch {
+      /* ignore malformed loc */
+    }
+  }
+  return Array.from(new Set(paths));
+}
+
 async function main() {
   console.log(`🔎 SEO audit against ${BASE}\n`);
+
+  let PAGES;
+  try {
+    PAGES = await getSitemapPaths();
+  } catch (e) {
+    console.error(`❌ could not read sitemap: ${e.message}`);
+    process.exit(1);
+  }
+  if (PAGES.length === 0) {
+    console.error("❌ sitemap contained no URLs");
+    process.exit(1);
+  }
+  console.log(`   ${PAGES.length} URLs from /sitemap.xml\n`);
+
   const packages = readPackages();
   const internalLinks = new Set();
 
@@ -293,11 +319,22 @@ async function main() {
     }
   }
 
+  // ---- Per-URL report ----
+  console.log("   Per-URL results:");
+  for (const path of PAGES) {
+    const issues = failuresByPath.get(path);
+    if (!issues || issues.length === 0) {
+      console.log(`   ✅ ${path}`);
+    } else {
+      console.log(`   ❌ ${path} — ${issues.length} issue(s)`);
+    }
+  }
+
   if (failures.length === 0) {
-    console.log(`✅ Passed: ${PAGES.length} pages, all checks green.`);
+    console.log(`\n✅ Passed: ${PAGES.length} pages, all checks green.`);
     return;
   }
-  console.error(`❌ ${failures.length} issue(s) found:\n`);
+  console.error(`\n❌ ${failures.length} issue(s) found:\n`);
   for (const f of failures) console.error(`   - ${f}`);
   process.exitCode = 1;
 }
