@@ -21,9 +21,9 @@ import { Compass, Phone, Calendar, Globe } from "lucide-react";
 import Reveal from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
-  title: "Syren — Luxury Travel Experiences in Egypt",
+  title: "Luxury Travel Experiences in Egypt",
   description:
-    "Private luxury journeys through Egypt. Discover Cairo, the Nile, the Red Sea, and hidden sanctuaries — curated for the discerning traveler.",
+    "Private luxury journeys through Egypt. Discover Cairo, the Nile, the Red Sea, and hidden sanctuaries — curated for the discerning traveler, with Syren.",
   alternates: {
     canonical: "/",
   },
@@ -287,7 +287,28 @@ export default function Home() {
           );
         })()}
 
-      {/* SECTION 9 — VEHICLE CLASSIFICATION */}
+        {/* SECTION 8b — FESTIVAL TRAVEL */}
+        <section className="py-12 bg-background border-t border-border">
+          <div className="mx-auto max-w-7xl container-x">
+            <div className="rounded-2xl border border-accent-gold/30 bg-surface/30 p-6 md:p-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div className="text-left">
+                <p className="text-xs uppercase tracking-[0.3em] text-accent-gold">Festival travel</p>
+                <h2 className="mt-2 font-serif text-2xl md:text-3xl text-text-primary">
+                  Festivals at the Pyramids
+                </h2>
+                <p className="mt-2 max-w-2xl text-text-secondary">
+                  Travel packages with hotels near Giza, private transfers and a 24/7 WhatsApp
+                  concierge — Anyma, the Starlight Festival and Zamna.
+                </p>
+              </div>
+              <Link href="/festival-travel-egypt" className="syren-btn-secondary shrink-0">
+                Explore Festival Travel →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 9 — VEHICLE CLASSIFICATION */}
       <section className="py-16 bg-background">
         <div className="container-x mx-auto max-w-6xl text-center mb-12">
           <p className="text-xs uppercase tracking-[0.3em] text-accent-gold mb-4">

@@ -2,9 +2,20 @@
 import { useMemo, useState } from "react";
 import { Search, X, Compass, SlidersHorizontal, ChevronDown } from "lucide-react";
 import { experiences } from "@/data/experiences";
+import { festivalPackages } from "@/data/festivalPackages";
 import ExperienceCard from "@/components/sections/ExperienceCard";
+import FestivalPackageCard from "@/components/sections/festival/FestivalPackageCard";
 import Reveal from "@/components/motion/Reveal";
 import SectionHeader from "@/components/layout/SectionHeader";
+
+/** Ended Exit Festival packages are archived out of the active grid. */
+const ARCHIVED_SLUGS = new Set([
+  "exit-at-the-pyramids",
+  "exit-cairo-festival-hurghada",
+  "exit-festival-pyramids-only",
+]);
+
+const FESTIVAL_PACKAGES_FILTER = "Festival Packages";
 
 export default function ExperiencesGrid() {
   const [query, setQuery] = useState("");
@@ -14,6 +25,15 @@ export default function ExperiencesGrid() {
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const activeFilterCount = [durationFilter, destinationFilter, categoryFilter].filter((f) => f !== "All").length;
+  const showFestivalPackages = categoryFilter === FESTIVAL_PACKAGES_FILTER;
+
+  const festivalFiltered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return festivalPackages.filter(
+      (pkg) => q.length === 0 || pkg.name.toLowerCase().includes(q) || pkg.tier.includes(q)
+    );
+  }, [query]);
+
 
   const parseDays = (d?: string) => {
     if (!d) return undefined;
@@ -33,6 +53,7 @@ export default function ExperiencesGrid() {
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return experiences.filter((exp) => {
+      if (ARCHIVED_SLUGS.has(exp.slug)) return false;
       const matchQuery =
         q.length === 0 ||
         [exp.title, exp.description, exp.cities, exp.subtitle].filter(Boolean).some((t) => String(t).toLowerCase().includes(q));
@@ -146,7 +167,7 @@ export default function ExperiencesGrid() {
                 <div>
                   <div className="mb-2 text-[10px] tracking-[0.2em] text-text-secondary">CATEGORY</div>
                   <div className="flex gap-2 flex-wrap">
-                    {["All", "Nile Cruises", "Luxury", "Adventure", "Cultural", "Cairo Experiences", "Festival Experiences"].map((d) => {
+                    {["All", "Festival Packages", "Nile Cruises", "Luxury", "Adventure", "Cultural", "Cairo Experiences"].map((d) => {
                       const active = categoryFilter === d;
                       const base = "rounded-full min-h-[36px] px-4 py-1.5 text-sm font-medium tracking-wide transition-all duration-200";
                       const cls = active
@@ -172,8 +193,30 @@ export default function ExperiencesGrid() {
             </div>
           </div>
         </div>
-        <div className="text-sm text-text-secondary mb-4">Showing {filtered.length} experiences</div>
-        {filtered.length === 0 ? (
+        <div className="mb-4 text-sm text-text-secondary">
+          Showing {showFestivalPackages ? festivalFiltered.length : filtered.length}{" "}
+          {showFestivalPackages ? "festival packages" : "experiences"}
+        </div>
+        {showFestivalPackages ? (
+          festivalFiltered.length === 0 ? (
+            <div className="py-12 text-center">
+              <Compass size={36} className="mx-auto mb-3 text-accent-gold" />
+              <h3 className="font-serif text-2xl text-text-primary mb-1">No results found</h3>
+              <p className="text-text-secondary mb-3">Try a different search term</p>
+              <button onClick={() => setQuery("")} className="text-accent-gold underline">
+                Clear search
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {festivalFiltered.map((pkg, index) => (
+                <Reveal key={pkg.id} delay={0.1 * index}>
+                  <FestivalPackageCard pkg={pkg} page="/experiences" className="h-full" />
+                </Reveal>
+              ))}
+            </div>
+          )
+        ) : filtered.length === 0 ? (
           <div className="py-12 text-center">
             <Compass size={36} className="mx-auto mb-3 text-accent-gold" />
             <h3 className="font-serif text-2xl text-text-primary mb-1">No results found</h3>

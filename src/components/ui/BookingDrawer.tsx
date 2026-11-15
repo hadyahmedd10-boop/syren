@@ -11,6 +11,8 @@ type BookingDrawerProps = {
   basePriceCurrency?: string;
   perPerson?: boolean;
   showFloatingTrigger?: boolean;
+  /** Optional analytics hook fired once the booking request is accepted. */
+  onSubmitted?: () => void;
 };
 
 export type BookingDrawerHandle = {
@@ -34,6 +36,7 @@ const BookingDrawer = forwardRef<BookingDrawerHandle, BookingDrawerProps>(functi
     basePriceCurrency = "USD",
     perPerson = true,
     showFloatingTrigger = false,
+    onSubmitted,
   },
   ref
 ) {
@@ -283,6 +286,7 @@ const BookingDrawer = forwardRef<BookingDrawerHandle, BookingDrawerProps>(functi
                     throw new Error(json.error || "Failed to send");
                   }
                   setSubmitted(true);
+                  onSubmitted?.();
                   setTimeout(() => setOpen(false), 3000);
                 } catch (err) {
                   setSubmitError("Something went wrong. Please try again or contact us on WhatsApp.");

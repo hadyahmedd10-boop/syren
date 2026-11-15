@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import VehicleClassification from "@/components/ui/VehicleClassification";
+import { waLink } from "@/lib/whatsapp";
 import { CheckCircle, ArrowRight, Shield, Clock, Star } from "lucide-react";
 
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Private Transfers in Egypt | Airport & City Transfers | Syren",
+  title: "Private Transfers in Egypt | Airport & City Transfers",
   description: "Private airport transfers, city runs, and intercity travel across Egypt. Economy to luxury — professional Syren drivers, fixed prices, no surprises. Cairo, Luxor, Hurghada & more.",
   keywords: ["egypt private transfer", "cairo airport transfer", "hurghada transfer", "egypt transfer service", "private car egypt", "luxury transfer egypt", "airport pickup egypt"],
   alternates: {
@@ -52,7 +53,7 @@ export default function TransfersPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/201016015723?text=Hi Syren, I'd like to book a private transfer in Egypt"
+              href={waLink("Hi Syren, I'd like to book a private transfer in Egypt")}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-accent-gold text-black font-semibold px-8 py-4 rounded-full hover:bg-accent-gold/90 transition-all"
@@ -126,7 +127,7 @@ export default function TransfersPage() {
             {routes.map((route, idx) => (
               <a
                 key={idx}
-                href={`https://wa.me/201016015723?text=Hi Syren, I'd like to book a transfer from ${route.origin} to ${route.destination}`}
+                href={waLink(`Hi Syren, I'd like to book a transfer from ${route.origin} to ${route.destination}`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-surface rounded-2xl p-6 border border-border hover:border-accent-gold/40 transition-all duration-300 hover:-translate-y-0.5 cursor-pointer block"
@@ -218,7 +219,7 @@ export default function TransfersPage() {
                 </p>
                 <div className="flex flex-col gap-3">
                   <a
-                    href="https://wa.me/201016015723?text=Hi Syren, I need transfers for a festival in Egypt"
+                    href={waLink("Hi Syren, I need transfers for a festival in Egypt")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 border border-accent-gold text-accent-gold px-6 py-3 rounded-full font-medium tracking-wide hover:bg-accent-gold hover:text-black transition-all duration-300 group"
@@ -260,7 +261,7 @@ export default function TransfersPage() {
           </p>
           <div className="flex flex-col items-center gap-4">
             <a
-              href="https://wa.me/201016015723?text=Hi Syren, I'd like to book a private transfer in Egypt"
+              href={waLink("Hi Syren, I'd like to book a private transfer in Egypt")}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-accent-gold text-black font-semibold px-8 py-4 rounded-full hover:bg-accent-gold/90 transition-all"

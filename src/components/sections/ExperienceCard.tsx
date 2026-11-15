@@ -3,6 +3,7 @@ import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { Heart } from "lucide-react";
 import useWishlist from "@/hooks/useWishlist";
+import { waLink } from "@/lib/whatsapp";
 import { useState } from "react";
 const BLUR_DATA_URL = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
@@ -148,7 +149,7 @@ export default function ExperienceCard({
               {buttonText}
             </div>
             <a
-              href={`https://wa.me/201016015723?text=Hi Syren, I'm interested in ${encodeURIComponent(title)}`}
+              href={waLink(`Hi Syren, I'm interested in ${title}`)}
               target="_blank"
               rel="noopener noreferrer"
               className="block mt-2 text-center text-xs text-accent-gold hover:text-accent-gold/80 transition-colors"

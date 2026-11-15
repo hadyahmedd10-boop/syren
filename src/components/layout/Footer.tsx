@@ -35,6 +35,17 @@ export default function Footer() {
         </div> 
 
         <div> 
+          <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Festival Travel</h4> 
+          <ul className="space-y-2 text-sm opacity-70 font-sans"> 
+            <li><Link href="/festival-travel-egypt" className="hover:text-accent-gold transition-colors">Festival Travel Egypt</Link></li> 
+            <li><Link href="/anyma-egypt-2027" className="hover:text-accent-gold transition-colors">Anyma Egypt 2027</Link></li> 
+            <li><Link href="/starlight-festival-egypt" className="hover:text-accent-gold transition-colors">Starlight Festival</Link></li> 
+            <li><Link href="/zamna-egypt-travel" className="hover:text-accent-gold transition-colors">Zamna Egypt</Link></li> 
+            <li><Link href="/events" className="hover:text-accent-gold transition-colors">All Events</Link></li> 
+          </ul> 
+        </div> 
+
+        <div> 
           <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Help Center</h4> 
           <ul className="space-y-2 text-sm opacity-70 font-sans"> 
             <li><Link href="/faq" className="hover:text-accent-gold transition-colors">FAQ</Link></li> 

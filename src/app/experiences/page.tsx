@@ -13,8 +13,8 @@ import CTA from "@/components/sections/FinalCTA";
 import Testimonials from "@/components/sections/Testimonials";
 
 export const metadata: Metadata = {
-  title: "Egypt Experiences & Private Tours | Syren",
-  description: "Discover Syren's curated Egypt experiences — private Nile cruises, Pyramid tours, desert adventures, and bespoke multi-day journeys crafted by local experts.",
+  title: "Egypt Experiences & Private Tours",
+  description: "Discover Syren's Egypt experiences — private Nile cruises, Pyramid tours, desert adventures, and bespoke multi-day journeys crafted by local experts.",
   keywords: [
     "curated Egypt experiences",
     "private tours Egypt",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Our Experiences | Syren Travel",
-    description: "Discover Syren's curated Egypt experiences — private Nile cruises, Pyramid tours, desert adventures, and bespoke multi-day journeys crafted by local experts.",
+    description: "Discover Syren's Egypt experiences — private Nile cruises, Pyramid tours, desert adventures, and bespoke multi-day journeys crafted by local experts.",
     url: "https://www.syrentravel.com/experiences",
     type: "website",
     images: [{ url: "https://www.syrentravel.com/images/hero/luxury.jpg", width: 1200, height: 630, alt: "Syren Travel Egypt" }],

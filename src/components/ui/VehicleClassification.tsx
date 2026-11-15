@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Users, Luggage } from "lucide-react";
 import Image from "next/image";
+import { waLink } from "@/lib/whatsapp";
 
 const vehicles = [
   {
@@ -140,7 +141,7 @@ export default function VehicleClassification({ compact = false }: VehicleClassi
               </div>
             </div>
             <a
-              href={`https://wa.me/201016015723?text=Hi Syren, I'd like to book a ${activeVehicle.name} transfer in Egypt`}
+              href={waLink(`Hi Syren, I'd like to book a ${activeVehicle.name} transfer in Egypt`)}
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent-gold text-sm font-medium hover:underline"
@@ -235,7 +236,7 @@ export default function VehicleClassification({ compact = false }: VehicleClassi
 
               {/* CTA Button */}
               <a
-                href={`https://wa.me/201016015723?text=Hi Syren, I'd like to book a ${activeVehicle.name} transfer in Egypt`}
+                href={waLink(`Hi Syren, I'd like to book a ${activeVehicle.name} transfer in Egypt`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-8 inline-flex items-center gap-3 border border-accent-gold text-accent-gold px-8 py-3.5 rounded-full font-medium tracking-wide hover:bg-accent-gold hover:text-black transition-all duration-300 group"

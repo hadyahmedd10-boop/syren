@@ -9,6 +9,9 @@ import BookingTrigger from "@/components/ui/BookingTrigger";
 import EventMobileBar from "@/components/ui/EventMobileBar";
 import EventCard from "@/components/sections/events/EventCard";
 import VehicleClassification from "@/components/ui/VehicleClassification";
+import FestivalPackagesSection from "@/components/sections/festival/FestivalPackagesSection";
+import { safeTicketUrl } from "@/lib/festivalMeta";
+import { waLink } from "@/lib/whatsapp";
 import { isEventUpcoming } from "@/lib/eventUtils";
 import { MessageSquare } from "lucide-react";
 
@@ -44,16 +47,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   const url = `/events/${event.slug}`;
   const baseDesc = event.seoDescription ?? event.shortDescription ?? event.fullDescription;
-  let description = `${baseDesc} Travel packages and concierge access available through Syren Egypt.`;
-  if (description.length < 150) {
-    description = `${description} Private logistics, hotel curation, and local guidance for a seamless festival experience under the pyramids.`;
-  }
-  if (description.length > 160) {
-    description = `${description.slice(0, 157).trimEnd()}…`;
-  }
+  // Description targets 140-155 chars. The root layout adds the brand, so the
+  // title here must NOT include it (that would duplicate "Syren").
+  const clampDescription = (s: string) => {
+    const t = s.replace(/\s+/g, " ").trim();
+    return t.length > 155 ? `${t.slice(0, 154).trimEnd()}…` : t;
+  };
+  const description = clampDescription(
+    `${baseDesc} Travel packages and concierge access from Syren Egypt, with private transfers and hotels near the venue.`
+  );
   const makeTitle = (s: string) => {
-    const base = `${s} | Syren`;
-    return base.length <= 60 ? base : `${base.slice(0, 57).trimEnd()}…`;
+    const suffix = " | Syren Egypt";
+    if (s.length + suffix.length <= 60) return s;
+    return `${s.slice(0, 60 - suffix.length - 1).trimEnd()}…`;
   };
   const finalTitle = makeTitle(event.seoTitle ?? event.title);
   return {
@@ -161,6 +167,8 @@ export default async function EventDetailPage({ params }: Props) {
       : event.heroImage.src;
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.syrentravel.com";
+  // Never render placeholder ticket links (e.g. example.com) as an official source.
+  const officialTicketUrl = safeTicketUrl(event.ticketUrl);
   const isIso = (d: string) => /^\d{4}-\d{2}-\d{2}$/.test(d);
   const startDateIso = parseStartDate(event.date);
   const endDateParsed = parseEndDate(event.date);
@@ -175,14 +183,8 @@ export default async function EventDetailPage({ params }: Props) {
     : hasLineup
       ? event.lineup.map((artist) => ({ "@type": "PerformingGroup", name: artist }))
       : { "@type": "PerformingGroup", name: "TBA" };
-  const offers = {
-    "@type": "Offer",
-    url: event.ticketUrl,
-    price: "0",
-    priceCurrency: "USD",
-    availability: "https://schema.org/InStock",
-    validFrom: new Date().toISOString().split("T")[0],
-  };
+  // No Offer is emitted: ticket prices are set by the organisers and we do not
+  // publish a price we cannot verify. Add offers only once a real price exists.
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Event",
@@ -207,7 +209,6 @@ export default async function EventDetailPage({ params }: Props) {
     },
     image: heroSrc,
     url: `${siteUrl}/events/${event.slug}`,
-    offers,
     performer,
   };
 
@@ -284,16 +285,16 @@ export default async function EventDetailPage({ params }: Props) {
                   </div>
                   <div className="mt-3 flex flex-col gap-2.5">
                     <a
-                      href={`https://wa.me/201016015723?text=${encodeURIComponent(`Hi Syren, I'm interested in booking a travel package for ${event.title} on ${event.displayDate ?? event.date}. I'd love to know more about available packages.`)}`}
+                      href={waLink(`Hi Syren, I'm interested in booking a travel package for ${event.title} on ${event.displayDate ?? event.date}. I'd love to know more about available packages.`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="syren-btn-primary w-full justify-center px-5 py-3.5 text-sm shadow-[0_0_20px_rgba(196,160,82,0.15)] border border-accent-gold/30"
                     >
                       Book Travel Package
                     </a>
-                    {event.ticketUrl && (
+                    {officialTicketUrl && (
                       <Link
-                        href={event.ticketUrl}
+                        href={officialTicketUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="syren-btn w-full text-accent-gold"
@@ -344,6 +345,14 @@ export default async function EventDetailPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      {/* Travel packages — rendered only for events with a published festival package */}
+      <FestivalPackagesSection
+        eventSlug={event.slug}
+        page={`/events/${event.slug}`}
+        heading="Travel packages"
+        intro={`Syren festival travel packages for ${event.title} — private airport transfers, a 24/7 WhatsApp concierge and hotel stays near the venue. Inclusions are confirmed in writing before any payment.`}
+      />
 
       {event.afterParties && event.afterParties.length > 0 && (
         <section className="section bg-background border-t border-accent-gold/20 pt-8 pb-12">
@@ -430,7 +439,7 @@ export default async function EventDetailPage({ params }: Props) {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <a
-              href={`https://wa.me/201016015723?text=Hi Syren, I need a transfer for ${event.title} on ${event.displayDate || event.date}`}
+              href={waLink(`Hi Syren, I need a transfer for ${event.title} on ${event.displayDate || event.date}`)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-[#25D366] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#20b558] transition-all"

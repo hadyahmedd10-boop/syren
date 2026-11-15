@@ -93,7 +93,6 @@ export default function RootLayout({
       <head>
         <ThemeScript />
         <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="preload" as="image" href="/images/hero/luxury.jpg" fetchPriority="high" />
         <Script id="perf-safe-before" strategy="beforeInteractive">
           {(`
             (function(){
@@ -193,7 +192,7 @@ export default function RootLayout({
         <Script
           id="trustpilot-widget"
           src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <FloatingWhatsAppFab />
       </body>
