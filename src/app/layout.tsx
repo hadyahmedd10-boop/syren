@@ -12,6 +12,7 @@ import PerfSafe from "@/components/dev/PerfSafe";
 import ThemeScript from "@/components/theme/ThemeScript";
 import Script from "next/script";
 import FloatingWhatsAppFab from "@/components/ui/FloatingWhatsAppFab";
+import { AnalyticsOnInteraction } from "@/lib/analytics";
 
 // Run data validation in development
 if (process.env.NODE_ENV === "development") {
@@ -155,20 +156,7 @@ export default function RootLayout({
             <ViewportBadge />
           </PHProvider>
         </ThemeProvider>
-        <Script id="microsoft-clarity" strategy="afterInteractive">
-          {`
-            (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "vt8xkvfec3");
-          `}
-        </Script>
-        <Script
-          id="ga4-lib"
-          src="https://www.googletagmanager.com/gtag/js?id=G-119ZX0583F"
-          strategy="afterInteractive"
-        />
+        <AnalyticsOnInteraction />
         <Script id="ga4-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
