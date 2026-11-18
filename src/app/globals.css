@@ -7,6 +7,7 @@
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-accent-gold: var(--accent-gold);
+  --color-accent-gold-ink: var(--accent-gold-ink);
   --color-royal-blue: var(--royal-blue);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
@@ -39,6 +40,9 @@
   --text-primary: #1a1410;
   --text-secondary: #5a4a3a;
   --accent-gold: #C9A84C;
+  /* Text-safe gold: same hue/saturation as the brand gold, darker so gold used
+     as TEXT still clears WCAG AA (>=4.5:1) on every light surface. */
+  --accent-gold-ink: #5E4E1A;
   --border: rgba(0,0,0,0.12);
   --card-bg: #ffffff;
   --overlay: rgba(255,255,255,0.8);
@@ -74,6 +78,9 @@
   --text-primary: #e8e0d0;
   --text-secondary: #a09070;
   --accent-gold: #C9A84C;
+  /* On dark surfaces the brand gold already clears AA, so the text token is
+     simply the brand gold — no visual change in dark mode. */
+  --accent-gold-ink: #C9A84C;
   --border: rgba(255,255,255,0.1);
   --card-bg: #1a1a1a;
   --overlay: rgba(0,0,0,0.8);
@@ -157,7 +164,18 @@
    ============================================================ */
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling only when the visitor has not asked for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Fixed navbar is 5rem tall — every anchor target clears it. */
+[id] {
+  scroll-margin-top: 5rem;
 }
 
 html, body {
@@ -166,6 +184,16 @@ html, body {
 }
 *, *::before, *::after {
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Respect reduced-motion for every animation/transition on the site. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* ============================================================
@@ -195,7 +223,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: var(--h1);
-  color: var(--accent-gold);
+  color: var(--accent-gold-ink);
   margin: 0 0 0.6em;
 }
 
@@ -250,8 +278,8 @@ label {
 /* ============================================================
    LINKS
    ============================================================ */
-a:not(.syren-btn-primary):not(.no-highlight):hover {
-  color: var(--accent-gold);
+a:not(.syren-btn):not(.syren-btn-primary):not(.syren-btn-secondary):not(.btn-secondary):not(.no-highlight):hover {
+  color: var(--accent-gold-ink);
 }
 
 :focus-visible {
@@ -306,14 +334,6 @@ a:not(.syren-btn-primary):not(.no-highlight):hover {
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
-}
-
-/* Enforce center alignment for the Best Selling Tours subtitle */
-#best-selling-subtitle {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  display: block;
 }
 /* ============================================================
    BUTTONS
@@ -396,36 +416,23 @@ a:not(.syren-btn-primary):not(.no-highlight):hover {
     hover:border-text-primary/40;
 }
 
-/* Light mode button overrides */
-html.light .syren-btn-primary {
-  color: #ffffff !important;
+/* Secondary buttons sitting on a dark/hero band (`.on-dark`, e.g. inside
+   HeroShell over a photo): the transparent fill lets the hero's brightest
+   mid-band show through, dropping white text below AA (3.8-4.2:1). A subtle
+   dark scrim restores headroom while keeping the ghost-button look. */
+.on-dark .syren-btn-secondary {
+  background-color: rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.28);
 }
-html.light .syren-btn-primary:hover {
-  @apply bg-royal-blue text-white;
-}
-html.light header .syren-btn-primary {
-  color: #ffffff !important;
-}
-
-html.light .syren-btn-secondary {
-  color: var(--text-primary) !important;
-  border-color: rgba(17, 17, 17, 0.35) !important;
-}
-html.light .syren-btn-secondary:hover {
-  background-color: rgba(0, 0, 0, 0.06);
-  border-color: rgba(17, 17, 17, 0.5) !important;
-  color: var(--text-primary) !important;
+.on-dark .syren-btn-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-html.light .btn-secondary {
-  color: var(--text-primary) !important;
-  border-color: rgba(17, 17, 17, 0.35) !important;
-}
-html.light .btn-secondary:hover {
-  background-color: rgba(0, 0, 0, 0.06);
-  border-color: rgba(17, 17, 17, 0.5) !important;
-  color: var(--text-primary) !important;
-}
+/* Primary button text is dark-on-gold in BOTH themes: `bg-accent-gold` +
+   `text-text-dark` clears AA in light and dark. (A previous `html.light`
+   override forced white text on the gold fill — that fails contrast, and the
+   `.light` class is never set at runtime, so it was dead code.) */
 
 /* ============================================================
    CARDS
@@ -485,9 +492,18 @@ html.light .btn-secondary:hover {
   box-shadow: 0 0 0 1px var(--accent-gold);
 }
 
+/* Bare inputs (e.g. the quote form) have no .input class, so Tailwind's
+   Preflight placeholder (`currentColor` at 50%) would otherwise apply — far too
+   faint for AA. One explicit, opaque placeholder colour is set site-wide. */
+::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-secondary);
+}
+
 .input::placeholder,
 .syren-input::placeholder {
-  color: color-mix(in srgb, var(--text-secondary) 82%, transparent);
+  color: var(--text-secondary);
 }
 
 /* ============================================================
@@ -495,7 +511,9 @@ html.light .btn-secondary:hover {
    ============================================================ */
 .syren-pill {
   @apply inline-flex items-center rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.15em] whitespace-nowrap;
-  background-color: rgba(0,0,0,0.6);
+  /* Pills always sit over photos, so the chip must be dark enough that brand
+     gold text clears WCAG AA regardless of how bright the image behind is. */
+  background-color: rgba(0,0,0,0.8);
   color: var(--accent-gold);
   border: 1px solid rgba(196,160,82,0.25);
   backdrop-filter: blur(6px);
@@ -511,8 +529,38 @@ html.light .btn-secondary:hover {
   display: none !important;
 }
 
+/* Text-over-photo chips (card price / duration badges). Like .syren-pill these
+   always sit on an image, so the chip is dark enough that the text clears AA
+   regardless of how bright the photo behind it is. */
+.syren-badge {
+  @apply inline-flex items-center rounded px-2 py-1 text-xs;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--accent-gold);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(4px);
+}
+
+.syren-badge--neutral {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .syren-muted {
   color: var(--text-secondary);
+}
+
+/* ============================================================
+   ON-DARK SURFACES
+   Local token overrides for elements that sit on a fixed dark
+   band (never on a theme surface). Keeps theme-based components
+   (SectionHeader, .input) readable in BOTH light and dark mode.
+   ============================================================ */
+.on-dark {
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.78);
+  --surface: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.22);
+  /* On a dark band the brand gold is already readable as text. */
+  --accent-gold-ink: var(--accent-gold);
 }
 
 .syren-panel {
@@ -568,5 +616,5 @@ html.light .btn-secondary:hover {
 }
 
 .mobile-nav-link {
-  @apply font-serif text-3xl text-text-primary tracking-wide hover:text-accent-gold transition-colors block text-center py-2;
+  @apply font-serif text-3xl text-text-primary tracking-wide hover:text-accent-gold-ink transition-colors block text-center py-2;
 }

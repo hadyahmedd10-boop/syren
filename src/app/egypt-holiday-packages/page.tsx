@@ -62,7 +62,7 @@ export default function EgyptHolidayPackagesPage() {
 
       <section className="section">
         <div className="container-x mx-auto max-w-3xl">
-          <div className="uppercase tracking-[0.25em] text-accent-gold text-xs font-bold mb-2">WHY SYREN</div>
+          <div className="uppercase tracking-[0.25em] text-accent-gold-ink text-xs font-bold mb-2">WHY SYREN</div>
           <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">Not Just a Package. An Experience.</h2>
           <p className="font-serif text-text-secondary leading-relaxed">
             Most Egypt holiday packages give you a coach, a flag, and a schedule. Syren gives you a private guide who knows the back entrance to Karnak Temple. A driver who&apos;s been taking travelers to the Pyramids for fifteen years. A hotel room that faces the Nile. The difference isn&apos;t just the itinerary — it&apos;s the depth of local knowledge behind every single detail.
@@ -102,7 +102,7 @@ export default function EgyptHolidayPackagesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {included.map(({ title, icon: Icon }) => (
               <div key={title} className="rounded-2xl border border-accent-gold/30 bg-background p-5 flex items-center gap-4">
-                <Icon className="text-accent-gold" size={22} />
+                <Icon className="text-accent-gold-ink" size={22} />
                 <span className="font-serif text-text-primary">{title}</span>
               </div>
             ))}
@@ -112,7 +112,7 @@ export default function EgyptHolidayPackagesPage() {
 
       <section className="section">
         <div className="container-x mx-auto max-w-3xl">
-          <div className="uppercase tracking-[0.25em] text-accent-gold text-xs font-bold mb-2">THE DESTINATION</div>
+          <div className="uppercase tracking-[0.25em] text-accent-gold-ink text-xs font-bold mb-2">THE DESTINATION</div>
           <h2 className="font-serif text-2xl md:text-3xl text-text-primary mb-4">Why Egypt in 2026?</h2>
           <p className="font-serif text-text-secondary leading-relaxed">
             Egypt is having a moment. International festivals are drawing crowds from Europe, the Gulf, and the Americas. The Grand Egyptian Museum — the largest in the world — has opened its doors. New luxury hotels have transformed the Red Sea coast. And the Pyramids? They&apos;ve been waiting 4,500 years and they&apos;re not going anywhere. There has never been a better time to go.

@@ -10,20 +10,20 @@ import { destinations } from "@/data/destinations";
 import { SOCIAL_LINKS, WHATSAPP_LINK } from "@/config/social";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 
-function Logo({ className = "", onClick, href = "/home#hero" }: { className?: string; onClick?: (e: React.MouseEvent) => void; href?: string }) {
+function Logo({ className = "", onClick, href = "/#hero" }: { className?: string; onClick?: (e: React.MouseEvent) => void; href?: string }) {
   return (
     <Link 
       href={href} 
       scroll={true}
       onClick={onClick}
-      className={`font-serif text-xl text-accent-gold tracking-tight inline-flex items-center gap-2 ${className}`}
+      className={`font-serif text-xl text-accent-gold-ink tracking-tight inline-flex items-center gap-2 ${className}`}
     > 
       <svg
         aria-hidden="true"
         viewBox="0 0 154 161"
         width="20"
         height="20"
-        className="text-accent-gold"
+        className="text-accent-gold-ink"
         fill="currentColor"
         preserveAspectRatio="xMidYMid meet"
       >
@@ -66,7 +66,7 @@ export default function Navbar() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const isClient = typeof document !== "undefined" && !!document.body;
 
-  const logoHref = "/home#hero";
+  const logoHref = "/#hero";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -75,7 +75,7 @@ export default function Navbar() {
   }, []);
 
   const handleLogoClick = (e: React.MouseEvent) => {
-    if (pathname === "/home" || pathname === "/") {
+    if (pathname === "/") {
       const hero = document.getElementById("hero");
       if (hero) {
         e.preventDefault();
@@ -141,7 +141,7 @@ const toggleMenu = () => {
           <button 
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             onClick={toggleMenu} 
-            className="hover:text-accent-gold transition-colors" 
+            className="hover:text-accent-gold-ink transition-colors" 
           > 
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button> 
@@ -169,7 +169,7 @@ const toggleMenu = () => {
                onClick={() => setIsMapOpen(!isMapOpen)}
                aria-expanded={isMapOpen}
                aria-haspopup="true"
-               className="flex items-center gap-1.5 hover:text-accent-gold transition-colors"
+               className="flex items-center gap-1.5 hover:text-accent-gold-ink transition-colors"
              >
                The Map
                <ChevronDown size={14} className={`transition-transform duration-300 ${isMapOpen ? 'rotate-180' : ''}`} />
@@ -184,21 +184,21 @@ const toggleMenu = () => {
                    className="absolute top-full left-0 mt-4 w-64 bg-background/95 backdrop-blur-xl border border-border rounded-2xl overflow-hidden shadow-xl z-50 text-text-primary"
                  >
                    <div className="p-2">
-                    <p className="px-4 py-2 text-xs uppercase tracking-[0.2em] text-accent-gold/60 font-bold">Destinations</p>
+                    <p className="px-4 py-2 text-xs uppercase tracking-[0.2em] text-accent-gold-ink/60 font-bold">Destinations</p>
                      {destinations.map((dest) => (
                        <Link
                          key={dest.slug}
                          href={`/destinations/${dest.slug}`}
                          className="flex flex-col px-4 py-3 rounded-lg hover:bg-accent-gold/10 transition-colors group"
                        >
-                         <span className="text-sm font-medium group-hover:text-accent-gold transition-colors">{dest.name}</span>
-                         <span className="text-xs font-bold uppercase tracking-[0.2em] text-text-secondary/60 group-hover:text-accent-gold/60 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(196,160,82,0.2)] line-clamp-1">{dest.tagline}</span>
+                         <span className="text-sm font-medium group-hover:text-accent-gold-ink transition-colors">{dest.name}</span>
+                         <span className="text-xs font-bold uppercase tracking-[0.2em] text-text-secondary/60 group-hover:text-accent-gold-ink/60 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(196,160,82,0.2)] line-clamp-1">{dest.tagline}</span>
                        </Link>
                      ))}
                      <div className="mt-2 pt-2 border-t border-border/50">
                        <Link
                          href="/destinations"
-                         className="flex items-center justify-center py-3 min-h-[44px] text-sm uppercase tracking-widest text-accent-gold hover:underline"
+                         className="flex items-center justify-center py-3 min-h-[44px] text-sm uppercase tracking-widest text-accent-gold-ink hover:underline"
                        >
                          View All Destinations
                        </Link>
@@ -208,9 +208,9 @@ const toggleMenu = () => {
                )}
              </AnimatePresence>
            </div>
-           <Link href="/experiences" className={`${pathname?.startsWith("/experiences") ? "text-accent-gold" : ""} hover:text-accent-gold transition-colors`}>Experiences</Link> 
-           <Link href="/events" className={`${pathname?.startsWith("/events") ? "text-accent-gold" : ""} hover:text-accent-gold transition-colors`}>Events</Link> 
-           <Link href="/partner" className={`${pathname === "/partner" ? "text-accent-gold" : ""} hover:text-accent-gold transition-colors`}>Partner Program</Link> 
+           <Link href="/experiences" className={`${pathname?.startsWith("/experiences") ? "text-accent-gold-ink" : ""} hover:text-accent-gold-ink transition-colors`}>Experiences</Link> 
+           <Link href="/events" className={`${pathname?.startsWith("/events") ? "text-accent-gold-ink" : ""} hover:text-accent-gold-ink transition-colors`}>Events</Link> 
+           <Link href="/partner" className={`${pathname === "/partner" ? "text-accent-gold-ink" : ""} hover:text-accent-gold-ink transition-colors`}>Partner Program</Link> 
           
         </div> 
 
@@ -246,7 +246,7 @@ const toggleMenu = () => {
               <button
                 type="button"
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-text-secondary hover:text-accent-gold transition-colors pt-2"
+                className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-text-secondary hover:text-accent-gold-ink transition-colors pt-2"
               >
                 Close
                 <X size={16} />
@@ -256,7 +256,7 @@ const toggleMenu = () => {
             {/* Primary Navigation */}
             <div className="flex-1 flex flex-col justify-center px-8 gap-8">
               <motion.div variants={itemVariants}>
-                <Link href="/experiences" className={`font-serif text-3xl ${pathname?.startsWith("/experiences") ? "text-accent-gold" : "text-text-primary"} hover:text-accent-gold transition-colors block`}>
+                <Link href="/experiences" className={`font-serif text-3xl ${pathname?.startsWith("/experiences") ? "text-accent-gold-ink" : "text-text-primary"} hover:text-accent-gold-ink transition-colors block`}>
                   Experiences
                 </Link>
               </motion.div>
@@ -268,8 +268,8 @@ const toggleMenu = () => {
                   aria-expanded={isMobileMapOpen}
                   className="flex items-center gap-3 group w-full text-left"
                 >
-                  <span className="font-serif text-3xl text-text-primary group-hover:text-accent-gold transition-colors">The Map</span>
-                  <ChevronDown size={20} className={`text-accent-gold/50 transition-transform duration-500 ${isMobileMapOpen ? 'rotate-180 text-accent-gold' : ''}`} />
+                  <span className="font-serif text-3xl text-text-primary group-hover:text-accent-gold-ink transition-colors">The Map</span>
+                  <ChevronDown size={20} className={`text-accent-gold-ink/50 transition-transform duration-500 ${isMobileMapOpen ? 'rotate-180 text-accent-gold-ink' : ''}`} />
                 </button>
                 <AnimatePresence>
                   {isMobileMapOpen && (
@@ -288,26 +288,26 @@ const toggleMenu = () => {
                             href={`/destinations/${dest.slug}`}
                             className="group block"
                           >
-                            <span className="block font-serif text-lg text-text-primary/80 group-hover:text-accent-gold transition-colors">
+                            <span className="block font-serif text-lg text-text-primary/80 group-hover:text-accent-gold-ink transition-colors">
                               {dest.name}
                             </span>
                           </Link>
                         ))}
                         <Link
                           href="/destinations"
-                          className="mt-2 inline-flex items-center min-h-[44px] text-sm uppercase tracking-[0.2em] text-accent-gold/70 hover:text-accent-gold transition-colors"
+                          className="mt-2 inline-flex items-center min-h-[44px] text-sm uppercase tracking-[0.2em] text-accent-gold-ink/70 hover:text-accent-gold-ink transition-colors"
                         >
                           View All Destinations
                         </Link>
                         <Link
                           href="/excursions"
-                          className="mt-1 inline-flex items-center min-h-[44px] text-sm uppercase tracking-[0.2em] text-accent-gold/70 hover:text-accent-gold transition-colors"
+                          className="mt-1 inline-flex items-center min-h-[44px] text-sm uppercase tracking-[0.2em] text-accent-gold-ink/70 hover:text-accent-gold-ink transition-colors"
                         >
                           Explore Excursions
                         </Link>
                         <Link
                           href="/transfers"
-                          className="mt-1 inline-flex items-center min-h-[44px] text-sm uppercase tracking-[0.2em] text-accent-gold/70 hover:text-accent-gold transition-colors"
+                          className="mt-1 inline-flex items-center min-h-[44px] text-sm uppercase tracking-[0.2em] text-accent-gold-ink/70 hover:text-accent-gold-ink transition-colors"
                         >
                           Private Transfers
                         </Link>
@@ -318,12 +318,12 @@ const toggleMenu = () => {
               </motion.div>
 
               <motion.div variants={itemVariants}>
-                <Link href="/events" className={`font-serif text-3xl ${pathname?.startsWith("/events") ? "text-accent-gold" : "text-text-primary"} hover:text-accent-gold transition-colors block`}>
+                <Link href="/events" className={`font-serif text-3xl ${pathname?.startsWith("/events") ? "text-accent-gold-ink" : "text-text-primary"} hover:text-accent-gold-ink transition-colors block`}>
                   Events
                 </Link>
               </motion.div>
               <motion.div variants={itemVariants}>
-                <Link href="/partner" className={`font-serif text-3xl ${pathname === "/partner" ? "text-accent-gold" : "text-text-primary"} hover:text-accent-gold transition-colors block`}>
+                <Link href="/partner" className={`font-serif text-3xl ${pathname === "/partner" ? "text-accent-gold-ink" : "text-text-primary"} hover:text-accent-gold-ink transition-colors block`}>
                   Partner Program
                 </Link>
               </motion.div>
@@ -335,12 +335,12 @@ const toggleMenu = () => {
               className="px-8 pb-16 pt-8"
             >
               <div className="flex flex-col gap-6 opacity-60 hover:opacity-100 transition-opacity duration-500">
-                <a href={`mailto:${SOCIAL_LINKS.email}`} className="font-serif text-lg text-text-primary hover:text-accent-gold transition-colors">{SOCIAL_LINKS.email}</a>
+                <a href={`mailto:${SOCIAL_LINKS.email}`} className="font-serif text-lg text-text-primary hover:text-accent-gold-ink transition-colors">{SOCIAL_LINKS.email}</a>
                 <div className="flex gap-6">
-                  <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-widest text-text-primary hover:text-accent-gold transition-colors min-h-[44px] inline-flex items-center">Instagram</a>
-                  <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-widest text-text-primary hover:text-accent-gold transition-colors min-h-[44px] inline-flex items-center">LinkedIn</a>
-                  <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-widest text-text-primary hover:text-accent-gold transition-colors min-h-[44px] inline-flex items-center">WhatsApp</a>
-                  <a href={`mailto:${SOCIAL_LINKS.email}`} className="text-sm uppercase tracking-widest text-text-primary hover:text-accent-gold transition-colors min-h-[44px] inline-flex items-center">Email</a>
+                  <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-widest text-text-primary hover:text-accent-gold-ink transition-colors min-h-[44px] inline-flex items-center">Instagram</a>
+                  <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-widest text-text-primary hover:text-accent-gold-ink transition-colors min-h-[44px] inline-flex items-center">LinkedIn</a>
+                  <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-widest text-text-primary hover:text-accent-gold-ink transition-colors min-h-[44px] inline-flex items-center">WhatsApp</a>
+                  <a href={`mailto:${SOCIAL_LINKS.email}`} className="text-sm uppercase tracking-widest text-text-primary hover:text-accent-gold-ink transition-colors min-h-[44px] inline-flex items-center">Email</a>
                 </div>
               </div>
             </motion.div>

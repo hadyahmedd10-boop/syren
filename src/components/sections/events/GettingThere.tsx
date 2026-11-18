@@ -12,7 +12,7 @@ export default function GettingThere({ event }: { event: Event }) {
   return (
     <section className="section-tight border-t border-accent-gold/20 bg-surface/30">
       <div className="container-x mx-auto max-w-5xl">
-        <p className="text-xs uppercase tracking-[0.3em] text-accent-gold">Getting there</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-accent-gold-ink">Getting there</p>
         <h2 className="mt-2 font-serif text-2xl text-text-primary md:text-3xl">
           Getting to {event.title}
         </h2>

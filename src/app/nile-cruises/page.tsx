@@ -82,17 +82,17 @@ export default function NileCruisesPage() {
           <SectionHeader title="Why Cruise the Nile with Syren" label="The Syren Difference" />
           <div className="grid md:grid-cols-3 gap-8 mt-8">
             <div className="text-center">
-              <Ship className="w-12 h-12 text-accent-gold mx-auto mb-4" />
+              <Ship className="w-12 h-12 text-accent-gold-ink mx-auto mb-4" />
               <h3 className="font-serif text-xl text-text-primary mb-2">5-Star Luxury Ships</h3>
               <p className="text-text-secondary text-sm">Premium vessels with spacious cabins, fine dining, and panoramic sundecks.</p>
             </div>
             <div className="text-center">
-              <Star className="w-12 h-12 text-accent-gold mx-auto mb-4" />
+              <Star className="w-12 h-12 text-accent-gold-ink mx-auto mb-4" />
               <h3 className="font-serif text-xl text-text-primary mb-2">Expert Egyptologists</h3>
               <p className="text-text-secondary text-sm">Licensed guides bring temples to life with deep历史 knowledge and storytelling.</p>
             </div>
             <div className="text-center">
-              <MapPin className="w-12 h-12 text-accent-gold mx-auto mb-4" />
+              <MapPin className="w-12 h-12 text-accent-gold-ink mx-auto mb-4" />
               <h3 className="font-serif text-xl text-text-primary mb-2">Curated Temple Itineraries</h3>
               <p className="text-text-secondary text-sm">Carefully timed visits to avoid crowds and capture the best light at each site.</p>
             </div>
@@ -133,7 +133,7 @@ export default function NileCruisesPage() {
           <div className="grid md:grid-cols-2 gap-6 mt-8">
             <div className="bg-background p-6 rounded-xl border border-border">
               <div className="flex items-center gap-3 mb-4">
-                <Calendar className="w-5 h-5 text-accent-gold" />
+                <Calendar className="w-5 h-5 text-accent-gold-ink" />
                 <h3 className="font-serif text-lg text-text-primary">Aswan to Luxor (4 Nights)</h3>
               </div>
               <p className="text-text-secondary text-sm mb-4">
@@ -146,7 +146,7 @@ export default function NileCruisesPage() {
             </div>
             <div className="bg-background p-6 rounded-xl border border-border">
               <div className="flex items-center gap-3 mb-4">
-                <Calendar className="w-5 h-5 text-accent-gold" />
+                <Calendar className="w-5 h-5 text-accent-gold-ink" />
                 <h3 className="font-serif text-lg text-text-primary">Luxor to Aswan (4 Nights)</h3>
               </div>
               <p className="text-text-secondary text-sm mb-4">

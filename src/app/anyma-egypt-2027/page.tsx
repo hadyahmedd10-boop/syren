@@ -154,7 +154,7 @@ export default function AnymaEgypt2027Page() {
           <p>
             We arrange private airport pickups and hotel-to-venue transfers as standard for festival
             guests. See{" "}
-            <Link href="/transfers" className="text-accent-gold underline underline-offset-2">
+            <Link href="/transfers" className="text-accent-gold-ink underline underline-offset-2">
               private transfers in Egypt
             </Link>{" "}
             for what that covers.

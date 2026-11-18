@@ -41,7 +41,7 @@ export default function DestinationIntro({ description, vibeKeywords }: Destinat
                 <span 
                   key={keyword} 
                   tabIndex={0}
-                  className="syren-pill border border-accent-gold/20 bg-accent-gold/5 text-accent-gold/80 hover:bg-accent-gold/10 hover:border-accent-gold/30 hover:text-accent-gold hover:shadow-[0_0_10px_rgba(196,160,82,0.1)]"
+                  className="syren-pill border! border-accent-gold/40! bg-accent-gold/15! text-accent-gold-ink! hover:bg-accent-gold/25! hover:border-accent-gold/50!"
                 >
                   {keyword}
                 </span>

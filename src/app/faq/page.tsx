@@ -23,7 +23,7 @@ function FaqItem({
     <details className="group border-b border-accent-gold/30 py-4">
       <summary className="list-none cursor-pointer flex items-start justify-between gap-4">
         <h3 className="font-serif text-xl text-text-primary">{q}</h3>
-        <span className="text-accent-gold text-xl leading-none">+</span>
+        <span className="text-accent-gold-ink text-xl leading-none">+</span>
       </summary>
       <div className="mt-3 pl-3 border-l-2 border-accent-gold">
         <div className="font-sans text-text-secondary leading-relaxed">{a}</div>
@@ -35,7 +35,7 @@ function FaqItem({
 function Section({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <section className="py-8">
-      <span className="block font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold mb-4 text-center">{label}</span>
+      <span className="block font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold-ink mb-4 text-center">{label}</span>
       <div className="space-y-2">{children}</div>
     </section>
   );
@@ -46,7 +46,7 @@ export default function FAQPage() {
     <main className="min-h-screen bg-background">
       <section className="py-16 border-b border-border">
         <div className="mx-auto max-w-4xl container-x text-center">
-          <h1 className="font-serif text-4xl md:text-5xl text-accent-gold">Frequently Asked Questions</h1>
+          <h1 className="font-serif text-4xl md:text-5xl text-accent-gold-ink">Frequently Asked Questions</h1>
           <p className="mt-3 font-sans text-text-secondary">Everything you need to know before your Egypt journey.</p>
         </div>
       </section>
@@ -58,7 +58,7 @@ export default function FAQPage() {
             a={
               <>
                 Most nationalities can obtain an Egyptian e-visa online at{" "}
-                <a href="https://visa2egypt.gov.eg" target="_blank" rel="noopener noreferrer" className="text-accent-gold hover:underline">
+                <a href="https://visa2egypt.gov.eg" target="_blank" rel="noopener noreferrer" className="text-accent-gold-ink hover:underline">
                   visa2egypt.gov.eg
                 </a>{" "}
                 before travel. The process takes 3–5 business days and costs around $25 USD. Some nationalities receive a visa on arrival. Your Syren concierge will guide you through the specific requirements for your passport.
@@ -70,7 +70,7 @@ export default function FAQPage() {
             a={
               <>
                 October through April is the sweet spot — comfortable temperatures across Cairo, Luxor, and Aswan. Summer (June–August) brings intense heat inland but the Red Sea coast remains perfect year‑round. See our full guide:{" "}
-                <Link href="/best-time-to-visit-egypt" className="text-accent-gold hover:underline">
+                <Link href="/best-time-to-visit-egypt" className="text-accent-gold-ink hover:underline">
                   Best Time to Visit Egypt
                 </Link>
                 .
@@ -82,7 +82,7 @@ export default function FAQPage() {
             a={
               <>
                 Yes. Egypt receives over 15 million tourists annually and has a dedicated tourist police force at every major site. See our detailed guide:{" "}
-                <Link href="/is-egypt-safe" className="text-accent-gold hover:underline">
+                <Link href="/is-egypt-safe" className="text-accent-gold-ink hover:underline">
                   Is Egypt Safe?
                 </Link>
                 .
@@ -123,7 +123,7 @@ export default function FAQPage() {
             a={
               <>
                 Yes — every Syren experience can be tailored to your dates, group size, interests, and budget.{" "}
-                <Link href="/quote" className="text-accent-gold hover:underline">
+                <Link href="/quote" className="text-accent-gold-ink hover:underline">
                   Contact us through the quote form
                 </Link>{" "}
                 and we&apos;ll design something specifically for you.
@@ -182,7 +182,7 @@ export default function FAQPage() {
             a={
               <>
                 Yes — Syren offers curated travel packages for all major Egypt events including Zamna Egypt, Sandbox Festival, NOART, and more. Packages include accommodation, transfers, and logistics.{" "}
-                <Link href="/events" className="text-accent-gold hover:underline">
+                <Link href="/events" className="text-accent-gold-ink hover:underline">
                   View our events
                 </Link>
                 .

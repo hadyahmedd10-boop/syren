@@ -129,12 +129,12 @@ export default function ExitIntentPopup({
           </button>
 
           <div className="p-6 space-y-4">
-            <span className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold">
+            <span className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold-ink">
               {eyebrow}
             </span>
             <h3 className="font-serif text-2xl text-text-primary">{headline}</h3>
             {experienceTitle && (
-              <p className="text-[11px] uppercase tracking-[0.2em] text-accent-gold">{experienceTitle}</p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-accent-gold-ink">{experienceTitle}</p>
             )}
             <p className="text-sm text-white/80">{subtext}</p>
 

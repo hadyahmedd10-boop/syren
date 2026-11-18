@@ -167,6 +167,7 @@ export default function RootLayout({
               </main>
               <FooterGate />
               <ViewportBadge />
+              <FloatingWhatsAppFab />
             </PHProvider>
           </ConsentProvider>
         </ThemeProvider>
@@ -187,7 +188,6 @@ export default function RootLayout({
           src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
           strategy="lazyOnload"
         />
-        <FloatingWhatsAppFab />
       </body>
     </html>
   );

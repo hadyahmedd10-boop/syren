@@ -76,18 +76,18 @@ export default function EventsFilter() {
         <div className="container-x mx-auto max-w-7xl">
           <div className="bg-surface-2 rounded-2xl p-4 mb-8">
             <div className="max-w-2xl mx-auto relative mb-4 pb-4 border-b border-border">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-accent-gold/50" size={18} />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-accent-gold-ink/50" size={18} />
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search events"
-                className="w-full h-12 rounded-full bg-surface backdrop-blur-sm border border-border focus:border-accent-gold/60 text-text-primary placeholder:text-text-secondary/60 pl-12 pr-12 outline-none focus:shadow-[0_0_0_1px_rgba(201,168,76,0.3)]"
+                className="w-full h-12 rounded-full bg-surface backdrop-blur-sm border border-border focus:border-accent-gold/60 text-text-primary placeholder:text-text-secondary pl-12 pr-12 outline-none focus:shadow-[0_0_0_1px_rgba(201,168,76,0.3)]"
               />
               {query.length > 0 && (
                 <button
                   aria-label="Clear search"
                   onClick={() => setQuery("")}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary hover:text-accent-gold transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary hover:text-accent-gold-ink transition-colors"
                 >
                   <X size={18} />
                 </button>
@@ -99,8 +99,8 @@ export default function EventsFilter() {
                 const active = category === c;
                 const base = "rounded-full min-h-[40px] px-5 py-2 text-sm font-medium tracking-wide transition-all duration-200";
                 const cls = active
-                  ? "bg-accent-gold/15 border border-accent-gold text-accent-gold font-semibold"
-                  : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold/70";
+                  ? "bg-accent-gold/15 border border-accent-gold text-accent-gold-ink font-semibold"
+                  : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold-ink";
                 return (
                   <button key={c} onClick={() => setCategory(c)} className={`${base} ${cls}`}>
                     {c}
@@ -114,8 +114,8 @@ export default function EventsFilter() {
                 const active = dateFilter === d;
                 const base = "rounded-full min-h-[40px] px-5 py-2 text-sm font-medium tracking-wide transition-all duration-200";
                 const cls = active
-                  ? "bg-accent-gold/15 border border-accent-gold text-accent-gold font-semibold"
-                  : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold/70";
+                  ? "bg-accent-gold/15 border border-accent-gold text-accent-gold-ink font-semibold"
+                  : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold-ink";
                 return (
                   <button key={d} onClick={() => setDateFilter(d)} className={`${base} ${cls}`}>
                     {d}
@@ -127,13 +127,13 @@ export default function EventsFilter() {
           <div className="text-sm text-text-secondary mb-4">Showing {filtered.length} events</div>
           {upcomingEvents.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-accent-gold uppercase tracking-widest text-xs mb-4">COMING SOON</p>
+              <p className="text-accent-gold-ink uppercase tracking-widest text-xs mb-4">COMING SOON</p>
               <h2 className="font-serif text-3xl text-text-primary mb-4">New Events Coming Soon</h2>
               <p className="text-text-secondary">Check back soon for upcoming Egypt events and festivals.</p>
             </div>
           ) : filtered.length === 0 ? (
             <div className="py-12 text-center">
-              <Compass size={36} className="mx-auto mb-3 text-accent-gold" />
+              <Compass size={36} className="mx-auto mb-3 text-accent-gold-ink" />
               <h3 className="font-serif text-2xl text-text-primary mb-1">No results found</h3>
               <p className="text-text-secondary mb-3">Try adjusting your filters or search term</p>
               <button
@@ -142,7 +142,7 @@ export default function EventsFilter() {
                   setCategory("All");
                   setDateFilter("Upcoming");
                 }}
-                className="text-accent-gold underline"
+                className="text-accent-gold-ink underline"
               >
                 Clear all filters
               </button>
@@ -160,7 +160,7 @@ export default function EventsFilter() {
             <div className="mt-16 pt-8 border-t border-border/50">
               <button
                 onClick={() => setShowPastEvents(!showPastEvents)}
-                className="flex items-center gap-2 mx-auto text-xs uppercase tracking-[0.3em] text-accent-gold hover:text-accent-gold/80 transition-colors"
+                className="flex items-center gap-2 mx-auto text-xs uppercase tracking-[0.3em] text-accent-gold-ink hover:text-accent-gold-ink/80 transition-colors"
               >
                 <span>{showPastEvents ? "Hide" : "View"} Past Events</span>
                 <svg

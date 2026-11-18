@@ -115,9 +115,13 @@ const BookingDrawer = forwardRef<BookingDrawerHandle, BookingDrawerProps>(functi
       />
 
       <div
-        className={`fixed inset-y-0 right-0 z-50 w-full md:w-[420px] border-l-2 border-accent-gold bg-background backdrop-blur-md transform transition-transform duration-300 ease-out ${
+        className={`on-dark fixed inset-y-0 right-0 z-50 w-full md:w-[420px] border-l-2 border-accent-gold bg-[#0b0b0b] backdrop-blur-md transform transition-transform duration-300 ease-out ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
+        /* While closed the drawer is translated off-screen, so its contents are
+           not visible to anyone; the contrast auditor skips it in that state
+           (it is measured in its open state instead). */
+        data-contrast-ignore={open ? undefined : ""}
         role="dialog"
         aria-modal="true"
         aria-labelledby="booking-drawer-title"
@@ -128,7 +132,7 @@ const BookingDrawer = forwardRef<BookingDrawerHandle, BookingDrawerProps>(functi
               <h3 id="booking-drawer-title" className="font-serif text-2xl text-text-primary">
                 Plan Your Experience
               </h3>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-accent-gold mt-1">{experienceTitle}</p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-accent-gold-ink mt-1">{experienceTitle}</p>
             </div>
             <button
               onClick={() => setOpen(false)}
@@ -143,9 +147,9 @@ const BookingDrawer = forwardRef<BookingDrawerHandle, BookingDrawerProps>(functi
             {submitted ? (
               <div className="text-center py-10">
                 <div className="mx-auto mb-4 w-12 h-12 rounded-full border border-accent-gold/40 flex items-center justify-center">
-                  <span className="text-accent-gold text-2xl">✓</span>
+                  <span className="text-accent-gold-ink text-2xl">✓</span>
                 </div>
-                <h4 className="font-serif text-xl text-accent-gold mb-2">Your request has been sent.</h4>
+                <h4 className="font-serif text-xl text-accent-gold-ink mb-2">Your request has been sent.</h4>
                 <p className="text-white/80">We'll contact you within 24 hours.</p>
               </div>
             ) : (
@@ -282,11 +286,11 @@ const BookingDrawer = forwardRef<BookingDrawerHandle, BookingDrawerProps>(functi
               <div className="flex items-baseline justify-between">
                 <span className="font-sans text-sm text-white/80">Price Summary</span>
                 {typeof basePriceAmount === "number" ? (
-                  <span className="font-serif text-xl text-accent-gold">
+                  <span className="font-serif text-xl text-accent-gold-ink">
                     {formatNumber(basePriceAmount)} × {travelers} = {formatNumber(totalPrice || 0)} {basePriceCurrency}
                   </span>
                 ) : (
-                  <span className="font-serif text-xl text-accent-gold">Get Quote</span>
+                  <span className="font-serif text-xl text-accent-gold-ink">Get Quote</span>
                 )}
               </div>
               <p className="text-[11px] text-white/60 mt-1">

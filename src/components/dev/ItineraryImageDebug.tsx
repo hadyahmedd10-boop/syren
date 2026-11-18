@@ -26,7 +26,7 @@ export default function ItineraryImageDebug({ slug }: ItineraryImageDebugProps) 
   return (
     <div className="mt-12 rounded-2xl border border-dashed border-accent-gold/30 bg-black/40 p-6">
       <div className="mb-6 flex flex-col gap-2">
-        <h3 className="font-serif text-xl text-accent-gold">Itinerary Image Debug</h3>
+        <h3 className="font-serif text-xl text-accent-gold-ink">Itinerary Image Debug</h3>
         <p className="text-xs uppercase tracking-[0.25em] text-white/50">Debug Only</p>
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">

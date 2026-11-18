@@ -37,7 +37,7 @@ export default function LandingCard({
         <div className="absolute left-6 top-6 z-10">
           <span 
             tabIndex={0}
-            className="syren-pill bg-background/80 border border-accent-gold/20 text-accent-gold backdrop-blur-md hover:bg-background hover:border-accent-gold/40 hover:shadow-[0_0_15px_rgba(196,160,82,0.2)]"
+            className="syren-pill bg-background/80 border border-accent-gold/20 text-accent-gold-ink backdrop-blur-md hover:bg-background hover:border-accent-gold/40 hover:shadow-[0_0_15px_rgba(196,160,82,0.2)]"
           >
             {category}
           </span>
@@ -46,7 +46,7 @@ export default function LandingCard({
       
       <div className="flex flex-1 flex-col px-4 pt-4 pb-3 md:px-6 md:pt-6 md:pb-5">
         <div className="mb-2">
-          <h3 className="font-serif text-2xl tracking-tight text-text-primary mb-1 group-hover:text-accent-gold transition-colors duration-500">
+          <h3 className="font-serif text-2xl tracking-tight text-text-primary mb-1 group-hover:text-accent-gold-ink transition-colors duration-500">
             {title}
           </h3>
           <p className="font-sans text-[12px] md:text-[13px] leading-relaxed text-text-secondary line-clamp-2">

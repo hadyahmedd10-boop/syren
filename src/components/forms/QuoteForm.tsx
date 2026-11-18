@@ -102,7 +102,7 @@ export default function QuoteForm() {
     <div className="max-w-3xl mx-auto">
       <Reveal>
         <div className="text-center mb-16 space-y-4">
-          <span className="font-serif text-accent-gold tracking-[0.4em] text-xs uppercase">
+          <span className="font-serif text-accent-gold-ink tracking-[0.4em] text-xs uppercase">
             Bespoke Journeys
           </span>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-text-primary tracking-tight">
@@ -127,7 +127,7 @@ export default function QuoteForm() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label htmlFor="name" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">Full Name</label>
+              <label htmlFor="name" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold-ink font-bold">Full Name</label>
               <input
                 id="name"
                 required
@@ -142,7 +142,7 @@ export default function QuoteForm() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="email" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">Email Address</label>
+              <label htmlFor="email" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold-ink font-bold">Email Address</label>
               <input
                 id="email"
                 required
@@ -158,7 +158,7 @@ export default function QuoteForm() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="phone" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">Phone Number (WhatsApp Preferred)</label>
+              <label htmlFor="phone" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold-ink font-bold">Phone Number (WhatsApp Preferred)</label>
               <input
                 id="phone"
                 type="tel"
@@ -172,7 +172,7 @@ export default function QuoteForm() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="dates" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">Estimated Dates</label>
+              <label htmlFor="dates" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold-ink font-bold">Estimated Dates</label>
               <input
                 id="dates"
                 type="text"
@@ -186,7 +186,7 @@ export default function QuoteForm() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="budget" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">Estimated Budget (Per Person)</label>
+            <label htmlFor="budget" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold-ink font-bold">Estimated Budget (Per Person)</label>
             <select
               id="budget"
               className="w-full bg-transparent border-b border-border py-3 text-text-primary focus:outline-none focus:border-accent-gold transition-colors font-sans"
@@ -203,7 +203,7 @@ export default function QuoteForm() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="message" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">Your Vision</label>
+            <label htmlFor="message" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold-ink font-bold">Your Vision</label>
             <textarea
               id="message"
               rows={4}

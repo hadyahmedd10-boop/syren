@@ -77,14 +77,14 @@ export default function AdminTestimonials() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
           <div>
-            <h1 className="text-4xl font-serif text-accent-gold mb-2">Moderation Dashboard</h1>
+            <h1 className="text-4xl font-serif text-accent-gold-ink mb-2">Moderation Dashboard</h1>
             <p className="text-text-secondary font-sans text-sm uppercase tracking-widest">Manage Traveler Stories</p>
           </div>
         </div>
 
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20 gap-4">
-            <Loader2 className="animate-spin text-accent-gold" size={32} />
+            <Loader2 className="animate-spin text-accent-gold-ink" size={32} />
             <p className="text-text-secondary italic">Loading testimonials...</p>
           </div>
         ) : testimonials.length === 0 ? (
@@ -103,7 +103,7 @@ export default function AdminTestimonials() {
                 <div className="flex flex-col md:flex-row justify-between gap-6">
                   <div className="flex-grow">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-gold/20 to-transparent border border-accent-gold/10 flex items-center justify-center text-accent-gold font-serif text-lg">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-gold/20 to-transparent border border-accent-gold/10 flex items-center justify-center text-accent-gold-ink font-serif text-lg">
                         {t.name.charAt(0)}
                       </div>
                       <div>
@@ -122,7 +122,7 @@ export default function AdminTestimonials() {
                         <Star 
                           key={i} 
                           size={14} 
-                          className={`${i < (t.rating || 5) ? 'text-accent-gold fill-accent-gold' : 'text-text-primary/10'}`} 
+                          className={`${i < (t.rating || 5) ? 'text-accent-gold-ink fill-accent-gold' : 'text-text-primary/10'}`} 
                         />
                       ))}
                     </div>
@@ -130,7 +130,7 @@ export default function AdminTestimonials() {
                     <p className="text-text-secondary italic leading-relaxed mb-6">&ldquo;{t.message}&rdquo;</p>
 
                     {t.experience_slug && (
-                      <span className="text-accent-gold/60 text-[10px] uppercase tracking-widest bg-accent-gold/5 px-3 py-1 rounded-full border border-accent-gold/10">
+                      <span className="text-accent-gold-ink/60 text-[10px] uppercase tracking-widest bg-accent-gold/5 px-3 py-1 rounded-full border border-accent-gold/10">
                         Experience: {t.experience_slug.replace(/-/g, ' ')}
                       </span>
                     )}

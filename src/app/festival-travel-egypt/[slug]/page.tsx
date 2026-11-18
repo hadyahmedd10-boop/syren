@@ -205,7 +205,7 @@ export default async function GeneratedFestivalPage({ params }: Props) {
           <p>
             Send us your flight details and group size and we will match the right vehicle for the
             group. See{" "}
-            <Link href="/transfers" className="text-accent-gold underline underline-offset-2">
+            <Link href="/transfers" className="text-accent-gold-ink underline underline-offset-2">
               private transfers in Egypt
             </Link>{" "}
             for what that covers.

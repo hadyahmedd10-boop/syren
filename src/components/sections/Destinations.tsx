@@ -45,14 +45,14 @@ export default function Destinations() {
           <div className="hidden md:flex gap-4 mt-8 md:mt-0">
             <button
               onClick={() => scroll("left")}
-              className="p-3 rounded-full border border-border hover:border-accent-gold hover:text-accent-gold transition-all duration-300"
+              className="p-3 rounded-full border border-border hover:border-accent-gold hover:text-accent-gold-ink transition-all duration-300"
               aria-label="Scroll left"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={() => scroll("right")}
-              className="p-3 rounded-full border border-border hover:border-accent-gold hover:text-accent-gold transition-all duration-300"
+              className="p-3 rounded-full border border-border hover:border-accent-gold hover:text-accent-gold-ink transition-all duration-300"
               aria-label="Scroll right"
             >
               <ChevronRight size={20} />
@@ -84,7 +84,7 @@ export default function Destinations() {
                     
                     {/* Subtle Label for Mobile/Quick Scan */}
                     <div className="absolute bottom-5 left-5 right-5 md:hidden">
-                      <h3 className="font-serif text-lg font-medium tracking-tight text-accent-gold">
+                      <h3 className="font-serif text-lg font-medium tracking-tight text-accent-gold-ink">
                         {dest.name}
                       </h3>
                     </div>
@@ -95,7 +95,7 @@ export default function Destinations() {
                       <span className="absolute left-0 top-1/2 -translate-y-1/2 font-serif text-5xl text-text-primary/5 select-none hidden md:block group-hover:text-primary/10 transition-colors duration-500 pointer-events-none">
                         0{index + 1}
                       </span>
-                      <h3 className="hidden md:block font-serif text-2xl font-medium tracking-tight text-accent-gold relative z-10 transition-colors duration-500">
+                      <h3 className="hidden md:block font-serif text-2xl font-medium tracking-tight text-accent-gold-ink relative z-10 transition-colors duration-500">
                         <span className="line-clamp-2">{dest.name}</span>
                       </h3>
                     </div>

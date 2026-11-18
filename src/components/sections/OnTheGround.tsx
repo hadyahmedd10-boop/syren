@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SectionHeader from "@/components/layout/SectionHeader";
 import { vehicles } from "@/data/vehicles";
 
 /** Representative trio of existing fleet thumbnails. */
@@ -21,7 +22,7 @@ const tiles = [
   },
   {
     title: "Guided tours",
-    copy: "Licensed Egyptologist guides across Cairo, the Nile, Luxor and the Red Sea.",
+    copy: "Expert local guides across Cairo, the Nile, Luxor and the Red Sea.",
     href: "/experiences",
   },
   {
@@ -33,19 +34,17 @@ const tiles = [
 
 export default function OnTheGround() {
   return (
-    <section className="section border-t border-border bg-background">
+    <section className="bg-surface/30 py-12 md:py-16 lg:py-20">
       <div className="container-x mx-auto max-w-7xl">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-accent-gold">On the ground</p>
-          <h2 className="mt-3 font-serif text-3xl font-light text-text-primary md:text-4xl">
-            Everything handled, door to door
-          </h2>
-          <p className="mt-3 text-text-secondary">
-            One team for your stay, your transfers, your tours and your tickets in Egypt.
-          </p>
-        </div>
+        <SectionHeader
+          label="On the ground"
+          title="Everything handled, door to door"
+          description="One team for your stay, your transfers, your tours and your tickets in Egypt."
+          align="center"
+          className="mb-8 md:mb-10"
+        />
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {tiles.map((tile) => (
             <Link
               key={tile.title}
@@ -72,7 +71,7 @@ export default function OnTheGround() {
                   ))}
                 </div>
               )}
-              <span className="mt-5 text-xs uppercase tracking-[0.2em] text-accent-gold">
+              <span className="mt-5 text-xs uppercase tracking-[0.2em] text-accent-gold-ink">
                 Explore →
               </span>
             </Link>

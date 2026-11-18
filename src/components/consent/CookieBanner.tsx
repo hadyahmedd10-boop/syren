@@ -16,14 +16,14 @@ export default function CookieBanner() {
   if (!ready || !isOpen) return null;
 
   const actionClass =
-    "inline-flex items-center justify-center min-h-[44px] rounded-full border border-accent-gold px-6 py-2.5 text-[11px] uppercase tracking-[0.2em] font-sans font-semibold text-accent-gold transition-colors duration-300 hover:bg-accent-gold hover:text-text-dark";
+    "inline-flex items-center justify-center min-h-[44px] rounded-full border border-accent-gold px-6 py-2.5 text-[11px] uppercase tracking-[0.2em] font-sans font-semibold text-accent-gold-ink transition-colors duration-300 hover:bg-accent-gold hover:text-text-dark";
 
   return (
     <div
       role="dialog"
       aria-label="Cookie consent"
       aria-modal="false"
-      className="fixed inset-x-0 bottom-0 z-[100] px-4 pb-4"
+      className="fixed inset-x-0 bottom-0 z-[100] px-4 pb-[max(1rem,env(safe-area-inset-bottom))]"
     >
       <div className="mx-auto max-w-3xl rounded-2xl border border-t border-border border-t-accent-gold/40 bg-surface/95 shadow-custom backdrop-blur-md">
         <div className="p-5 md:p-6">
@@ -46,7 +46,7 @@ export default function CookieBanner() {
             </button>
             <Link
               href="/privacy"
-              className="text-xs text-text-secondary underline transition-colors hover:text-accent-gold sm:ml-auto"
+              className="text-xs text-text-secondary underline transition-colors hover:text-accent-gold-ink sm:ml-auto"
             >
               Read our Privacy Policy
             </Link>

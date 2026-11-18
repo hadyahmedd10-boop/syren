@@ -196,7 +196,7 @@ export default function FestivalTravelEgyptPage() {
                           className="flex items-baseline justify-between gap-3"
                         >
                           <span className="text-text-primary">{pkg.name}</span>
-                          <span className="shrink-0 text-accent-gold">
+                          <span className="shrink-0 text-accent-gold-ink">
                             {formatPackagePrice(pkg)}
                           </span>
                         </li>
@@ -209,7 +209,7 @@ export default function FestivalTravelEgyptPage() {
                       </Link>
                       <Link
                         href={`/events/${event.slug}`}
-                        className="text-center text-xs text-text-secondary transition-colors hover:text-accent-gold"
+                        className="text-center text-xs text-text-secondary transition-colors hover:text-accent-gold-ink"
                       >
                         Event details →
                       </Link>
@@ -266,7 +266,7 @@ export default function FestivalTravelEgyptPage() {
           <ol className="mt-6 space-y-3">
             {bookingSteps.map((step, index) => (
               <li key={step} className="flex gap-3 text-text-secondary">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-accent-gold/50 text-xs font-semibold text-accent-gold">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-accent-gold/50 text-xs font-semibold text-accent-gold-ink">
                   {index + 1}
                 </span>
                 <span className="leading-relaxed">{step}</span>
@@ -282,11 +282,11 @@ export default function FestivalTravelEgyptPage() {
           <div className="container-x mx-auto max-w-4xl">
             <details className="group border-t border-border">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5">
-                <span className="font-serif text-2xl text-text-primary transition-colors group-hover:text-accent-gold">
+                <span className="font-serif text-2xl text-text-primary transition-colors group-hover:text-accent-gold-ink">
                   Ended editions ({ended.length})
                 </span>
                 <span
-                  className="shrink-0 text-xl leading-none text-text-secondary transition-transform duration-300 group-open:rotate-45 group-hover:text-accent-gold"
+                  className="shrink-0 text-xl leading-none text-text-secondary transition-transform duration-300 group-open:rotate-45 group-hover:text-accent-gold-ink"
                   aria-hidden
                 >
                   +
@@ -320,11 +320,11 @@ export default function FestivalTravelEgyptPage() {
             {faqs.map((faq) => (
               <details key={faq.question} className="group border-b border-border">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5">
-                  <span className="font-serif text-lg text-text-primary transition-colors group-hover:text-accent-gold">
+                  <span className="font-serif text-lg text-text-primary transition-colors group-hover:text-accent-gold-ink">
                     {faq.question}
                   </span>
                   <span
-                    className="shrink-0 text-xl leading-none text-text-secondary transition-transform duration-300 group-open:rotate-45 group-hover:text-accent-gold"
+                    className="shrink-0 text-xl leading-none text-text-secondary transition-transform duration-300 group-open:rotate-45 group-hover:text-accent-gold-ink"
                     aria-hidden
                   >
                     +

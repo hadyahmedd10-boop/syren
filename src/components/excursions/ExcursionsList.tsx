@@ -48,18 +48,18 @@ export default function ExcursionsList() {
         <SectionHeader title="Explore Excursions" label="Handpicked Add-Ons" className="mb-6" />
           <div className="bg-surface-2 rounded-2xl p-4 mb-8">
           <div className="max-w-2xl mx-auto relative mb-4 pb-4 border-b border-border">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-accent-gold/50" size={18} />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-accent-gold-ink/50" size={18} />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search excursions"
-              className="w-full h-12 rounded-full bg-surface backdrop-blur-sm border border-border focus:border-accent-gold/60 text-text-primary placeholder:text-text-secondary/60 pl-12 pr-12 outline-none focus:shadow-[0_0_0_1px_rgba(201,168,76,0.3)]"
+              className="w-full h-12 rounded-full bg-surface backdrop-blur-sm border border-border focus:border-accent-gold/60 text-text-primary placeholder:text-text-secondary pl-12 pr-12 outline-none focus:shadow-[0_0_0_1px_rgba(201,168,76,0.3)]"
             />
             {query.length > 0 && (
               <button
                 aria-label="Clear search"
                 onClick={() => setQuery("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary hover:text-accent-gold transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary hover:text-accent-gold-ink transition-colors"
               >
                 <X size={18} />
               </button>
@@ -71,8 +71,8 @@ export default function ExcursionsList() {
               const active = typeFilter === t;
               const base = "rounded-full min-h-[40px] px-5 py-2 text-sm font-medium tracking-wide transition-all duration-200";
               const cls = active
-                ? "bg-accent-gold/15 border border-accent-gold text-accent-gold font-semibold"
-                : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold/70";
+                ? "bg-accent-gold/15 border border-accent-gold text-accent-gold-ink font-semibold"
+                : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold-ink";
               return (
                 <button key={t} onClick={() => setTypeFilter(t)} className={`${base} ${cls}`}>
                   {t}
@@ -86,8 +86,8 @@ export default function ExcursionsList() {
               const active = durationFilter === d;
               const base = "rounded-full min-h-[40px] px-5 py-2 text-sm font-medium tracking-wide transition-all duration-200";
               const cls = active
-                ? "bg-accent-gold/15 border border-accent-gold text-accent-gold font-semibold"
-                : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold/70";
+                ? "bg-accent-gold/15 border border-accent-gold text-accent-gold-ink font-semibold"
+                : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold-ink";
               return (
                 <button key={d} onClick={() => setDurationFilter(d)} className={`${base} ${cls}`}>
                   {d}
@@ -99,10 +99,10 @@ export default function ExcursionsList() {
         <div className="text-sm text-text-secondary mb-4">Showing {filtered.length} excursions</div>
         {filtered.length === 0 ? (
           <div className="py-12 text-center">
-            <Compass size={36} className="mx-auto mb-3 text-accent-gold" />
+            <Compass size={36} className="mx-auto mb-3 text-accent-gold-ink" />
             <h3 className="font-serif text-2xl text-text-primary mb-1">No results found</h3>
             <p className="text-text-secondary mb-3">Try adjusting your filters or search term</p>
-            <button onClick={() => { setQuery(""); setTypeFilter("All"); setDurationFilter("All"); }} className="text-accent-gold underline">
+            <button onClick={() => { setQuery(""); setTypeFilter("All"); setDurationFilter("All"); }} className="text-accent-gold-ink underline">
               Clear all filters
             </button>
           </div>

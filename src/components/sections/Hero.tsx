@@ -14,6 +14,7 @@ interface HeroProps {
   subtitle?: React.ReactNode;
   eyebrow?: string;
   backgroundImage?: string | StaticImageData;
+  backgroundAlt?: string;
   showButtons?: boolean;
 }
 
@@ -22,6 +23,7 @@ export default function Hero({
   subtitle, 
   eyebrow = "Syren",
   backgroundImage = HERO_IMAGES.home,
+  backgroundAlt = "The Nile at golden hour — Syren Travel Egypt",
   showButtons = true 
 }: HeroProps) {
   useEffect(() => {
@@ -36,6 +38,7 @@ export default function Hero({
   return (
     <HeroShell
       backgroundImage={bgImageSrc}
+      altText={backgroundAlt}
       eyebrow={eyebrow}
       title={
         title || (
@@ -49,7 +52,7 @@ export default function Hero({
       }
     >
       {showButtons && (
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <div className="on-dark mt-10 flex flex-wrap items-center justify-center gap-4">
           <Link href="#map-of-syren" className="syren-btn-primary px-8 py-3">
             Begin Your Journey
           </Link>

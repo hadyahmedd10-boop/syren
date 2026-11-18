@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link"
-import { SOCIAL_LINKS, WHATSAPP_LINK, SOCIAL_EVENTS } from "@/config/social";
-import { trackCta } from "@/lib/track";
+import { SOCIAL_LINKS, WHATSAPP_LINK } from "@/config/social";
 import { openCookieSettings } from "@/lib/consent";
 import { Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
 import TrustpilotWidget from "@/components/ui/TrustpilotWidget";
@@ -10,75 +9,63 @@ import TrustpilotWidget from "@/components/ui/TrustpilotWidget";
 export default function Footer() { 
   return ( 
     <footer className="bg-footer section-tight border-t border-border"> 
-      <div className="max-w-7xl mx-auto container-x grid md:grid-cols-6 gap-8 md:gap-10"> 
+      <div className="max-w-7xl mx-auto container-x grid gap-8 md:grid-cols-6 md:gap-10"> 
         
         <div className="md:col-span-1"> 
           <h3 className="font-serif text-2xl mb-4">Syren</h3> 
-          <p className="text-sm opacity-70 font-sans"> 
+          <p className="text-sm text-text-secondary font-sans"> 
             Curated journeys through Egypt — guided by soul, crafted with care. 
           </p> 
         </div> 
 
         <div> 
           <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Explore</h4> 
-          <ul className="space-y-2 text-sm opacity-70 font-sans"> 
-            <li><Link href="/destinations" className="hover:text-accent-gold transition-colors">Destinations</Link></li> 
-            <li><Link href="/experiences" className="hover:text-accent-gold transition-colors">Experiences</Link></li> 
-            <li><Link href="/excursions" className="hover:text-accent-gold transition-colors">Excursions</Link></li> 
-            <li><Link href="/transfers" className="hover:text-accent-gold transition-colors">Private Transfers</Link></li> 
-            <li><Link href="/egypt-holiday-packages" className="hover:text-accent-gold transition-colors">Holiday Packages</Link></li> 
-            <li><Link href="/saved" className="hover:text-accent-gold transition-colors">Saved</Link></li>
-            <li><Link href="/reviews" className="hover:text-accent-gold transition-colors">Traveler Reviews</Link></li>
-            <li><Link href="/contact" className="hover:text-accent-gold transition-colors">Contact</Link></li> 
-            <li><Link href="/terms" className="hover:text-accent-gold transition-colors">Terms of Service</Link></li> 
-            <li><Link href="/privacy" className="hover:text-accent-gold transition-colors">Privacy Policy</Link></li> 
-            <li>
-              <button
-                type="button"
-                onClick={openCookieSettings}
-                className="hover:text-accent-gold transition-colors text-left"
-              >
-                Cookie settings
-              </button>
-            </li>
+          <ul className="space-y-2 text-sm text-text-secondary font-sans"> 
+            <li><Link href="/destinations" className="hover:text-accent-gold-ink transition-colors">Destinations</Link></li> 
+            <li><Link href="/experiences" className="hover:text-accent-gold-ink transition-colors">Experiences</Link></li> 
+            <li><Link href="/excursions" className="hover:text-accent-gold-ink transition-colors">Excursions</Link></li> 
+            <li><Link href="/transfers" className="hover:text-accent-gold-ink transition-colors">Private Transfers</Link></li> 
+            <li><Link href="/egypt-holiday-packages" className="hover:text-accent-gold-ink transition-colors">Holiday Packages</Link></li> 
+            <li><Link href="/reviews" className="hover:text-accent-gold-ink transition-colors">Reviews</Link></li> 
+            <li><Link href="/saved" className="hover:text-accent-gold-ink transition-colors">Saved</Link></li>
           </ul> 
         </div> 
 
         <div> 
           <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Festival Travel</h4> 
-          <ul className="space-y-2 text-sm opacity-70 font-sans"> 
-            <li><Link href="/festival-travel-egypt" className="hover:text-accent-gold transition-colors">Festival Travel Egypt</Link></li> 
-            <li><Link href="/anyma-egypt-2027" className="hover:text-accent-gold transition-colors">Anyma Egypt 2027</Link></li> 
-            <li><Link href="/starlight-festival-egypt" className="hover:text-accent-gold transition-colors">Starlight Festival</Link></li> 
-            <li><Link href="/zamna-egypt-travel" className="hover:text-accent-gold transition-colors">Zamna Egypt</Link></li> 
-            <li><Link href="/events" className="hover:text-accent-gold transition-colors">All Events</Link></li> 
+          <ul className="space-y-2 text-sm text-text-secondary font-sans"> 
+            <li><Link href="/festival-travel-egypt" className="hover:text-accent-gold-ink transition-colors">Festival Travel Egypt</Link></li> 
+            <li><Link href="/anyma-egypt-2027" className="hover:text-accent-gold-ink transition-colors">Anyma Egypt 2027</Link></li> 
+            <li><Link href="/starlight-festival-egypt" className="hover:text-accent-gold-ink transition-colors">Starlight Festival</Link></li> 
+            <li><Link href="/zamna-egypt-travel" className="hover:text-accent-gold-ink transition-colors">Zamna Egypt</Link></li> 
+            <li><Link href="/events" className="hover:text-accent-gold-ink transition-colors">All Events</Link></li> 
           </ul> 
         </div> 
 
         <div> 
-          <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Help Center</h4> 
-          <ul className="space-y-2 text-sm opacity-70 font-sans"> 
-            <li><Link href="/faq" className="hover:text-accent-gold transition-colors">FAQ</Link></li> 
-            <li><Link href="/contact" className="hover:text-accent-gold transition-colors">Concierge Support</Link></li> 
+          <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Help</h4> 
+          <ul className="space-y-2 text-sm text-text-secondary font-sans"> 
+            <li><Link href="/faq" className="hover:text-accent-gold-ink transition-colors">FAQ</Link></li> 
+            <li><Link href="/contact" className="hover:text-accent-gold-ink transition-colors">Contact</Link></li> 
           </ul> 
         </div>
 
         <div> 
           <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Work With Us</h4> 
-          <ul className="space-y-2 text-sm opacity-70 font-sans"> 
-            <li><Link href="/partner" className="hover:text-accent-gold transition-colors">Partner Program</Link></li> 
+          <ul className="space-y-2 text-sm text-text-secondary font-sans"> 
+            <li><Link href="/partner" className="hover:text-accent-gold-ink transition-colors">Partner Program</Link></li> 
           </ul> 
         </div> 
 
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col md:items-start">
           <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Connect</h4> 
-          <ul className="text-sm opacity-70 font-sans">
+          <ul className="text-sm text-text-secondary font-sans">
             <li className="flex items-center gap-4">
               <a 
                 href={SOCIAL_LINKS.instagram} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="hover:text-accent-gold transition-colors inline-flex"
+                className="hover:text-accent-gold-ink transition-colors inline-flex"
                 aria-label="Follow Syren on Instagram"
                 title="Instagram"
               >
@@ -88,7 +75,7 @@ export default function Footer() {
                 href={SOCIAL_LINKS.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="hover:text-accent-gold transition-colors inline-flex"
+                className="hover:text-accent-gold-ink transition-colors inline-flex"
                 aria-label="Connect with Syren on LinkedIn"
                 title="LinkedIn"
               >
@@ -98,7 +85,7 @@ export default function Footer() {
                 href={WHATSAPP_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="hover:text-accent-gold transition-colors inline-flex"
+                className="hover:text-accent-gold-ink transition-colors inline-flex"
                 aria-label="Contact Syren via WhatsApp"
                 title="WhatsApp"
               >
@@ -106,7 +93,7 @@ export default function Footer() {
               </a>
               <a 
                 href={`mailto:${SOCIAL_LINKS.email}`}
-                className="hover:text-accent-gold transition-colors inline-flex"
+                className="hover:text-accent-gold-ink transition-colors inline-flex"
                 aria-label="Email Syren"
                 title="Email"
               >
@@ -115,20 +102,26 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-
-        <div> 
-          <h4 className="mb-4 font-semibold font-sans uppercase tracking-widest text-xs">Updates</h4> 
-          <p className="text-sm opacity-70 font-sans mb-4"> 
-            WhatsApp & Private Concierge available 24/7 
-          </p> 
-        </div> 
       </div> 
 
-      <div className="flex justify-center mb-6 pt-6 border-t border-border">
+      <div className="flex justify-center mb-6 pt-6 border-t border-border mt-10">
         <TrustpilotWidget variant="micro" height="24px" />
       </div>
-      <div className="text-center mt-16 text-xs opacity-40 font-sans tracking-widest">
-        © {new Date().getFullYear()} Syren. All rights reserved.
+
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-x-3 gap-y-2 px-[var(--container-x)] text-xs text-text-secondary font-sans sm:flex-row sm:flex-wrap">
+        <Link href="/terms" className="hover:text-accent-gold-ink transition-colors">Terms</Link>
+        <span aria-hidden="true" className="hidden sm:inline">·</span>
+        <Link href="/privacy" className="hover:text-accent-gold-ink transition-colors">Privacy</Link>
+        <span aria-hidden="true" className="hidden sm:inline">·</span>
+        <button
+          type="button"
+          onClick={openCookieSettings}
+          className="hover:text-accent-gold-ink transition-colors"
+        >
+          Cookie settings
+        </button>
+        <span aria-hidden="true" className="hidden sm:inline">·</span>
+        <span>© {new Date().getFullYear()} Syren. All rights reserved.</span>
       </div>
     </footer> 
   ) 

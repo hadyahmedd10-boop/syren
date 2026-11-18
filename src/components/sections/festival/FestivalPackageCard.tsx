@@ -115,7 +115,7 @@ export default function FestivalPackageCard({ pkg, page, className = "" }: Props
           <ul className="mt-4 space-y-2 text-sm text-text-secondary">
             {confirmedIncludes.map((inc) => (
               <li key={inc.text} className="flex gap-2">
-                <Check size={16} className="mt-0.5 shrink-0 text-accent-gold" aria-hidden />
+                <Check size={16} className="mt-0.5 shrink-0 text-accent-gold-ink" aria-hidden />
                 <span>{inc.text}</span>
               </li>
             ))}
@@ -143,7 +143,7 @@ export default function FestivalPackageCard({ pkg, page, className = "" }: Props
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsappClick({ page, packageId: pkg.id })}
-            className="mt-2 inline-block text-xs text-accent-gold transition-colors hover:text-accent-gold/80"
+            className="mt-2 inline-block text-xs text-accent-gold-ink transition-colors hover:text-accent-gold-ink/80"
           >
             Ask about tickets →
           </a>
@@ -153,7 +153,7 @@ export default function FestivalPackageCard({ pkg, page, className = "" }: Props
           {pkg.priceFrom !== null && (
             <span className="font-sans text-sm text-text-secondary">From</span>
           )}
-          <span className={`font-serif text-xl text-accent-gold ${pkg.priceFrom === null ? "ml-auto" : ""}`}>
+          <span className={`font-serif text-xl text-accent-gold-ink ${pkg.priceFrom === null ? "ml-auto" : ""}`}>
             {priceLabel}
           </span>
         </div>
@@ -176,7 +176,7 @@ export default function FestivalPackageCard({ pkg, page, className = "" }: Props
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsappClick({ page, packageId: pkg.id })}
-                className="mt-3 block text-center text-xs text-accent-gold hover:text-accent-gold/80 transition-colors"
+                className="mt-3 block text-center text-xs text-accent-gold-ink hover:text-accent-gold-ink/80 transition-colors"
               >
                 Or ask on WhatsApp →
               </a>
@@ -211,7 +211,7 @@ export default function FestivalPackageCard({ pkg, page, className = "" }: Props
 
           <Link
             href={landingPath}
-            className="mt-3 block text-center text-xs text-text-secondary hover:text-accent-gold transition-colors"
+            className="mt-3 block text-center text-xs text-text-secondary hover:text-accent-gold-ink transition-colors"
           >
             Read the full {pkg.tier === "signature" ? "Signature" : "Essentials"} guide →
           </Link>

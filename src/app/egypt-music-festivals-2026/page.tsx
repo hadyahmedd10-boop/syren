@@ -55,7 +55,7 @@ export default function EgyptMusicFestivals2026() {
                 <article key={ev.slug} className="rounded-2xl border border-accent-gold/30 bg-surface/30 p-6 backdrop-blur-sm">
                   <h3 className="font-serif text-2xl text-text-primary mb-2">{ev.title}</h3>
                   <div className="flex flex-wrap items-center gap-2 mb-3">
-                    {displayDate && <span className="syren-pill border border-accent-gold text-accent-gold font-serif bg-transparent">{displayDate}</span>}
+                    {displayDate && <span className="syren-pill border border-accent-gold text-accent-gold-ink font-serif bg-transparent">{displayDate}</span>}
                     {location && <span className="syren-pill bg-surface-2/80 border border-border text-text-primary/90">{location}</span>}
                   </div>
                   <p className="text-text-secondary mb-4">{ev.shortDescription}</p>
@@ -70,12 +70,12 @@ export default function EgyptMusicFestivals2026() {
           <div className="mt-10 flex flex-col gap-3">
             <p className="text-text-secondary">
               Looking for culture beyond festivals? Don&apos;t miss the iconic{" "}
-              <Link href="/events/al-tannoura-show" className="text-accent-gold underline">Al Tannoura Show</Link>
+              <Link href="/events/al-tannoura-show" className="text-accent-gold-ink underline">Al Tannoura Show</Link>
               {" "}in Cairo.
             </p>
             <p className="text-text-secondary">
               For bespoke travel packages around festival dates, explore our{" "}
-              <Link href="/experiences" className="text-accent-gold underline">experiences</Link>
+              <Link href="/experiences" className="text-accent-gold-ink underline">experiences</Link>
               .
             </p>
             <Link href="/events" className="syren-btn">

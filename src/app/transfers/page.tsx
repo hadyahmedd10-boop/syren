@@ -81,7 +81,7 @@ export default function TransfersPage() {
       {/* 1 — SHORT HERO */}
       <section className="section bg-background">
         <div className="container-x mx-auto max-w-3xl text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-accent-gold">Private transfers</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-accent-gold-ink">Private transfers</p>
           <h1 className="mt-4 font-serif text-4xl font-light text-text-primary md:text-5xl">
             Private transfers across Egypt
           </h1>
@@ -106,7 +106,7 @@ export default function TransfersPage() {
       <section className="section border-t border-border bg-background">
         <div className="container-x mx-auto max-w-4xl">
           <div className="mb-8 text-center">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent-gold">Quick request</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-accent-gold-ink">Quick request</p>
             <h2 className="mt-3 font-serif text-3xl font-light text-text-primary md:text-4xl">
               Tell us your route
             </h2>
@@ -123,7 +123,7 @@ export default function TransfersPage() {
       <section className="section border-t border-border bg-surface/20">
         <div className="container-x mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent-gold">The fleet</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-accent-gold-ink">The fleet</p>
             <h2 className="mt-3 font-serif text-3xl font-light text-text-primary md:text-4xl">
               Choose by group size
             </h2>
@@ -143,7 +143,7 @@ export default function TransfersPage() {
       <section className="section border-t border-border bg-background">
         <div className="container-x mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent-gold">Common routes</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-accent-gold-ink">Common routes</p>
             <h2 className="mt-3 font-serif text-3xl font-light text-text-primary md:text-4xl">
               Popular transfer routes
             </h2>
@@ -161,15 +161,15 @@ export default function TransfersPage() {
               >
                 <div className="mb-4 flex items-center justify-center gap-3">
                   <span className="font-serif text-xl text-text-primary">{route.origin}</span>
-                  <ArrowRight size={18} className="text-accent-gold" aria-hidden />
+                  <ArrowRight size={18} className="text-accent-gold-ink" aria-hidden />
                   <span className="font-serif text-xl text-text-primary">{route.destination}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-sm text-text-secondary">
-                    <Clock size={14} className="text-accent-gold" aria-hidden />
+                    <Clock size={14} className="text-accent-gold-ink" aria-hidden />
                     {route.duration}
                   </div>
-                  <span className="text-sm text-accent-gold">Request →</span>
+                  <span className="text-sm text-accent-gold-ink">Request →</span>
                 </div>
               </a>
             ))}
@@ -181,7 +181,7 @@ export default function TransfersPage() {
       <section className="section border-t border-border bg-surface/20">
         <div className="container-x mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent-gold">Festival season</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-accent-gold-ink">Festival season</p>
             <h2 className="mt-3 font-serif text-3xl font-light text-text-primary md:text-4xl">
               Private festival transfers
             </h2>
@@ -205,7 +205,7 @@ export default function TransfersPage() {
                     {event.displayDate ?? event.date}
                     {event.location ? ` · ${event.location}` : ""}
                   </p>
-                  <span className="mt-4 inline-block text-xs uppercase tracking-[0.2em] text-accent-gold">
+                  <span className="mt-4 inline-block text-xs uppercase tracking-[0.2em] text-accent-gold-ink">
                     View travel packages →
                   </span>
                 </Link>
@@ -223,7 +223,7 @@ export default function TransfersPage() {
       <section className="section border-t border-border bg-background">
         <div className="container-x mx-auto max-w-4xl">
           <div className="mb-16 text-center">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent-gold">3 simple steps</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-accent-gold-ink">3 simple steps</p>
             <h2 className="mt-3 font-serif text-3xl font-light text-text-primary md:text-4xl">
               How it works
             </h2>
@@ -252,7 +252,7 @@ export default function TransfersPage() {
                 },
               ].map((item) => (
                 <div key={item.step} className="relative text-center">
-                  <div className="mx-auto mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full border-2 border-accent-gold/40 bg-surface font-serif text-2xl text-accent-gold">
+                  <div className="mx-auto mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full border-2 border-accent-gold/40 bg-surface font-serif text-2xl text-accent-gold-ink">
                     {item.step}
                   </div>
                   <h3 className="mb-3 font-serif text-xl text-text-primary">{item.title}</h3>
@@ -277,7 +277,7 @@ export default function TransfersPage() {
               { icon: Star, text: "Meet & greet included" },
             ].map((item, idx) => (
               <div key={item.text} className="flex items-center gap-3">
-                <item.icon size={18} className="shrink-0 text-accent-gold" aria-hidden />
+                <item.icon size={18} className="shrink-0 text-accent-gold-ink" aria-hidden />
                 <span className="text-sm text-text-primary">{item.text}</span>
                 {idx < 3 && <div className="hidden h-4 w-px bg-accent-gold/20 md:block" />}
               </div>
@@ -290,7 +290,7 @@ export default function TransfersPage() {
       <section className="section bg-background">
         <div className="container-x mx-auto max-w-3xl">
           <div className="mb-10 text-center">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent-gold">Good to know</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-accent-gold-ink">Good to know</p>
             <h2 className="mt-3 font-serif text-3xl font-light text-text-primary md:text-4xl">
               Transfer questions
             </h2>
@@ -299,11 +299,11 @@ export default function TransfersPage() {
             {faqs.map((faq) => (
               <details key={faq.question} className="group border-b border-border">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5">
-                  <span className="font-serif text-lg text-text-primary transition-colors group-hover:text-accent-gold">
+                  <span className="font-serif text-lg text-text-primary transition-colors group-hover:text-accent-gold-ink">
                     {faq.question}
                   </span>
                   <span
-                    className="shrink-0 text-2xl font-light leading-none text-text-secondary transition-transform duration-300 group-open:rotate-45 group-hover:text-accent-gold"
+                    className="shrink-0 text-2xl font-light leading-none text-text-secondary transition-transform duration-300 group-open:rotate-45 group-hover:text-accent-gold-ink"
                     aria-hidden
                   >
                     +

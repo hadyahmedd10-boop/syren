@@ -107,7 +107,7 @@ export default async function ExcursionPage({ params }: Props) {
         heightClassName="min-h-[60vh] md:min-h-[70vh] lg:min-h-[75vh]"
       >
         <div className="flex justify-center">
-          <SaveToggle slug={excursion.slug} itemType="excursion" className="text-white/80" labelUnsaved="Save this" labelSaved="Saved" />
+          <SaveToggle slug={excursion.slug} itemType="excursion" labelUnsaved="Save this" labelSaved="Saved" />
         </div>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <WhatsAppButton 

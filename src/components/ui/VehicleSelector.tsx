@@ -72,10 +72,10 @@ function VehicleThumb({ vehicle }: { vehicle: Vehicle }) {
       <div className="text-sm text-text-primary">{vehicle.name}</div>
       <div className="flex items-center gap-3 text-[11px] text-text-secondary">
         <span className="inline-flex items-center gap-1">
-          <Users size={12} className="text-accent-gold" aria-hidden /> {vehicle.passengers}
+          <Users size={12} className="text-accent-gold-ink" aria-hidden /> {vehicle.passengers}
         </span>
         <span className="inline-flex items-center gap-1">
-          <Luggage size={12} className="text-accent-gold" aria-hidden /> {vehicle.bags}
+          <Luggage size={12} className="text-accent-gold-ink" aria-hidden /> {vehicle.bags}
         </span>
       </div>
     </div>
@@ -119,7 +119,7 @@ export default function VehicleSelector({
     return (
       <div className={cn("rounded-2xl border border-accent-gold/20 bg-surface/30 p-5 md:p-6", className)}>
         {heading && (
-          <p className="text-[11px] uppercase tracking-[0.25em] text-accent-gold">{heading}</p>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-accent-gold-ink">{heading}</p>
         )}
         <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex items-end gap-6">
@@ -162,7 +162,7 @@ export default function VehicleSelector({
               className={cn(
                 "flex-shrink-0 rounded-lg border px-4 py-2 text-sm font-medium transition-all",
                 active.id === vehicle.id
-                  ? "border-accent-gold bg-accent-gold/10 text-accent-gold"
+                  ? "border-accent-gold bg-accent-gold/10 text-accent-gold-ink"
                   : "border-border text-text-secondary hover:text-text-primary",
                 fittingIds.has(vehicle.id) && active.id !== vehicle.id && "border-accent-gold/40"
               )}
@@ -181,10 +181,10 @@ export default function VehicleSelector({
               </div>
               <div className="flex items-center gap-3 text-sm text-text-secondary">
                 <span className="flex items-center gap-1">
-                  <Users size={16} className="text-accent-gold" aria-hidden /> {active.passengers}
+                  <Users size={16} className="text-accent-gold-ink" aria-hidden /> {active.passengers}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Luggage size={16} className="text-accent-gold" aria-hidden /> {active.bags}
+                  <Luggage size={16} className="text-accent-gold-ink" aria-hidden /> {active.bags}
                 </span>
               </div>
             </div>
@@ -192,7 +192,7 @@ export default function VehicleSelector({
               href={waHref(active)}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-accent-gold hover:underline"
+              className="text-sm font-medium text-accent-gold-ink hover:underline"
             >
               Request →
             </a>
@@ -219,7 +219,7 @@ export default function VehicleSelector({
               className={cn(
                 "relative flex-shrink-0 border-b-2 pb-4 text-sm font-medium uppercase tracking-widest transition-all",
                 active.id === vehicle.id
-                  ? "border-accent-gold font-semibold text-accent-gold"
+                  ? "border-accent-gold font-semibold text-accent-gold-ink"
                   : "border-transparent text-text-secondary hover:text-text-primary"
               )}
             >
@@ -235,7 +235,7 @@ export default function VehicleSelector({
       <div className={cn("transition-opacity duration-300", animating ? "opacity-0" : "opacity-100")}>
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           <div className="order-2 md:order-1">
-            <div className="inline-flex items-center rounded-full border border-accent-gold/20 bg-accent-gold/10 px-4 py-1.5 text-xs text-accent-gold">
+            <div className="inline-flex items-center rounded-full border border-accent-gold/20 bg-accent-gold/10 px-4 py-1.5 text-xs text-accent-gold-ink">
               {active.badge || active.vehicleClass}
             </div>
 
@@ -247,12 +247,12 @@ export default function VehicleSelector({
 
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
-                <Users size={20} className="text-accent-gold" aria-hidden />
+                <Users size={20} className="text-accent-gold-ink" aria-hidden />
                 <span className="text-lg font-semibold text-text-primary">{active.passengers}</span>
                 <span className="text-sm text-text-secondary">passengers</span>
               </div>
               <div className="flex items-center gap-2">
-                <Luggage size={20} className="text-accent-gold" aria-hidden />
+                <Luggage size={20} className="text-accent-gold-ink" aria-hidden />
                 <span className="text-lg font-semibold text-text-primary">{active.bags}</span>
                 <span className="text-sm text-text-secondary">bags</span>
               </div>
@@ -261,7 +261,7 @@ export default function VehicleSelector({
             <p className="mt-6 text-base leading-relaxed text-text-secondary">{active.description}</p>
 
             <div className="mt-4 text-sm">
-              <div className="text-xs uppercase tracking-widest text-accent-gold">Ideal for</div>
+              <div className="text-xs uppercase tracking-widest text-accent-gold-ink">Ideal for</div>
               <div className="mt-1 italic text-text-secondary">{active.idealFor}</div>
             </div>
 
@@ -271,7 +271,7 @@ export default function VehicleSelector({
               href={waHref(active)}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-3 rounded-full border border-accent-gold px-8 py-3.5 font-medium tracking-wide text-accent-gold transition-all duration-300 hover:bg-accent-gold hover:text-black"
+              className="no-highlight mt-8 inline-flex items-center gap-3 rounded-full border border-accent-gold px-8 py-3.5 font-medium tracking-wide text-accent-gold-ink transition-all duration-300 hover:bg-accent-gold hover:text-black"
             >
               Book your transfer
             </a>

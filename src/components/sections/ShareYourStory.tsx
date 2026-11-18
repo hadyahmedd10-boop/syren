@@ -277,7 +277,7 @@ export default function ShareYourStory() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">Name</label>
+                    <label htmlFor="name" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold-ink font-bold">Name</label>
                     <input 
                       id="name"
                       name="name" 
@@ -292,7 +292,7 @@ export default function ShareYourStory() {
                     )}
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">Email (Optional)</label>
+                    <label htmlFor="email" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold-ink font-bold">Email (Optional)</label>
                     <input 
                       id="email"
                       name="email" 
@@ -318,7 +318,7 @@ export default function ShareYourStory() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">Your Story</label>
+                  <label htmlFor="message" className="text-[10px] uppercase tracking-[0.2em] text-accent-gold-ink font-bold">Your Story</label>
                   <textarea 
                     id="message"
                     name="message" 
@@ -360,7 +360,7 @@ export default function ShareYourStory() {
                           >
                             <Star
                               size={18}
-                              className={filled ? 'text-accent-gold fill-accent-gold' : 'text-white/20'}
+                              className={filled ? 'text-accent-gold-ink fill-accent-gold' : 'text-white/20'}
                             />
                           </button>
                         )

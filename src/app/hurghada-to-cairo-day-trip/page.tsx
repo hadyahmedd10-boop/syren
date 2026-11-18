@@ -32,7 +32,7 @@ export default function HurghadaToCairoPage() {
       <section className="section">
         <div className="container-x mx-auto max-w-3xl font-serif">
           <div className="mb-10">
-            <div className="uppercase tracking-[0.25em] text-accent-gold text-xs font-bold mb-2">Can You Really Do Cairo in a Day from Hurghada?</div>
+            <div className="uppercase tracking-[0.25em] text-accent-gold-ink text-xs font-bold mb-2">Can You Really Do Cairo in a Day from Hurghada?</div>
             <p className="text-text-primary leading-relaxed">
               Yes — and thousands of travelers do it every year. The distance between Hurghada and Cairo is approximately 480km, and there are two ways to make the journey: by private car (around 4-5 hours each way) or by domestic flight (45 minutes). Both are viable depending on your budget and how much time you want to spend at the sites rather than in transit.
             </p>

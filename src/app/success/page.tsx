@@ -15,7 +15,7 @@ export default function SuccessPage() {
         <div className="mb-12 flex justify-center">
           <div className="relative">
             <div className="absolute inset-0 bg-accent-gold/20 blur-3xl rounded-full" />
-            <CheckCircle2 className="relative w-20 h-20 text-accent-gold" strokeWidth={1} />
+            <CheckCircle2 className="relative w-20 h-20 text-accent-gold-ink" strokeWidth={1} />
           </div>
         </div>
 

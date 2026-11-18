@@ -30,8 +30,8 @@ export default function PartnerPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80" />
         </div>
-        <div className="relative mx-auto max-w-5xl container-x">
-          <h1 className="font-serif text-5xl md:text-6xl text-accent-gold">Let's Build Egypt Together</h1>
+        <div className="on-dark relative mx-auto max-w-5xl container-x">
+          <h1 className="font-serif text-5xl md:text-6xl text-accent-gold-ink">Let's Build Egypt Together</h1>
           <div className="h-px bg-accent-gold mt-4" style={{ width: "100%", animation: "line-draw 1.5s ease-in-out forwards" }} />
           <style>{`@keyframes line-draw { from{width:0} to{width:100%} }`}</style>
           <p className="mt-4 font-serif italic text-text-secondary">
@@ -48,17 +48,17 @@ export default function PartnerPage() {
         <div className="mx-auto max-w-7xl container-x">
           <div className="mx-auto max-w-5xl bg-background/60 border border-border rounded-2xl p-6 md:p-8 flex items-center justify-center gap-6 text-text-primary">
             <div className="flex items-center gap-4">
-              <span className="font-serif text-2xl text-accent-gold">15M+</span>
+              <span className="font-serif text-2xl text-accent-gold-ink">15M+</span>
               <span className="text-sm">Tourists visit Egypt annually</span>
             </div>
             <div className="h-8 w-px bg-accent-gold/40" />
             <div className="flex items-center gap-4">
-              <span className="font-serif text-2xl text-accent-gold">24h</span>
+              <span className="font-serif text-2xl text-accent-gold-ink">24h</span>
               <span className="text-sm">Response time guaranteed</span>
             </div>
             <div className="h-8 w-px bg-accent-gold/40" />
             <div className="flex items-center gap-4">
-              <span className="font-serif text-2xl text-accent-gold">30+</span>
+              <span className="font-serif text-2xl text-accent-gold-ink">30+</span>
               <span className="text-sm">Countries we serve</span>
             </div>
           </div>
@@ -68,41 +68,41 @@ export default function PartnerPage() {
 
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-7xl container-x">
-          <span className="block font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold mb-2 text-center">Partner Program</span>
+          <span className="block font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold-ink mb-2 text-center">Partner Program</span>
           <h2 className="font-serif text-4xl text-text-primary text-center">The Syren Partner Advantage</h2>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border-t-2 border-accent-gold border border-accent-gold/30 bg-surface/30 p-6 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)] transition-transform duration-300">
               <div className="flex items-center gap-3">
-                <DollarSign className="text-accent-gold" size={18} />
+                <DollarSign className="text-accent-gold-ink" size={18} />
                 <h3 className="font-serif text-lg text-text-primary">Competitive Commission</h3>
               </div>
               <p className="mt-3 text-sm text-text-secondary">Attractive commission structure on all bookings.</p>
             </div>
             <div className="rounded-2xl border-t-2 border-accent-gold border border-accent-gold/30 bg-surface/30 p-6 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)] transition-transform duration-300">
               <div className="flex items-center gap-3">
-                <Headphones className="text-accent-gold" size={18} />
+                <Headphones className="text-accent-gold-ink" size={18} />
                 <h3 className="font-serif text-lg text-text-primary">Dedicated Partner Support</h3>
               </div>
               <p className="mt-3 text-sm text-text-secondary">A direct line to our team, not a call center.</p>
             </div>
             <div className="rounded-2xl border-t-2 border-accent-gold border border-accent-gold/30 bg-surface/30 p-6 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)] transition-transform duration-300">
               <div className="flex items-center gap-3">
-                <Settings className="text-accent-gold" size={18} />
+                <Settings className="text-accent-gold-ink" size={18} />
                 <h3 className="font-serif text-lg text-text-primary">Fully Customizable</h3>
               </div>
               <p className="mt-3 text-sm text-text-secondary">Every itinerary built around your client&apos;s needs.</p>
             </div>
             <div className="rounded-2xl border-t-2 border-accent-gold border border-accent-gold/30 bg-surface/30 p-6 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)] transition-transform duration-300">
               <div className="flex items-center gap-3">
-                <Star className="text-accent-gold" size={18} />
+                <Star className="text-accent-gold-ink" size={18} />
                 <h3 className="font-serif text-lg text-text-primary">On-Ground Excellence</h3>
               </div>
               <p className="mt-3 text-sm text-text-secondary">Vetted drivers, licensed guides, premium hotels.</p>
             </div>
             <div className="rounded-2xl border-t-2 border-accent-gold border border-accent-gold/30 bg-surface/30 p-6 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)] transition-transform duration-300">
               <div className="flex items-center gap-3">
-                <Headphones className="text-accent-gold" size={18} />
+                <Headphones className="text-accent-gold-ink" size={18} />
                 <h3 className="font-serif text-lg text-text-primary">Dedicated Account Manager</h3>
               </div>
               <p className="mt-3 text-sm text-text-secondary">Your own point of contact for all bookings.</p>
@@ -114,7 +114,7 @@ export default function PartnerPage() {
 
       <section className="py-20 bg-surface">
         <div className="mx-auto max-w-7xl container-x">
-          <span className="block font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold mb-2 text-center">Who We Work With</span>
+          <span className="block font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold-ink mb-2 text-center">Who We Work With</span>
           <div className="flex flex-wrap gap-3 justify-center">
             {[
               "Travel Agencies",
@@ -126,7 +126,7 @@ export default function PartnerPage() {
               "Wedding Planners",
               "Influencers",
             ].map((w) => (
-              <span key={w} className="syren-pill border border-accent-gold text-accent-gold font-serif">
+              <span key={w} className="syren-pill border border-accent-gold text-accent-gold-ink font-serif">
                 {w}
               </span>
             ))}
@@ -137,7 +137,7 @@ export default function PartnerPage() {
 
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-7xl container-x">
-          <span className="block font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold mb-2 text-center">Our Destinations</span>
+          <span className="block font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold-ink mb-2 text-center">Our Destinations</span>
           <div className="grid gap-6 md:grid-cols-3">
             {[
               { key: "cairo", name: "Cairo & Giza" },
@@ -154,7 +154,7 @@ export default function PartnerPage() {
                   <Image src={src} alt={d.name} fill sizes="(min-width:1024px) 33vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-black/40" />
                   <div className="absolute inset-0 flex items-end">
-                    <span className="m-4 syren-pill border border-accent-gold text-accent-gold">{d.name}</span>
+                    <span className="m-4 syren-pill border border-accent-gold text-accent-gold-ink">{d.name}</span>
                   </div>
                 </div>
               );
@@ -167,7 +167,7 @@ export default function PartnerPage() {
 
       <section className="py-20 bg-surface">
         <div className="mx-auto max-w-7xl container-x">
-          <span className="block font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold mb-2 text-center">How It Works</span>
+          <span className="block font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold-ink mb-2 text-center">How It Works</span>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { n: 1, t: "Get in Touch", d: "Send us your inquiry and client requirements." },
@@ -175,7 +175,7 @@ export default function PartnerPage() {
               { n: 3, t: "We Deliver It", d: "Your clients experience Egypt at its finest." },
             ].map((s) => (
               <div key={s.n} className="rounded-2xl border border-border bg-surface/30 p-6 text-center">
-                <div className="w-8 h-8 rounded-full bg-accent-gold/20 border border-accent-gold/40 text-accent-gold flex items-center justify-center font-serif">{s.n}</div>
+                <div className="w-8 h-8 rounded-full bg-accent-gold/20 border border-accent-gold/40 text-accent-gold-ink flex items-center justify-center font-serif">{s.n}</div>
                 <h3 className="mt-3 font-serif text-lg text-text-primary">{s.t}</h3>
                 <p className="mt-2 font-sans text-sm text-text-secondary">{s.d}</p>
               </div>

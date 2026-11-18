@@ -178,7 +178,7 @@ export default function PrivacyPolicyPage() {
       </section>
       <section className="section">
         <div className="mx-auto max-w-4xl container-x text-center">
-          <div className="rounded-2xl bg-black/90 border border-accent-gold/30 p-8 md:p-10">
+          <div className="on-dark rounded-2xl bg-black/90 border border-accent-gold/30 p-8 md:p-10">
             <h3 className="font-serif text-2xl text-text-primary mb-3">Questions? Contact Us</h3>
             <a href="/quote" className="syren-btn-secondary inline-flex min-h-[44px]">Contact via Form</a>
           </div>

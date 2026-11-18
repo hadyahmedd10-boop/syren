@@ -38,10 +38,10 @@ export default function EventMobileBar({
   }, []);
 
   return (
-    <div className={`md:hidden fixed left-0 right-0 bottom-0 h-16 pb-[env(safe-area-inset-bottom)] border-t border-accent-gold/30 bg-black/90 backdrop-blur-md z-40 transition-transform duration-300 ${visible ? "translate-y-0" : "translate-y-full"}`}>
+    <div className={`on-dark md:hidden fixed left-0 right-0 bottom-0 h-16 pb-[env(safe-area-inset-bottom)] border-t border-accent-gold/30 bg-black/90 backdrop-blur-md z-40 transition-transform duration-300 ${visible ? "translate-y-0" : "translate-y-full"}`}>
       <div className="h-full px-4 flex items-center justify-between">
         <div className="flex flex-col">
-          <span className="font-serif text-lg text-accent-gold leading-none">{title}</span>
+          <span className="font-serif text-lg text-accent-gold-ink leading-none">{title}</span>
           <span className="text-[10px] text-white/60 uppercase tracking-[0.2em] mt-0.5">Concierge Booking</span>
         </div>
         <a

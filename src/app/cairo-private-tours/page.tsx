@@ -88,17 +88,17 @@ export default function CairoPrivateToursPage() {
           <SectionHeader title="Why Choose Private Cairo Tours" label="The Syren Difference" />
           <div className="grid md:grid-cols-3 gap-8 mt-8">
             <div className="text-center">
-              <User className="w-12 h-12 text-accent-gold mx-auto mb-4" />
+              <User className="w-12 h-12 text-accent-gold-ink mx-auto mb-4" />
               <h3 className="font-serif text-xl text-text-primary mb-2">Expert Egyptologists</h3>
               <p className="text-text-secondary text-sm">Licensed guides with deep knowledge of ancient history, archaeology, and local culture.</p>
             </div>
             <div className="text-center">
-              <Pyramid className="w-12 h-12 text-accent-gold mx-auto mb-4" />
+              <Pyramid className="w-12 h-12 text-accent-gold-ink mx-auto mb-4" />
               <h3 className="font-serif text-xl text-text-primary mb-2">Private Access</h3>
               <p className="text-text-secondary text-sm">Early morning pyramid visits, after-hours museum access, and skip-the-line arrangements.</p>
             </div>
             <div className="text-center">
-              <Star className="w-12 h-12 text-accent-gold mx-auto mb-4" />
+              <Star className="w-12 h-12 text-accent-gold-ink mx-auto mb-4" />
               <h3 className="font-serif text-xl text-text-primary mb-2">Customized Itineraries</h3>
               <p className="text-text-secondary text-sm">Tailored to your interests, pace, and preferences. No rigid schedules or forced shopping stops.</p>
             </div>
@@ -164,7 +164,7 @@ export default function CairoPrivateToursPage() {
           <div className="grid md:grid-cols-2 gap-6 mt-8">
             <div className="bg-surface/30 p-6 rounded-xl border border-border">
               <div className="flex items-center gap-3 mb-4">
-                <Pyramid className="w-5 h-5 text-accent-gold" />
+                <Pyramid className="w-5 h-5 text-accent-gold-ink" />
                 <h3 className="font-serif text-lg text-text-primary">Giza Pyramids & Sphinx</h3>
               </div>
               <p className="text-text-secondary text-sm mb-4">
@@ -177,7 +177,7 @@ export default function CairoPrivateToursPage() {
             </div>
             <div className="bg-surface/30 p-6 rounded-xl border border-border">
               <div className="flex items-center gap-3 mb-4">
-                <MapPin className="w-5 h-5 text-accent-gold" />
+                <MapPin className="w-5 h-5 text-accent-gold-ink" />
                 <h3 className="font-serif text-lg text-text-primary">Grand Egyptian Museum</h3>
               </div>
               <p className="text-text-secondary text-sm mb-4">
@@ -190,7 +190,7 @@ export default function CairoPrivateToursPage() {
             </div>
             <div className="bg-surface/30 p-6 rounded-xl border border-border">
               <div className="flex items-center gap-3 mb-4">
-                <Star className="w-5 h-5 text-accent-gold" />
+                <Star className="w-5 h-5 text-accent-gold-ink" />
                 <h3 className="font-serif text-lg text-text-primary">Islamic Cairo</h3>
               </div>
               <p className="text-text-secondary text-sm mb-4">
@@ -203,7 +203,7 @@ export default function CairoPrivateToursPage() {
             </div>
             <div className="bg-surface/30 p-6 rounded-xl border border-border">
               <div className="flex items-center gap-3 mb-4">
-                <MapPin className="w-5 h-5 text-accent-gold" />
+                <MapPin className="w-5 h-5 text-accent-gold-ink" />
                 <h3 className="font-serif text-lg text-text-primary">Coptic Cairo</h3>
               </div>
               <p className="text-text-secondary text-sm mb-4">

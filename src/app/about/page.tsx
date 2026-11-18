@@ -31,22 +31,22 @@ const slugify = (s: string) =>
 
 const values = [
   {
-    icon: <Sparkles className="text-accent-gold" />,
+    icon: <Sparkles className="text-accent-gold-ink" />,
     title: "We Travel Like Locals, Not Tourists",
     description: "Most trips show you Egypt from the outside. We take you inside it. We design experiences the same way locals move through the country — at the right pace, at the right time, with the right people. Early mornings when sites are quiet. Evenings when cities soften. Moments that don’t feel scheduled, because they aren’t. This isn’t about seeing more. It’s about seeing clearly."
   },
   {
-    icon: <ShieldCheck className="text-accent-gold" />,
+    icon: <ShieldCheck className="text-accent-gold-ink" />,
     title: "Nothing Pre-Built. Nothing Generic.",
     description: "We don’t sell packages. We don’t reuse itineraries. We don’t believe one experience fits everyone. Every journey starts with a conversation — not a form. We listen to how you travel, what you care about, and what you want this trip to mean. From there, we build something that fits you, not a brochure. Some travelers want depth. Some want comfort. Some want adventure. Most want a balance — and that balance looks different for everyone."
   },
   {
-    icon: <Globe className="text-accent-gold" />,
+    icon: <Globe className="text-accent-gold-ink" />,
     title: "Comfort Without Performance",
     description: "Luxury, to us, isn’t about excess. It’s about ease. Knowing where to go — and when not to. Having the right people around you. Moving smoothly without needing to think about logistics. Everything works quietly in the background so you can stay present in the experience itself. No forced experiences. No unnecessary stops. No pressure to “do it all.”"
   },
   {
-    icon: <Users className="text-accent-gold" />,
+    icon: <Users className="text-accent-gold-ink" />,
     title: "Why We Exist",
     description: "Syren exists because Egypt deserves better than mass tourism — and travelers deserve better than rushed, surface-level trips. We work with people who want to engage with the country respectfully, thoughtfully, and honestly. If you’re looking to tick boxes, we’re probably not the right fit. If you want a journey that stays with you long after you leave, we might be."
   }
@@ -134,7 +134,7 @@ export default function AboutPage() {
                   {value.icon}
                 </div>
                 <div>
-                  <div className="text-accent-gold uppercase tracking-[0.2em] text-xs font-bold mb-2">Value {String(index + 1).padStart(2, "0")}</div>
+                  <div className="text-accent-gold-ink uppercase tracking-[0.2em] text-xs font-bold mb-2">Value {String(index + 1).padStart(2, "0")}</div>
                   <h3 className="text-text-primary font-serif text-2xl mb-3">{value.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed">{value.description}</p>
                 </div>
@@ -151,7 +151,7 @@ export default function AboutPage() {
             title="What We Build" 
             description={
               <>
-                <p className="mb-4 text-accent-gold uppercase tracking-widest text-xs font-bold">Not trips. Not schedules. Not content for social media.</p>
+                <p className="mb-4 text-accent-gold-ink uppercase tracking-widest text-xs font-bold">Not trips. Not schedules. Not content for social media.</p>
                 <p className="mb-4">We build experiences that feel real while you’re in them — and meaningful after you’re home.</p>
                 <p className="text-text-primary font-serif italic text-xl">That’s Syren. Simple as that.</p>
               </>

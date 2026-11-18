@@ -46,13 +46,13 @@ export default function FAQ() {
                   aria-controls={`faq-answer-${index}`}
                   className="w-full py-6 flex items-center justify-between text-left group"
                 >
-                  <span id={`faq-question-${index}`} className="font-serif text-xl text-text-primary group-hover:text-accent-gold transition-colors duration-300">
+                  <span id={`faq-question-${index}`} className="font-serif text-xl text-text-primary group-hover:text-accent-gold-ink transition-colors duration-300">
                     {faq.question}
                   </span>
                   {openIndex === index ? (
-                    <Minus size={20} className="text-accent-gold" />
+                    <Minus size={20} className="text-accent-gold-ink" />
                   ) : (
-                    <Plus size={20} className="text-text-secondary group-hover:text-accent-gold transition-colors duration-300" />
+                    <Plus size={20} className="text-text-secondary group-hover:text-accent-gold-ink transition-colors duration-300" />
                   )}
                 </button>
                 <div

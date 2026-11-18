@@ -45,8 +45,8 @@ export default function ToursAndExcursions() {
                 className={cn(
                   "whitespace-nowrap rounded-full px-5 py-2 text-sm font-medium transition-all duration-300",
                   city === c
-                    ? "bg-gold text-black shadow-md"
-                    : "border border-border bg-transparent text-text-secondary hover:border-gold hover:text-text-primary"
+                    ? "bg-accent-gold text-black shadow-md"
+                    : "border border-border bg-transparent text-text-secondary hover:border-accent-gold hover:text-text-primary"
                 )}
               >
                 {c}

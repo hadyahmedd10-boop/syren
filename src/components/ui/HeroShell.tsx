@@ -62,7 +62,7 @@
          </div>
        )}
  
-      <div className="relative z-10 container-x text-center">
+      <div className={cn("relative z-10 container-x text-center", imgSrc && "on-dark")}>
          {eyebrow && (
            <p
              className={cn("hero-eyebrow text-[10px] md:text-[11px] uppercase tracking-[0.35em]")}
@@ -71,7 +71,7 @@
            </p>
          )}
  
-         <h1 className="mt-4 hero-heading hero-title text-accent-gold">{title}</h1>
+         <h1 className="mt-4 hero-heading hero-title text-accent-gold-ink">{title}</h1>
  
          {subtitle && (
          <div className={cn("hero-subtitle mt-5 max-w-2xl mx-auto text-[15px] md:text-[18px] leading-relaxed")}>

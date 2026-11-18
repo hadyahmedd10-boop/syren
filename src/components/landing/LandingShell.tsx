@@ -145,7 +145,7 @@ export default function LandingShell({
             <Reveal key={index} delay={0.1 * index}>
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-full border border-accent-gold/30 flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 className="text-accent-gold w-6 h-6" />
+                  <CheckCircle2 className="text-accent-gold-ink w-6 h-6" />
                 </div>
                 <h3 className="font-serif text-xl text-text-primary tracking-wide uppercase">
                   {benefit}
@@ -166,7 +166,7 @@ export default function LandingShell({
       <section className="py-24 px-6 bg-surface-2">
         <div className="max-w-4xl mx-auto">
           <Reveal>
-            <h2 className="font-serif text-3xl md:text-4xl text-accent-gold mb-12 text-center italic">
+            <h2 className="font-serif text-3xl md:text-4xl text-accent-gold-ink mb-12 text-center italic">
               {whatYouGet.title}
             </h2>
           </Reveal>
@@ -174,7 +174,7 @@ export default function LandingShell({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {whatYouGet.items.map((item, index) => (
               <Reveal key={index} delay={0.1 * index} className="flex items-start gap-4">
-                <span className="text-accent-gold font-serif text-xl mt-1">/</span>
+                <span className="text-accent-gold-ink font-serif text-xl mt-1">/</span>
                 <p className="font-sans text-text-secondary text-lg leading-relaxed">
                   {item}
                 </p>

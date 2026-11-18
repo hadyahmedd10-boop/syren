@@ -31,7 +31,7 @@ export default function EventsPage() {
         <div className="container-x mx-auto max-w-7xl">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-accent-gold">Festival travel</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-accent-gold-ink">Festival travel</p>
               <h2 className="mt-2 font-serif text-2xl md:text-3xl text-text-primary">
                 Travel packages for Egypt&rsquo;s biggest festivals
               </h2>

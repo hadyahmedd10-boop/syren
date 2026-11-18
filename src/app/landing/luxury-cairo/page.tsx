@@ -33,7 +33,7 @@ export default function LuxuryCairoLanding() {
       />
       
       <div className="section px-6 md:px-8 max-w-4xl mx-auto text-center">
-        <span className="text-accent-gold font-sans text-xs uppercase tracking-[0.5em] mb-4 block">Exclusive Campaign</span>
+        <span className="text-accent-gold-ink font-sans text-xs uppercase tracking-[0.5em] mb-4 block">Exclusive Campaign</span>
         <h2 className="text-4xl md:text-6xl font-serif text-white mb-8">Redefining Cairo Luxury</h2>
         <p className="text-lg md:text-xl text-text-secondary leading-relaxed font-sans italic">
           &ldquo;Forget what you know about Cairo. We open doors that remain closed to others, 
@@ -57,15 +57,15 @@ export default function LuxuryCairoLanding() {
           <SectionHeader title="The Syren Difference in Cairo" className="mb-12" />
           <div className="grid md:grid-cols-3 gap-10">
             <div>
-              <h3 className="text-accent-gold font-sans text-sm uppercase tracking-widest mb-4">VIP Access</h3>
+              <h3 className="text-accent-gold-ink font-sans text-sm uppercase tracking-widest mb-4">VIP Access</h3>
               <p className="text-text-secondary text-sm">After-hours entry to monuments and private gallery viewings.</p>
             </div>
             <div>
-              <h3 className="text-accent-gold font-sans text-sm uppercase tracking-widest mb-4">Local Insiders</h3>
+              <h3 className="text-accent-gold-ink font-sans text-sm uppercase tracking-widest mb-4">Local Insiders</h3>
               <p className="text-text-secondary text-sm">Hosted by the city&apos;s leading artists, historians, and socialites.</p>
             </div>
             <div>
-              <h3 className="text-accent-gold font-sans text-sm uppercase tracking-widest mb-4">Seamless Flow</h3>
+              <h3 className="text-accent-gold-ink font-sans text-sm uppercase tracking-widest mb-4">Seamless Flow</h3>
               <p className="text-text-secondary text-sm">Private security and luxury transfers that bypass the city&apos;s pulse.</p>
             </div>
           </div>

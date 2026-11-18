@@ -29,15 +29,6 @@ import { dirname, join } from "node:path";
 const BASE = process.env.AUDIT_BASE_URL || "http://localhost:3000";
 const SITE_URL = "https://www.syrentravel.com";
 
-/**
- * Pre-existing deliberate cross-canonicals between the splash page and the home
- * page. Every other audited page must canonicalise to itself.
- */
-const CANONICAL_OVERRIDE = {
-  "/": "/home",
-  "/home": "/",
-};
-
 /** Festival pages -> the festivalPackages eventSlug rendered on them. */
 const PAGE_EVENT_SLUG = {
   "/anyma-egypt-2027": "anyma-pyramids",
@@ -148,7 +139,7 @@ function checkPage(path, html, packages) {
   const linkTags = html.match(/<link\b[^>]*>/gi) || [];
   const canonicalTag = linkTags.find((t) => /rel=["']canonical["']/i.test(t));
   const canonical = canonicalTag ? (attr(canonicalTag, "href") || "").trim() : "";
-  const canonicalPath = CANONICAL_OVERRIDE[path] ?? path;
+  const canonicalPath = path;
   const expected = `${SITE_URL}${canonicalPath === "/" ? "/" : canonicalPath}`;
   if (!canonical) fail(path, "missing canonical");
   else if (normPath(canonical) !== normPath(expected))

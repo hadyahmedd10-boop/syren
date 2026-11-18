@@ -211,7 +211,7 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
             <SaveToggle slug={slug} itemType="experience" className="mt-2" labelUnsaved="Save this" labelSaved="Saved" />
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="mt-2">
+            <div className="mt-2 on-dark">
               <TrustpilotWidget variant="micro" height="24px" />
             </div>
           </Reveal>
@@ -275,7 +275,7 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
                       <Reveal key={idx} delay={0.08 * idx}>
                         <div className="rounded-lg border border-accent-gold/20 bg-surface-2 p-3 md:p-4 hover:border-accent-gold/60 transition-colors duration-300">
                           <div className="flex items-center gap-3">
-                            <Icon size={16} className="text-accent-gold shrink-0" />
+                            <Icon size={16} className="text-accent-gold-ink shrink-0" />
                             <p className="font-serif text-sm md:text-base text-text-primary truncate">
                               {highlight}
                             </p>
@@ -313,14 +313,14 @@ export default async function ExperienceDetailPage({ params, searchParams }: Pro
 
                   <div className="grid gap-10 md:grid-cols-2">
                     <div className="space-y-8">
-                      <h3 className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold flex items-center gap-3">
+                      <h3 className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold-ink flex items-center gap-3">
                         <div className="h-px w-4 bg-accent-gold/40" />
                         Included
                       </h3>
                       <ul className="space-y-4">
                         {experience.included.map((item, i) => (
                           <li key={i} className="flex items-start gap-4">
-                            <CheckCircle2 size={16} className="mt-1 text-accent-gold/60 shrink-0" />
+                            <CheckCircle2 size={16} className="mt-1 text-accent-gold-ink/60 shrink-0" />
                             <span className="font-sans text-sm text-text-secondary leading-relaxed">
                               {item}
                             </span>

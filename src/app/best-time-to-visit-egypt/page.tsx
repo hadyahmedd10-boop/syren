@@ -48,7 +48,7 @@ export default function BestTimeToVisitPage() {
       <article className="section">
         <div className="container-x mx-auto max-w-3xl font-serif">
           <div className="mb-10">
-            <div className="uppercase tracking-[0.25em] text-accent-gold text-xs font-bold mb-2">The Short Answer</div>
+            <div className="uppercase tracking-[0.25em] text-accent-gold-ink text-xs font-bold mb-2">The Short Answer</div>
             <p className="text-text-primary leading-relaxed">
               Egypt is a year-round destination — but the experience varies dramatically depending on when you arrive. The sweet spots are October through April, when temperatures are comfortable across the country and the desert doesn't try to test your limits. Summer brings intense heat inland, though the Red Sea coast remains a legitimate escape. Here's what each season actually looks like on the ground.
             </p>
@@ -62,12 +62,12 @@ export default function BestTimeToVisitPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {months.map((m) => (
               <div key={m.name} className="rounded-2xl border border-accent-gold/30 bg-background p-5">
-                <div className="uppercase tracking-widest text-accent-gold text-xs font-bold mb-2">{m.name}</div>
+                <div className="uppercase tracking-widest text-accent-gold-ink text-xs font-bold mb-2">{m.name}</div>
                 <p className="font-serif text-text-secondary leading-relaxed">
                   {m.name === "October" ? (
                     <>
                       One of the best months. Perfect temperature balance everywhere (20-28°C). Festivals begin.{" "}
-                      <Link href="/events/zamna-festival" className="text-accent-gold underline">Zamna Egypt</Link> historically happens in this window.
+                      <Link href="/events/zamna-festival" className="text-accent-gold-ink underline">Zamna Egypt</Link> historically happens in this window.
                     </>
                   ) : (
                     m.desc
@@ -82,16 +82,16 @@ export default function BestTimeToVisitPage() {
       <section className="section">
         <div className="container-x mx-auto max-w-3xl font-serif">
           <div className="mb-10">
-            <div className="uppercase tracking-[0.25em] text-accent-gold text-xs font-bold mb-2">What About Ramadan?</div>
+            <div className="uppercase tracking-[0.25em] text-accent-gold-ink text-xs font-bold mb-2">What About Ramadan?</div>
             <p className="text-text-primary leading-relaxed">
               Traveling during Ramadan requires some adjustment but offers a unique window into Egyptian culture that few tourists experience. Restaurants adjust hours, the evening iftar atmosphere is extraordinary, and the country takes on a warmth and communal energy that's genuinely special. We recommend it with the right preparation — which is exactly what Syren provides.
             </p>
           </div>
           <div className="mb-10">
-            <div className="uppercase tracking-[0.25em] text-accent-gold text-xs font-bold mb-2">Syren&apos;s Top Pick</div>
+            <div className="uppercase tracking-[0.25em] text-accent-gold-ink text-xs font-bold mb-2">Syren&apos;s Top Pick</div>
             <p className="text-text-primary leading-relaxed">
               If we had to choose one month for a first-time visitor: October or November. Perfect weather, festivals happening, crowds manageable, and the country feeling alive in the best possible way. If a Nile cruise is on your list, consider our{" "}
-              <Link href="/experiences/nile-signature" className="text-accent-gold underline">Nile Signature</Link> itinerary.
+              <Link href="/experiences/nile-signature" className="text-accent-gold-ink underline">Nile Signature</Link> itinerary.
             </p>
           </div>
           <div className="rounded-2xl bg-surface-2 border border-accent-gold/30 p-8 md:p-10 text-center">

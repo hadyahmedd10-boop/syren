@@ -59,7 +59,7 @@ export default function LandingIndexPage() {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <header className="mb-16 text-center">
           <Reveal>
-            <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-accent-gold mb-4 block">
+            <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-accent-gold-ink mb-4 block">
               Internal Directory
             </span>
             <h1 className="font-serif text-4xl md:text-6xl tracking-tight text-white mb-6">

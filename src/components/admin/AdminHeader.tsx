@@ -23,7 +23,7 @@ export default function AdminHeader() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/admin" className="font-serif text-xl text-text-primary tracking-tight">
-            Syren <span className="text-accent-gold italic">Admin</span>
+            Syren <span className="text-accent-gold-ink italic">Admin</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">

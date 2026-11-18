@@ -8,7 +8,7 @@ export default function TrustBadges() {
         {/* Scarcity / Urgency */}
         <Reveal>
           <div className="text-center">
-            <p className="font-serif text-lg md:text-xl text-accent-gold italic">
+            <p className="font-serif text-lg md:text-xl text-accent-gold-ink italic">
               &ldquo;Limited weekly slots to keep journeys private.&rdquo;
             </p>
           </div>
@@ -19,7 +19,7 @@ export default function TrustBadges() {
           <Reveal delay={0.1}>
             <div className="flex flex-col items-center text-center space-y-4">
               <div className="w-10 h-10 rounded-full bg-surface-2 flex items-center justify-center border border-border">
-                <ShieldCheck className="text-accent-gold w-5 h-5" />
+                <ShieldCheck className="text-accent-gold-ink w-5 h-5" />
               </div>
               <div className="space-y-1">
                 <h4 className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-text-primary">Secure Checkout</h4>
@@ -31,7 +31,7 @@ export default function TrustBadges() {
           <Reveal delay={0.2}>
             <div className="flex flex-col items-center text-center space-y-4">
               <div className="w-10 h-10 rounded-full bg-surface-2 flex items-center justify-center border border-border">
-                <MapPin className="text-accent-gold w-5 h-5" />
+                <MapPin className="text-accent-gold-ink w-5 h-5" />
               </div>
               <div className="space-y-1">
                 <h4 className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-text-primary">Local Team in Egypt</h4>
@@ -43,7 +43,7 @@ export default function TrustBadges() {
           <Reveal delay={0.3}>
             <div className="flex flex-col items-center text-center space-y-4">
               <div className="w-10 h-10 rounded-full bg-surface-2 flex items-center justify-center border border-border">
-                <Clock className="text-accent-gold w-5 h-5" />
+                <Clock className="text-accent-gold-ink w-5 h-5" />
               </div>
               <div className="space-y-1">
                 <h4 className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-text-primary">24/7 Concierge</h4>

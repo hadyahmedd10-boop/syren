@@ -59,7 +59,7 @@ export default function ItineraryAccordion({
         <div className="mb-12 md:mb-16">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <span className="text-[10px] font-sans uppercase tracking-[0.4em] text-accent-gold block mb-2">
+              <span className="text-[10px] font-sans uppercase tracking-[0.4em] text-accent-gold-ink block mb-2">
                 {subtitle ?? labelText}
               </span>
               <h2 className="font-serif text-3xl md:text-4xl text-text-primary">
@@ -104,7 +104,7 @@ export default function ItineraryAccordion({
                   <span
                     className={cn(
                       "font-serif text-3xl md:text-4xl shrink-0 w-16 md:w-20 text-left transition-colors duration-300",
-                      isOpen ? "text-accent-gold" : "text-accent-gold/40"
+                      isOpen ? "text-accent-gold-ink" : "text-accent-gold-ink/40"
                     )}
                   >
                     {displayNumber}
@@ -117,7 +117,7 @@ export default function ItineraryAccordion({
 
                   {/* Tag/Badge */}
                   {item.tag && (
-                    <span className="hidden md:inline-flex shrink-0 items-center px-3 py-1 rounded-full text-[10px] font-sans uppercase tracking-wider border border-accent-gold/40 text-accent-gold bg-accent-gold/5">
+                    <span className="hidden md:inline-flex shrink-0 items-center px-3 py-1 rounded-full text-[10px] font-sans uppercase tracking-wider border border-accent-gold/40 text-accent-gold-ink bg-accent-gold/5">
                       {item.tag}
                     </span>
                   )}
@@ -127,13 +127,13 @@ export default function ItineraryAccordion({
                     {isOpen ? (
                       <Minus
                         size={20}
-                        className="text-accent-gold transition-transform duration-300 rotate-0"
+                        className="text-accent-gold-ink transition-transform duration-300 rotate-0"
                         aria-hidden="true"
                       />
                     ) : (
                       <Plus
                         size={20}
-                        className="text-accent-gold transition-transform duration-300 rotate-0"
+                        className="text-accent-gold-ink transition-transform duration-300 rotate-0"
                         aria-hidden="true"
                       />
                     )}
@@ -166,7 +166,7 @@ export default function ItineraryAccordion({
                             {item.meals.map((meal, mealIndex) => (
                               <span
                                 key={mealIndex}
-                                className="inline-flex items-center px-3 py-1 rounded-full bg-accent-gold/10 border border-accent-gold/20 text-accent-gold text-xs"
+                                className="inline-flex items-center px-3 py-1 rounded-full bg-accent-gold/10 border border-accent-gold/20 text-accent-gold-ink text-xs"
                               >
                                 {meal}
                               </span>
@@ -202,7 +202,7 @@ export default function ItineraryAccordion({
                           />
                         ) : (
                           <div className="w-full aspect-[4/3] rounded-xl bg-surface flex flex-col items-center justify-center border border-border">
-                            <Compass size={32} className="text-accent-gold/60 mb-2" />
+                            <Compass size={32} className="text-accent-gold-ink/60 mb-2" />
                             <span className="text-text-secondary text-xs">
                               Photo coming soon
                             </span>

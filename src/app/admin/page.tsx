@@ -40,21 +40,21 @@ export default async function AdminDashboard() {
     {
       title: "Pending Testimonials",
       count: stats.pendingTestimonials,
-      icon: <MessageSquare className="text-accent-gold" />,
+      icon: <MessageSquare className="text-accent-gold-ink" />,
       link: "/admin/testimonials",
       linkLabel: "Manage Reviews",
     },
     {
       title: "Quote Requests",
       count: stats.newQuotes,
-      icon: <Quote className="text-accent-gold" />,
+      icon: <Quote className="text-accent-gold-ink" />,
       link: "#", // Add quotes management later if needed
       linkLabel: "View Requests",
     },
     {
       title: "Platform Status",
       count: stats.lastDeploy,
-      icon: <Rocket className="text-accent-gold" />,
+      icon: <Rocket className="text-accent-gold-ink" />,
       label: "Last Deploy",
       isStatus: true,
     },
@@ -65,7 +65,7 @@ export default async function AdminDashboard() {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <header className="mb-16">
           <Reveal>
-            <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-accent-gold mb-4 block">
+            <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-accent-gold-ink mb-4 block">
               Control Center
             </span>
             <h1 className="font-serif text-4xl md:text-6xl tracking-tight text-text-primary">
@@ -93,7 +93,7 @@ export default async function AdminDashboard() {
                 {card.link && card.link !== "#" ? (
                   <Link 
                     href={card.link}
-                    className="mt-auto flex items-center gap-2 text-accent-gold font-sans text-xs uppercase tracking-widest hover:gap-3 transition-all"
+                    className="mt-auto flex items-center gap-2 text-accent-gold-ink font-sans text-xs uppercase tracking-widest hover:gap-3 transition-all"
                   >
                     {card.linkLabel}
                     <ArrowRight size={14} />

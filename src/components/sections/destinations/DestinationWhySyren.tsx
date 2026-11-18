@@ -40,7 +40,7 @@ export default function DestinationWhySyren({ destinationName }: DestinationWhyS
             <Reveal key={feature.title} delay={index * 0.1}>
               <div className="flex flex-col items-center text-center group">
                 <div className="mb-8 p-4 rounded-full bg-surface-2 border border-border group-hover:border-accent-gold/30 transition-colors duration-500">
-                  <feature.icon className="w-6 h-6 text-accent-gold/80" strokeWidth={1.25} />
+                  <feature.icon className="w-6 h-6 text-accent-gold-ink/80" strokeWidth={1.25} />
                 </div>
                 <h3 className="font-sans text-xs uppercase tracking-[0.3em] text-text-primary mb-6">
                   {feature.title}

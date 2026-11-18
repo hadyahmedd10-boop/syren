@@ -17,7 +17,7 @@ export default function ReviewsPage() {
       {/* Hero Section */}
       <section className="py-20 md:py-28 bg-surface/30 border-b border-border">
         <div className="container-x mx-auto max-w-4xl text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-accent-gold mb-4">
+          <p className="text-xs uppercase tracking-[0.3em] text-accent-gold-ink mb-4">
             VERIFIED REVIEWS
           </p>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-text-primary mb-6">
@@ -31,7 +31,7 @@ export default function ReviewsPage() {
             {[1, 2, 3, 4, 5].map((star) => (
               <svg
                 key={star}
-                className="w-8 h-8 text-accent-gold fill-accent-gold"
+                className="w-8 h-8 text-accent-gold-ink fill-accent-gold"
                 viewBox="0 0 24 24"
               >
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />

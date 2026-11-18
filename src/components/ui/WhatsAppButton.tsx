@@ -51,7 +51,7 @@ export default function WhatsAppButton({
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}
-      className={`inline-flex items-center justify-center gap-3 bg-accent-gold text-blackbase hover:bg-white hover:text-blackbase hover:shadow-[0_0_20px_rgba(207,174,112,0.3)] transition-all duration-500 rounded-full px-6 py-3 md:px-8 md:py-3.5 min-h-[40px] group ${className}`}
+      className={`no-highlight inline-flex items-center justify-center gap-3 bg-accent-gold text-text-dark hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(207,174,112,0.3)] transition-all duration-500 rounded-full px-6 py-3 md:px-8 md:py-3.5 min-h-[40px] group ${className}`}
       aria-label={props["aria-label"] || label}
       {...props}
     >

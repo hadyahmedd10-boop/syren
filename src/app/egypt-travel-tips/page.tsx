@@ -76,7 +76,7 @@ export default function EgyptTravelTipsPage() {
           <ol className="space-y-6">
             {tips.map((t, idx) => (
               <li key={t.title} className="flex gap-4">
-                <span className="text-accent-gold font-serif text-2xl">{idx + 1}.</span>
+                <span className="text-accent-gold-ink font-serif text-2xl">{idx + 1}.</span>
                 <div>
                   <h3 className="font-serif text-xl text-text-primary mb-1">{t.title}</h3>
                   <p className="text-text-secondary leading-relaxed">
@@ -84,11 +84,11 @@ export default function EgyptTravelTipsPage() {
                     {t.title === "Getting Around" && (
                       <>
                         {" "}See our{" "}
-                        <Link href="/excursions" className="text-accent-gold underline">excursions</Link>
+                        <Link href="/excursions" className="text-accent-gold-ink underline">excursions</Link>
                         {" "}for inspiration — including a{" "}
-                        <Link href="/excursions/hurghada-cairo-day-trip" className="text-accent-gold underline">Cairo day trip</Link>
+                        <Link href="/excursions/hurghada-cairo-day-trip" className="text-accent-gold-ink underline">Cairo day trip</Link>
                         {" "}and an evening{" "}
-                        <Link href="/excursions/nile-maxim-dinner-cruise" className="text-accent-gold underline">Nile cruise</Link>
+                        <Link href="/excursions/nile-maxim-dinner-cruise" className="text-accent-gold-ink underline">Nile cruise</Link>
                         {" "}in Cairo.
                       </>
                     )}

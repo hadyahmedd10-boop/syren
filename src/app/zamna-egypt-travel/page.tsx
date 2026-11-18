@@ -169,7 +169,7 @@ export default function ZamnaEgyptTravelPage() {
                 {southSinai && (
                   <Link
                     href={`/events/${southSinai.slug}`}
-                    className="mt-2 inline-block text-sm text-accent-gold underline underline-offset-2"
+                    className="mt-2 inline-block text-sm text-accent-gold-ink underline underline-offset-2"
                   >
                     South Sinai edition details
                   </Link>
@@ -206,7 +206,7 @@ export default function ZamnaEgyptTravelPage() {
           </p>
           <p>
             We arrange private airport pickups and hotel-to-venue transfers for festival guests. See{" "}
-            <Link href="/transfers" className="text-accent-gold underline underline-offset-2">
+            <Link href="/transfers" className="text-accent-gold-ink underline underline-offset-2">
               private transfers in Egypt
             </Link>{" "}
             for what that covers.

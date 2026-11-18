@@ -59,7 +59,7 @@ export default function AddOns({ items, onChange }: AddOnsProps) {
                   {isSelected && <Check size={14} strokeWidth={3} />}
                 </div>
                 <div>
-                  <p className="font-serif text-lg text-text-primary group-hover:text-accent-gold transition-colors">
+                  <p className="font-serif text-lg text-text-primary group-hover:text-accent-gold-ink transition-colors">
                     {item.title}
                   </p>
                   <p className="font-sans text-[10px] uppercase tracking-[0.1em] text-text-secondary">
@@ -68,7 +68,7 @@ export default function AddOns({ items, onChange }: AddOnsProps) {
                 </div>
               </div>
               <div className="text-right">
-                <p className="font-serif text-lg text-accent-gold">
+                <p className="font-serif text-lg text-accent-gold-ink">
                   +${(item.priceCents / 100).toLocaleString()}
                 </p>
               </div>
@@ -82,7 +82,7 @@ export default function AddOns({ items, onChange }: AddOnsProps) {
           <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-text-secondary">
             Add-Ons Total
           </span>
-          <span className="font-serif text-xl text-accent-gold">
+          <span className="font-serif text-xl text-accent-gold-ink">
             +$
             {(
               items

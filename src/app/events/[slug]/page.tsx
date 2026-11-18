@@ -229,7 +229,7 @@ export default async function EventDetailPage({ params }: Props) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 pb-10">
           <div className="container-x mx-auto max-w-7xl px-6 text-text-primary">
-            <h1 className="font-serif text-4xl md:text-6xl text-accent-gold">{event.title}</h1>
+            <h1 className="font-serif text-4xl md:text-6xl text-accent-gold-ink">{event.title}</h1>
             <div className="mt-3 flex flex-wrap items-center gap-2">
                 <span className="syren-pill bg-surface-2/80 border border-border text-text-primary/90">{event.category}</span>
               {(event.displayDate ?? event.date) && (
@@ -249,7 +249,7 @@ export default async function EventDetailPage({ params }: Props) {
         <div className="container-x mx-auto max-w-7xl">
           <div className="grid md:grid-cols-3 gap-8 items-start">
             <div className="md:col-span-2">
-              <span className="uppercase tracking-wider text-accent-gold text-xs">About the Event</span>
+              <span className="uppercase tracking-wider text-accent-gold-ink text-xs">About the Event</span>
               <p className="mt-2 font-serif text-lg leading-relaxed text-text-secondary">{event.fullDescription}</p>
             </div>
             <aside className="md:col-span-1 md:sticky md:top-24">
@@ -297,7 +297,7 @@ export default async function EventDetailPage({ params }: Props) {
                         href={officialTicketUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="syren-btn w-full text-accent-gold"
+                        className="syren-btn w-full text-accent-gold-ink"
                       >
                         Get Tickets
                       </Link>
@@ -331,7 +331,7 @@ export default async function EventDetailPage({ params }: Props) {
                     key={artist}
                     className="py-4 md:py-5 border-b border-border/30 last:border-0 flex items-center"
                   >
-                    <span className="text-accent-gold/50 font-black text-sm md:text-base mr-4">
+                    <span className="text-accent-gold-ink/50 font-black text-sm md:text-base mr-4">
                       {String(index + 1).padStart(2, '0')}
                     </span>
                     <span className="font-black uppercase tracking-[0.15em] text-text-primary text-lg md:text-xl lg:text-2xl">
@@ -362,7 +362,7 @@ export default async function EventDetailPage({ params }: Props) {
       {event.afterParties && event.afterParties.length > 0 && (
         <section className="section bg-background border-t border-accent-gold/20 pt-8 pb-12">
           <div className="container-x mx-auto max-w-7xl">
-            <span className="uppercase tracking-wider text-accent-gold text-xs">After Parties</span>
+            <span className="uppercase tracking-wider text-accent-gold-ink text-xs">After Parties</span>
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {event.afterParties.map((ap) => {
                 const venueTba = ap.venue.trim().toUpperCase() === "TBA";
@@ -374,7 +374,7 @@ export default async function EventDetailPage({ params }: Props) {
                     <h3 className="font-serif text-xl text-text-primary mb-2">{ap.name}</h3>
                     <div className="text-sm text-text-secondary space-y-1">
                       {venueTba ? (
-                        <span className="syren-pill border border-accent-gold text-accent-gold font-serif bg-transparent">
+                        <span className="syren-pill border border-accent-gold text-accent-gold-ink font-serif bg-transparent">
                           Venue TBA
                         </span>
                       ) : (
@@ -390,7 +390,7 @@ export default async function EventDetailPage({ params }: Props) {
                             key={artist}
                             className="py-2 border-b border-border/20 last:border-0 flex items-center"
                           >
-                            <span className="text-accent-gold/40 font-black text-xs mr-3">
+                            <span className="text-accent-gold-ink/40 font-black text-xs mr-3">
                               {String(index + 1).padStart(2, '0')}
                             </span>
                             <span className="font-black uppercase tracking-[0.15em] text-text-primary text-sm">
@@ -406,7 +406,7 @@ export default async function EventDetailPage({ params }: Props) {
                           href={ap.ticketUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center rounded-full border border-accent-gold/70 text-accent-gold px-3 py-3 min-h-[44px] text-sm uppercase tracking-[0.2em] hover:bg-accent-gold/10 transition-colors"
+                          className="inline-flex items-center rounded-full border border-accent-gold/70 text-accent-gold-ink px-3 py-3 min-h-[44px] text-sm uppercase tracking-[0.2em] hover:bg-accent-gold/10 transition-colors"
                         >
                           Get Tickets
                         </Link>
@@ -423,7 +423,7 @@ export default async function EventDetailPage({ params }: Props) {
       {event.houseRules && event.houseRules.length > 0 && (
         <section className="section bg-background border-t border-accent-gold/20 py-12">
           <div className="container-x mx-auto max-w-7xl">
-            <span className="uppercase tracking-wider text-accent-gold text-xs">House Rules</span>
+            <span className="uppercase tracking-wider text-accent-gold-ink text-xs">House Rules</span>
             <div className="mt-3 rounded-2xl border border-accent-gold/30 bg-surface/30 p-6">
               <ul className="list-disc pl-6 grid md:grid-cols-2 gap-y-2">
                 {event.houseRules.map((rule) => (
@@ -464,16 +464,16 @@ export default async function EventDetailPage({ params }: Props) {
                 </Link>
               )}
               {event.slug === "exit-festival" && (
-                <Link href="/exit-festival-egypt" className="text-accent-gold text-sm hover:underline text-center md:text-left">
+                <Link href="/exit-festival-egypt" className="text-accent-gold-ink text-sm hover:underline text-center md:text-left">
                   View Full Experience Guide →
                 </Link>
               )}
               {event.slug === "exit-festival" && (
                 <div className="mt-4 flex flex-col gap-2">
-                  <a href="/experiences/exit-cairo-festival-hurghada" className="text-accent-gold text-sm hover:underline">
+                  <a href="/experiences/exit-cairo-festival-hurghada" className="text-accent-gold-ink text-sm hover:underline">
                     → Cairo + Festival + Red Sea (9 nights)
                   </a>
-                  <a href="/experiences/exit-festival-pyramids-only" className="text-accent-gold text-sm hover:underline">
+                  <a href="/experiences/exit-festival-pyramids-only" className="text-accent-gold-ink text-sm hover:underline">
                     → Festival Only — Pyramids Hotel & Transfers (4 nights)
                   </a>
                 </div>
@@ -491,7 +491,7 @@ export default async function EventDetailPage({ params }: Props) {
       {/* Explore More Events */}
       <section className="section bg-background border-t border-accent-gold/20 pt-8 pb-12">
         <div className="container-x mx-auto max-w-7xl">
-          <span className="uppercase tracking-wider text-accent-gold text-xs">Explore More</span>
+          <span className="uppercase tracking-wider text-accent-gold-ink text-xs">Explore More</span>
           <div className="mt-4 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {events
               .filter((e) => e.slug !== event.slug && isEventUpcoming(e))
@@ -504,7 +504,7 @@ export default async function EventDetailPage({ params }: Props) {
         </div>
       </section>
       <div className="container-x mx-auto max-w-7xl px-6 py-4">
-        <Link href="/events" className="text-sm text-accent-gold hover:underline">
+        <Link href="/events" className="text-sm text-accent-gold-ink hover:underline">
           ← Back to Events
         </Link>
       </div>

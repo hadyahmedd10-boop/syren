@@ -100,7 +100,7 @@ export default function FestivalLanding({
         heightClassName="min-h-[58vh] md:min-h-[68vh]"
       >
         {heroActions && (
-          <div className="flex flex-wrap items-center justify-center gap-3">{heroActions}</div>
+          <div className="on-dark flex flex-wrap items-center justify-center gap-3">{heroActions}</div>
         )}
       </HeroShell>
 
@@ -123,7 +123,7 @@ export default function FestivalLanding({
                         href={fact.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-accent-gold underline underline-offset-2"
+                        className="text-accent-gold-ink underline underline-offset-2"
                       >
                         {fact.value}
                       </a>
@@ -216,7 +216,7 @@ export default function FestivalLanding({
             <ol className="mt-4 space-y-3">
               {bookingSteps.map((step, index) => (
                 <li key={step} className="flex gap-3 text-text-secondary">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-accent-gold/50 text-xs font-semibold text-accent-gold">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-accent-gold/50 text-xs font-semibold text-accent-gold-ink">
                     {index + 1}
                   </span>
                   <span className="leading-relaxed">{step}</span>
@@ -233,12 +233,12 @@ export default function FestivalLanding({
               {faqs.map((faq) => (
                 <details key={faq.question} className="group border-b border-border">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5">
-                    <span className="font-serif text-lg text-text-primary transition-colors group-hover:text-accent-gold">
+                    <span className="font-serif text-lg text-text-primary transition-colors group-hover:text-accent-gold-ink">
                       {faq.question}
                     </span>
                     <Plus
                       size={18}
-                      className="shrink-0 text-text-secondary transition-transform duration-300 group-open:rotate-45 group-hover:text-accent-gold"
+                      className="shrink-0 text-text-secondary transition-transform duration-300 group-open:rotate-45 group-hover:text-accent-gold-ink"
                       aria-hidden
                     />
                   </summary>

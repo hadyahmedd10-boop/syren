@@ -78,12 +78,12 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="border-b border-white/5 bg-white/[0.02]">
-                <th className="px-6 py-4 text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">Date</th>
-                <th className="px-6 py-4 text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">Lead Details</th>
-                <th className="px-6 py-4 text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">
+                <th className="px-6 py-4 text-[10px] uppercase tracking-[0.2em] text-accent-gold-ink font-bold">Date</th>
+                <th className="px-6 py-4 text-[10px] uppercase tracking-[0.2em] text-accent-gold-ink font-bold">Lead Details</th>
+                <th className="px-6 py-4 text-[10px] uppercase tracking-[0.2em] text-accent-gold-ink font-bold">
                   {activeTab === "quotes" ? "Trip Info" : "Subject"}
                 </th>
-                <th className="px-6 py-4 text-[10px] uppercase tracking-[0.2em] text-accent-gold font-bold">Message</th>
+                <th className="px-6 py-4 text-[10px] uppercase tracking-[0.2em] text-accent-gold-ink font-bold">Message</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/5">
@@ -99,12 +99,12 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
                         <div className="space-y-2">
                           <div className="font-medium text-text-primary">{quote.name}</div>
                           <div className="flex items-center gap-2 text-xs text-text-secondary hover:text-text-primary transition-colors">
-                            <Mail size={12} className="text-accent-gold" />
+                            <Mail size={12} className="text-accent-gold-ink" />
                             <a href={`mailto:${quote.email}`}>{quote.email}</a>
                             <button
                               type="button"
                               onClick={() => handleCopy(quote.email)}
-                              className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-accent-gold/80 hover:text-accent-gold"
+                              className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-accent-gold-ink/80 hover:text-accent-gold-ink"
                             >
                               <Copy size={12} />
                               Copy
@@ -112,12 +112,12 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
                           </div>
                           {quote.phone && (
                             <div className="flex items-center gap-2 text-xs text-text-secondary">
-                              <Phone size={12} className="text-accent-gold" />
+                              <Phone size={12} className="text-accent-gold-ink" />
                               <span>{quote.phone}</span>
                               <button
                                 type="button"
                                 onClick={() => handleCopy(quote.phone ?? "")}
-                                className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-accent-gold/80 hover:text-accent-gold"
+                                className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-accent-gold-ink/80 hover:text-accent-gold-ink"
                               >
                                 <Copy size={12} />
                                 Copy
@@ -130,30 +130,30 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
                         <div className="space-y-2">
                           {quote.trip_dates && (
                             <div className="flex items-center gap-2 text-xs text-text-secondary">
-                              <Calendar size={12} className="text-accent-gold" />
+                              <Calendar size={12} className="text-accent-gold-ink" />
                               <span>{quote.trip_dates}</span>
                             </div>
                           )}
                           {quote.budget && (
                             <div className="flex items-center gap-2 text-xs text-text-secondary">
-                              <DollarSign size={12} className="text-accent-gold" />
+                              <DollarSign size={12} className="text-accent-gold-ink" />
                               <span>{quote.budget}</span>
                             </div>
                           )}
-                          <div className="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-accent-gold/10 text-accent-gold border border-accent-gold/20">
+                          <div className="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-accent-gold/10 text-accent-gold-ink border border-accent-gold/20">
                             {quote.status}
                           </div>
                         </div>
                       </td>
                       <td className="px-6 py-6 align-top max-w-md">
                         <div className="flex gap-2">
-                          <MessageSquare size={14} className="text-accent-gold shrink-0 mt-0.5" />
+                          <MessageSquare size={14} className="text-accent-gold-ink shrink-0 mt-0.5" />
                           <div className="space-y-2">
                             <p className="text-sm text-text-secondary leading-relaxed line-clamp-3">{quote.message}</p>
                             <button
                               type="button"
                               onClick={() => setOpenMessage({ title: `${quote.name} — Quote`, message: quote.message })}
-                              className="text-[10px] uppercase tracking-wider text-accent-gold/80 hover:text-accent-gold"
+                              className="text-[10px] uppercase tracking-wider text-accent-gold-ink/80 hover:text-accent-gold-ink"
                             >
                               View
                             </button>
@@ -178,12 +178,12 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
                       <div className="space-y-2">
                         <div className="font-medium text-text-primary">{inquiry.name}</div>
                         <div className="flex items-center gap-2 text-xs text-text-secondary hover:text-text-primary transition-colors">
-                          <Mail size={12} className="text-accent-gold" />
+                          <Mail size={12} className="text-accent-gold-ink" />
                           <a href={`mailto:${inquiry.email}`}>{inquiry.email}</a>
                           <button
                             type="button"
                             onClick={() => handleCopy(inquiry.email)}
-                            className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-accent-gold/80 hover:text-accent-gold"
+                            className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-accent-gold-ink/80 hover:text-accent-gold-ink"
                           >
                             <Copy size={12} />
                             Copy
@@ -191,12 +191,12 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
                         </div>
                         {inquiry.phone && (
                           <div className="flex items-center gap-2 text-xs text-text-secondary">
-                            <Phone size={12} className="text-accent-gold" />
+                            <Phone size={12} className="text-accent-gold-ink" />
                             <span>{inquiry.phone}</span>
                             <button
                               type="button"
                               onClick={() => handleCopy(inquiry.phone ?? "")}
-                              className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-accent-gold/80 hover:text-accent-gold"
+                              className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-accent-gold-ink/80 hover:text-accent-gold-ink"
                             >
                               <Copy size={12} />
                               Copy
@@ -205,7 +205,7 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
                         )}
                         {inquiry.pathname && (
                           <div className="flex items-center gap-2 text-xs text-text-secondary truncate max-w-[200px]">
-                            <Globe size={12} className="text-accent-gold" />
+                            <Globe size={12} className="text-accent-gold-ink" />
                             <span>{inquiry.pathname}</span>
                           </div>
                         )}
@@ -216,7 +216,7 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
                     </td>
                     <td className="px-6 py-6 align-top max-w-md">
                       <div className="flex gap-2">
-                        <MessageSquare size={14} className="text-accent-gold shrink-0 mt-0.5" />
+                        <MessageSquare size={14} className="text-accent-gold-ink shrink-0 mt-0.5" />
                         <div className="space-y-2">
                           <p className="text-sm text-text-secondary leading-relaxed line-clamp-3">{inquiry.message}</p>
                           <button
@@ -224,7 +224,7 @@ export default function AdminLeads({ inquiries, quotes }: AdminLeadsProps) {
                             onClick={() =>
                               setOpenMessage({ title: `${inquiry.name} — Inquiry`, message: inquiry.message })
                             }
-                            className="text-[10px] uppercase tracking-wider text-accent-gold/80 hover:text-accent-gold"
+                            className="text-[10px] uppercase tracking-wider text-accent-gold-ink/80 hover:text-accent-gold-ink"
                           >
                             View
                           </button>

@@ -38,6 +38,8 @@ const expHotAirBalloon = heroHome; // Fallback until image is added
 
 export const HERO_IMAGES = {
   home: heroHome,
+  cairo: heroCairo,
+  northCoast: heroNorthCoast,
 } as const;
 
 export const DESTINATION_IMAGES = {

@@ -61,7 +61,7 @@ export default function SavedList() {
     <>
       <div className="flex justify-between items-center mb-4">
         <div className="text-sm text-text-secondary">Showing {items.length} saved items</div>
-        <button onClick={clearAll} className="text-sm text-accent-gold hover:underline">Clear all</button>
+        <button onClick={clearAll} className="text-sm text-accent-gold-ink hover:underline">Clear all</button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {items.map((it, idx) => (

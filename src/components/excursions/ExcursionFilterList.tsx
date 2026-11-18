@@ -120,7 +120,7 @@ export default function ExcursionFilterList({
 
                 return (
                   <div key={city} className="space-y-6">
-                    <h3 className="text-sm font-serif text-accent-gold uppercase tracking-widest pl-1">
+                    <h3 className="text-sm font-serif text-accent-gold-ink uppercase tracking-widest pl-1">
                       {city}
                     </h3>
                     {renderGrid(cityExcursions)}

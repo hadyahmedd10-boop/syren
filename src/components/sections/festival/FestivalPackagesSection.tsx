@@ -51,7 +51,7 @@ export default function FestivalPackagesSection({
         {guideHref && (
           <Link
             href={guideHref}
-            className="mt-6 inline-block text-sm text-accent-gold underline underline-offset-2"
+            className="mt-6 inline-block text-sm text-accent-gold-ink underline underline-offset-2"
           >
             {guideLabel}
           </Link>

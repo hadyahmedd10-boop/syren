@@ -62,7 +62,7 @@ export default function TrustpilotWidget({
           href="https://www.trustpilot.com/review/syrentravel.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-accent-gold hover:underline text-sm"
+          className="text-accent-gold-ink hover:underline text-sm"
         >
           Read our reviews on Trustpilot
         </a>

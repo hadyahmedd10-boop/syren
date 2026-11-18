@@ -70,7 +70,7 @@ export default function IsEgyptSafe() {
       <article className="section border-t border-border bg-background">
         <div className="container-x mx-auto max-w-3xl space-y-12">
           <section>
-            <div className="uppercase text-[11px] tracking-[0.25em] text-accent-gold font-semibold mb-3">
+            <div className="uppercase text-[11px] tracking-[0.25em] text-accent-gold-ink font-semibold mb-3">
               Opening
             </div>
             <h2 className="font-serif text-2xl text-text-primary mb-4">Let&apos;s Be Honest About Egypt&apos;s Reputation</h2>
@@ -79,8 +79,8 @@ export default function IsEgyptSafe() {
             </p>
             <p className="font-serif text-text-primary leading-loose">
               Here&apos;s what those headlines almost never tell you: Egypt has been welcoming foreign visitors for over three thousand years. The pharaohs built the infrastructure. The Nile did the rest. And today, Egypt&apos;s entire economy is built around making sure that every single tourist who arrives leaves wanting to come back. Explore our{" "}
-              <Link href="/experiences" className="text-accent-gold underline">experiences</Link> and{" "}
-              <Link href="/events" className="text-accent-gold underline">events</Link> to see how we curate it properly.
+              <Link href="/experiences" className="text-accent-gold-ink underline">experiences</Link> and{" "}
+              <Link href="/events" className="text-accent-gold-ink underline">events</Link> to see how we curate it properly.
             </p>
             <p className="font-serif text-text-primary leading-loose">
               We&apos;re Syren — a travel agency born and raised in Egypt. We&apos;ve guided travelers from London, Dubai, São Paulo, and New York through this country. And we want to give you the honest, unfiltered answer that travel advisories can&apos;t.
@@ -90,7 +90,7 @@ export default function IsEgyptSafe() {
           <hr className="border-t border-accent-gold/30" />
 
           <section>
-            <div className="uppercase text-[11px] tracking-[0.25em] text-accent-gold font-semibold mb-3">
+            <div className="uppercase text-[11px] tracking-[0.25em] text-accent-gold-ink font-semibold mb-3">
               The Reality
             </div>
             <h2 className="font-serif text-2xl text-text-primary mb-4">What Egypt Actually Looks Like on the Ground</h2>
@@ -108,7 +108,7 @@ export default function IsEgyptSafe() {
           <hr className="border-t border-accent-gold/30" />
 
           <section>
-            <div className="uppercase text-[11px] tracking-[0.25em] text-accent-gold font-semibold mb-5">
+            <div className="uppercase text-[11px] tracking-[0.25em] text-accent-gold-ink font-semibold mb-5">
               Safety Qualities
             </div>
             <div className="grid gap-5 md:grid-cols-2">
@@ -154,11 +154,11 @@ export default function IsEgyptSafe() {
           <hr className="border-t border-accent-gold/30" />
 
           <section>
-            <div className="uppercase text-[11px] tracking-[0.25em] text-accent-gold font-semibold mb-3">
+            <div className="uppercase text-[11px] tracking-[0.25em] text-accent-gold-ink font-semibold mb-3">
               Women Traveling
             </div>
             <h2 className="font-serif text-2xl text-text-primary mb-1">Women Traveling to Egypt — The Real Story</h2>
-            <p className="text-accent-gold uppercase tracking-[0.2em] text-[11px] font-semibold mb-4">
+            <p className="text-accent-gold-ink uppercase tracking-[0.2em] text-[11px] font-semibold mb-4">
               This is the question we get asked most. Here&apos;s the answer no one else is giving you.
             </p>
             <div className="space-y-4">
@@ -189,27 +189,27 @@ export default function IsEgyptSafe() {
           <hr className="border-t border-accent-gold/30" />
 
           <section>
-            <div className="uppercase text-[11px] tracking-[0.25em] text-accent-gold font-semibold mb-3">
+            <div className="uppercase text-[11px] tracking-[0.25em] text-accent-gold-ink font-semibold mb-3">
               Tips
             </div>
             <h2 className="font-serif text-2xl text-text-primary mb-4">Syren&apos;s Honest Safety Guide for Egypt</h2>
             <ol className="space-y-4">
               <li>
                 <div className="flex gap-3">
-                  <span className="text-accent-gold font-serif font-semibold">1.</span>
+                  <span className="text-accent-gold-ink font-serif font-semibold">1.</span>
                   <div>
                     <p className="font-serif text-text-primary leading-relaxed">Travel with a local agency you trust</p>
                     <p className="font-serif text-text-secondary leading-relaxed">
                       Not a faceless booking platform. A real team with real people who know the country, know the operators, and know how to solve problems before they become problems. This single decision changes everything about how your trip feels. If you&apos;re coming for festivals like{" "}
-                      <Link href="/events/zamna-festival" className="text-accent-gold underline">Zamna</Link> or{" "}
-                      <Link href="/events/sandbox-festival" className="text-accent-gold underline">Sandbox</Link>, we&apos;ll handle it end-to-end.
+                      <Link href="/events/zamna-festival" className="text-accent-gold-ink underline">Zamna</Link> or{" "}
+                      <Link href="/events/sandbox-festival" className="text-accent-gold-ink underline">Sandbox</Link>, we&apos;ll handle it end-to-end.
                     </p>
                   </div>
                 </div>
               </li>
               <li>
                 <div className="flex gap-3">
-                  <span className="text-accent-gold font-serif font-semibold">2.</span>
+                  <span className="text-accent-gold-ink font-serif font-semibold">2.</span>
                   <div>
                     <p className="font-serif text-text-primary leading-relaxed">Use vetted, licensed drivers for all transfers</p>
                     <p className="font-serif text-text-secondary leading-relaxed">
@@ -220,7 +220,7 @@ export default function IsEgyptSafe() {
               </li>
               <li>
                 <div className="flex gap-3">
-                  <span className="text-accent-gold font-serif font-semibold">3.</span>
+                  <span className="text-accent-gold-ink font-serif font-semibold">3.</span>
                   <div>
                     <p className="font-serif text-text-primary leading-relaxed">Stay in reputable hotels in tourist districts</p>
                     <p className="font-serif text-text-secondary leading-relaxed">
@@ -231,7 +231,7 @@ export default function IsEgyptSafe() {
               </li>
               <li>
                 <div className="flex gap-3">
-                  <span className="text-accent-gold font-serif font-semibold">4.</span>
+                  <span className="text-accent-gold-ink font-serif font-semibold">4.</span>
                   <div>
                     <p className="font-serif text-text-primary leading-relaxed">Dress respectfully outside resort areas</p>
                     <p className="font-serif text-text-secondary leading-relaxed">
@@ -242,7 +242,7 @@ export default function IsEgyptSafe() {
               </li>
               <li>
                 <div className="flex gap-3">
-                  <span className="text-accent-gold font-serif font-semibold">5.</span>
+                  <span className="text-accent-gold-ink font-serif font-semibold">5.</span>
                   <div>
                     <p className="font-serif text-text-primary leading-relaxed">Keep digital copies of your documents</p>
                     <p className="font-serif text-text-secondary leading-relaxed">
@@ -253,7 +253,7 @@ export default function IsEgyptSafe() {
               </li>
               <li>
                 <div className="flex gap-3">
-                  <span className="text-accent-gold font-serif font-semibold">6.</span>
+                  <span className="text-accent-gold-ink font-serif font-semibold">6.</span>
                   <div>
                     <p className="font-serif text-text-primary leading-relaxed">Save your Syren concierge number before you land</p>
                     <p className="font-serif text-text-secondary leading-relaxed">
@@ -264,7 +264,7 @@ export default function IsEgyptSafe() {
               </li>
               <li>
                 <div className="flex gap-3">
-                  <span className="text-accent-gold font-serif font-semibold">7.</span>
+                  <span className="text-accent-gold-ink font-serif font-semibold">7.</span>
                   <div>
                     <p className="font-serif text-text-primary leading-relaxed">Trust the experience more than the headlines</p>
                     <p className="font-serif text-text-secondary leading-relaxed">

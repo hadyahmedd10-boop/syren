@@ -79,7 +79,7 @@ export default function ExperienceCard({
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60" />
           <div className="absolute bottom-2 left-3 z-10 flex items-center gap-3">
             {typeof priceAmount === "number" && priceCurrency ? (
-              <span className="inline-flex items-center px-2 py-1 rounded bg-black/40 border border-border text-accent-gold text-xs">
+              <span className="inline-flex items-center px-2 py-1 rounded bg-black/40 border border-border text-accent-gold-ink text-xs">
                 From {priceCurrency.toUpperCase()} {new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(priceAmount)}
               </span>
             ) : null}
@@ -100,7 +100,7 @@ export default function ExperienceCard({
             onClick={onToggle}
             title={saved ? "Saved" : "Save for later"}
             aria-label={saved ? "Saved" : "Save for later"}
-            className={`absolute right-3 top-3 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full bg-black/40 backdrop-blur border border-border transition-all ${bump ? "scale-110" : "scale-100"}`}
+            className={`absolute right-3 top-3 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full bg-black/70 backdrop-blur border border-border transition-all ${bump ? "scale-110" : "scale-100"}`}
           >
             <Heart
               size={18}
@@ -123,7 +123,7 @@ export default function ExperienceCard({
 
           {typeof priceAmount === "number" && priceCurrency && (
             <div className="mt-1 text-sm">
-              <span className="text-accent-gold">
+              <span className="text-accent-gold-ink">
                 From {priceCurrency.toUpperCase()}{" "}
                 {new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(priceAmount)}
               </span>
@@ -152,7 +152,7 @@ export default function ExperienceCard({
               href={waLink(`Hi Syren, I'm interested in ${title}`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="block mt-2 text-center text-xs text-accent-gold hover:text-accent-gold/80 transition-colors"
+              className="block mt-2 text-center text-xs text-accent-gold-ink hover:text-accent-gold-ink/80 transition-colors"
               onClick={(e) => e.stopPropagation()}
             >
               Enquire on WhatsApp →

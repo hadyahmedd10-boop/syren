@@ -136,7 +136,7 @@ export default forwardRef<BookingModalHandle, BookingModalProps>(function Bookin
               <h3 id="booking-modal-title" className="font-serif text-xl md:text-2xl text-text-primary">
                 {experienceTitle}
               </h3>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-accent-gold">Package • Participant Info • Payment</p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-accent-gold-ink">Package • Participant Info • Payment</p>
             </div>
             <button className="p-2 rounded hover:bg-surface-2" aria-label="Close" onClick={() => setOpen(false)}>
               <X size={18} className="text-text-secondary" />
@@ -186,7 +186,7 @@ export default forwardRef<BookingModalHandle, BookingModalProps>(function Bookin
                 </div>
                 <div className="text-right">
                   <div className="text-sm text-text-secondary">Total Price</div>
-                  <div className="font-serif text-xl text-accent-gold">
+                  <div className="font-serif text-xl text-accent-gold-ink">
                     {typeof totalPrice === "number" ? formatCurrency(totalPrice, basePriceCurrency) : "Get Quote"}
                   </div>
                   <div className="text-xs text-text-secondary">Deposit: {typeof depositDue === "number" ? formatCurrency(depositDue, basePriceCurrency) : "-"}</div>

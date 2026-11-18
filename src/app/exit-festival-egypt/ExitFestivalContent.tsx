@@ -26,7 +26,7 @@ function WAButton({
       href={WA_LINK}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-3 bg-[#25D366] text-text-primary font-semibold px-8 py-4 rounded-full text-lg hover:bg-[#20b558] transition-all duration-300 shadow-lg hover:shadow-[#25D366]/30 hover:shadow-xl ${className}`}
+      className={`no-highlight inline-flex items-center gap-3 bg-[#25D366] text-text-dark font-semibold px-8 py-4 rounded-full text-lg hover:bg-[#20b558] transition-all duration-300 shadow-lg hover:shadow-[#25D366]/30 hover:shadow-xl ${className}`}
     >
       <WhatsAppIcon />
       {label}
@@ -134,7 +134,7 @@ function StickyBar() {
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] text-text-primary font-semibold px-6 py-2.5 rounded-full text-sm hover:bg-[#20b558] transition-all"
+          className="no-highlight w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] text-text-dark font-semibold px-6 py-2.5 rounded-full text-sm hover:bg-[#20b558] transition-all"
         >
           <WhatsAppIcon className="w-4 h-4" />
           Message Us →
@@ -574,13 +574,13 @@ export default function ExitFestivalContent() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-text-primary font-semibold px-6 py-3 rounded-full hover:bg-[#20b558] transition-all w-full"
+                  className="no-highlight inline-flex items-center justify-center gap-2 bg-[#25D366] text-text-dark font-semibold px-6 py-3 rounded-full hover:bg-[#20b558] transition-all w-full"
                 >
                   <WhatsAppIcon className="w-4 h-4" /> Reserve This →
                 </a>
                 <Link
                   href="/experiences/exit-cairo-festival-hurghada"
-                  className="text-center text-[#C9A84C] text-xs mt-3 hover:underline block"
+                  className="text-center text-accent-gold-ink text-xs mt-3 hover:underline block"
                 >
                   View Package Details →
                 </Link>
@@ -622,13 +622,13 @@ export default function ExitFestivalContent() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-text-primary font-semibold px-6 py-3 rounded-full hover:bg-[#20b558] transition-all w-full"
+                  className="no-highlight inline-flex items-center justify-center gap-2 bg-[#25D366] text-text-dark font-semibold px-6 py-3 rounded-full hover:bg-[#20b558] transition-all w-full"
                 >
                   <WhatsAppIcon className="w-4 h-4" /> Reserve This →
                 </a>
                 <Link
                   href="/experiences/exit-festival-pyramids-only"
-                  className="text-center text-[#C9A84C] text-xs mt-3 hover:underline block"
+                  className="text-center text-accent-gold-ink text-xs mt-3 hover:underline block"
                 >
                   View Package Details →
                 </Link>

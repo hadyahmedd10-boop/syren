@@ -22,10 +22,10 @@ export default function SaveToggle({ slug, itemType, className = "", labelSaved 
         setBump(true);
         window.setTimeout(() => setBump(false), 160);
       }}
-      className={`inline-flex items-center gap-2 text-sm transition-all ${saved ? "text-accent-gold" : "text-white/80 hover:text-accent-gold"} ${bump ? "scale-105" : "scale-100"} ${className}`}
+      className={`inline-flex items-center gap-2 rounded-full bg-black/60 px-3 py-1.5 text-sm text-white/90 backdrop-blur-sm transition-all ${saved ? "text-accent-gold" : "hover:text-accent-gold"} ${bump ? "scale-105" : "scale-100"} ${className}`}
       aria-pressed={saved}
     >
-      <Heart size={16} className={`${saved ? "fill-accent-gold text-accent-gold" : ""}`} />
+      <Heart size={16} className={`${saved ? "fill-accent-gold" : ""}`} />
       <span>{saved ? "♥ " + labelSaved : "♡ " + (labelUnsaved + (itemType === "experience" ? " experience" : " excursion"))}</span>
     </button>
   );

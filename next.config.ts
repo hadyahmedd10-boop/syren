@@ -42,6 +42,17 @@ const nextConfig: NextConfig = {
       }
     ],
   },
+  async redirects() {
+    return [
+      // Single homepage: the old /home route 301-redirects to the root.
+      // The browser preserves the #hash when the Location has no fragment.
+      {
+        source: "/home",
+        destination: "/",
+        statusCode: 301,
+      },
+    ];
+  },
   async headers() {
     return [
       {

@@ -53,7 +53,7 @@ export default function TestimonialsPreview() {
               <h3 className="font-serif text-lg text-text-primary mt-3 mb-2">{review.title}</h3>
               <p className="text-sm text-text-secondary leading-relaxed flex-1 line-clamp-5">{review.text}</p>
               <div className="mt-4 pt-4 border-t border-border/30 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-accent-gold/20 flex items-center justify-center text-accent-gold font-serif text-sm font-bold">
+                <div className="w-9 h-9 rounded-full bg-accent-gold/20 flex items-center justify-center text-accent-gold-ink font-serif text-sm font-bold">
                   {review.name.charAt(0)}
                 </div>
                 <div>
@@ -75,7 +75,7 @@ export default function TestimonialsPreview() {
             href="https://www.trustpilot.com/review/syrentravel.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent-gold text-sm hover:underline tracking-wide"
+            className="text-accent-gold-ink text-sm hover:underline tracking-wide"
           >
             Read all reviews on Trustpilot →
           </a>

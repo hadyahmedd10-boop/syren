@@ -47,7 +47,7 @@ export default function ContactPage() {
  
           <div className="space-y-4 md:space-y-6 text-sm"> 
             <p><strong>Email:</strong> {SOCIAL_LINKS.email}</p> 
-            <p><strong>WhatsApp:</strong> <TrackedLink href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" eventName={SOCIAL_EVENTS.whatsapp} eventProps={{ location: "contact_page_text", url: WHATSAPP_LINK }} className="hover:text-accent-gold transition-colors">+20 101 601 5723</TrackedLink></p> 
+            <p><strong>WhatsApp:</strong> <TrackedLink href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" eventName={SOCIAL_EVENTS.whatsapp} eventProps={{ location: "contact_page_text", url: WHATSAPP_LINK }} className="hover:text-accent-gold-ink transition-colors">+20 101 601 5723</TrackedLink></p> 
             <p><strong>Location:</strong> Cairo, Egypt</p>  
             <p><strong>Availability:</strong> 24/7 Concierge Support</p> 
           </div> 

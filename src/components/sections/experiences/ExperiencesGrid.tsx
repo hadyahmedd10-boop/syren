@@ -88,18 +88,18 @@ export default function ExperiencesGrid() {
         <div className="bg-surface-2 rounded-2xl p-4 mb-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex-1 relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-accent-gold/50" size={18} />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-accent-gold-ink/50" size={18} />
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search experiences"
-                className="w-full h-12 rounded-full bg-surface backdrop-blur-sm border border-border focus:border-accent-gold/60 text-text-primary placeholder:text-text-secondary/60 pl-12 pr-12 outline-none focus:shadow-[0_0_0_1px_rgba(201,168,76,0.3)]"
+                className="w-full h-12 rounded-full bg-surface backdrop-blur-sm border border-border focus:border-accent-gold/60 text-text-primary placeholder:text-text-secondary pl-12 pr-12 outline-none focus:shadow-[0_0_0_1px_rgba(201,168,76,0.3)]"
               />
               {query.length > 0 && (
                 <button
                   aria-label="Clear search"
                   onClick={() => setQuery("")}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary hover:text-accent-gold transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary hover:text-accent-gold-ink transition-colors"
                 >
                   <X size={18} />
                 </button>
@@ -109,8 +109,8 @@ export default function ExperiencesGrid() {
               onClick={() => setFiltersOpen(!filtersOpen)}
               className={`flex items-center gap-2 h-12 px-5 rounded-full border transition-all duration-200 ${
                 filtersOpen || activeFilterCount > 0
-                  ? "border-accent-gold bg-accent-gold/10 text-accent-gold"
-                  : "border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold/70"
+                  ? "border-accent-gold bg-accent-gold/10 text-accent-gold-ink"
+                  : "border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold-ink"
               }`}
             >
               <SlidersHorizontal size={16} />
@@ -137,8 +137,8 @@ export default function ExperiencesGrid() {
                       const active = durationFilter === d;
                       const base = "rounded-full min-h-[36px] px-4 py-1.5 text-sm font-medium tracking-wide transition-all duration-200";
                       const cls = active
-                        ? "bg-accent-gold/15 border border-accent-gold text-accent-gold font-semibold"
-                        : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold/70";
+                        ? "bg-accent-gold/15 border border-accent-gold text-accent-gold-ink font-semibold"
+                        : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold-ink";
                       return (
                         <button key={d} onClick={() => setDurationFilter(d)} className={`${base} ${cls}`}>
                           {d}
@@ -154,8 +154,8 @@ export default function ExperiencesGrid() {
                       const active = destinationFilter === d;
                       const base = "rounded-full min-h-[36px] px-4 py-1.5 text-sm font-medium tracking-wide transition-all duration-200";
                       const cls = active
-                        ? "bg-accent-gold/15 border border-accent-gold text-accent-gold font-semibold"
-                        : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold/70";
+                        ? "bg-accent-gold/15 border border-accent-gold text-accent-gold-ink font-semibold"
+                        : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold-ink";
                       return (
                         <button key={d} onClick={() => setDestinationFilter(d)} className={`${base} ${cls}`}>
                           {d}
@@ -171,8 +171,8 @@ export default function ExperiencesGrid() {
                       const active = categoryFilter === d;
                       const base = "rounded-full min-h-[36px] px-4 py-1.5 text-sm font-medium tracking-wide transition-all duration-200";
                       const cls = active
-                        ? "bg-accent-gold/15 border border-accent-gold text-accent-gold font-semibold"
-                        : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold/70";
+                        ? "bg-accent-gold/15 border border-accent-gold text-accent-gold-ink font-semibold"
+                        : "bg-transparent border border-border text-text-secondary hover:border-accent-gold/40 hover:text-accent-gold-ink";
                       return (
                         <button key={d} onClick={() => setCategoryFilter(d)} className={`${base} ${cls}`}>
                           {d}
@@ -184,7 +184,7 @@ export default function ExperiencesGrid() {
                 {activeFilterCount > 0 && (
                   <button
                     onClick={() => { setDurationFilter("All"); setDestinationFilter("All"); setCategoryFilter("All"); }}
-                    className="text-xs text-accent-gold hover:underline"
+                    className="text-xs text-accent-gold-ink hover:underline"
                   >
                     Clear all filters
                   </button>
@@ -200,10 +200,10 @@ export default function ExperiencesGrid() {
         {showFestivalPackages ? (
           festivalFiltered.length === 0 ? (
             <div className="py-12 text-center">
-              <Compass size={36} className="mx-auto mb-3 text-accent-gold" />
+              <Compass size={36} className="mx-auto mb-3 text-accent-gold-ink" />
               <h3 className="font-serif text-2xl text-text-primary mb-1">No results found</h3>
               <p className="text-text-secondary mb-3">Try a different search term</p>
-              <button onClick={() => setQuery("")} className="text-accent-gold underline">
+              <button onClick={() => setQuery("")} className="text-accent-gold-ink underline">
                 Clear search
               </button>
             </div>
@@ -218,7 +218,7 @@ export default function ExperiencesGrid() {
           )
         ) : filtered.length === 0 ? (
           <div className="py-12 text-center">
-            <Compass size={36} className="mx-auto mb-3 text-accent-gold" />
+            <Compass size={36} className="mx-auto mb-3 text-accent-gold-ink" />
             <h3 className="font-serif text-2xl text-text-primary mb-1">No results found</h3>
             <p className="text-text-secondary mb-3">Try adjusting your filters or search term</p>
             <button
@@ -228,7 +228,7 @@ export default function ExperiencesGrid() {
                 setDestinationFilter("All");
                 setCategoryFilter("All");
               }}
-              className="text-accent-gold underline"
+              className="text-accent-gold-ink underline"
             >
               Clear all filters
             </button>
