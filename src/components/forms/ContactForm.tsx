@@ -72,6 +72,7 @@ export default function ContactForm() {
           phone: formData.whatsapp,
           message: formData.message,
           pathname: pathname,
+          honeypot: formData.honeypot,
         }),
       });
 

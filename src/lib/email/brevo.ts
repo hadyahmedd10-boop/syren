@@ -1,6 +1,10 @@
-const BREVO_API_KEY = process.env.BREVO_API_KEY;
-const EMAIL_FROM = process.env.EMAIL_FROM;
-const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL;
+import { htmlToText } from "@/lib/email/html";
+
+// Trim to defend against trailing newlines/CRLF that `vercel env pull` can leave
+// in the value — an untrimmed sender address is rejected by the Brevo API.
+const BREVO_API_KEY = process.env.BREVO_API_KEY?.trim();
+const EMAIL_FROM = process.env.EMAIL_FROM?.trim();
+const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL?.trim();
 
 interface SendTransactionalEmailParams {
   subject: string;
@@ -82,6 +86,7 @@ export async function sendTransactionalEmail({
         },
         subject: subject,
         htmlContent: html,
+        textContent: htmlToText(html),
       }),
     });
 
@@ -139,6 +144,7 @@ export async function sendTransactionalEmailTo({
         replyTo: { email: replyTo },
         subject,
         htmlContent: html,
+        textContent: htmlToText(html),
       }),
     });
     const data = await response.json();

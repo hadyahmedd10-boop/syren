@@ -3,6 +3,7 @@ import { z } from "zod";
 import { quoteRateLimit, getClientIp, safeLimit } from "@/lib/rateLimit";
 import { sendTransactionalEmail, sendTransactionalEmailTo } from "@/lib/email/brevo";
 import { generateSyrenEmail } from "@/lib/email/syren-template";
+import { escapeHtml } from "@/lib/email/html";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 
 const bookingSchema = z.object({
@@ -18,6 +19,7 @@ const bookingSchema = z.object({
   addTransfer: z.boolean().optional().default(false),
   arrivalDate: z.string().optional().nullable(),
   flightNumber: z.string().optional().nullable(),
+  honeypot: z.string().optional(),
 });
 
 export async function POST(req: Request) {
@@ -34,23 +36,41 @@ export async function POST(req: Request) {
     const body = await req.json();
     const data = bookingSchema.parse(body);
 
+    // Honeypot: silently accept bots without downstream processing.
+    if (data.honeypot && data.honeypot.trim() !== "") {
+      return NextResponse.json({ ok: true }, { status: 200 });
+    }
+
+    // Escape user-supplied strings before HTML interpolation.
+    const expTitle = escapeHtml(data.experienceTitle);
+    const expSlug = escapeHtml(data.experienceSlug);
+    const startDate = data.startDate ? escapeHtml(data.startDate) : null;
+    const endDate = data.endDate ? escapeHtml(data.endDate) : null;
+    const arrivalDate = data.arrivalDate ? escapeHtml(data.arrivalDate) : null;
+    const flightNumber = data.flightNumber ? escapeHtml(data.flightNumber) : null;
+    const contact = escapeHtml(data.contact);
+    const notes = data.notes ? escapeHtml(data.notes) : null;
+    const currency = escapeHtml(data.currency);
+    // Single-line copy for subjects (strip CR/LF to avoid header injection).
+    const titleForHeader = data.experienceTitle.replace(/[\r\n]+/g, " ").trim();
+
     const lines: string[] = [];
-    lines.push(`<p><strong>Experience:</strong> ${data.experienceTitle}</p>`);
-    lines.push(`<p><strong>Slug:</strong> ${data.experienceSlug}</p>`);
-    if (data.startDate) lines.push(`<p><strong>Start Date:</strong> ${data.startDate}</p>`);
-    if (data.endDate) lines.push(`<p><strong>End Date:</strong> ${data.endDate}</p>`);
+    lines.push(`<p><strong>Experience:</strong> ${expTitle}</p>`);
+    lines.push(`<p><strong>Slug:</strong> ${expSlug}</p>`);
+    if (startDate) lines.push(`<p><strong>Start Date:</strong> ${startDate}</p>`);
+    if (endDate) lines.push(`<p><strong>End Date:</strong> ${endDate}</p>`);
     lines.push(`<p><strong>Travelers:</strong> ${data.travelers}</p>`);
     if (data.addTransfer) {
       lines.push(`<p><strong>Private airport transfers:</strong> Yes</p>`);
-      if (data.arrivalDate) lines.push(`<p><strong>Arrival date:</strong> ${data.arrivalDate}</p>`);
-      if (data.flightNumber) lines.push(`<p><strong>Flight number:</strong> ${data.flightNumber}</p>`);
+      if (arrivalDate) lines.push(`<p><strong>Arrival date:</strong> ${arrivalDate}</p>`);
+      if (flightNumber) lines.push(`<p><strong>Flight number:</strong> ${flightNumber}</p>`);
     }
-    lines.push(`<p><strong>Contact:</strong> ${data.contact}</p>`);
+    lines.push(`<p><strong>Contact:</strong> ${contact}</p>`);
     if (data.totalPrice !== undefined && data.totalPrice !== null) {
-      lines.push(`<p><strong>Estimated Total:</strong> ${data.totalPrice.toLocaleString()} ${data.currency}</p>`);
+      lines.push(`<p><strong>Estimated Total:</strong> ${data.totalPrice.toLocaleString()} ${currency}</p>`);
     }
-    if (data.notes) {
-      lines.push(`<div style="margin-top:12px;"><p><strong>Special Requests:</strong></p><p style="white-space:pre-wrap;">${data.notes}</p></div>`);
+    if (notes) {
+      lines.push(`<div style="margin-top:12px;"><p><strong>Special Requests:</strong></p><p style="white-space:pre-wrap;">${notes}</p></div>`);
     }
 
     const bodyHtml = `
@@ -58,13 +78,13 @@ export async function POST(req: Request) {
       ${lines.join("")}
     `;
     const html = generateSyrenEmail({
-      subject: `New Booking Request — ${data.experienceTitle}`,
+      subject: `New Booking Request — ${titleForHeader}`,
       preheader: "A new booking has been requested",
       bodyHtml,
     });
 
     const emailRes = await sendTransactionalEmail({
-      subject: `New Booking Request — ${data.experienceTitle}`,
+      subject: `New Booking Request — ${titleForHeader}`,
       html,
       // Use contact as reply-to if it's an email, otherwise fallback to EMAIL_FROM
       replyTo: /\S+@\S+\.\S+/.test(data.contact) ? data.contact : (process.env.EMAIL_FROM || "noreply@syrentravel.com"),
@@ -77,29 +97,28 @@ export async function POST(req: Request) {
     const customerEmail = /\S+@\S+\.\S+/.test(data.contact) ? data.contact : null;
     if (customerEmail) {
       const travelDates =
-        data.startDate || data.endDate ? `${data.startDate || "—"} → ${data.endDate || "—"}` : "—";
+        startDate || endDate ? `${startDate || "—"} → ${endDate || "—"}` : "—";
       const estimatedTotal =
         data.totalPrice !== undefined && data.totalPrice !== null
-          ? `${data.totalPrice.toLocaleString()} ${data.currency}`
+          ? `${data.totalPrice.toLocaleString()} ${currency}`
           : "—";
       const whatsappNumber = process.env.WHATSAPP_NUMBER || "201016015723";
       const whatsappLink = `https://wa.me/${whatsappNumber}`;
       const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://syrentravel.com";
-      const logoUrl = `${siteUrl}/syren-logo-email.svg`;
 
       const body = `
         <p>Dear Traveler,</p>
         <p>Thank you for choosing Syren. We've received your booking request and our concierge team will be in touch within 24 hours.</p>
         <h3 style="color:#C9A84C;">Your Request Summary</h3>
         <ul style="margin:0; padding-left:18px;">
-          <li><strong>Experience:</strong> ${data.experienceTitle}</li>
+          <li><strong>Experience:</strong> ${expTitle}</li>
           <li><strong>Travel Dates:</strong> ${travelDates}</li>
           <li><strong>Travelers:</strong> ${data.travelers}</li>
           ${
             data.addTransfer
               ? `<li><strong>Private airport transfers:</strong> Yes${
-                  data.arrivalDate ? ` — arrival ${data.arrivalDate}` : ""
-                }${data.flightNumber ? ` (flight ${data.flightNumber})` : ""}</li>`
+                  arrivalDate ? ` — arrival ${arrivalDate}` : ""
+                }${flightNumber ? ` (flight ${flightNumber})` : ""}</li>`
               : ""
           }
           <li><strong>Estimated Total:</strong> ${estimatedTotal}</li>

@@ -4,6 +4,7 @@ import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { contactRateLimit, getClientIp, safeLimit } from "@/lib/rateLimit";
 import { sendTransactionalEmail, sendTransactionalEmailTo } from "@/lib/email/brevo";
 import { generateSyrenEmail } from "@/lib/email/syren-template";
+import { escapeHtml } from "@/lib/email/html";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -12,6 +13,7 @@ const contactSchema = z.object({
   subject: z.string().optional(),
   message: z.string().min(1, "Message is required"),
   pathname: z.string().optional(),
+  honeypot: z.string().optional(),
 });
 
 export async function POST(req: Request) {
@@ -29,27 +31,42 @@ export async function POST(req: Request) {
     const body = await req.json();
     const validatedData = contactSchema.parse(body);
 
+    // Honeypot: silently accept bots without downstream processing.
+    if (validatedData.honeypot && validatedData.honeypot.trim() !== "") {
+      return NextResponse.json({ ok: true }, { status: 200 });
+    }
+
+    // Escape user-supplied values before HTML interpolation.
+    const name = escapeHtml(validatedData.name);
+    const email = escapeHtml(validatedData.email);
+    const phone = validatedData.phone ? escapeHtml(validatedData.phone) : null;
+    const subject = validatedData.subject ? escapeHtml(validatedData.subject) : null;
+    const message = escapeHtml(validatedData.message);
+    const pathname = validatedData.pathname ? escapeHtml(validatedData.pathname) : null;
+    // Single-line copy for subjects (strip CR/LF to avoid header injection).
+    const subjectForHeader = (validatedData.subject || "General Inquiry").replace(/[\r\n]+/g, " ").trim();
+
     // Send Email via Brevo
     try {
       const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.syrentravel.com";
       const adminBody = `
         <h2 style="color:#C9A84C; margin:0 0 12px;">New Contact Inquiry</h2>
-        <p><strong>Name:</strong> ${validatedData.name}</p>
-        <p><strong>Email:</strong> ${validatedData.email}</p>
-        ${validatedData.phone ? `<p><strong>Phone:</strong> ${validatedData.phone}</p>` : ""}
-        <p><strong>Subject:</strong> ${validatedData.subject || "General Inquiry"}</p>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
+        <p><strong>Subject:</strong> ${subject || "General Inquiry"}</p>
         <p><strong>Message:</strong></p>
-        <p style="white-space: pre-wrap;">${validatedData.message}</p>
-        <p style="font-size:12px; color:#7f7767;">From page: ${validatedData.pathname || "Unknown"}</p>
+        <p style="white-space: pre-wrap;">${message}</p>
+        <p style="font-size:12px; color:#7f7767;">From page: ${pathname || "Unknown"}</p>
       `;
       const htmlContent = generateSyrenEmail({
-        subject: `New Contact Inquiry: ${validatedData.subject || "General Inquiry"}`,
+        subject: `New Contact Inquiry: ${subjectForHeader}`,
         preheader: "A new contact inquiry was submitted",
         bodyHtml: adminBody,
       });
 
       const emailResult = await sendTransactionalEmail({
-        subject: `New Contact Inquiry: ${validatedData.subject || "General Inquiry"}`,
+        subject: `New Contact Inquiry: ${subjectForHeader}`,
         html: htmlContent,
         replyTo: validatedData.email,
       });
@@ -62,10 +79,10 @@ export async function POST(req: Request) {
         subject: "We received your message",
         preheader: "The Syren team will reply shortly",
         bodyHtml:
-          `<p>Hi ${validatedData.name},</p>
+          `<p>Hi ${name},</p>
            <p>Thanks for contacting Syren Travel. Our team will review your message and get back to you shortly.</p>
            <p><strong>Your message:</strong></p>
-           <p style="white-space: pre-wrap;">${validatedData.message}</p>`,
+           <p style="white-space: pre-wrap;">${message}</p>`,
         ctaLabel: "Explore Experiences",
         ctaUrl: siteUrl + "/experiences",
       });
@@ -79,25 +96,26 @@ export async function POST(req: Request) {
       if (!autoRes.success) {
         console.error("brevo auto-reply failure:", autoRes.error);
       }
-      try {
-        if (supabaseAdmin) {
-          await supabaseAdmin.from("contact_inquiries").insert([{
-            name: validatedData.name,
-            email: validatedData.email,
-            phone: validatedData.phone || null,
-            message: validatedData.message,
-            pathname: validatedData.pathname || null,
-            created_at: new Date().toISOString(),
-          }]);
-        }
-      } catch (e) {
-        console.error("Supabase insert failed (contact):", e);
-      }
-      return NextResponse.json({ ok: true }, { status: 200 });
     } catch (emailErr) {
       console.error("brevo email failure:", emailErr);
-      return NextResponse.json({ ok: true, warning: "Email failed" }, { status: 200 });
     }
+
+    // Persist the inquiry even if email delivery failed, so no message is lost.
+    try {
+      if (supabaseAdmin) {
+        await supabaseAdmin.from("contact_inquiries").insert([{
+          name: validatedData.name,
+          email: validatedData.email,
+          phone: validatedData.phone || null,
+          message: validatedData.message,
+          pathname: validatedData.pathname || null,
+          created_at: new Date().toISOString(),
+        }]);
+      }
+    } catch (e) {
+      console.error("Supabase insert failed (contact):", e);
+    }
+    return NextResponse.json({ ok: true }, { status: 200 });
   } catch (err) {
     if (err instanceof z.ZodError) {
       return NextResponse.json({ ok: false, error: err.issues[0]?.message || "Invalid input" }, { status: 400 });

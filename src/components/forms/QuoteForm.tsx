@@ -72,6 +72,7 @@ export default function QuoteForm() {
           trip_dates: formData.trip_dates,
           budget: formData.budget,
           message: formData.message,
+          honeypot: formData.honeypot,
         }),
       });
 

@@ -5,6 +5,7 @@ import SectionHeader from "@/components/layout/SectionHeader";
 
 export default function EmailSignup() {
   const [email, setEmail] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
 
   return (
@@ -29,7 +30,7 @@ export default function EmailSignup() {
                 const res = await fetch("/api/email-subscribers", {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ email, source: "homepage" }),
+                  body: JSON.stringify({ email, source: "homepage", honeypot }),
                 });
                 if (!res.ok) throw new Error("bad");
                 setStatus("ok");
@@ -39,6 +40,17 @@ export default function EmailSignup() {
             }}
             className="mt-6 flex flex-col justify-center gap-3 sm:flex-row"
           >
+            {/* Honeypot - hidden from users */}
+            <input
+              type="text"
+              name="honeypot"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+            />
             <label htmlFor="newsletter-signup-email" className="sr-only">
               Email address
             </label>
