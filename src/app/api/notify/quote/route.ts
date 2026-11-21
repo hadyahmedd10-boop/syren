@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { quoteRateLimit, getClientIp, safeLimit } from "@/lib/rateLimit";
-import { sendTransactionalEmail, sendTransactionalEmailTo } from "@/lib/email/brevo";
+import { sendTransactionalEmail, sendTransactionalEmailTo, getReplyToAddress } from "@/lib/email/brevo";
 import { generateSyrenEmail } from "@/lib/email/syren-template";
 import { escapeHtml } from "@/lib/email/html";
 
@@ -90,7 +90,7 @@ export async function POST(req: Request) {
         ctaLabel: "Explore Experiences",
         ctaUrl: siteUrl + "/experiences",
       });
-      const replyTo = process.env.NOTIFY_EMAIL || process.env.EMAIL_FROM || "noreply@syrentravel.com";
+      const replyTo = getReplyToAddress();
       const autoRes = await sendTransactionalEmailTo({
         to: validatedData.email,
         subject: "Thanks for your quote request",

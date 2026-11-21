@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { quoteRateLimit, getClientIp, safeLimit } from "@/lib/rateLimit";
-import { sendTransactionalEmail, sendTransactionalEmailTo } from "@/lib/email/brevo";
+import { sendTransactionalEmail, sendTransactionalEmailTo, getReplyToAddress } from "@/lib/email/brevo";
 import { generateSyrenEmail } from "@/lib/email/syren-template";
 import { escapeHtml } from "@/lib/email/html";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
@@ -144,7 +144,7 @@ export async function POST(req: Request) {
         to: customerEmail,
         subject: "Your Syren Booking Request — We'll Be In Touch Shortly",
         html: customerHtml,
-        replyTo: process.env.NOTIFY_EMAIL || process.env.EMAIL_FROM || "noreply@syrentravel.com",
+        replyTo: getReplyToAddress(),
       });
     }
 

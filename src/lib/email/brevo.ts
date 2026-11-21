@@ -6,6 +6,20 @@ const BREVO_API_KEY = process.env.BREVO_API_KEY?.trim();
 const EMAIL_FROM = process.env.EMAIL_FROM?.trim();
 const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL?.trim();
 
+/**
+ * Single, monitored address for the Reply-To header on customer-facing mail.
+ * NOTIFY_EMAIL may be a comma/semicolon-separated list (e.g. to copy a second
+ * inbox), but a Reply-To header must be exactly one address — so take the first
+ * valid entry, falling back to the From address.
+ */
+export function getReplyToAddress(): string {
+  const first = (NOTIFY_EMAIL || "")
+    .split(/[;, \n\r\t]+/)
+    .map((e) => e.trim())
+    .filter(Boolean)[0];
+  return first || EMAIL_FROM || "info@syrentravel.com";
+}
+
 interface SendTransactionalEmailParams {
   subject: string;
   html: string;
